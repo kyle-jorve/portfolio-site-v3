@@ -1,0 +1,27 @@
+{
+	"name": "kylejorve.com-v2",
+	"version": "1.0.0",
+	"description": "portfolio site",
+	"main": "index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Kyle Jorve",
+	"license": "ISC",
+	"prettier": {
+		"tabWidth": 4,
+		"useTabs": true,
+		"singleQuote": true,
+		"trailingComma": "none",
+		"jsxBracketSameLine": true,
+		"arrowParens": "avoid",
+		"printWidth": 120
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kyle-jorve/portfolio-site-v2.git"
+	},
+	"dependencies": {
+		"handlebars": "^4.7.7"
+	}
+}

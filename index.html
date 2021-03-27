@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<!-- SCRIPTS -->
+		<script src="node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
+		<script src="templatesCompiled.js"></script>
+		<script id="template" type="text/x-handlebars-template">
+			<h1>{{title}}</h1>
+			<p>{{text}}</p>
+		</script>
+
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script>
+			const body = document.querySelector('body');
+			let template;
+			let portData;
+
+			fetch('/data/portfolio.json')
+				.then(res => res.json())
+				.then(data => {
+					portData = data;
+					template = Handlebars.templates.portfolio(data);
+
+					console.log(portData);
+
+					body.insertAdjacentHTML('afterbegin', template);
+				});
+		</script>
+	</body>
+</html>
