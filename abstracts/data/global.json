@@ -1,0 +1,69 @@
+{
+	"logo": "src/media/icons/logo-circle-icon.svg",
+	"logo_icon": "src/media/icons/logo-circle.svg",
+	"email": "kyle@kylejorve.com",
+	"seo": {
+		"meta_title": "Kyle Jorve | Art, Illustration, and Design",
+		"meta_image": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_pendrakes-chamber_FINAL.jpg"
+	},
+	"nav": {
+		"home": {
+			"label": "Home",
+			"url": "/"
+		},
+		"portfolio": {
+			"label": "Portfolio",
+			"url": "/portfolio"
+		},
+		"cv": {
+			"label": "CV",
+			"url": "/cv"
+		},
+		"shop": {
+			"label": "Shop",
+			"url": "https://www.inprnt.com/gallery/kylejorve/"
+		},
+		"recent_work": {
+			"label": "Recent Work"
+		}
+	},
+	"social_icons": {
+		"standard": [
+			{
+				"name": "artstation",
+				"url": "https://www.artstation.com/kylejorve"
+			},
+			{
+				"name": "facebook",
+				"url": "https://www.facebook.com/kyle.jorve.art"
+			},
+			{
+				"name": "instagram",
+				"url": "https://www.instagram.com/kylejorve/"
+			},
+			{
+				"name": "tumblr",
+				"url": "https://kylejorve.tumblr.com/"
+			},
+			{
+				"name": "linkedin",
+				"url": "http://www.linkedin.com/in/kyle-jorve"
+			}
+		],
+		"commerce": [
+			{
+				"name": "patreon",
+				"url": "https://www.patreon.com/kylejorve"
+			},
+			{
+				"name": "inprnt",
+				"url": "https://www.inprnt.com/gallery/kylejorve/"
+			},
+			{
+				"name": "gumroad",
+				"url": "https://gumroad.com/kylejorve"
+			}
+		]
+	},
+	"ie_warning": "<h2>Whoa There</h2><p class=\"largeText\">The browser you're using is unsupported.</p><p>In fact, it probably won't work with this site at all. The following browsers are recommended:</p><div class=\"buttonWrp buttonWrp--center buttonWrp--imgBtns\"><a rel=\"nofollow noreferrer noopener\" href=\"https://www.google.com/chrome/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/src/media/icons/chrome-logo.png\" alt=\"Google Chrome Logo\" /><span class=\"button__text button__text--img\">Chrome</span></a><a rel=\"nofollow noreferrer noopener\" href=\"https://www.mozilla.org/en-US/firefox/new/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/src/media/icons/firefox-logo.png\" alt=\"Firefox Logo\" /><span class=\"button__text button__text--img\">Firefox</span></a></div>"
+}

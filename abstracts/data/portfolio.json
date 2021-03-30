@@ -1,0 +1,273 @@
+{
+	"title": "Portfolio",
+	"page_icon": "src/media/icons/portfolio-icon.svg",
+	"seo": {
+		"meta_title": "Portfolio"
+	},
+	"items": [
+		{
+			"name": "cargha",
+			"title": "Cargha Bezamik",
+			"content": "<p class=\"largeText\">\"Who the Hills are you?\" I managed, in a voice that tried to be bold and yet shriveled in my throat.<br />Cargha smiled and pulled back his hood. His long ears and short, curling hair sprang from it like an animal freed, and it was then I saw the network of tattoos that adorned the close-trimmed sides of his head. \"I am Cargha Bezamik,of the island of <i>Dorokilson</i>, and I am pleased to meet you, Lord Pendrake of House Sommer.\" He sketched a bowand then stood straight, surveying me.<br />\"What do you want with me?\" I stammered.<br />\"For now? I want you to stay alive.\"</p><p><strong>Cargha Bezamik</strong> is employed as a spy and assassin for the antagonist in an in-progress fantasynovel. As with much else in this story, Cargha is not quite what he seems at first, and his motivations are oftennebulous.</p>",
+			"featured": true,
+			"media": [
+				{
+					"url": "src/media/portfolio/cargha/_Cargha-FINAL.jpg",
+					"alt": "Cargha stands stoically holding a dagger in one hand and a khopesh in the other"
+				},
+				{
+					"url": "src/media/portfolio/cargha/_Kyle-Jorve_Cargha-Portrait-FINAL.jpg",
+					"alt": "a portrait of Cargha, featuring his scarred-over left eye and the tattoo that covers it"
+				},
+				{
+					"url": "src/media/portfolio/cargha/Karga-WIP-1.jpg",
+					"alt": "an in-progress image of Cargha in the anatomy phase of the piece"
+				},
+				{
+					"url": "src/media/portfolio/cargha/Karga-WIP-2.jpg",
+					"alt": "an in-progress image of Cargha after he has been fully designed and the final linework is set"
+				},
+				{
+					"url": "src/media/portfolio/cargha/Karga-WIP-3.jpg",
+					"alt": "an in-progress image of Cargha with flat colors"
+				},
+				{
+					"url": "src/media/portfolio/cargha/Karga-WIP-4.jpg",
+					"alt": "an in-progress image of Cargha in color, light and shadow added"
+				}
+			]
+		},
+		{
+			"name": "crow",
+			"title": "Crow",
+			"content": "<p><strong>\"Have you met the boy? I'd sooner take my chances outside the Ark than match blades with him. Crow's his name, killing's his profession. And be damned certain, he's a professional.\"</strong><br><small>—Councillor Genteid, Valkyrie</small></p><p>Yet another iteration of my original character, Crow.</p><p>Crow is a professional assassin and the protagonist of a science fiction story in progress called Post-Autumn.</p><p>In it, mankind has been forced by a cataclysmic event to live in domed cities called Arks. When tensions between Arks escalate, having no means to do battle out in the uninhabitable wastelands between cities, governments must quell their conflicts by more surgical means.</p>",
+			"featured": true,
+			"media": [
+				{
+					"url": "src/media/portfolio/crow/_kyle-jorve_crow_final-compressed.jpeg",
+					"alt": "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing"
+				},
+				{
+					"url": "src/media/portfolio/crow/kyle-jorve_crow_detail-1.jpeg",
+					"alt": "a detailed crop showing Crow's face"
+				},
+				{
+					"url": "src/media/portfolio/crow/kyle-jorve_crow_detail-2.jpeg",
+					"alt": "a detail crop showing the upper portion of the illustration"
+				}
+			]
+		},
+		{
+			"name": "tyene",
+			"title": "Tyene",
+			"content": "<p>A commission of a Dungeons and Dragons half-elf ranger character.</p>",
+			"featured": true,
+			"media": [
+				{
+					"url": "src/media/portfolio/tyene/Tyene-1_Kyle-Jorve.jpg",
+					"alt": "Tyene, a half-elf ranger, stands in the middle of a forest, a pond at her back, looking at and reaching up toward a pixie"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-2_Kyle-Jorve.jpg",
+					"alt": "a detail crop showing the upper portion of the illustration"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-3_Kyle-Jorve.jpg",
+					"alt": "a detail crop showing a close-up of Tyene's face"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-4_Kyle-Jorve.jpg",
+					"alt": "a detail crop showing a close-up of some lush greenery"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-5_Kyle-Jorve.jpg",
+					"alt": "a detail crop showing the waterfall that feeds the pond"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-6_Kyle-Jorve.jpg",
+					"alt": "a detail crop showing the tools wrapped around Tyene's waist"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-7_Kyle-Jorve.jpg",
+					"alt": "a detail crop showing a close-up of the pixie"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-8_Kyle-Jorve.jpg",
+					"alt": "an in-progress image showing various iterations of Tyene in the conception phase"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-9_Kyle-Jorve.jpg",
+					"alt": "an in-progress image showing various iterations of Tyene in the conception phase"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-10_Kyle-Jorve.jpg",
+					"alt": "an in-progress image showing various iterations of Tyene's facial markings"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-11_Kyle-Jorve.jpg",
+					"alt": "an in-progress image showing various iterations of Tyene's dreadlocked hair"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-12_Kyle-Jorve.jpg",
+					"alt": "some concept sketches for Tyene's bow"
+				},
+				{
+					"url": "src/media/portfolio/tyene/Tyene-13_Kyle-Jorve.jpg",
+					"alt": "an early sketch of the upper half of Tyene"
+				}
+			]
+		},
+		{
+			"name": "pendrakes_chamber",
+			"title": "Pendrake's Chamber",
+			"content": "<p><strong>\"I was a boy of seventeen, yet possessed of the sort of steel-hard conviction that only youth can muster that I was as good as a man grown. I was entirely given to my appetites, boisterous and inconsiderate, and a downright embarrassment to my father and his court. I was, in other words, a young Daylish noble. And, like many young Daylish nobles, I was hopelessly, stupidly, recklessly in love.\"</strong><br><small>—Pendrake Sommer, Duke of Tersing</small></p>",
+			"featured": true,
+			"media": [
+				{
+					"url": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_patreon_pendrakes-chamber-1.jpg",
+					"alt": "a close-up crop of Pendrake and Kyra lying in bed together"
+				},
+				{
+					"url": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_pendrakes-chamber_FINAL.jpg",
+					"alt": "the full image; Pendrake's bedroom in isometric perspective"
+				},
+				{
+					"url": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_patreon_pendrakes-chamber-2.jpg",
+					"alt": "a close-up crop of the vanity in the corner of Pendrake's room"
+				},
+				{
+					"url": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_patreon_pendrakes-chamber-3.jpg",
+					"alt": "a close-up crop of the hearth, from which a fire illuminates the entire room"
+				},
+				{
+					"url": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_patreon_pendrakes-chamber-4.jpg",
+					"alt": "a close-up crop of the storage chest at the foot of Pendrake's bed; a saber rests beside it"
+				},
+				{
+					"url": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_patreon_pendrakes-chamber-5.jpg",
+					"alt": "Pendrake and Kyra doze together in bed; various props are scattered over the neighboring nighstand"
+				}
+			]
+		},
+		{
+			"name": "theater_toolkit_illustrations",
+			"title": "Theater Toolkit Illusrations",
+			"content": "<p class=\"largeText\">For the <a rel=\"noreferrer noopener\" href=\"http://www.theatertoolkit.com\" target=\"_blank\">Theater Toolkit</a> marketing website, which I designed, illustrated, and built as an employee of <a rel=\"noopener noreferrer\" href=\"http://www.desertlabstudio.com\" target=\"_blank\">Desert Lab Studio</a>.</p><p>These were meant to illustrate the features and benefits of the <strong>Theater Toolkit</strong> software product, as well as the process involved in becoming a client.</p><p><strong>Theater Toolkit</strong> is a mobile-first, modern website design and ticket-purchasing solution. Designed for theater owners and their patrons, Theater Toolkit provides a tried and tested user experience, and a website tailored and branded to your theater.</p>",
+			"featured": true,
+			"media": [
+				{
+					"url": "src/media/portfolio/theater-toolkit/how-it-works.jpg",
+					"alt": "a theater owner integrates the Theater Toolkit system with his point of sale, allowing a customer to purchase movie tickets from his website"
+				},
+				{
+					"url": "src/media/portfolio/theater-toolkit/checkout-process.jpg",
+					"alt": "a woman stands before a vending machine with the Theater Toolkit logo, vacillating over what movie to see"
+				},
+				{
+					"url": "src/media/portfolio/theater-toolkit/features-and-benefits.jpg",
+					"alt": "a man browses a theater site with Theater Toolkit integrated, marveling at the wealth of features the system provides"
+				},
+				{
+					"url": "src/media/portfolio/theater-toolkit/design-phase.jpg",
+					"alt": "a theater owner looks on as a designer lays out his website"
+				},
+				{
+					"url": "src/media/portfolio/theater-toolkit/pos-integration.jpg",
+					"alt": "a theater owner looks on as a designer/developer integrates his point of sale with his website"
+				},
+				{
+					"url": "src/media/portfolio/theater-toolkit/production-support.jpg",
+					"alt": "a theater owner looks on as a designer/developer watches various customers move about the process of purchasing tickets on his site"
+				},
+				{
+					"url": "src/media/portfolio/theater-toolkit/seamless-ux.jpg",
+					"alt": "four internet users browse Theater Toolkit-enabled sites on a variety of devices"
+				}
+			]
+		},
+		{
+			"name": "berned",
+			"title": "Berned",
+			"content": "<p class=\"largeText\">\"I wouldn't call him a kind man, but he's loyal. As soon slug you in the face as laugh at your jesting. All depends on which side of him you lie on. I wouldn't want to be on his bad side, though. Fair lot of trouble follows those what fall on his bad side.\"<br><small>—Malder, Foothills Tavern</small></p><p>Berned is Auerstel Town's constable—at times of help, at times an obstacle, and sometimes, when he feels like it, a downright villain.</p><p>He plays a critical role in the <strong>Ignoble Blood</strong> series, which is a fantasy story in progress. In it, Berned apprehends Sol Ferro and charges her with the crime of murdering Luna, a series protagonist, who at this point in the story has gone strangely missing without a trace.</p>",
+			"featured": false,
+			"media": [
+				{
+					"url": "src/media/portfolio/Berned_Kyle-Jorve.jpg",
+					"alt": "Berned stands before the circular, red door to his house"
+				}
+			]
+		},
+		{
+			"name": "olfactory",
+			"title": "Olfactory",
+			"content": "<p class=\"largeText\">I have no idea why, but I love doing portraits of aliens.</p><p>This is a creature that lives on a planet whose atmosphere is so thick that the sense of sight never evolved, so instead this species developed extra-sensitive olfactory senses. Threads stretching over the holes in its \"face\" protect against contaminants as it inhales.</p>",
+			"featured": false,
+			"media": [
+				{
+					"url": "src/media/portfolio/Olfactory_Kyle-Jorve.jpg",
+					"alt": "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia"
+				}
+			]
+		},
+		{
+			"name": "becoming_eidolon",
+			"title": "Becoming Eidolon",
+			"content": "<p class=\"largeText\">“Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you’d seen his body and known the stillness of it. There will be no peace for you until you do.\"<br><small>—Duke Pendrake Sommer</small></p><p>The character depicted here is a protagonist of the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is in hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>",
+			"featured": false,
+			"media": [
+				{
+					"url": "src/media/portfolio/Becoming-Seraphim_Kyle-Jorve.jpg",
+					"alt": "Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence"
+				}
+			]
+		},
+		{
+			"name": "crows",
+			"title": "Crows",
+			"content": "<p class=\"largeText\">\"The Ravens still exist, if you can believe it. Though they take a different form today. Different stories tell it different ways, but I prefer to believe they linger as men now, having forgotten all they once were.\"<br><small>—Eden, The Sunken Valley</small></p><p>Crow is a professional assassin and the protagonist of a science fiction story I am currently working on called <em>Post-Autumn</em>.</p><p>In it, mankind has been forced by a cataclysmic event to live in domed cities called Arks. When tensions between Arks escalate, having no means to do battle out in the uninhabitable wastelands between cities, governments must quell their conflicts by more surgical means.</p>",
+			"featured": false,
+			"media": [
+				{
+					"url": "src/media/portfolio/Crows_Kyle-Jorve.jpg",
+					"alt": "Crow stands before a cluster of dead ravens as more fall from the sky; the raven immediately before him is white"
+				}
+			]
+		},
+		{
+			"name": "sol",
+			"title": "Sol",
+			"content": "<p class=\"largeText\">\"More than one reason they call her the Girl in Black. They say she's a witch, what can talk to the dead, spirits and the like. She'll not be coming back to this town, no. If she does, there'll be trouble, and from more than just me.\"<br><small>—Junas</small></p><p>Sol is a mysterious helper in the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story's protagonists locate her missing husband, Luna, who has disappeared without a trace.</p>",
+			"featured": false,
+			"media": [
+				{
+					"url": "src/media/portfolio/Sol_Kyle-Jorve.jpg",
+					"alt": "Sol stands in a forest, looking warily toward the viewer, clutching the handle of her dagger"
+				}
+			]
+		},
+		{
+			"name": "kingdom_hearts_1",
+			"title": "The Future Doesn't Scare Me",
+			"content": "<p class=\"largeText\">Part of a duology. Its companion, <em>Where Fears and Lies Melt Away</em>, can be found here.</p><p><strong>Kingdom Hearts</strong> is copyrighted and owned by Disney and Square Enix.</p>",
+			"featured": false,
+			"media": [
+				{
+					"url": "src/media/portfolio/KH-Sora-Riku-Kairi_Kyle-Jorve.jpg",
+					"alt": "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island"
+				}
+			]
+		},
+		{
+			"name": "kingdom_hearts_2",
+			"title": "Where Fears and Lies Melt Away",
+			"content": "<p class=\"largeText\">Part of a duology. Its companion, <em>The Future Doesn't Scare Me</em>, can be found here.</p><p>Kingdom Hearts is copyrighted and owned by Disney and Square Enix.</p>",
+			"featured": false,
+			"media": [
+				{
+					"url": "src/media/portfolio/KH-Roxas-Namine-Riku_Kyle-Jorve.jpg",
+					"alt": "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; the heart-shaped moon glows overhead"
+				}
+			]
+		}
+	]
+}

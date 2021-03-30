@@ -5,15 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-		<!-- SCRIPTS -->
-		<script src="node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
-		<script src="templatesCompiled.js"></script>
-		<script id="template" type="text/x-handlebars-template">
-			<h1>{{title}}</h1>
-			<p>{{text}}</p>
-		</script>
+		<title>Home</title>
 
-		<title>Document</title>
+		<!-- SCRIPTS -->
+		<script src="/node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
+		<script src="/abstracts/templatesCompiled.js"></script>
 	</head>
 
 	<body>
@@ -22,13 +18,11 @@
 			let template;
 			let portData;
 
-			fetch('/data/portfolio.json')
+			fetch('/abstracts/data/portfolio.json')
 				.then(res => res.json())
 				.then(data => {
 					portData = data;
 					template = Handlebars.templates.portfolio(data);
-
-					console.log(portData);
 
 					body.insertAdjacentHTML('afterbegin', template);
 				});
