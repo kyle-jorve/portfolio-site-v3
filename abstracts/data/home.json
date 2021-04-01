@@ -13,8 +13,5 @@
 	"bio_bg": {
 		"desktop": "src/media/images/portrait.jpeg",
 		"mobile": "src/media/images/portrait-square.jpeg"
-	},
-	"seo": {
-		"meta_image": "Kyle Jorve | Art, Illustration, and Design"
 	}
 }

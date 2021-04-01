@@ -2,6 +2,7 @@
 	"title": "Portfolio",
 	"page_icon": "src/media/icons/portfolio-icon.svg",
 	"seo": {
+		"canon": "portfolio",
 		"meta_title": "Portfolio"
 	},
 	"items": [
@@ -118,7 +119,7 @@
 			]
 		},
 		{
-			"name": "pendrakes_chamber",
+			"name": "pendrakes-chamber",
 			"title": "Pendrake's Chamber",
 			"content": "<p><strong>\"I was a boy of seventeen, yet possessed of the sort of steel-hard conviction that only youth can muster that I was as good as a man grown. I was entirely given to my appetites, boisterous and inconsiderate, and a downright embarrassment to my father and his court. I was, in other words, a young Daylish noble. And, like many young Daylish nobles, I was hopelessly, stupidly, recklessly in love.\"</strong><br><small>—Pendrake Sommer, Duke of Tersing</small></p>",
 			"featured": true,
@@ -150,7 +151,7 @@
 			]
 		},
 		{
-			"name": "theater_toolkit_illustrations",
+			"name": "theater-toolkit-illustrations",
 			"title": "Theater Toolkit Illusrations",
 			"content": "<p class=\"largeText\">For the <a rel=\"noreferrer noopener\" href=\"http://www.theatertoolkit.com\" target=\"_blank\">Theater Toolkit</a> marketing website, which I designed, illustrated, and built as an employee of <a rel=\"noopener noreferrer\" href=\"http://www.desertlabstudio.com\" target=\"_blank\">Desert Lab Studio</a>.</p><p>These were meant to illustrate the features and benefits of the <strong>Theater Toolkit</strong> software product, as well as the process involved in becoming a client.</p><p><strong>Theater Toolkit</strong> is a mobile-first, modern website design and ticket-purchasing solution. Designed for theater owners and their patrons, Theater Toolkit provides a tried and tested user experience, and a website tailored and branded to your theater.</p>",
 			"featured": true,
@@ -210,7 +211,7 @@
 			]
 		},
 		{
-			"name": "becoming_eidolon",
+			"name": "becoming-eidolon",
 			"title": "Becoming Eidolon",
 			"content": "<p class=\"largeText\">“Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you’d seen his body and known the stillness of it. There will be no peace for you until you do.\"<br><small>—Duke Pendrake Sommer</small></p><p>The character depicted here is a protagonist of the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is in hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>",
 			"featured": false,
@@ -246,7 +247,7 @@
 			]
 		},
 		{
-			"name": "kingdom_hearts_1",
+			"name": "kingdom-hearts-1",
 			"title": "The Future Doesn't Scare Me",
 			"content": "<p class=\"largeText\">Part of a duology. Its companion, <em>Where Fears and Lies Melt Away</em>, can be found here.</p><p><strong>Kingdom Hearts</strong> is copyrighted and owned by Disney and Square Enix.</p>",
 			"featured": false,
@@ -258,7 +259,7 @@
 			]
 		},
 		{
-			"name": "kingdom_hearts_2",
+			"name": "kingdom-hearts-2",
 			"title": "Where Fears and Lies Melt Away",
 			"content": "<p class=\"largeText\">Part of a duology. Its companion, <em>The Future Doesn't Scare Me</em>, can be found here.</p><p>Kingdom Hearts is copyrighted and owned by Disney and Square Enix.</p>",
 			"featured": false,

@@ -1,9 +1,10 @@
 {
 	"title": "Bio",
+	"page_icon": "src/media/icons/cv-icon.svg",
 	"seo": {
+		"canon": "cv",
 		"meta_title": "Resume and Bio, CV"
 	},
-	"page_icon": "src/media/icons/cv-icon.svg",
 	"hero_img": "src/media/images/portrait-square.jpeg",
 	"bio": {
 		"title": "About the Artist",

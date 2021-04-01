@@ -3,7 +3,9 @@
 	"logo_icon": "src/media/icons/logo-circle.svg",
 	"email": "kyle@kylejorve.com",
 	"seo": {
+		"canon": "https://kylejorve.com/",
 		"meta_title": "Kyle Jorve | Art, Illustration, and Design",
+		"meta_desc": "Kyle Jorve is an illustrator, designer, writer, and front end developer working primarily in the genres of fantasy and science fiction",
 		"meta_image": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_pendrakes-chamber_FINAL.jpg"
 	},
 	"nav": {
