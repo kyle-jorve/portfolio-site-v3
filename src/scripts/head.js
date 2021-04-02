@@ -1,39 +1,79 @@
-import { dataLoc } from './global.js';
+import * as globalMod from './global.js';
 
-const els = {
-	head: document.querySelector('head')
-};
-const data = {};
-let template;
+const { global } = globalMod;
 
-fetch(`${dataLoc}global.json`)
-	.then(res => res.json())
-	.then(d => {
-		if (d.seo) {
-			data.seo = {
-				pageTitle: d.seo.meta_title,
-				canonicalUrl: d.seo.canon,
-				pageDesc: d.seo.meta_desc,
-				metaImage: d.seo.meta_image
-			};
-		}
-	})
-	.then(() => fetch(`${dataLoc}home.json`))
-	.then(res => res.json())
-	.then(d => {
-		if (d.seo) {
-			for (let prop in d.seo) {
-				if (data.seo.hasOwnProperty(prop)) {
-					data.seo[prop] += d.seo[prop];
-				} else {
-					data.seo[prop] = d.seo[prop];
+export const head = (function () {
+	const els = {
+		head: document.querySelector('head')
+	};
+	const seoProps = {
+		canonicalUrl: 'canon',
+		metaImage: 'meta_image',
+		pageDesc: 'meta_desc',
+		pageTitle: 'meta_title'
+	};
+	const reverseProps = {
+		canon: 'canonicalUrl',
+		meta_image: 'metaImage',
+		meta_desc: 'pageDesc',
+		meta_title: 'pageTitle'
+	};
+	let data = {};
+	let template;
+
+	function buildHead(dataSrc = false) {
+		global
+			.getGlobalData()
+			.then(d => {
+				if (d.seo) {
+					data = {
+						[reverseProps.canon]: d.seo[seoProps.canonicalUrl],
+						[reverseProps.meta_image]: `${d.site_url}${d.seo[seoProps.metaImage]}`,
+						[reverseProps.meta_desc]: d.seo[seoProps.pageDesc],
+						[reverseProps.meta_title]: d.seo[seoProps.pageTitle]
+					};
 				}
-			}
-		}
 
-		console.log(data.seo);
+				if (dataSrc) {
+					return global.fetchFn(dataSrc);
+				} else {
+					throw Error('No augmenting data, moving on');
+				}
+			})
+			.then(d => {
+				if (d.seo) {
+					d = d.seo;
 
-		template = Handlebars.templates.head(data.seo);
+					for (let prop in d) {
+						if (data.hasOwnProperty(reverseProps[prop])) {
+							if (prop === seoProps.canonicalUrl) {
+								data.canonicalUrl += d[prop];
+							}
 
-		els.head.insertAdjacentHTML('afterbegin', template);
-	});
+							if (prop === seoProps.metaImage || prop === seoProps.pageDesc) {
+								data.metaImage = d[prop];
+							}
+
+							if (prop === seoProps.pageTitle) {
+								data.pageTitle += ` | ${d[prop]}`;
+							}
+						} else {
+							data[reverseProps[prop]] = d[prop];
+						}
+					}
+				}
+			})
+			.catch(err => {
+				console.warn(err);
+			})
+			.finally(() => {
+				template = Handlebars.templates.head(data);
+
+				els.head.insertAdjacentHTML('afterbegin', template);
+			});
+	}
+
+	return {
+		buildHead
+	};
+})();

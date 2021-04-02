@@ -2,33 +2,31 @@
 	"logo": "src/media/icons/logo-circle-icon.svg",
 	"logo_icon": "src/media/icons/logo-circle.svg",
 	"email": "kyle@kylejorve.com",
+	"site_url": "https://kylejorve.com/",
 	"seo": {
 		"canon": "https://kylejorve.com/",
 		"meta_title": "Kyle Jorve | Art, Illustration, and Design",
 		"meta_desc": "Kyle Jorve is an illustrator, designer, writer, and front end developer working primarily in the genres of fantasy and science fiction",
 		"meta_image": "src/media/portfolio/pendrakes-chamber/Kyle-Jorve_pendrakes-chamber_FINAL.jpg"
 	},
-	"nav": {
-		"home": {
-			"label": "Home",
+	"nav": [
+		{
+			"page_name": "Home",
 			"url": "/"
 		},
-		"portfolio": {
-			"label": "Portfolio",
-			"url": "/portfolio"
+		{
+			"page_name": "Portfolio",
+			"url": "/portfolio/"
 		},
-		"cv": {
-			"label": "CV",
-			"url": "/cv"
+		{
+			"page_name": "CV",
+			"url": "/cv/"
 		},
-		"shop": {
-			"label": "Shop",
+		{
+			"page_name": "Shop",
 			"url": "https://www.inprnt.com/gallery/kylejorve/"
-		},
-		"recent_work": {
-			"label": "Recent Work"
 		}
-	},
+	],
 	"social_icons": {
 		"standard": [
 			{
