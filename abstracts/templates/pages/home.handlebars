@@ -1,0 +1,21 @@
+<section class="section hero">
+    <div class="hero__content">
+        <h1>{{title}}
+            {{#if subtitle}}
+                <br>
+                <small>{{subtitle}}</small>
+            {{/if}}
+        </h1>
+    </div>
+
+    <div class="hero__bg">
+        <picture>
+            {{#each heroBg.sources}}
+                
+
+                <source srcset="{{this.url}}"{{#if this.minScreenWidth}} media="(min-width: {{this.minScreenWidth}})"{{/if}}>
+            {{/each}}
+            <img src="{{heroBg.sources[heroBg.sources.length - 1].url}}" alt="{{heroBg.alt}}">
+        </picture>
+    </div>
+</section>

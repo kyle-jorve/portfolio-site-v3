@@ -1,22 +1,13 @@
-import * as globalMod from './global.js';
-
-const { global } = globalMod;
+import { global } from './global.js';
 
 let data;
 let template;
 
 global.fetchFn(global.dataLoc.global).then(d => {
 	data = {
-		nav: [],
-		social: [...d.social_icons.standard, ...d.social_icons.commerce]
+		nav: d.nav,
+		social: [...d.socialIcons.standard, ...d.socialIcons.commerce]
 	};
-
-	d.nav.forEach(n => {
-		data.nav.push({
-			pageName: n.page_name,
-			url: n.url
-		});
-	});
 
 	template = Handlebars.templates.header(data);
 

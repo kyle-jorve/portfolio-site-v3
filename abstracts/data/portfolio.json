@@ -1,9 +1,9 @@
 {
 	"title": "Portfolio",
-	"page_icon": "src/media/icons/portfolio-icon.svg",
+	"pageIcon": "src/media/icons/portfolio-icon.svg",
 	"seo": {
 		"canon": "portfolio",
-		"meta_title": "Portfolio"
+		"metaTitle": "Portfolio"
 	},
 	"items": [
 		{

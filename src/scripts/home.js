@@ -1,5 +1,3 @@
-import * as headMod from './head.js';
+import { head } from './head.js';
 
-const { head } = headMod;
-
-head.buildHead();
+head.buildHead('home.json');

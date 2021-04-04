@@ -8,15 +8,9 @@ export const head = (function () {
 	};
 	const seoProps = {
 		canonicalUrl: 'canon',
-		metaImage: 'meta_image',
-		pageDesc: 'meta_desc',
-		pageTitle: 'meta_title'
-	};
-	const reverseProps = {
-		canon: 'canonicalUrl',
-		meta_image: 'metaImage',
-		meta_desc: 'pageDesc',
-		meta_title: 'pageTitle'
+		metaImage: 'metaImage',
+		metaDesc: 'metaDesc',
+		metaTitle: 'metaTitle'
 	};
 	let data = {};
 	let template;
@@ -26,18 +20,13 @@ export const head = (function () {
 			.getGlobalData()
 			.then(d => {
 				if (d.seo) {
-					data = {
-						[reverseProps.canon]: d.seo[seoProps.canonicalUrl],
-						[reverseProps.meta_image]: `${d.site_url}${d.seo[seoProps.metaImage]}`,
-						[reverseProps.meta_desc]: d.seo[seoProps.pageDesc],
-						[reverseProps.meta_title]: d.seo[seoProps.pageTitle]
-					};
+					data = d.seo;
 				}
 
 				if (dataSrc) {
 					return global.fetchFn(dataSrc);
 				} else {
-					throw Error('No augmenting data, moving on');
+					throw new Error('No augmenting data, moving on');
 				}
 			})
 			.then(d => {
@@ -45,20 +34,20 @@ export const head = (function () {
 					d = d.seo;
 
 					for (let prop in d) {
-						if (data.hasOwnProperty(reverseProps[prop])) {
+						if (data.hasOwnProperty(prop)) {
 							if (prop === seoProps.canonicalUrl) {
-								data.canonicalUrl += d[prop];
+								data[prop] += d[prop];
 							}
 
-							if (prop === seoProps.metaImage || prop === seoProps.pageDesc) {
-								data.metaImage = d[prop];
+							if (prop === seoProps.metaImage || prop === seoProps.metaDesc) {
+								data[prop] = d[prop];
 							}
 
-							if (prop === seoProps.pageTitle) {
-								data.pageTitle += ` | ${d[prop]}`;
+							if (prop === seoProps.metaTitle) {
+								data[prop] += ` | ${d[prop]}`;
 							}
 						} else {
-							data[reverseProps[prop]] = d[prop];
+							data[prop] = d[prop];
 						}
 					}
 				}

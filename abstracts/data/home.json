@@ -1,16 +1,21 @@
 {
-	"hero_bg": {
-		"desktop": "src/media/images/home-hero-alt.jpeg",
-		"mobile": "src/media/images/mobile-home-hero-alt.jpeg"
-	},
+	"heroBg": [
+		{
+			"url": "src/media/images/home-hero-alt.jpeg",
+			"minScreenWidth": "640px"
+		},
+		{
+			"url": "src/media/images/mobile-home-hero-alt.jpeg"
+		}
+	],
 	"intro": {
 		"title": "Kyle Jorve",
 		"subtitle": "Illustration and Design"
 	},
-	"portfolio_items_limit": 4,
-	"portfolio_heading": "Featured Work",
-	"bio_heading": "Bio",
-	"bio_bg": {
+	"portfolioItemsLimit": 4,
+	"portfolioHeading": "Featured Work",
+	"bioHeading": "Bio",
+	"bioBg": {
 		"desktop": "src/media/images/portrait.jpeg",
 		"mobile": "src/media/images/portrait-square.jpeg"
 	}
