@@ -1,12 +1,10 @@
 
-<section class="portfolio">
-    {{#each items}}
-        <div class="portfolio__item">
-            <h2>{{this.title}}</h2>
-            {{#each this.media}}
-                <img src="{{this.url}}" alt="{{this.alt}}">
-            {{/each}}
-            {{{this.content}}}
-        </div>
-    {{/each}}
+<section class="section portfolio">
+    <h1>{{title}}</h1>
+
+    <div class="portfolio__grid">
+        {{#each items}}
+            {{{printPortfolioItem this}}}
+        {{/each}}
+    </div>
 </section>

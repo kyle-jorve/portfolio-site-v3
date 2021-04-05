@@ -1,0 +1,41 @@
+<section class="section bio">
+    <div class="bio__hero">
+        <img class="bio__img" src="{{heroImg.url}}" alt="{{heroImg.alt}}">
+        
+        <picture>
+            <source srcset="{{heroImg.url}}">
+            <img class="bio__bgImg" src="{{heroImg.url}}" alt="{{heroImg.alt}}">
+        </picture>
+    </div>
+
+    <div class="bio__content">
+        <div class="wrapper wrapper--content">
+            <h1 class="bio__title">{{bio.title}}</h1>
+
+            {{{bio.content}}}
+        </div>
+
+        <span class="logoIcon" aria-hidden="true">
+            <img class="logoIcon__img" src="/src/media/icons/logo-circle-icon.svg">
+        </span>`
+    </div>
+</section>
+
+<section class="section resume">
+    <div class="wrapper wrapper--content">
+        <h2 class="resume__heading">{{{resume.title}}}</h2>
+        <div class="button__wrapper button__wrapper--justifyCenter">
+            <a class="button button--primary" href="{{resume.docUrl}}" download>{{resume.btnText}}</a>
+        </div>
+
+        {{#each resume.items}}
+            <div class="resume__item">
+                <h3 class="resume__itemHeading">{{this.heading}}</h3>
+
+                {{{this.content}}}
+            </div>
+
+            <hr class="resume__hr">
+        {{/each}}
+    </div>
+</section>

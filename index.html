@@ -2,27 +2,17 @@
 <html encoding="UTF-8" charset="UTF-8" dir="ltr" lang="en-US" language="English">
 	<head>
 		<!-- SCRIPTS -->
+		<!-- Handlebars -->
 		<script src="/node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
 		<script src="/abstracts/templatesCompiled.js"></script>
 
-		<script defer src="/src/scripts/home.js" type="module"></script>
-		<script defer src="/src/scripts/header.js" type="module"></script>
+		<!-- Build Templates -->
+		<script defer src="/src/scripts/components/footer.js" type="module"></script>
+		<script defer src="/src/scripts/pages/home.js" type="module"></script>
 	</head>
 
 	<body>
-		<!-- <script>
-			const body = document.querySelector('body');
-			let template;
-			let portData;
-
-			fetch('/abstracts/data/portfolio.json')
-				.then(res => res.json())
-				.then(data => {
-					portData = data;
-					template = Handlebars.templates.portfolio(data);
-
-					body.insertAdjacentHTML('afterbegin', template);
-				});
-		</script> -->
+		<header class="header" id="header"></header>
+		<footer class="footer" id="footer"></footer>
 	</body>
 </html>

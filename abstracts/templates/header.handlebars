@@ -1,76 +1,62 @@
-<script>
-    Handlebars.registerHelper('isCurrentPage', function([curPage, thisPage]) {
-        return curPage.toLowerCase() === thisPage.toLowerCase();
-    });
-</script>
+<div class="header__row">
+    <a class="header__logo logo" href="/">
+        <img src="/src/media/icons/logo-circle.svg" alt="Kyle Jorve logo">
+    </a>
+</div>
 
-<header class="header">
-    <div class="header__row">
-        <a class="header__logo logo" href="/">
-            <img src="/src/media/icons/logo-circle.svg" alt="Kyle Jorve logo">
+<div class="mobileNav">
+    {{#each mobileNav}}
+        <a class="mobileNav__item" href="{{this.url}}">
+            <img class="mobileNav__icon" src="{{this.icon}}" alt="{{this.alt}}">
+            <span class="mobileNav__label">{{this.pageName}}</span>
         </a>
-    </div>
+    {{/each}}
 
-    <div class="mobileNav">
-        <a class="mobileNav__item" href="/cv/">
-            <img class="mobileNav__icon" src="/src/media/icons/cv-icon.svg" alt="Icon for Bio page">
-            <span class="mobileNav__label">CV and Bio</span>
-        </a>
+    <button class="navBtn" id="navBtn">
+        <div class="navBtn__blocks">
+            <span class="navBtn__block"></span>
+            <span class="navBtn__block navBtn__block--disapparate"></span>
+            <span class="navBtn__block"></span>
 
-        <a class="mobileNav__item" href="/portfolio/">
-            <img class="mobileNav__icon" src="/src/media/icons/portfolio-icon.svg" alt="Icon for Portfolio page">
-            <span class="navCont__label">Portfolio</span>
-        </a>
+            <span class="navBtn__block navBtn__block--disapparate"></span>
+            <span class="navBtn__block"></span>
+            <span class="navBtn__block navBtn__block--disapparate"></span>
 
-        <button class="navBtn" id="navBtn">
-            <div class="navBtn__blocks">
-                <span class="navBtn__block"></span>
-                <span class="navBtn__block navBtn__block--disapparate"></span>
-                <span class="navBtn__block"></span>
-
-                <span class="navBtn__block navBtn__block--disapparate"></span>
-                <span class="navBtn__block"></span>
-                <span class="navBtn__block navBtn__block--disapparate"></span>
-
-                <span class="navBtn__block"></span>
-                <span class="navBtn__block navBtn__block--disapparate"></span>
-                <span class="navBtn__block"></span>
-            </div>
-        </button>
-    </div>
-
-    <nav class="nav">
-        <ul class="nav__ul">
-            {{#each nav}}
-                {{!-- <li class="nav__li{{#if (isCurrentPage [currentPage, this.pageName])}} nav__li--current{{/if}}"> --}}
-                <li class="nav__li">
-                    <a class="nav__a" href="{{this.url}}">
-                        <span class="nav__text">{{this.pageName}}</span>
-                    </a>
-                </li>
-            {{/each}}
-        </ul>
-    </nav>
-
-    <section class="recentWork">
-        <div class="wrapper wrapper--section">
-            <h2 class="flexLine">Recent Work</h2>
-
-            <div class="portfolio__grid">
-                {{#each recentWork}}
-                    <div class="portfolio__item">
-                        <img src="{{this.imageUrl}}" alt="{{this.title}} thumbnail">
-                    </div>
-                {{/each}}
-            </div>
+            <span class="navBtn__block"></span>
+            <span class="navBtn__block navBtn__block--disapparate"></span>
+            <span class="navBtn__block"></span>
         </div>
-    </section>
+    </button>
+</div>
 
-    <div class="social social--header">
-        {{#each social}}
-            <a class="social__item icon icon--{{this.name}}" href="{{this.url}}" target="_blank" rel="nofollow noreferrer noopener">
-                <span class="social__text">{{this.name}}</span>
-            </a>
+<nav class="nav">
+    <ul class="nav__ul">
+        {{#each nav}}
+            <li class="nav__li{{#if this.currentPage}} nav__li--current{{/if}}">
+                <a class="nav__a" href="{{this.url}}"{{#if this.target}} target="{{this.target}}"{{/if}}{{#if this.rel}} rel="{{this.rel}}"{{/if}}>
+                    <span class="nav__text">{{this.pageName}}</span>
+                </a>
+            </li>
         {{/each}}
+    </ul>
+</nav>
+
+<section class="recentWork">
+    <div class="wrapper wrapper--section">
+        <h2 class="flexLine">Recent Work</h2>
+
+        <div class="portfolio__grid">
+            {{#each recentWork}}
+                <div class="portfolio__item">
+                    <img src="{{this.imageUrl}}" alt="{{this.title}} thumbnail">
+                </div>
+            {{/each}}
+        </div>
     </div>
-</header>
+</section>
+
+<div class="social social--header">
+    {{#each social}}
+        {{{printSocialIcon this}}}
+    {{/each}}
+</div>

@@ -1,0 +1,19 @@
+<div class="footer__icons">
+    <div class="social social--footer social--standard">
+        {{#each socialIcons.standard}}
+            {{{printSocialIcon this}}}
+        {{/each}}
+    </div>
+
+    <div class="social social--footer social--commerce">
+        {{#each socialIcons.commerce}}
+            {{{printSocialIcon this}}}
+        {{/each}}
+    </div>
+</div>
+
+<div class="footer__copyright">
+    <div class="wrapper wrapper--content">
+        {{{copyright}}}
+    </div>
+</div>

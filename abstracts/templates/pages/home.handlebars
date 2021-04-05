@@ -11,11 +11,47 @@
     <div class="hero__bg">
         <picture>
             {{#each heroBg.sources}}
-                
-
                 <source srcset="{{this.url}}"{{#if this.minScreenWidth}} media="(min-width: {{this.minScreenWidth}})"{{/if}}>
             {{/each}}
-            <img src="{{heroBg.sources[heroBg.sources.length - 1].url}}" alt="{{heroBg.alt}}">
+            <img class="hero__img" src="{{heroBg.sources.0.url}}" alt="{{heroBg.alt}}">
         </picture>
+    </div>
+
+    <a class="scrollGraphic" href="#featured-work">
+        <span class="scrollGraphic__icon">
+            <span class="scrollGraphic__mouse">
+                <span class="scrollGraphic__track">
+                    <span class="scrollGraphic__ball"></span>
+                </span>
+            </span>
+        </span>
+    </a>
+</section>
+
+ <section class="section portfolio" id="featured-work">
+     <h2>{{portfolio.heading}}</h2>
+
+    <div class="portfolio__grid">
+        {{#each portfolio.featured}}
+            {{{printPortfolioItem this}}}
+        {{/each}}
+    </div>
+
+    <div class="button__wrapper button__wrapper--justifyCenter">
+        <a class="button button--primary" href="{{portfolio.url}}">{{portfolio.btnText}}</a>
+    </div>
+</section>
+
+<section class="section bio" style="background-image: url('{{bio.img.desktop}}');">
+    <div class="wrapper wrapper--section">
+        <article class="bio__content">
+            <img class="bio__mobileImg" src="{{bio.img.mobile}}" alt="{{bio.img.alt}}">
+            <h3 class="bio__heading">{{bio.title}}</h3>
+            {{{bio.content}}}
+
+            <div class="bio__btnWrp button__wrapper button__wrapper--justifyRight">
+                <a class="button button--primary" href="{{bio.url}}"></a>
+            </div>
+        </article>
     </div>
 </section>
