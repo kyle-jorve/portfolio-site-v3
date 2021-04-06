@@ -1,0 +1,140 @@
+﻿/*//////////////////////////////////////////////////////*/
+/*//====================----------====================//*/
+/*//                   SOCIAL MEDIA                   //*/
+/*//====================----------====================//*/
+/*//////////////////////////////////////////////////////*/
+
+.social{
+    &__ul,
+    &__li{
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+
+    &__ul{
+        @include flexWrap(row, wrap, center, center);
+
+        &--justifyLeft{
+            justify-content: flex-start;
+        }
+
+        &--justifyRight{
+            justify-content: flex-end;
+        }
+    }
+
+    &__li{
+        display:block;
+        margin:.75em;
+    }
+
+    &__icon{
+        width: $socialIconDiam;
+        height: $socialIconDiam;
+        border-radius: 50%;
+        background: $linkColor;
+        padding:0;
+        text-decoration: none;
+        color:text-color($linkColor);
+        transition: $transition;
+
+        &::before{
+            color:inherit;
+            font-size: $socialIconDiam * .5;
+        }
+
+        @media (any-hover:hover){
+            &:hover{
+                background:text-color($linkColor);
+                color:$linkColor;
+            }
+        }
+    }
+
+    &__text{
+        display:none;
+    }
+}
+
+/*==========----------==========*/
+/*        TOP NAV SOCIAL        */
+/*==========----------==========*/
+
+.header .social{
+    &__li{
+        opacity:0;
+        visibility:hidden;
+        margin:.5em 1em;
+        position:relative;
+        left:-1em;
+        transition:$transition;
+
+        &.active{
+            opacity:1;
+            visibility: visible;
+            left:0;
+        }
+    }
+
+    &__icon{
+        background:text-color($mobileNavBg);
+        color:$linkColor;
+
+        @media (any-hover:hover){
+            &:hover{
+                background: lighten-or-darken(bg-color($mobileNavBg));
+                color: text-color(lighten-or-darken(bg-color($mobileNavBg)));
+            }
+        }
+    }
+
+}
+
+/*//////////////////////////////////////////////////////*/
+/*//====================----------====================//*/
+/*//                  MEDIA QUERIES                   //*/
+/*//====================----------====================//*/
+/*//////////////////////////////////////////////////////*/
+
+/*==========----------==========*/
+/*          600PX WIDTH         */
+/*==========----------==========*/
+
+@media only screen and (max-width:600px){
+    .social,
+    .header .social{
+        &__li{
+            margin:.5em .75em;
+        }
+    }
+}
+
+/*==========----------==========*/
+/*          500PX WIDTH         */
+/*==========----------==========*/
+
+@media only screen and (max-width:500px){
+    .social{
+        &__icon{
+            width:$socialIconDiam * .8;
+            height:$socialIconDiam * .8;
+
+            &::before{
+                font-size: $socialIconDiam * .4;
+            }
+        }
+    }
+}
+
+/*==========----------==========*/
+/*         $phone WIDTH         */
+/*==========----------==========*/
+
+@media only screen and (max-width:$phone){
+    .header .social{
+        &__ul{
+            justify-content: flex-end;
+        }
+    }
+}

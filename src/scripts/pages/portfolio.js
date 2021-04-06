@@ -1,6 +1,6 @@
-import { global } from '/src/scripts/global.js';
-import { head } from '/src/scripts/components/head.js';
-import { header } from '/src/scripts/components/header.js';
+import { global } from './global.js';
+import { head } from './head.js';
+import { header } from './header.js';
 
 let data;
 let template;

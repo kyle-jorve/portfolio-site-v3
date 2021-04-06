@@ -1,0 +1,201 @@
+﻿/*//////////////////////////////////////////////////////*/
+/*//====================----------====================//*/
+/*//                       HERO                       //*/
+/*//====================----------====================//*/
+/*//////////////////////////////////////////////////////*/
+
+.hero {
+    $hero: &;
+
+    @include flexWrap(column, nowrap, center, center);
+    color: text-color(map-get($bgColors, darkBg));
+    width: 100%;
+    min-height: $heroHeight;
+    padding:$sectionPadding;
+    position: relative;
+    z-index: 2;
+
+    &__content {
+        width: 100%;
+        max-width: $narrowWidth;
+        margin: 0 auto;
+        padding: 2em 0;
+        text-align: center;
+        position: relative;
+        z-index: 3;
+    }
+
+    &__bgWrp {
+        @include absolute(cover);
+        overflow: hidden;
+    }
+
+    &__bg {
+        @include absolute(cover);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: .5;
+
+        &--lowOpacity {
+            opacity: .35;
+        }
+    }
+
+    /*==========----------==========*/
+    /*          SLIDESHOW           */
+    /*==========----------==========*/
+
+    &--hasSlideshow{
+        padding-bottom:7em;
+    }
+
+    &__slides,
+    &__slide,
+    .slick-list{
+        width:100%;
+        height:100%;
+    }
+
+    &__arrows{
+        @include flexWrap(row, nowrap, space-between, center);
+        @include absolute(center-vertical, 4);
+        pointer-events:none;
+        width:100%;
+        padding:0 2em;
+    }
+
+    &__dots{
+        position:absolute;
+        right:0;
+        bottom:4em;
+        left:0;
+        z-index:4;
+    }
+
+    .slick-track{
+        height:100%;
+    }
+
+    .slick-dots li{
+        &::before{
+            background: $lightTextColor;
+            box-shadow:$boxShadow;
+        }
+
+        &.slick-active::before{
+            background:none;
+            border-color:$lightTextColor;
+        }
+    }
+
+    /*==========----------==========*/
+    /*          VIDEO HERO          */
+    /*==========----------==========*/
+    &--video {
+        display:block;
+        height: $heroHeight;
+        min-height: 400px;
+        max-height: 80vh;
+        padding:0;
+    }
+
+    /*==========----------==========*/
+    /*           MAP HERO           */
+    /*==========----------==========*/
+    &--map {
+        display: block;
+        height: $heroHeight;
+        min-height: 400px;
+        max-height: 60vh;
+        padding:0;
+
+        &Short{
+            height:$heroHeight / 2;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        iframe,
+        .map__iframe,
+        .map__img {
+            @include absolute(cover);
+        }
+    }
+
+    /*==========----------==========*/
+    /*          SHORT HERO          */
+    /*==========----------==========*/
+    &--short {
+        min-height: $shortHeroHeight;
+        height:auto;
+        padding-top: 12em;
+
+        #{$hero}__content {
+            max-width: $contentWidth;
+            padding: 0;
+        }
+    }
+
+    /*==========----------==========*/
+    /*         CONTENT HERO          */
+    /*==========----------==========*/
+    &--content {
+        align-items:flex-start;
+        justify-content:flex-end;
+
+        #{$hero}__content {
+            max-width: $contentWidth;
+            text-align: left;
+        }
+    }
+
+    /*//////////////////////////////////////////////////////*/
+    /*//====================----------====================//*/
+    /*//                   MEDIA QUERIES                  //*/
+    /*//====================----------====================//*/
+    /*//////////////////////////////////////////////////////*/
+
+    /*==========----------==========*/
+    /*         1200PX WIDTH         */
+    /*==========----------==========*/
+    @media only screen and (max-width:1200px) {
+        &--short{
+            padding:8em 1em 4em 1em;
+        }
+    }
+
+    /*==========----------==========*/
+    /*         1000PX WIDTH         */
+    /*==========----------==========*/
+    @media only screen and (max-width:1000px) {
+        padding-left:1em;
+        padding-right:1em;
+
+        &--video,
+        &--map{
+            padding:0;
+        }
+    }
+
+    /*==========----------==========*/
+    /*         $phone WIDTH         */
+    /*==========----------==========*/
+    @media only screen and (max-width:$phone) {
+        &--short{
+            padding:4em 1em;
+        }
+
+        &--map{
+            min-height: 0;
+            max-height: none;
+            height: 40vh;
+
+            &Short{
+                height:30vh;
+            }
+        }
+    }
+}
