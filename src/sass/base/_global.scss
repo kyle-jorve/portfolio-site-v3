@@ -7,57 +7,57 @@
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html,
 body {
-    width: 100%;
-    padding: 0;
-    margin: 0;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-    background: map-get($bgColors, bodyBg);
-    overflow-x: hidden;
-    position: relative;
+	background: map-get($bgColors, bodyBg);
+	overflow-x: hidden;
+	position: relative;
 }
 
 .section {
-    $this: &;
+	$this: &;
 
-    padding: $sectionPadding;
-    position: relative;
-    z-index: 1;
+	padding: $sectionPadding;
+	position: relative;
+	z-index: 1;
 
-    &--content {
-        background: $contentBg;
-        color: text-color($contentBg);
-    }
+	&--content {
+		background: map-get($bgColors, contentBg);
+		color: text-color(map-get($bgColors, contentBg));
+	}
 
-    &--hasScrollIcon{
-        z-index: 3;
-    }
+	&--hasScrollIcon {
+		z-index: 3;
+	}
 }
 
 img,
 svg,
 iframe,
 video,
-picture{
-    display: block;
+picture {
+	display: block;
 }
 
 img,
 svg,
-picture{
-    width: auto;
-    height: auto;
-    max-width: 100%;
+picture {
+	width: auto;
+	height: auto;
+	max-width: 100%;
 }
 
-[onclick]{
-    cursor:pointer;
+[onclick] {
+	cursor: pointer;
 }
 
 /*===========================
@@ -65,29 +65,26 @@ picture{
 ===========================*/
 
 .logo {
-    position:relative;
+	display: block;
+	background: none;
+	position: relative;
 
-    &__wrp{
-        display: inline-block;
-    }
+	&__wrp {
+		display: inline-block;
+	}
 
-    svg,
-    &__img {
-        display: block;
-        width: auto;
-        height: 4em;
-        transition: $transition;
-    }
+	svg,
+	&__img {
+		display: block;
+		width: auto;
+		height: 80px;
+	}
 
-    /*---------- Hover Effects ----------*/
-    @media (any-hover:hover) {
-        opacity: .9;
-        transition:$transition;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
+	@media (hover: hover) {
+		&:hover {
+			background: none;
+		}
+	}
 }
 
 /*===========================
@@ -95,77 +92,77 @@ picture{
 ===========================*/
 
 .wrapper {
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
 
-    &--wide {
-        max-width: $wide;
-    }
+	&--wide {
+		max-width: $wide;
+	}
 
-    &--section {
-        max-width: $sectionWidth;
-    }
+	&--section {
+		max-width: $sectionWidth;
+	}
 
-    &--content {
-        max-width: $contentWidth;
-    }
+	&--content {
+		max-width: $contentWidth;
+	}
 
-    &--narrow {
-        max-width: $narrowWidth;
-    }
+	&--narrow {
+		max-width: $narrowWidth;
+	}
 
-    &--intro{
-        max-width:$superNarrowWidth;
-        margin-bottom:1em;
-        padding:.5em 0;
-        text-align:center;
-    }
+	&--intro {
+		max-width: $superNarrowWidth;
+		margin-bottom: 1em;
+		padding: 0.5em 0;
+		text-align: center;
+	}
 }
 
 .intro {
-    width: 100%;
-    max-width: $superNarrowWidth;
-    margin: 0 auto 1em auto;
-    padding: .5em 0;
-    text-align: center;
-    position: relative;
+	width: 100%;
+	max-width: $superNarrowWidth;
+	margin: 0 auto 1em auto;
+	padding: 0.5em 0;
+	text-align: center;
+	position: relative;
 }
 
 /*===========================
     Overflowing Content
 ===========================*/
 
-.overflow{
-    position:relative;
+.overflow {
+	position: relative;
 
-    &--hasOverflow{
-        padding-top:0 !important;
-        padding-bottom:0 !important;
-        z-index:2;
-    }
+	&--hasOverflow {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		z-index: 2;
+	}
 
-    &--before,
-    &--after{
-        z-index:1;
-    }
+	&--before,
+	&--after {
+		z-index: 1;
+	}
 
-    &--before{
-        padding-bottom:10em !important;
-    }
+	&--before {
+		padding-bottom: 10em !important;
+	}
 
-    &--after{
-        padding-top:10em !important;
-    }
+	&--after {
+		padding-top: 10em !important;
+	}
 
-    &--up{
-        transform:translateY(-8em);
-    }
-    
-    &--down{
-        transform:translateY(8em);
-    }
+	&--up {
+		transform: translateY(-8em);
+	}
+
+	&--down {
+		transform: translateY(8em);
+	}
 }
 
 /*==========----------==========*/
@@ -173,104 +170,104 @@ picture{
 /*==========----------==========*/
 
 .scrollIcon {
-    @include absolute(center-horizontal, -1);
-    width: 4em;
-    height: 4em;
-    cursor: pointer;
-    background: map-get($bgColors, lightBg);
-    box-shadow: $softShadow;
-    top: 0;
-    transform: translate(-50%, -100%);
+	@include absolute(center-horizontal, -1);
+	width: 4em;
+	height: 4em;
+	cursor: pointer;
+	background: map-get($bgColors, lightBg);
+	box-shadow: $softShadow;
+	top: 0;
+	transform: translate(-50%, -100%);
 
-    &__mouse {
-        @include absolute(center);
-        width: 1.5em;
-        height: 2em;
-        border-radius: .625em;
-        border: 2px solid $linkColor;
-    }
+	&__mouse {
+		@include absolute(center);
+		width: 1.5em;
+		height: 2em;
+		border-radius: 0.625em;
+		border: 2px solid $linkColor;
+	}
 
-    &__ball {
-        @include absolute(center-horizontal);
-        @include animation(slide-down, 1.25s, linear, 0s, normal, infinite);
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background: $linkColor;
-        top: 25%;
-    }
+	&__ball {
+		@include absolute(center-horizontal);
+		@include animation(slide-down, 1.25s, linear, 0s, normal, infinite);
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background: $linkColor;
+		top: 25%;
+	}
 
-    @media (any-hover:none) {
-        &__mouse {
-            border-radius: .25em;
-        }
+	@media (hover: none) {
+		&__mouse {
+			border-radius: 0.25em;
+		}
 
-        &__ball {
-            animation-name: slide-up;
-            top:auto;
-            bottom: 25%;
-        }
-    }
+		&__ball {
+			animation-name: slide-up;
+			top: auto;
+			bottom: 25%;
+		}
+	}
 }
 
 @keyframes slide-down {
-    0% {
-        opacity: 1;
-        top: 25%;
-    }
+	0% {
+		opacity: 1;
+		top: 25%;
+	}
 
-    65% {
-        opacity: 1;
-        top: 52%;
-    }
+	65% {
+		opacity: 1;
+		top: 52%;
+	}
 
-    75% {
-        opacity: 0;
-        top: 60%;
-    }
+	75% {
+		opacity: 0;
+		top: 60%;
+	}
 
-    90% {
-        opacity: 0;
-        top: 25%;
-    }
+	90% {
+		opacity: 0;
+		top: 25%;
+	}
 
-    100% {
-        opacity: 1;
-        top: 25%;
-    }
+	100% {
+		opacity: 1;
+		top: 25%;
+	}
 }
 
 @keyframes slide-up {
-    0% {
-        opacity: 1;
-        bottom: 25%;
-    }
+	0% {
+		opacity: 1;
+		bottom: 25%;
+	}
 
-    65% {
-        opacity: 1;
-        bottom: 52%;
-    }
+	65% {
+		opacity: 1;
+		bottom: 52%;
+	}
 
-    75% {
-        opacity: 0;
-        bottom: 60%;
-    }
+	75% {
+		opacity: 0;
+		bottom: 60%;
+	}
 
-    90% {
-        opacity: 0;
-        bottom: 25%;
-    }
+	90% {
+		opacity: 0;
+		bottom: 25%;
+	}
 
-    100% {
-        opacity: 1;
-        bottom: 25%;
-    }
+	100% {
+		opacity: 1;
+		bottom: 25%;
+	}
 }
 
 /*======--- ON ANDROID ----======*/
 
-.android .scrollIcon{
-    display:none;
+.android .scrollIcon {
+	display: none;
 }
 
 /*===========================
@@ -278,188 +275,184 @@ picture{
 ===========================*/
 
 .box {
-    border-radius: $borderRadius;
-    padding: 2em;
-    background: $boxBg;
-    color: text-color($boxBg);
-    box-shadow: $softShadow;
-    position: relative;
-    z-index: 1;
-
-    &--nested {
-        background: $nestedBoxBg;
-        color: text-color($nestedBoxBg);
-    }
+	border-radius: $borderRadius;
+	padding: 2em;
+	background: $boxBg;
+	backdrop-filter: blur(1em);
+	color: text-color($boxBg);
+	box-shadow: $softShadow;
+	position: relative;
+	z-index: 1;
 }
 
 /*===========================
     Backgrounds
 ===========================*/
 @each $color, $code in $grays {
-    .#{$color}Bg {
-        background: $code;
-        color: text-color($code);
+	.#{$color}Bg {
+		background: $code;
+		color: text-color($code);
 
-        hr {
-            background: border-color($code);
-        }
+		hr {
+			background: border-color($code);
+		}
 
-        .input {
-            border-color: text-color($code);
-            color: text-color($code);
-        }
+		.input {
+			border-color: text-color($code);
+			color: text-color($code);
+		}
 
-        .dynamicInput {
-            color: text-color($code);
-            border-color: text-color($code);
+		.dynamicInput {
+			color: text-color($code);
+			border-color: text-color($code);
 
-            &__input,
-            &__label{
-                color: inherit;
-            }
+			&__input,
+			&__label {
+				color: inherit;
+			}
 
-            &__option {
-                background: bg-color($code);
-                color: text-color(bg-color($code));
-            }
-        }
-    }
+			&__option {
+				background: bg-color($code);
+				color: text-color(bg-color($code));
+			}
+		}
+	}
 }
 
 @each $color, $code in $coolGrays {
-    .#{$color}Bg {
-        background: $code;
-        color: text-color($code);
+	.#{$color}Bg {
+		background: $code;
+		color: text-color($code);
 
-        hr {
-            background: border-color($code);
-        }
+		hr {
+			background: border-color($code);
+		}
 
-        .input {
-            border-color: text-color($code);
-            color: text-color($code);
-        }
+		.input {
+			border-color: text-color($code);
+			color: text-color($code);
+		}
 
-        .dynamicInput {
-            color: text-color($code);
-            border-color: text-color($code);
+		.dynamicInput {
+			color: text-color($code);
+			border-color: text-color($code);
 
-            &__input,
-            &__label{
-                color: inherit;
-            }
+			&__input,
+			&__label {
+				color: inherit;
+			}
 
-            &__option {
-                background: bg-color($code);
-                color: text-color(bg-color($code));
-            }
-        }
-    }
+			&__option {
+				background: bg-color($code);
+				color: text-color(bg-color($code));
+			}
+		}
+	}
 }
 
 @each $color, $code in $warmGrays {
-    .#{$color}Bg {
-        background: $code;
-        color: text-color($code);
+	.#{$color}Bg {
+		background: $code;
+		color: text-color($code);
 
-        hr {
-            background: border-color($code);
-        }
+		hr {
+			background: border-color($code);
+		}
 
-        .input {
-            border-color: text-color($code);
-            color: text-color($code);
-        }
+		.input {
+			border-color: text-color($code);
+			color: text-color($code);
+		}
 
-        .dynamicInput {
-            color: text-color($code);
-            border-color: text-color($code);
+		.dynamicInput {
+			color: text-color($code);
+			border-color: text-color($code);
 
-            &__input,
-            &__label{
-                color: inherit;
-            }
+			&__input,
+			&__label {
+				color: inherit;
+			}
 
-            &__option {
-                background: bg-color($code);
-                color: text-color(bg-color($code));
-            }
-        }
-    }
+			&__option {
+				background: bg-color($code);
+				color: text-color(bg-color($code));
+			}
+		}
+	}
 }
 
 @each $color, $code in $colorScheme {
-    .#{$color}Bg {
-        background: $code;
-        color: text-color($code);
+	.#{$color}Bg {
+		background: $code;
+		color: text-color($code);
 
-        hr {
-            background: border-color($code);
-        }
+		hr {
+			background: border-color($code);
+		}
 
-        .input {
-            border-color: text-color($code);
-            color: text-color($code);
-        }
+		.input {
+			border-color: text-color($code);
+			color: text-color($code);
+		}
 
-        .dynamicInput {
-            color: text-color($code);
-            border-color: text-color($code);
+		.dynamicInput {
+			color: text-color($code);
+			border-color: text-color($code);
 
-            &__input,
-            &__label{
-                color: inherit;
-            }
+			&__input,
+			&__label {
+				color: inherit;
+			}
 
-            &__option {
-                background: bg-color($code);
-                color: text-color(bg-color($code));
-            }
-        }
-    }
+			&__option {
+				background: bg-color($code);
+				color: text-color(bg-color($code));
+			}
+		}
+	}
 }
 
 @each $bg, $color in $bgColors {
-    .#{$bg} {
-        background: $color;
-        color: text-color($color);
+	.#{$bg} {
+		background: $color;
+		color: text-color($color);
 
-        hr {
-            background: border-color($color);
-        }
+		hr {
+			background: border-color($color);
+		}
 
-        .input {
-            border-color: text-color($color);
-            color: text-color($color);
-        }
+		.input {
+			border-color: text-color($color);
+			color: text-color($color);
+		}
 
-        .dynamicInput {
-            color: text-color($color);
-            border-color: text-color($color);
+		.dynamicInput {
+			color: text-color($color);
+			border-color: text-color($color);
 
-            &__input,
-            &__label{
-                color: inherit;
-            }
+			&__input,
+			&__label {
+				color: inherit;
+			}
 
-            &__option {
-                background: bg-color($color);
-                color: text-color(bg-color($color));
-            }
-        }
-    }
+			&__option {
+				background: bg-color($color);
+				color: text-color(bg-color($color));
+			}
+		}
+	}
 }
 
 .parallaxBg {
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
 
-    &__container {
-        @include absolute(cover);
-        overflow: hidden;
-    }
+	&__container {
+		@include absolute(cover);
+		overflow: hidden;
+	}
 }
 
 /*===========================
@@ -467,64 +460,64 @@ picture{
 ===========================*/
 
 .margin {
-    &--auto {
-        margin: auto;
-    }
+	&--auto {
+		margin: auto;
+	}
 
-    &--0-auto {
-        margin: 0 auto;
-    }
+	&--0-auto {
+		margin: 0 auto;
+	}
 
-    &--auto-0 {
-        margin: auto 0;
-    }
+	&--auto-0 {
+		margin: auto 0;
+	}
 }
 
 @each $gap in $gaps {
-    .margin--#{$gap} {
-        margin: $gap !important;
-    }
+	.margin--#{$gap} {
+		margin: $gap !important;
+	}
 
-    .padding--#{$gap} {
-        padding: $gap !important;
-    }
+	.padding--#{$gap} {
+		padding: $gap !important;
+	}
 
-    @each $edge in $edges {
-        .margin--#{$edge}-#{$gap} {
-            margin-#{$edge}: $gap !important;
-        }
+	@each $edge in $edges {
+		.margin--#{$edge}-#{$gap} {
+			margin-#{$edge}: $gap !important;
+		}
 
-        .padding--#{$edge}-#{$gap} {
-            padding-#{$edge}: $gap !important;
-        }
-    }
+		.padding--#{$edge}-#{$gap} {
+			padding-#{$edge}: $gap !important;
+		}
+	}
 }
 
 /*===========================
     Positions
 ===========================*/
 @each $position in $positions {
-    .#{$position} {
-        position: $position;
-    }
+	.#{$position} {
+		position: $position;
+	}
 }
 
-.absolute{
-    &--center{
-        @include absolute(center);
-    }
+.absolute {
+	&--center {
+		@include absolute(center);
+	}
 
-    &--center-vertical{
-        @include absolute(center-vertical);
-    }
+	&--center-vertical {
+		@include absolute(center-vertical);
+	}
 
-    &--center-horizontal{
-        @include absolute(center-horizontal);
-    }
+	&--center-horizontal {
+		@include absolute(center-horizontal);
+	}
 
-    &--cover{
-        @include absolute(cover);
-    }
+	&--cover {
+		@include absolute(cover);
+	}
 }
 
 /*===========================
@@ -532,57 +525,57 @@ picture{
 ===========================*/
 
 hr {
-    margin: 2em auto;
-    width: 75%;
-    max-width: 700px;
-    height: $borderThickness;
-    border: none;
-    background: $medBorderColor;
+	margin: 2em auto;
+	width: 75%;
+	max-width: 700px;
+	height: $borderThickness;
+	border: none;
+	background: $lightBorderColor;
 }
 
 /*----- Flex Line -----*/
 .flexLine {
-    @include flexWrap(row, nowrap, flex-start, center);
+	@include flexWrap(row, nowrap, flex-start, center);
 
-    &__content,
-    &__line{
-        display:block;
-    }
+	&__content,
+	&__line {
+		display: block;
+	}
 
-    &__line {
-        flex:1 1 auto;
-        height: $borderThickness;
-        background: $medBorderColor;
-        margin: 0 1em;
+	&__line {
+		flex: 1 1 auto;
+		height: $borderThickness;
+		background: $lightBorderColor;
+		margin: 0 1em;
 
-        &:first-child {
-            margin-left: 0;
-        }
+		&:first-child {
+			margin-left: 0;
+		}
 
-        &:last-child {
-            margin-right: 0;
-        }
-    }
+		&:last-child {
+			margin-right: 0;
+		}
+	}
 
-    &__content{
-        flex:0 1 auto;
-    }
+	&__content {
+		flex: 0 1 auto;
+	}
 }
 /*===========================
     Animated Elements
 ===========================*/
 .animatedEl {
-    opacity: 0;
-    visibility: hidden;
-    position: relative;
-    top: 40px;
-    transition: $transition;
+	opacity: 0;
+	visibility: hidden;
+	position: relative;
+	top: 40px;
+	transition: $transition;
 
-    &.animate {
-        opacity: 1;
-        visibility: visible;
-        top: 0;
-    }
+	&.animate {
+		opacity: 1;
+		visibility: visible;
+		top: 0;
+	}
 }
 
 /*//////////////////////////////////////////////////////*/
@@ -594,64 +587,63 @@ hr {
 /*==========----------==========*/
 /*         1400PX WIDTH         */
 /*==========----------==========*/
-@media only screen and (max-width:1400px) {
-    .parallaxBg {
-        background-position: center center;
-        background-attachment: scroll;
-    }
+@media only screen and (max-width: 1400px) {
+	.parallaxBg {
+		background-position: center center;
+		background-attachment: scroll;
+	}
 }
 
 /*==========----------==========*/
 /*         1000PX WIDTH         */
 /*==========----------==========*/
-@media only screen and (max-width:1000px) {
-    .section {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
+@media only screen and (max-width: 1000px) {
+	.section {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
 
-    .scrollIcon{
-        width:3em;
-        height:3em;
+	.scrollIcon {
+		width: 3em;
+		height: 3em;
 
-        &__mouse{
-            width:1.25em;
-            height:1.6667em;
-        }
-    }
+		&__mouse {
+			width: 1.25em;
+			height: 1.6667em;
+		}
+	}
 }
 
 /*==========----------==========*/
 /*         800PX WIDTH          */
 /*==========----------==========*/
-@media only screen and (max-width:800px) {
-    .overflow{
-        &--before{
-            padding-bottom: 6em !important;
-        }
+@media only screen and (max-width: 800px) {
+	.overflow {
+		&--before {
+			padding-bottom: 6em !important;
+		}
 
-        &--after{
-            padding-top:6em !important;
-        }
+		&--after {
+			padding-top: 6em !important;
+		}
 
-        &--up{
-            transform:translateY(-4em);
-        }
-        
-        &--down{
-            transform:translateY(4em);
-        }
-    }
+		&--up {
+			transform: translateY(-4em);
+		}
+
+		&--down {
+			transform: translateY(4em);
+		}
+	}
 }
 
 /*==========----------==========*/
 /*  700PX WIDTH or 700PX HEIGHT */
 /*==========----------==========*/
-@media only screen and (max-width:700px),
-only screen and (max-height:700px) {
-    .box {
-        padding: 1em;
-    }
+@media only screen and (max-width: 700px), only screen and (max-height: 700px) {
+	.box {
+		padding: 1em;
+	}
 }
 
 /*==========----------==========*/
@@ -659,7 +651,7 @@ only screen and (max-height:700px) {
 /*==========----------==========*/
 
 @media print {
-    .wrapper {
-        max-width: none;
-    }
+	.wrapper {
+		max-width: none;
+	}
 }

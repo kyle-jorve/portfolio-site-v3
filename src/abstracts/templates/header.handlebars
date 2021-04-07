@@ -1,6 +1,6 @@
 <div class="header__row">
     <a class="header__logo logo" href="/">
-        <img src="/src/media/icons/logo-circle.svg" alt="Kyle Jorve logo">
+        <img class="logo__img" src="/src/media/icons/logo-circle.svg" alt="Kyle Jorve logo">
     </a>
 </div>
 
@@ -12,19 +12,19 @@
         </a>
     {{/each}}
 
-    <button class="navBtn" id="navBtn">
-        <div class="navBtn__blocks">
-            <span class="navBtn__block"></span>
-            <span class="navBtn__block navBtn__block--disapparate"></span>
-            <span class="navBtn__block"></span>
+    <button class="nav__button" id="navBtn">
+        <div class="nav__buttonBlocks">
+            <span class="nav__buttonBlock"></span>
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
+            <span class="nav__buttonBlock"></span>
 
-            <span class="navBtn__block navBtn__block--disapparate"></span>
-            <span class="navBtn__block"></span>
-            <span class="navBtn__block navBtn__block--disapparate"></span>
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
+            <span class="nav__buttonBlock"></span>
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
 
-            <span class="navBtn__block"></span>
-            <span class="navBtn__block navBtn__block--disapparate"></span>
-            <span class="navBtn__block"></span>
+            <span class="nav__buttonBlock"></span>
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
+            <span class="nav__buttonBlock"></span>
         </div>
     </button>
 </div>
@@ -39,24 +39,24 @@
             </li>
         {{/each}}
     </ul>
-</nav>
 
-<section class="recentWork">
-    <div class="wrapper wrapper--section">
-        <h2 class="flexLine">Recent Work</h2>
+    <section class="recentWork">
+        <div class="wrapper wrapper--section">
+            <h2 class="flexLine">Recent Work</h2>
 
-        <div class="portfolio__grid">
-            {{#each recentWork}}
-                <div class="portfolio__item">
-                    <img src="{{this.imageUrl}}" alt="{{this.title}} thumbnail">
-                </div>
-            {{/each}}
+            <div class="portfolio__grid">
+                {{#each recentWork}}
+                    <div class="portfolio__item">
+                        <img src="{{this.imageUrl}}" alt="{{this.title}} thumbnail">
+                    </div>
+                {{/each}}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div class="social social--header">
-    {{#each social}}
-        {{{printSocialIcon this}}}
-    {{/each}}
-</div>
+    <div class="social social--header">
+        {{#each social}}
+            {{{printSocialIcon this}}}
+        {{/each}}
+    </div>
+</nav>

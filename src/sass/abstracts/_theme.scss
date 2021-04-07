@@ -7,114 +7,115 @@
 /*===========================
     Color Scheme
 ===========================*/
-$colorScheme:(
-    primaryColor: $black,
-    secondaryColor: #E8E8E8,
-    accentColor: #F02729
+$colorScheme: (
+	coolWhite: map-get($coolGrays, coolGray1),
+	coolBlack: map-get($coolGrays, coolGray9),
+	yellow: #f4ce56,
+	red: #ff5652
 );
 
 /*Background Colors*/
-$bgColors:(
-    bodyBg: map-get($colorScheme, primaryColor),
-    lightBg: #efefef, //this must be lighter than the bodyBg
-    medBg: map-get($grays, gray50),
-    darkBg: map-get($colorScheme, primaryColor) //this must be darker than the bodyBg
+$bgColors: (
+	bodyBg: map-get($colorScheme, coolBlack),
+	lightBg: map-get($colorScheme, coolWhite),
+	darkBg: map-get($colorScheme, coolBlack),
+	//this must be darker than the bodyBg
+	contentBg: map-get($colorScheme, coolWhite)
 );
 
-$contentBg: bg-color(map-get($colorScheme, primaryColor));
-
 /*Type Colors*/
-$lightTextColor: map-get($grays, gray05);
-$medTextColor: map-get($grays, gray45);
-$darkTextColor: map-get($grays, gray95);
+$lightTextColor: map-get($colorScheme, coolWhite);
+$medTextColor: map-get($coolGrays, coolGray6);
+$darkTextColor: map-get($colorScheme, coolBlack);
 $successGreen: #30d5a9;
 
 /*===========================
     Transitions
 ===========================*/
-$transitionDur: .3s;
+$transitionDur: 0.3s;
+$shortTransitionDur: 0.1s;
+$longTransitionDur: 0.6s;
 $transitionEase: ease;
+$transitionAppendix: $transitionDur $transitionEase;
 
-$shortTransition: all ($transitionDur / 3) $transitionEase;
+$shortTransition: all $shortTransitionDur $transitionEase;
 $transition: all $transitionDur $transitionEase;
-$longTransition: all $transitionDur * 2 $transitionEase;
-
+$longTransition: all $longTransitionDur $transitionEase;
 
 /*===========================
     Borders
 ===========================*/
-$borderRadius: .5em;
+$borderRadius: 0.75rem;
 
-$borderThickness: .2rem;
-$thickBorderThickness: .35rem; //should be less than .4rem, ideally
+$borderThickness: 1px;
+$thickBorderThickness: 1rem;
 
-$darkBorderColor: rgba($darkTextColor, .35);
-$medBorderColor: rgba($medTextColor, .5);
-$lightBorderColor: rgba($lightTextColor, .35);
+$darkBorderColor: map-get($colorScheme, red);
+$lightBorderColor: map-get($coolGrays, coolGray3);
 
 /*===========================
     Type
 ===========================*/
 
 /*Heading Font*/
-$headingFont: '', sans-serif;
+$headingFont: 'Montserrat', sans-serif;
 $headingTextTransform: uppercase;
-$headingFontWeight:900;
-$headingBold:900;
-$headingLight:400;
-$headingLetterSpacing:.02em;
-$headingLineHeight:1.2;
-$headingTypeMargin:2.25em 0 .5em;
-$headingFontStyle:normal;
+$headingFontWeight: 800;
+$headingBold: 800;
+$headingLight: 600;
+$headingLetterSpacing: 0.3em;
+$headingLineHeight: 1.35;
+$headingTypeMargin: 1.5em 0 0.85em;
+$headingFontStyle: normal;
 $headingItalic: normal;
 
 /*Main Font*/
-$primaryFont: '', sans-serif;
+$primaryFont: $headingFont;
 $primaryTextTransform: none;
-$primaryFontWeight:400;
-$primaryBold: 700;
+$primaryFontWeight: 400;
+$primaryBold: 600;
 $primaryLight: 400;
-$primaryLetterSpacing:.02em;
-$primaryLineHeight:1.5;
-$primaryTypeMargin:1em 0 1.3em 0;
-$primaryFontStyle:normal;
+$primaryLetterSpacing: 0.015em;
+$primaryLineHeight: 1.5;
+$primaryTypeMargin: 1em 0;
+$primaryFontStyle: normal;
 $primaryItalic: normal;
 
-$listTypeMargin: .5em 0;
+$listTypeMargin: 0.5em 0;
 
 /*General Type Settings*/
 $baseFontSize: 1em;
-$typeScaleMultiplier:nth($typeScales, 3);
+$typeScaleMultiplier: nth($typeScales, 4);
 
-$smallFontSize:$baseFontSize * .8;
-$largeFontSize:$baseFontSize * 1.2;
+$smallFontSize: $baseFontSize * 0.75;
+$largeFontSize: $baseFontSize * 1.25;
 
 /*===========================
     Links
 ===========================*/
 
-$linkColor:map-get($colorScheme, accentColor);
-$linkTextDecoration:none;
-$linkFontWeight:$primaryBold;
+$linkColor: map-get($colorScheme, red);
+$linkTextDecoration: none;
+$linkFontWeight: $primaryBold;
 
-$linkHoverTextDecoration:none;
+$linkHoverTextDecoration: none;
 
 /*===========================
     Shadows
 ===========================*/
 /*Text Shadows*/
-$textShadowColor: rgba($black, .5);
-$whiteTextShadowColor: rgba($white, .5);
+$textShadowColor: rgba($black, 0.5);
+$whiteTextShadowColor: rgba($white, 0.5);
 
 $textShadow: 1px 1px $textShadowColor;
 $whiteTextShadow: 1px 1px $whiteTextShadowColor;
 
 /*Box Shadows*/
-$softShadowColor:rgba($darkTextColor, .15);
-$shadowColor:rgba($darkTextColor, .2);
-$mediumShadowColor:rgba($darkTextColor, .25);
-$darkShadowColor: rgba($darkTextColor,0.5);
-$accentShadowColor: rgba(map-get($colorScheme, accentColor), .6);
+$softShadowColor: rgba($darkTextColor, 0.15);
+$shadowColor: rgba($darkTextColor, 0.2);
+$mediumShadowColor: rgba($darkTextColor, 0.25);
+$darkShadowColor: rgba($darkTextColor, 0.5);
+$accentShadowColor: rgba(map-get($colorScheme, red), 0.6);
 
 $shadowOffset: 3px;
 $medShadowOffset: 6px;
@@ -128,15 +129,15 @@ $longShadow: 0 $longShadowOffset ($longShadowOffset * 2) 2px $darkShadowColor;
 
 $boxShadowLeft: -$shadowOffset 0 $shadowOffset $shadowColor;
 $boxShadowRight: $shadowOffset 0 $shadowOffset $shadowColor;
-$boxShadowUp:0 (-$shadowOffset) $shadowOffset $shadowColor;
+$boxShadowUp: 0 (-$shadowOffset) $shadowOffset $shadowColor;
 
-$mediumShadowLeft:-$medShadowOffset 0 ($medShadowOffset * 2) $mediumShadowColor;
-$mediumShadowRight:$medShadowOffset 0 ($medShadowOffset * 2) $mediumShadowColor;
-$mediumShadowUp:0 (-$medShadowOffset) ($medShadowOffset * 2) $mediumShadowColor;
+$mediumShadowLeft: -$medShadowOffset 0 ($medShadowOffset * 2) $mediumShadowColor;
+$mediumShadowRight: $medShadowOffset 0 ($medShadowOffset * 2) $mediumShadowColor;
+$mediumShadowUp: 0 (-$medShadowOffset) ($medShadowOffset * 2) $mediumShadowColor;
 
 $longShadowLeft: -$longShadowOffset 0 ($longShadowOffset * 2) $darkShadowColor;
 $longShadowRight: $longShadowOffset 0 ($longShadowOffset * 2) $darkShadowColor;
-$longShadowUp:0 (-$longShadowOffset) ($longShadowOffset * 2) $darkShadowColor;
+$longShadowUp: 0 (-$longShadowOffset) ($longShadowOffset * 2) $darkShadowColor;
 
 $softShadowLeft: -$medShadowOffset 0 ($medShadowOffset * 4) $softShadowColor;
 $softShadowRight: $medShadowOffset 0 ($medShadowOffset * 4) $softShadowColor;
@@ -144,9 +145,8 @@ $softShadowUp: 0 (-$medShadowOffset) ($medShadowOffset * 4) $softShadowColor;
 
 $accentShadow: 0 $medShadowOffset ($medShadowOffset * 4) $accentShadowColor;
 
-$insetShadowRight:inset -$shadowOffset 0 $shadowOffset $shadowColor;
+$insetShadowRight: inset -$shadowOffset 0 $shadowOffset $shadowColor;
 $insetShadowLeft: $shadowOffset 0 $shadowOffset $shadowColor;
-
 
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
@@ -157,7 +157,7 @@ $insetShadowLeft: $shadowOffset 0 $shadowOffset $shadowColor;
 /*===========================
     Toast
 ===========================*/
-$warningToastBg: desaturate(map-get($colorScheme, accentColor), 20%);
+$warningToastBg: desaturate(map-get($colorScheme, red), 20%);
 
 /*===========================
     Lightbox
@@ -170,18 +170,18 @@ $lightboxBg: bg-color(map-get($bgColors, bodyBg));
 ===========================*/
 /*---------- Button Variables ----------*/
 /*General*/
-$buttonBorderRadius:.25em;
-$buttonBorder:none;
-$buttonPadding: .5em 2em;
-$buttonTextTrans:$primaryTextTransform;
-$buttonLineHeight: $primaryLineHeight;
+$buttonBorderRadius: 999px;
+$buttonBorder: none;
+$buttonPadding: 0.5em 2em;
+$buttonTextTrans: $headingTextTransform;
+$buttonLineHeight: $headingLineHeight;
 $buttonFontSize: 1em;
-$buttonFont: $primaryFont;
-$buttonLetterSpacing: $primaryLetterSpacing;
+$buttonFont: $headingFont;
+$buttonLetterSpacing: $headingLetterSpacing;
 $buttonFontWeight: $primaryBold;
 
 /*Cross Button*/
-$crossBtnDiam:40px;
+$crossBtnDiam: 40px;
 
 /*Arrow Buttons*/
 $arrowBtnDiam: 50px;
@@ -194,45 +194,9 @@ $imageBtnBorderColor: $successGreen;
 $imageBtnBg: white-or-black(map-get($bgColors, bodyBg));
 
 /*===========================
-    Inputs
-===========================*/
-
-/*Inputs*/
-$inputBg: #242424;
-$inputFont:$primaryFont;
-$inputTextColor:text-color(map-get($bgColors, bodyBg));
-$inputTextWeight:$primaryFontWeight;
-$inputLetterSpacing:$primaryLetterSpacing;
-$inputBorderColor:#6b6b6b;
-$inputBorder: $borderThickness solid $inputBorderColor;
-$checkboxBorder: 2px solid $inputBorderColor;
-$inputBorderRadius:$borderRadius;
-$inputHeight: 45px;
-$dynamicInputHeight: 65px;
-
-$inputFocusBorderColor:lighten($inputBorderColor, 20%);
-
-$readOnlyInputBg: map-get($grays, gray05);
-$readOnlyInputColor: map-get($grays, gray25);
-$readOnlyInputBorderColor: transparent;
-$readOnlyInputBorder: $borderThickness solid $readOnlyInputBorderColor;
-
-/*Labels*/
-$inputLabelTextTrans: none;
-$inputLabelFont: $primaryFont;
-$inputLabelWeight: $primaryFontWeight;
-$inputLabelFontSize:1em;
-
-/*---------- Input Error Variables ----------*/
-$errorBg:rgba(206, 19, 19, .25);
-$errorBorder:$borderThickness solid rgb(206,19,19);
-$errorTextColor:#c74343;
-
-/*===========================
     Boxes
 ===========================*/
-$boxBg: map-get($bgColors, medBg);
-$nestedBoxBg: lighten-or-darken($boxBg, 10%);
+$boxBg: rgba(map-get($bgColors, lightBg), 0.6);
 
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
@@ -243,7 +207,7 @@ $nestedBoxBg: lighten-or-darken($boxBg, 10%);
 /*===========================
     Header
 ===========================*/
-$headerBg: map-get($bgColors, darkBg);
+$headerBg: transparent;
 
 /*===========================
     Hero
@@ -256,8 +220,8 @@ $shortHeroHeight: 25vw;
 ===========================*/
 $navBtnDiam: 60px;
 
-$socialIconDiam:40px;
+$socialIconDiam: 40px;
 
 /* Responsive */
-$mobileNavBg:$linkColor;
-$navBreakpoint: 1000px;
+$mobileNavBg: $linkColor;
+$navBreakpoint: $typeBreakpoint1;

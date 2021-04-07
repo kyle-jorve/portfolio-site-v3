@@ -118,11 +118,11 @@ templates['header'] = template({"1":function(container,depth0,helpers,partials,d
         return undefined
     };
 
-  return "                <div class=\"portfolio__item\">\n                    <img src=\""
+  return "                    <div class=\"portfolio__item\">\n                        <img src=\""
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"imageUrl") : depth0), depth0))
     + "\" alt=\""
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"title") : depth0), depth0))
-    + " thumbnail\">\n                </div>\n";
+    + " thumbnail\">\n                    </div>\n";
 },"12":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -131,8 +131,8 @@ templates['header'] = template({"1":function(container,depth0,helpers,partials,d
         return undefined
     };
 
-  return "        "
-    + ((stack1 = (lookupProperty(helpers,"printSocialIcon")||(depth0 && lookupProperty(depth0,"printSocialIcon"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),depth0,{"name":"printSocialIcon","hash":{},"data":data,"loc":{"start":{"line":60,"column":8},"end":{"line":60,"column":34}}})) != null ? stack1 : "")
+  return "            "
+    + ((stack1 = (lookupProperty(helpers,"printSocialIcon")||(depth0 && lookupProperty(depth0,"printSocialIcon"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),depth0,{"name":"printSocialIcon","hash":{},"data":data,"loc":{"start":{"line":59,"column":12},"end":{"line":59,"column":38}}})) != null ? stack1 : "")
     + "\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -142,15 +142,15 @@ templates['header'] = template({"1":function(container,depth0,helpers,partials,d
         return undefined
     };
 
-  return "<div class=\"header__row\">\n    <a class=\"header__logo logo\" href=\"/\">\n        <img src=\"/src/media/icons/logo-circle.svg\" alt=\"Kyle Jorve logo\">\n    </a>\n</div>\n\n<div class=\"mobileNav\">\n"
+  return "<div class=\"header__row\">\n    <a class=\"header__logo logo\" href=\"/\">\n        <img class=\"logo__img\" src=\"/src/media/icons/logo-circle.svg\" alt=\"Kyle Jorve logo\">\n    </a>\n</div>\n\n<div class=\"mobileNav\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"mobileNav") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":8,"column":4},"end":{"line":13,"column":13}}})) != null ? stack1 : "")
-    + "\n    <button class=\"navBtn\" id=\"navBtn\">\n        <div class=\"navBtn__blocks\">\n            <span class=\"navBtn__block\"></span>\n            <span class=\"navBtn__block navBtn__block--disapparate\"></span>\n            <span class=\"navBtn__block\"></span>\n\n            <span class=\"navBtn__block navBtn__block--disapparate\"></span>\n            <span class=\"navBtn__block\"></span>\n            <span class=\"navBtn__block navBtn__block--disapparate\"></span>\n\n            <span class=\"navBtn__block\"></span>\n            <span class=\"navBtn__block navBtn__block--disapparate\"></span>\n            <span class=\"navBtn__block\"></span>\n        </div>\n    </button>\n</div>\n\n<nav class=\"nav\">\n    <ul class=\"nav__ul\">\n"
+    + "\n    <button class=\"nav__button\" id=\"navBtn\">\n        <div class=\"nav__buttonBlocks\">\n            <span class=\"nav__buttonBlock\"></span>\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n            <span class=\"nav__buttonBlock\"></span>\n\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n            <span class=\"nav__buttonBlock\"></span>\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n\n            <span class=\"nav__buttonBlock\"></span>\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n            <span class=\"nav__buttonBlock\"></span>\n        </div>\n    </button>\n</div>\n\n<nav class=\"nav\">\n    <ul class=\"nav__ul\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"nav") : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":34,"column":8},"end":{"line":40,"column":17}}})) != null ? stack1 : "")
-    + "    </ul>\n</nav>\n\n<section class=\"recentWork\">\n    <div class=\"wrapper wrapper--section\">\n        <h2 class=\"flexLine\">Recent Work</h2>\n\n        <div class=\"portfolio__grid\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWork") : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":49,"column":12},"end":{"line":53,"column":21}}})) != null ? stack1 : "")
-    + "        </div>\n    </div>\n</section>\n\n<div class=\"social social--header\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"social") : depth0),{"name":"each","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":59,"column":4},"end":{"line":61,"column":13}}})) != null ? stack1 : "")
-    + "</div>";
+    + "    </ul>\n\n    <section class=\"recentWork\">\n        <div class=\"wrapper wrapper--section\">\n            <h2 class=\"flexLine\">Recent Work</h2>\n\n            <div class=\"portfolio__grid\">\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWork") : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":48,"column":16},"end":{"line":52,"column":25}}})) != null ? stack1 : "")
+    + "            </div>\n        </div>\n    </section>\n\n    <div class=\"social social--header\">\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"social") : depth0),{"name":"each","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":58,"column":8},"end":{"line":60,"column":17}}})) != null ? stack1 : "")
+    + "    </div>\n</nav>";
 },"useData":true});
 templates['pages/cv'] = template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {

@@ -6,189 +6,207 @@
 
 button,
 .button {
-    cursor: pointer;
+	cursor: pointer;
+}
+
+button {
+	appearance: none;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: $linkColor;
+	font-family: $buttonFont;
+	font-weight: $buttonFontWeight;
+	font-size: $buttonFontSize;
+	letter-spacing: $buttonLetterSpacing;
+	line-height: $buttonLineHeight;
+	color: $lightTextColor;
+
+	&:focus {
+		outline: none;
+	}
 }
 
 .button {
-    /*==========----------==========*/
-    /*           GENERAL            */
-    /*==========----------==========*/
+	/*==========----------==========*/
+	/*           GENERAL            */
+	/*==========----------==========*/
 
-    $button: &;
+	$button: &;
 
-    @include button;
-    opacity: 1;
-    visibility: visible;
+	@include button;
+	opacity: 1;
+	visibility: visible;
 
-    &:focus {
-        outline: 0;
-    }
+	&:focus {
+		outline: 0;
+	}
 
-    &__wrapper {
-        @include flexWrap(row, wrap, flex-start, center);
-        padding: 1em 0;
+	&__wrapper {
+		@include flexWrap(row, wrap, flex-start, center);
+		padding: 1em 0;
 
-        &--justifyRight {
-            justify-content: flex-end;
-        }
+		&--justifyRight {
+			justify-content: flex-end;
+		}
 
-        &--justifyCenter {
-            justify-content: center;
-        }
+		&--justifyCenter {
+			justify-content: center;
+		}
 
-        &--justifyBetween {
-            justify-content: space-between;
-        }
+		&--justifyBetween {
+			justify-content: space-between;
+		}
 
-        &--justifyAround {
-            justify-content: space-around;
-        }
+		&--justifyAround {
+			justify-content: space-around;
+		}
 
-        #{$button} {
-            margin: .5em 0 .5em 1em;
-        }
-    }
+		#{$button} {
+			margin: 0.5em 0 0.5em 1em;
+		}
+	}
 
-    &:disabled,
-    &.disabled,
-    &--disabled {
-        filter: grayscale(100%);
-        opacity: .5;
-        cursor: default;
-        pointer-events: none;
-    }
+	&:disabled,
+	&.disabled,
+	&--disabled {
+		filter: grayscale(100%);
+		opacity: 0.5;
+		cursor: default;
+		pointer-events: none;
+	}
 
-    &--small {
-        padding: .25em .5em;
-        font-size: 1em;
-    }
+	&--small {
+		padding: 0.25em 0.5em;
+		font-size: 1em;
+	}
 
-    &--displayNone {
-        display: none;
-    }
+	&--displayNone {
+		display: none;
+	}
 
-    &--next {
-        z-index: 2;
-    }
+	&--next {
+		z-index: 2;
+	}
 
-    /*==========----------==========*/
-    /*        PRIMARY BUTTON        */
-    /*==========----------==========*/
-    &--primary {
-        background: $linkColor;
-        color: text-color($linkColor);
+	/*==========----------==========*/
+	/*        PRIMARY BUTTON        */
+	/*==========----------==========*/
+	&--primary {
+		background: $linkColor;
+		color: text-color($linkColor);
 
-        @media (any-hover:hover) {
-            &:hover {
-                background: lighten-or-darken($linkColor);
-                border-color: lighten-or-darken(lighten-or-darken($linkColor));
-                color: text-color(lighten-or-darken($linkColor));
-            }
-        }
-    }
-    /*==========----------==========*/
-    /*       SECONDARY BUTTON       */
-    /*==========----------==========*/
-    &--secondary {
-        background: transparent;
-        border: $borderThickness solid $linkColor;
-        color: $linkColor;
+		@media (hover: hover) {
+			&:hover {
+				background: lighten-or-darken($linkColor);
+				border-color: lighten-or-darken(lighten-or-darken($linkColor));
+				color: text-color(lighten-or-darken($linkColor));
+			}
+		}
+	}
+	/*==========----------==========*/
+	/*       SECONDARY BUTTON       */
+	/*==========----------==========*/
+	&--secondary {
+		background: transparent;
+		border: $borderThickness solid $linkColor;
+		color: $linkColor;
 
-        @media (any-hover:hover) {
-            &:hover {
-                background: $linkColor;
-                color: text-color($linkColor);
-                border-color: $linkColor;
-            }
-        }
-    }
-    /*==========----------==========*/
-    /*       TERTIARY BUTTON        */
-    /*==========----------==========*/
-    &--tertiary {
-        background: transparent;
-        border: $borderThickness solid $medTextColor;
-        color: $medTextColor;
+		@media (hover: hover) {
+			&:hover {
+				background: $linkColor;
+				color: text-color($linkColor);
+				border-color: $linkColor;
+			}
+		}
+	}
+	/*==========----------==========*/
+	/*       TERTIARY BUTTON        */
+	/*==========----------==========*/
+	&--tertiary {
+		background: transparent;
+		border: $borderThickness solid $medTextColor;
+		color: $medTextColor;
 
-        @media (any-hover:hover) {
-            &:hover {
-                background: $linkColor;
-                color: text-color($linkColor);
-                border-color: $linkColor;
-            }
-        }
-    }
-    /*==========----------==========*/
-    /*      LIGHT BORDER BUTTON     */
-    /*==========----------==========*/
-    &--lightBorder {
-        background: transparent;
-        border: $borderThickness solid $lightTextColor;
-        color: $lightTextColor;
+		@media (hover: hover) {
+			&:hover {
+				background: $linkColor;
+				color: text-color($linkColor);
+				border-color: $linkColor;
+			}
+		}
+	}
+	/*==========----------==========*/
+	/*      LIGHT BORDER BUTTON     */
+	/*==========----------==========*/
+	&--lightBorder {
+		background: transparent;
+		border: $borderThickness solid $lightTextColor;
+		color: $lightTextColor;
 
-        @media (any-hover:hover) {
-            &:hover {
-                background: $lightTextColor;
-                color: $darkTextColor;
-            }
-        }
-    }
-    /*==========----------==========*/
-    /*         TOAST BUTTON         */
-    /*==========----------==========*/
-    &--toastBtn{
-        font-size:$smallFontSize;
-    }
-    /*==========----------==========*/
-    /*         IMAGE BUTTON         */
-    /*==========----------==========*/
-    &--imageBtn {
-        box-shadow: $softShadow;
-        background: $imageBtnBg;
-        border: $thickBorderThickness solid $imageBtnBorderColor;
-        color: text-color($imageBtnBg);
+		@media (hover: hover) {
+			&:hover {
+				background: $lightTextColor;
+				color: $darkTextColor;
+			}
+		}
+	}
+	/*==========----------==========*/
+	/*         TOAST BUTTON         */
+	/*==========----------==========*/
+	&--toastBtn {
+		font-size: $smallFontSize;
+	}
+	/*==========----------==========*/
+	/*         IMAGE BUTTON         */
+	/*==========----------==========*/
+	&--imageBtn {
+		box-shadow: $softShadow;
+		background: $imageBtnBg;
+		border: $thickBorderThickness solid $imageBtnBorderColor;
+		color: text-color($imageBtnBg);
 
-        #{$button}__text {
-            @include heading(null, 1em 0 0 0);
-            display: block;
-        }
+		#{$button}__text {
+			@include heading(null, 1em 0 0 0);
+			display: block;
+		}
 
-        #{$button}__img,
-        svg {
-            width: auto;
-            max-width: 4em;
-            max-height: 4em;
-            margin: 0 auto;
-        }
+		#{$button}__img,
+		svg {
+			width: auto;
+			max-width: 4em;
+			max-height: 4em;
+			margin: 0 auto;
+		}
 
-        @media (any-hover:hover) {
-            &:hover {
-                background: $imageBtnBorderColor;
-                color: text-color($imageBtnBorderColor);
-            }
-        }
-    }
-    /*==========----------==========*/
-    /*         INFO BUTTON          */
-    /*==========----------==========*/
-    &--info {
-        padding: .5em 1em;
-        background: bg-color(map-get($bgColors, bodyBg));
-        color: text-color(bg-color(map-get($bgColors, bodyBg)));
+		@media (hover: hover) {
+			&:hover {
+				background: $imageBtnBorderColor;
+				color: text-color($imageBtnBorderColor);
+			}
+		}
+	}
+	/*==========----------==========*/
+	/*         INFO BUTTON          */
+	/*==========----------==========*/
+	&--info {
+		padding: 0.5em 1em;
+		background: bg-color(map-get($bgColors, bodyBg));
+		color: text-color(bg-color(map-get($bgColors, bodyBg)));
 
-        &::before {
-            @include icon(solid, info);
-            margin-right: .5em;
-            vertical-align: bottom;
-        }
+		&::before {
+			@include icon(solid, info);
+			margin-right: 0.5em;
+			vertical-align: bottom;
+		}
 
-        @media (any-hover:hover) {
-            &:hover {
-                background: lighten-or-darken(bg-color(map-get($bgColors, bodyBg)));
-                color: text-color(lighten-or-darken(bg-color(map-get($bgColors, bodyBg))));
-            }
-        }
-    }
+		@media (hover: hover) {
+			&:hover {
+				background: lighten-or-darken(bg-color(map-get($bgColors, bodyBg)));
+				color: text-color(lighten-or-darken(bg-color(map-get($bgColors, bodyBg))));
+			}
+		}
+	}
 }
 
 /*==========----------==========*/
@@ -196,43 +214,43 @@ button,
 /*==========----------==========*/
 
 .toTopBtn {
-    cursor: pointer;
-    width: $socialIconDiam;
-    height: $socialIconDiam;
-    flex-shrink:0;
-    margin-left: 1em;
-    border-radius: 50%;
-    background: map-get($colorScheme, accentColor);
-    color:text-color(map-get($colorScheme, accentColor));
-    position: relative;
-    transition: $transition;
+	cursor: pointer;
+	width: $socialIconDiam;
+	height: $socialIconDiam;
+	flex-shrink: 0;
+	margin-left: 1em;
+	border-radius: 50%;
+	background: map-get($colorScheme, red);
+	color: text-color(map-get($colorScheme, red));
+	position: relative;
+	transition: $transition;
 
-    &:before {
-        @include absolute(center);
-        @include icon(solid, angle-up, block, 20px, 100%);
-    }
-    
-    svg{
-        @include absolute(center);
-        width:$socialIconDiam * .65;
-        height:$socialIconDiam * .65;
-        fill:text-color(map-get($bgColors, darkBg));
+	&:before {
+		@include absolute(center);
+		@include icon(solid, angle-up, block, 20px, 100%);
+	}
 
-        *{
-            fill:inherit;
-        }
-    }
+	svg {
+		@include absolute(center);
+		width: $socialIconDiam * 0.65;
+		height: $socialIconDiam * 0.65;
+		fill: text-color(map-get($bgColors, darkBg));
 
-    @media (any-hover:hover) {
-        &:hover {
-            background: lighten-or-darken(map-get($colorScheme, accentColor));
-            color: text-color(lighten-or-darken(map-get($colorScheme, accentColor)));
+		* {
+			fill: inherit;
+		}
+	}
 
-	        svg{
-                fill: text-color($linkColor);
-            }
-        }
-    }
+	@media (hover: hover) {
+		&:hover {
+			background: lighten-or-darken(map-get($colorScheme, red));
+			color: text-color(lighten-or-darken(map-get($colorScheme, red)));
+
+			svg {
+				fill: text-color($linkColor);
+			}
+		}
+	}
 }
 
 /*==========----------==========*/
@@ -240,33 +258,33 @@ button,
 /*==========----------==========*/
 
 .crossBtn {
-    width: $crossBtnDiam;
-    height: $crossBtnDiam;
-    position: relative;
-    transition: $transition;
+	width: $crossBtnDiam;
+	height: $crossBtnDiam;
+	position: relative;
+	transition: $transition;
 
-    &__bar {
-        $thisBar: &;
+	&__bar {
+		$thisBar: &;
 
-        @include absolute(center);
-        display: block;
-        background: $linkColor;
-        transition: $transition;
+		@include absolute(center);
+		display: block;
+		background: $linkColor;
+		transition: $transition;
 
-        @if ($borderRadius != 0) {
-            border-radius: $borderThickness / 2;
-        }
+		@if ($borderRadius != 0) {
+			border-radius: $borderThickness / 2;
+		}
 
-        &--1{
-            width: 75%;
-            height: $borderThickness;
-        }
+		&--1 {
+			width: 75%;
+			height: $borderThickness;
+		}
 
-        &--2{
-            width: $borderThickness;
-            height: 75%;
-        }
-    }
+		&--2 {
+			width: $borderThickness;
+			height: 75%;
+		}
+	}
 }
 
 /*==========----------==========*/
@@ -274,61 +292,61 @@ button,
 /*==========----------==========*/
 
 .closeBtn {
-    $closeBtn: &;
+	$closeBtn: &;
 
-    cursor: pointer;
-    display: block;
-    width: $crossBtnDiam;
-    height: $crossBtnDiam;
-    flex-shrink:0;
-    border-radius: $borderRadius;
-    background: map-get($colorScheme, accentColor);
-    position: relative;
-    transition: $transition;
+	cursor: pointer;
+	display: block;
+	width: $crossBtnDiam;
+	height: $crossBtnDiam;
+	flex-shrink: 0;
+	border-radius: $borderRadius;
+	background: map-get($colorScheme, red);
+	position: relative;
+	transition: $transition;
 
-    &__bar {
-        $thisBar: &;
+	&__bar {
+		$thisBar: &;
 
-        display: block;
-        width: 75%;
-        height: $borderThickness;
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: text-color(map-get($colorScheme, accentColor));
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transition: $transition;
+		display: block;
+		width: 75%;
+		height: $borderThickness;
+		margin: 0;
+		padding: 0;
+		border: none;
+		background: text-color(map-get($colorScheme, red));
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transition: $transition;
 
-        &--1{
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
+		&--1 {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
 
-        &--2{
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-    }
+		&--2 {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+	}
 
-    &--circle {
-        width: $circleBtnDiam;
-        height: $circleBtnDiam;
-        border-radius: 50%;
+	&--circle {
+		width: $circleBtnDiam;
+		height: $circleBtnDiam;
+		border-radius: 50%;
 
-        #{$closeBtn}__bar {
-            width: 50%;
-        }
-    }
+		#{$closeBtn}__bar {
+			width: 50%;
+		}
+	}
 
-    @media (any-hover:hover) {
-        &:hover {
-            background: $linkColor;
+	@media (hover: hover) {
+		&:hover {
+			background: $linkColor;
 
-            #{$closeBtn}__bar {
-                background: bg-color($linkColor);
-            }
-        }
-    }
+			#{$closeBtn}__bar {
+				background: bg-color($linkColor);
+			}
+		}
+	}
 }
 
 /*==========----------==========*/
@@ -336,128 +354,128 @@ button,
 /*==========----------==========*/
 
 .circleBtn {
-    $circleBtn: &;
+	$circleBtn: &;
 
-    @include circleBtn;
+	@include circleBtn;
 
-    &__bar {
-        display: block;
-        width: 50%;
-        height: 2px;
-        margin: 0;
-        padding: 0;
-        background: text-color(bg-color(map-get($bgColors, bodyBg)));
-        border: none;
-        position: absolute;
-        transition: $transition;
-    }
+	&__bar {
+		display: block;
+		width: 50%;
+		height: 2px;
+		margin: 0;
+		padding: 0;
+		background: text-color(bg-color(map-get($bgColors, bodyBg)));
+		border: none;
+		position: absolute;
+		transition: $transition;
+	}
 
-    @media (any-hover:hover){
-        &:hover{
-            #{$circleBtn}__bar {
-                background: text-color($linkColor);
-            }
-        }
-    }
+	@media (hover: hover) {
+		&:hover {
+			#{$circleBtn}__bar {
+				background: text-color($linkColor);
+			}
+		}
+	}
 
-    /*---------- HOME BUTTON ----------*/
-    &--home {
-        background: bg-color(map-get($bgColors, bodyBg));
+	/*---------- HOME BUTTON ----------*/
+	&--home {
+		background: bg-color(map-get($bgColors, bodyBg));
 
-        &::before {
-            @include iconContent(solid, home);
-        }
-    }
+		&::before {
+			@include iconContent(solid, home);
+		}
+	}
 
-    /*---------- BACK BUTTON ----------*/
-    &--back {
-        background: bg-color(map-get($bgColors, bodyBg));
+	/*---------- BACK BUTTON ----------*/
+	&--back {
+		background: bg-color(map-get($bgColors, bodyBg));
 
-        svg {
-            width: auto;
-            height: 50%;
-        }
+		svg {
+			width: auto;
+			height: 50%;
+		}
 
-        &::before {
-            @include iconContent(solid, angle-left);
-        }
-    }
+		&::before {
+			@include iconContent(solid, angle-left);
+		}
+	}
 
-    /*---------- QUESTION BUTTON ----------*/
-    &--question {
-        width: $circleBtnDiam * .5;
-        height: $circleBtnDiam * .5;
+	/*---------- QUESTION BUTTON ----------*/
+	&--question {
+		width: $circleBtnDiam * 0.5;
+		height: $circleBtnDiam * 0.5;
 
-        &::before {
-            @include iconContent(solid, question-mark);
-            font-size: $circleBtnDiam * .25;
-        }
-    }
+		&::before {
+			@include iconContent(solid, question-mark);
+			font-size: $circleBtnDiam * 0.25;
+		}
+	}
 
-    /*---------- EXPAND BUTTON ----------*/
-    &--expand {
-        width: $circleBtnDiam * .5;
-        height: $circleBtnDiam * .5;
+	/*---------- EXPAND BUTTON ----------*/
+	&--expand {
+		width: $circleBtnDiam * 0.5;
+		height: $circleBtnDiam * 0.5;
 
-        #{$circleBtn}__bar {
-            width: $circleBtnDiam * .25;
-            height: $borderThickness;
-            background: text-color(map-get($bgColors, bodyBg));
-            top:50%;
-            left:50%;
-            transition: $transition;
+		#{$circleBtn}__bar {
+			width: $circleBtnDiam * 0.25;
+			height: $borderThickness;
+			background: text-color(map-get($bgColors, bodyBg));
+			top: 50%;
+			left: 50%;
+			transition: $transition;
 
-            &--1{
-                transform: translate(-50%, -50%);
-            }
+			&--1 {
+				transform: translate(-50%, -50%);
+			}
 
-            &--2{
-                transform: translate(-50%, -50%) rotate(90deg);
-            }
-        }
+			&--2 {
+				transform: translate(-50%, -50%) rotate(90deg);
+			}
+		}
 
-        &.active #{$circleBtn}__bar--2{
-            transform: translate(-50%, -50%);
-        }
-    }
+		&.active #{$circleBtn}__bar--2 {
+			transform: translate(-50%, -50%);
+		}
+	}
 
-    /*---------- ADD & SUBTRACT BUTTONS ----------*/
-    &--add,
-    &--subtract {
-        background: map-get($colorScheme, accentColor);
-        border: none;
-        color: text-color(map-get($colorScheme, accentColor));
-        touch-action: none;
+	/*---------- ADD & SUBTRACT BUTTONS ----------*/
+	&--add,
+	&--subtract {
+		background: map-get($colorScheme, red);
+		border: none;
+		color: text-color(map-get($colorScheme, red));
+		touch-action: none;
 
-        &::before {
-            font-size: $circleBtnDiam * .5;
-        }
+		&::before {
+			font-size: $circleBtnDiam * 0.5;
+		}
 
-        @media (any-hover:hover) {
-            &:hover {
-                background: lighten-or-darken(map-get($colorScheme, accentColor));
-                color: text-color(lighten-or-darken(map-get($colorScheme, accentColor)));
-            }
-        }
-    }
+		@media (hover: hover) {
+			&:hover {
+				background: lighten-or-darken(map-get($colorScheme, red));
+				color: text-color(lighten-or-darken(map-get($colorScheme, red)));
+			}
+		}
+	}
 
-    &--add::before {
-        @include iconContent(solid, plus);
-    }
+	&--add::before {
+		@include iconContent(solid, plus);
+	}
 
-    &--subtract::before {
-        @include iconContent(solid, minus);
-    }
+	&--subtract::before {
+		@include iconContent(solid, minus);
+	}
 
-    /*---------- SMALL CIRCLE BUTTON ----------*/
-    &--small{
-        width:$circleBtnDiam * .65;
-        height:$circleBtnDiam * .65;
+	/*---------- SMALL CIRCLE BUTTON ----------*/
+	&--small {
+		width: $circleBtnDiam * 0.65;
+		height: $circleBtnDiam * 0.65;
 
-        &::before{
-            font-size:$circleBtnDiam * .3;
-        }
-    }
+		&::before {
+			font-size: $circleBtnDiam * 0.3;
+		}
+	}
 }
 
 /*//////////////////////////////////////////////////////*/
@@ -470,24 +488,24 @@ button,
 /*         1000PX WIDTH         */
 /*==========----------==========*/
 
-@media only screen and (max-width:1000px) {
-    .circleBtn--question::before {
-        font-size: $circleBtnDiam * .25;
-    }
+@media only screen and (max-width: 1000px) {
+	.circleBtn--question::before {
+		font-size: $circleBtnDiam * 0.25;
+	}
 }
 
 /*==========----------==========*/
 /*         600PX WIDTH          */
 /*==========----------==========*/
 
-@media only screen and (max-width:600px) {
-    .crossBtn,
-    .closeBtn {
-        width: $crossBtnDiam * .75;
-        height: $crossBtnDiam * .75;
-    }
+@media only screen and (max-width: 600px) {
+	.crossBtn,
+	.closeBtn {
+		width: $crossBtnDiam * 0.75;
+		height: $crossBtnDiam * 0.75;
+	}
 
-    .button--small{
-        padding: .25em .5em;
-    }
+	.button--small {
+		padding: 0.25em 0.5em;
+	}
 }

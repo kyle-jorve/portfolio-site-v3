@@ -5,68 +5,28 @@
 /*//////////////////////////////////////////////////////*/
 
 .header {
-    background: $headerBg;
-    opacity: 1;
-    visibility: visible;
-    padding: 0 1em;
-    position: sticky;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 10;
-    transition: $transition;
+	background: $headerBg;
+	visibility: visible;
+	position: relative;
+	z-index: 100;
 
-    &__row{
-        @include flexWrap(row, nowrap, space-between, stretch);
-    }
+	&__row {
+		@include flexWrap(row, nowrap, space-between, stretch);
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		padding: 0.5em 1em;
+	}
 
-    &__logo {
-        @include flexWrap(column, nowrap, center, stretch);
-        padding:1em 0;
-    }
-
-    &__navWrp {
-        @include flexWrap(column, nowrap, space-between, flex-end);
-    }
-
-    &__navBlock{
-        @include flexWrap(column-reverse, nowrap, space-between, flex-end);
-    }
-
-    &__topBar,
-    &__topNav{
-        position:relative;
-    }
-
-    &__topBar {
-        z-index: 2;
-    }
-
-    &__topNav{
-        z-index:1;
-    }
-
-    &--fixed{
-        position:fixed;
-    }
-
-    &--gradientBg{
-        @include gradient(($headerBg, $headerBg, rgba($headerBg, 0)), vertical);
-        position:fixed;
-        background-size:100% 300%;
-        background-repeat: no-repeat;
-        background-position:center 100%;
-    }
+	&__logo {
+		@include flexWrap(column, nowrap, center, stretch);
+	}
 }
 
 /*==========----------==========*/
 /*        SCROLLED STYLES       */
 /*==========----------==========*/
-
-.scrolled .header--gradientBg{
-    background-position:center 0;
-}
-
 
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
@@ -75,76 +35,5 @@
 /*//////////////////////////////////////////////////////*/
 
 /*==========----------==========*/
-/*     $navBreakpoint WIDTH     */
+/*            QUERY             */
 /*==========----------==========*/
-@media only screen and (max-width:$navBreakpoint) {
-    .header {
-        position:fixed;
-
-        &__row {
-            padding: 1em 0;
-        }
-
-        &__logo {
-            padding: 0;
-            position: relative;
-            z-index: 101;
-        }
-
-        &__navWrp {
-            display:block;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            background: $mobileNavBg;
-            max-height:100vh;
-            overflow-x:hidden;
-            overflow-y:auto;
-            -webkit-overflow-scrolling:touch;
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            transition: $longTransition;
-        }
-
-        &__navBlock{
-            display:block;
-            padding:6em 0 40vh 0;
-            position:relative;
-            z-index:1;
-        }
-
-        &__topBar {
-            position: static;
-        }
-    }
-
-    //======---- nav revealed ----======//
-    .showMobileNav .header {
-        &__logo,
-        &__navWrp {
-            pointer-events: auto;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        &__logo {
-            svg {
-                fill: text-color($mobileNavBg);
-            }
-        }
-    }
-}
-
-
-/*==========----------==========*/
-/*         $phone WIDTH         */
-/*==========----------==========*/
-@media only screen and (max-width:$phone) {
-    .header {
-        background:none;
-    }
-}
