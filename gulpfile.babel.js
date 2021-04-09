@@ -13,8 +13,8 @@ const mode = require('gulp-mode')({
 const rename = require('gulp-rename');
 
 const config = {
-	scripts: 'src/scripts/**/*.js',
-	sass: 'src/sass/**/*.scss'
+	scripts: '/src/scripts/**/*.js',
+	sass: '/src/sass/**/*.scss'
 };
 
 const watchSource = {
@@ -23,9 +23,9 @@ const watchSource = {
 };
 
 const delConfig = {
-	all: ['dist/scripts/*.js', 'dist/styles/*.css'],
-	scripts: 'dist/scripts/*.js',
-	css: 'dist/styles/*.css'
+	all: ['/dist/scripts/*.js', '/dist/styles/*.css'],
+	scripts: '/dist/scripts/*.js',
+	css: '/dist/styles/*.css'
 };
 
 const build = gulp.series(cleanAll(), gulp.parallel(buildScripts, buildStyles), cb => {
@@ -56,7 +56,7 @@ function buildScripts() {
 				path.dirname = '';
 			})
 		)
-		.pipe(gulp.dest('dist/scripts'));
+		.pipe(gulp.dest('/dist/scripts'));
 }
 
 function buildStyles() {
@@ -71,7 +71,7 @@ function buildStyles() {
 			)
 		)
 		.pipe(concat('bundle.min.css'))
-		.pipe(gulp.dest('dist/styles'));
+		.pipe(gulp.dest('/dist/styles'));
 }
 
 function complete(cb) {

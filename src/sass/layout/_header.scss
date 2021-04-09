@@ -5,10 +5,7 @@
 /*//////////////////////////////////////////////////////*/
 
 .header {
-	background: $headerBg;
-	visibility: visible;
 	position: relative;
-	z-index: 100;
 
 	&__row {
 		@include flexWrap(row, nowrap, space-between, stretch);
