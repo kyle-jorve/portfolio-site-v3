@@ -11,7 +11,8 @@ $colorScheme: (
 	coolWhite: map-get($coolGrays, coolGray1),
 	coolBlack: map-get($coolGrays, coolGray9),
 	yellow: #f4ce56,
-	red: #ff5652
+	red: #ff5652,
+	violet: #f027ee
 );
 
 /*Background Colors*/
@@ -205,11 +206,6 @@ $boxBg: rgba(map-get($bgColors, lightBg), 0.6);
 /*//////////////////////////////////////////////////////*/
 
 /*===========================
-    Header
-===========================*/
-$headerBg: transparent;
-
-/*===========================
     Hero
 ===========================*/
 $heroHeight: 47vw;
@@ -219,6 +215,7 @@ $shortHeroHeight: 25vw;
     Nav
 ===========================*/
 $navBtnDiam: 60px;
+$navBtnBlockDiam: 5px;
 
 $socialIconDiam: 40px;
 

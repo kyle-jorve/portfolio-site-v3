@@ -5,7 +5,12 @@
 /*//////////////////////////////////////////////////////*/
 
 .header {
-	position: relative;
+	pointer-events: none;
+
+	a,
+	button {
+		pointer-events: all;
+	}
 
 	&__row {
 		@include flexWrap(row, nowrap, space-between, stretch);
@@ -13,6 +18,7 @@
 		top: 0;
 		right: 0;
 		left: 0;
+		z-index: 100;
 		padding: 0.5em 1em;
 	}
 

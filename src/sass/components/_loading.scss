@@ -15,7 +15,7 @@
 	bottom: 0;
 	left: 0;
 	z-index: 1000;
-	transition: $transition;
+	transition: opacity $transitionAppendix;
 
 	&__circle {
 		width: 4em;

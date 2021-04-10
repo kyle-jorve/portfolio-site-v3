@@ -11,8 +11,14 @@ function buildHeader(dataSrc) {
 			data = {
 				nav: d.nav,
 				mobileNav: d.mobileNav,
-				social: [...d.socialIcons.standard, ...d.socialIcons.commerce]
+				social: [...d.socialIcons.standard, ...d.socialIcons.commerce],
+				recentWorkLimit: d.recentWorkLimit
 			};
+
+			return global.fetchFn(global.dataLoc.portfolio);
+		})
+		.then(d => {
+			data.recentWork = d.items.slice(0, data.recentWorkLimit);
 
 			return global.fetchFn(dataSrc);
 		})
@@ -25,7 +31,7 @@ function buildHeader(dataSrc) {
 				}
 			}
 
-			template = Handlebars.templates.header(data);
+			template = Handlebars.templates[global.templateSources.header](data);
 
 			global.els.header.insertAdjacentHTML('afterbegin', template);
 		})

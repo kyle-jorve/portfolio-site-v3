@@ -1,13 +1,13 @@
 {
 	"url": "/cv/",
 	"title": "Bio",
-	"pageIcon": "/src/media/icons/cv-icon.svg",
+	"pageIcon": "/dist/media/icons/cv-icon.svg",
 	"seo": {
 		"canon": "cv",
 		"metaTitle": "Resume and Bio, CV"
 	},
 	"heroImg": {
-		"url": "/src/media/images/portrait-square.jpeg",
+		"url": "/dist/media/images/portrait-square.jpeg",
 		"alt": "A photograph of Kyle Jorve smiling at the camera, a blurred scene of lush plant life behind him"
 	},
 	"bio": {
@@ -16,7 +16,7 @@
 	},
 	"resume": {
 		"title": "R&eacute;sum&eacute;",
-		"docUrl": "/src/media/documents/resume.pdf",
+		"docUrl": "/dist/media/documents/resume.pdf",
 		"btnText": "Download",
 		"items": [
 			{

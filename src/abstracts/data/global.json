@@ -1,14 +1,15 @@
 {
-	"logo": "/src/media/icons/logo-circle-icon.svg",
-	"logoIcon": "/src/media/icons/logo-circle.svg",
+	"logo": "/dist/media/icons/logo-circle-icon.svg",
+	"logoIcon": "/dist/media/icons/logo-circle.svg",
 	"email": "kyle@kylejorve.com",
 	"siteUrl": "https://kylejorve.com",
 	"seo": {
 		"canon": "https://kylejorve.com/",
 		"metaTitle": "Kyle Jorve | Art, Illustration, and Design",
 		"metaDesc": "Kyle Jorve is an illustrator, designer, writer, and front end developer working primarily in the genres of fantasy and science fiction",
-		"metaImage": "/src/media/portfolio/pendrakes-chamber/Kyle-Jorve_pendrakes-chamber_FINAL.jpg"
+		"metaImage": "/dist/media/portfolio/pendrakes-chamber/Kyle-Jorve_pendrakes-chamber_FINAL.jpg"
 	},
+	"recentWorkLimit": 3,
 	"nav": [
 		{
 			"pageName": "Home",
@@ -33,13 +34,13 @@
 		{
 			"pageName": "CV and Bio",
 			"url": "/cv/",
-			"icon": "/src/media/icons/cv-icon.svg",
+			"icon": "/dist/media/icons/cv-icon.svg",
 			"alt": "Icon for Bio page"
 		},
 		{
 			"pageName": "Portfolio",
 			"url": "/portfolio/",
-			"icon": "/src/media/icons/portfolio-icon.svg",
+			"icon": "/dist/media/icons/portfolio-icon.svg",
 			"alt": "Icon for Portfolio page"
 		}
 	],
@@ -82,5 +83,5 @@
 		]
 	},
 	"copyright": "<p>&copy; Copyright 2018-[[year]] Kyle Jorve. All rights reserved.<br>Website designed and built by Kyle Jorve.</p>",
-	"ieWarning": "<h2>Whoa There</h2><p class=\"largeText\">The browser you're using is unsupported.</p><p>In fact, it probably won't work with this site at all. The following browsers are recommended:</p><div class=\"buttonWrp buttonWrp--center buttonWrp--imgBtns\"><a rel=\"nofollow noreferrer noopener\" href=\"https://www.google.com/chrome/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/src/media/icons/chrome-logo.png\" alt=\"Google Chrome Logo\" /><span class=\"button__text button__text--img\">Chrome</span></a><a rel=\"nofollow noreferrer noopener\" href=\"https://www.mozilla.org/en-US/firefox/new/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/src/media/icons/firefox-logo.png\" alt=\"Firefox Logo\" /><span class=\"button__text button__text--img\">Firefox</span></a></div>"
+	"ieWarning": "<h2>Whoa There</h2><p class=\"largeText\">The browser you're using is unsupported.</p><p>In fact, it probably won't work with this site at all. The following browsers are recommended:</p><div class=\"buttonWrp buttonWrp--center buttonWrp--imgBtns\"><a rel=\"nofollow noreferrer noopener\" href=\"https://www.google.com/chrome/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/dist/media/icons/chrome-logo.png\" alt=\"Google Chrome Logo\" /><span class=\"button__text button__text--img\">Chrome</span></a><a rel=\"nofollow noreferrer noopener\" href=\"https://www.mozilla.org/en-US/firefox/new/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/dist/media/icons/firefox-logo.png\" alt=\"Firefox Logo\" /><span class=\"button__text button__text--img\">Firefox</span></a></div>"
 }

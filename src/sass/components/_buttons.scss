@@ -14,13 +14,10 @@ button {
 	padding: 0;
 	margin: 0;
 	border: none;
-	background: $linkColor;
-	font-family: $buttonFont;
-	font-weight: $buttonFontWeight;
-	font-size: $buttonFontSize;
-	letter-spacing: $buttonLetterSpacing;
-	line-height: $buttonLineHeight;
-	color: $lightTextColor;
+	background: none;
+	font: inherit;
+	color: $linkColor;
+	font-weight: $primaryBold;
 
 	&:focus {
 		outline: none;
@@ -220,10 +217,10 @@ button {
 	flex-shrink: 0;
 	margin-left: 1em;
 	border-radius: 50%;
-	background: map-get($colorScheme, red);
+	background-color: map-get($colorScheme, red);
 	color: text-color(map-get($colorScheme, red));
 	position: relative;
-	transition: $transition;
+	transition: background-color $transitionAppendix, color $transitionAppendix;
 
 	&:before {
 		@include absolute(center);
@@ -235,6 +232,7 @@ button {
 		width: $socialIconDiam * 0.65;
 		height: $socialIconDiam * 0.65;
 		fill: text-color(map-get($bgColors, darkBg));
+		transition: fill $transitionAppendix;
 
 		* {
 			fill: inherit;
@@ -243,46 +241,12 @@ button {
 
 	@media (hover: hover) {
 		&:hover {
-			background: lighten-or-darken(map-get($colorScheme, red));
+			background-color: lighten-or-darken(map-get($colorScheme, red));
 			color: text-color(lighten-or-darken(map-get($colorScheme, red)));
 
 			svg {
 				fill: text-color($linkColor);
 			}
-		}
-	}
-}
-
-/*==========----------==========*/
-/*         CROSS BUTTON         */
-/*==========----------==========*/
-
-.crossBtn {
-	width: $crossBtnDiam;
-	height: $crossBtnDiam;
-	position: relative;
-	transition: $transition;
-
-	&__bar {
-		$thisBar: &;
-
-		@include absolute(center);
-		display: block;
-		background: $linkColor;
-		transition: $transition;
-
-		@if ($borderRadius != 0) {
-			border-radius: $borderThickness / 2;
-		}
-
-		&--1 {
-			width: 75%;
-			height: $borderThickness;
-		}
-
-		&--2 {
-			width: $borderThickness;
-			height: 75%;
 		}
 	}
 }
@@ -300,9 +264,9 @@ button {
 	height: $crossBtnDiam;
 	flex-shrink: 0;
 	border-radius: $borderRadius;
-	background: map-get($colorScheme, red);
+	background-color: map-get($colorScheme, red);
 	position: relative;
-	transition: $transition;
+	transition: background-color $transitionAppendix;
 
 	&__bar {
 		$thisBar: &;
@@ -313,11 +277,11 @@ button {
 		margin: 0;
 		padding: 0;
 		border: none;
-		background: text-color(map-get($colorScheme, red));
+		background-color: text-color(map-get($colorScheme, red));
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transition: $transition;
+		transition: background-color $transitionAppendix;
 
 		&--1 {
 			transform: translate(-50%, -50%) rotate(-45deg);
@@ -340,10 +304,10 @@ button {
 
 	@media (hover: hover) {
 		&:hover {
-			background: $linkColor;
+			background-color: $linkColor;
 
 			#{$closeBtn}__bar {
-				background: bg-color($linkColor);
+				background-color: bg-color($linkColor);
 			}
 		}
 	}
@@ -364,16 +328,16 @@ button {
 		height: 2px;
 		margin: 0;
 		padding: 0;
-		background: text-color(bg-color(map-get($bgColors, bodyBg)));
+		background-color: text-color(bg-color(map-get($bgColors, bodyBg)));
 		border: none;
 		position: absolute;
-		transition: $transition;
+		transition: background-color $transitionAppendix, color $transitionAppendix;
 	}
 
 	@media (hover: hover) {
 		&:hover {
 			#{$circleBtn}__bar {
-				background: text-color($linkColor);
+				background-color: text-color($linkColor);
 			}
 		}
 	}
@@ -423,7 +387,7 @@ button {
 			background: text-color(map-get($bgColors, bodyBg));
 			top: 50%;
 			left: 50%;
-			transition: $transition;
+			transition: transform $transitionAppendix;
 
 			&--1 {
 				transform: translate(-50%, -50%);
@@ -442,7 +406,7 @@ button {
 	/*---------- ADD & SUBTRACT BUTTONS ----------*/
 	&--add,
 	&--subtract {
-		background: map-get($colorScheme, red);
+		background-color: map-get($colorScheme, red);
 		border: none;
 		color: text-color(map-get($colorScheme, red));
 		touch-action: none;
@@ -453,7 +417,7 @@ button {
 
 		@media (hover: hover) {
 			&:hover {
-				background: lighten-or-darken(map-get($colorScheme, red));
+				background-color: lighten-or-darken(map-get($colorScheme, red));
 				color: text-color(lighten-or-darken(map-get($colorScheme, red)));
 			}
 		}

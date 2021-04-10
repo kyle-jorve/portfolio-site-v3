@@ -537,30 +537,25 @@ hr {
 .flexLine {
 	@include flexWrap(row, nowrap, flex-start, center);
 
-	&__content,
-	&__line {
+	&::before,
+	&::after {
 		display: block;
-	}
-
-	&__line {
-		flex: 1 1 auto;
+		content: '';
 		height: $borderThickness;
-		background: $lightBorderColor;
-		margin: 0 1em;
-
-		&:first-child {
-			margin-left: 0;
-		}
-
-		&:last-child {
-			margin-right: 0;
-		}
+		background: $lightTextColor;
+		flex-grow: 1;
+		flex-shrink: 0;
 	}
 
-	&__content {
-		flex: 0 1 auto;
+	&::before {
+		margin-right: 1em;
+	}
+
+	&::after {
+		margin-left: 1em;
 	}
 }
+
 /*===========================
     Animated Elements
 ===========================*/
@@ -568,13 +563,13 @@ hr {
 	opacity: 0;
 	visibility: hidden;
 	position: relative;
-	top: 40px;
-	transition: $transition;
+	transform: translateY(40px);
+	transition: transform $transitionAppendix, opacity $transitionAppendix;
 
 	&.animate {
 		opacity: 1;
 		visibility: visible;
-		top: 0;
+		transform: none;
 	}
 }
 

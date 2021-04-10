@@ -14,7 +14,7 @@ global
 			copyright: d.copyright.replace(yearToken, curYear)
 		};
 
-		template = Handlebars.templates.footer(data);
+		template = Handlebars.templates[global.templateSources.footer](data);
 
 		global.els.footer.insertAdjacentHTML('afterbegin', template);
 	})

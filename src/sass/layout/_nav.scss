@@ -7,15 +7,27 @@
 $nav: '.nav';
 
 #{$nav} {
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
+	// opacity: 0;
+	// visibility: hidden;
+	// pointer-events: none;
+	pointer-events: all;
+	max-height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	color: $lightTextColor;
+	text-align: center;
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 99;
+	z-index: 98;
+
+	&__wrp {
+		@include gradient(($mobileNavBg, #e83477), vertical);
+		min-height: 100vh;
+		padding: 8em 2em 2em 2em;
+	}
 
 	&__ul,
 	&__li {
@@ -26,163 +38,8 @@ $nav: '.nav';
 	}
 
 	&__ul {
-		@include flexWrap(row, nowrap, flex-start, center);
-
-		&--subnav {
-			display: block;
-			pointer-events: none;
-			opacity: 0;
-			visibility: hidden;
-			min-width: 150px;
-			padding-top: 0.5em;
-			border-radius: $borderRadius;
-			overflow: hidden;
-			position: absolute;
-			left: 50%;
-			bottom: -1em;
-			z-index: 1;
-			transition: $transition;
-			transform: translate(-50%, 100%);
-
-			&Right {
-				left: auto;
-				right: 0;
-				transform: translateY(100%);
-
-				#{$nav}__li--subnav {
-					text-align: right;
-				}
-			}
-
-			&Left {
-				left: 0;
-				transform: translateY(100%);
-
-				#{$nav}__li--subnav {
-					text-align: left;
-				}
-			}
-		}
-	}
-
-	&__a {
-		opacity: 1;
-		display: block;
-		text-decoration: none;
-		color: inherit;
-		position: relative;
-		z-index: 2;
-
-		@media (any-hover: hover) {
-			&:hover {
-				opacity: 1 !important;
-				color: $linkColor;
-				text-decoration: none;
-			}
-		}
-
-		&--subnav {
-			opacity: 1;
-			padding: 1em;
-			color: inherit;
-
-			#{$nav}__text::before {
-				display: none !important;
-			}
-
-			@media (any-hover: hover) {
-				&:hover {
-					color: inherit;
-				}
-			}
-		}
-	}
-
-	&__li {
-		$li: &;
-
-		text-align: center;
-		position: relative;
-		transition: $transition;
-
-		&--current {
-			& > #{$nav}__a {
-				opacity: 1 !important;
-
-				#{$nav}__text::before {
-					display: block;
-				}
-			}
-		}
-
-		&--home {
-			display: none;
-		}
-
-		&--subnav {
-			background: bg-color($headerBg);
-			color: text-color(bg-color($headerBg));
-			transition: $transition;
-
-			&:first-child {
-				border-top-left-radius: $borderRadius;
-				border-top-right-radius: $borderRadius;
-			}
-
-			&:last-child {
-				border-bottom-left-radius: $borderRadius;
-				border-bottom-right-radius: $borderRadius;
-			}
-
-			@media (any-hover: hover) {
-				&:hover {
-					background: $linkColor;
-					color: text-color($linkColor);
-				}
-			}
-
-			&#{$li}--current {
-				background: $linkColor;
-				color: text-color($linkColor);
-			}
-		}
-
-		&--hasSubnav {
-			&::before {
-				@include absolute(center-horizontal);
-				pointer-events: none;
-				opacity: 0;
-				display: block;
-				content: '';
-				width: 1em;
-				height: 1em;
-				border: 0.5em solid transparent;
-				border-bottom-color: $linkColor;
-				bottom: -1.5em;
-				transition: $transition;
-			}
-
-			&Right::before {
-				left: auto;
-				right: 2em;
-				transform: none;
-			}
-
-			&Left::before {
-				left: 2em;
-				transform: none;
-			}
-
-			@media (any-hover: hover) {
-				&:hover {
-					@include activeSubnav;
-				}
-			}
-
-			&.active {
-				@include activeSubnav;
-			}
-		}
+		@include flexWrap(column, nowrap, flex-start, center);
+		margin-bottom: 4em;
 	}
 
 	&__text {
@@ -192,46 +49,44 @@ $nav: '.nav';
 
 		&::before {
 			@include absolute(center-horizontal);
-			display: none;
-			opacity: 1;
+			opacity: 0;
 			content: '';
-			width: 100%;
-			height: $borderThickness;
-			background: text-color($headerBg);
-			bottom: -0.5rem;
-			transition: $transition;
+			width: $navBtnBlockDiam;
+			height: $navBtnBlockDiam;
+			background: $lightTextColor;
+			border-radius: 50%;
+			bottom: -0.5em;
+			transform: translate(-50%, 0.5em);
+			transition: transform $transitionAppendix, opacity $transitionAppendix;
 		}
 	}
 
-	&__expandBtn {
-		@include circleBtn;
-		display: none;
-		width: $circleBtnDiam * 0.65;
-		height: $circleBtnDiam * 0.65;
-		flex-shrink: 0;
-		border: $borderThickness solid text-color($mobileNavBg);
-		transform: none;
-		transition: $transition;
+	&__a {
+		@include heading();
+		opacity: 0.65;
+		display: block;
+		padding: 1em;
+		margin: 0;
+		text-decoration: none;
+		color: inherit;
+		font-size: $largeFontSize;
+		transition: opacity $transitionAppendix;
 
-		&::before {
-			@include iconContent(solid, plus);
-			font-size: $circleBtnDiam * 0.3;
-		}
-
-		&.active {
-			background: text-color($mobileNavBg);
-			color: $mobileNavBg;
-			transform: rotate(45deg);
+		@media (hover: hover) {
+			&:hover {
+				@include activeNavItem();
+				color: inherit;
+				text-decoration: none;
+				background: none;
+			}
 		}
 	}
 
-	@media (any-hover: none) {
-		&__parentRow {
-			@include flexWrap(row, nowrap, flex-start, center);
-		}
+	&__li {
+		position: relative;
 
-		&__expandBtn {
-			display: block;
+		&--current > #{$nav}__a {
+			@include activeNavItem();
 		}
 	}
 
@@ -254,18 +109,6 @@ $nav: '.nav';
 		position: relative;
 		transition: background-color $longTransitionDur $transitionEase;
 
-		/*-- hover --*/
-		@media (any-hover: hover) {
-			&:hover {
-				background-color: lighten($linkColor, 5%);
-			}
-		}
-
-		/*-- active --*/
-		&.active {
-			background-color: text-color($mobileNavBg);
-		}
-
 		&Blocks {
 			@include absolute(center);
 			display: grid;
@@ -277,26 +120,35 @@ $nav: '.nav';
 		}
 
 		&Block {
-			opacity: 1;
-			width: 5px;
-			height: 5px;
+			width: $navBtnBlockDiam;
+			height: $navBtnBlockDiam;
 			border-radius: 50%;
 			background: $lightTextColor;
-			transition: opacity $transitionAppendix;
+
+			&--disapparate {
+				opacity: 1;
+				transition: opacity $longTransitionDur $transitionEase;
+			}
 		}
 
 		/*-- hover --*/
-		@media (any-hover: hover) {
+		@media (hover: hover) {
 			&:hover {
-				&Block {
-					background: text-color(lighten-or-darken($linkColor));
-				}
+				background-color: lighten($linkColor, 5%);
 			}
 		}
 
 		/*-- active --*/
-		&.active #{$navBtn}Block {
-			background-color: $mobileNavBg;
+		&.active {
+			background-color: map-get($bgColors, lightBg);
+
+			#{$navBtn}Block {
+				background-color: $mobileNavBg;
+
+				&--disapparate {
+					opacity: 0;
+				}
+			}
 		}
 	}
 }
@@ -308,7 +160,7 @@ $nav: '.nav';
 	position: fixed;
 	top: 0;
 	right: 0;
-	z-index: 100;
+	z-index: 99;
 	transition: box-shadow $longTransitionDur $transitionEase, background-color $longTransitionDur $transitionEase;
 
 	&__item {
@@ -417,7 +269,7 @@ $nav: '.nav';
 			display: block;
 		}
 
-		@media (any-hover: hover) {
+		@media (hover: hover) {
 			&:hover {
 				#{$nav}__a {
 					opacity: 1;
@@ -438,9 +290,9 @@ $nav: '.nav';
 				display: inline-block;
 				color: text-color($mobileNavBg);
 
-				@media (any-hover: hover) {
+				@media (hover: hover) {
 					&:hover {
-						@include activeMobileNavItem;
+						@include activeNavItem;
 					}
 				}
 			}
@@ -472,7 +324,7 @@ $nav: '.nav';
 
 				&--current {
 					& > #{$nav}__a {
-						@include activeMobileNavItem;
+						@include activeNavItem;
 					}
 				}
 

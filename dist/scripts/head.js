@@ -69,7 +69,7 @@ function buildHead(dataSrc = false, augData = false) {
 		})
 		.catch(err => console.warn(err))
 		.finally(() => {
-			template = Handlebars.templates.head(data);
+			template = Handlebars.templates[global.templateSources.head](data);
 
 			global.els.head.insertAdjacentHTML('afterbegin', template);
 		});

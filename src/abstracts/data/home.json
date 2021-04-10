@@ -4,11 +4,11 @@
 		"alt": "Pendrake's Chamber, an isometric illustration of a medieval fantasy bedroom by Kyle Jorve",
 		"sources": [
 			{
-				"url": "/src/media/images/home-hero-alt.jpeg",
+				"url": "/dist/media/images/home-hero-alt.jpeg",
 				"minScreenWidth": "640px"
 			},
 			{
-				"url": "/src/media/images/mobile-home-hero-alt.jpeg"
+				"url": "/dist/media/images/mobile-home-hero-alt.jpeg"
 			}
 		]
 	},
@@ -23,8 +23,8 @@
 	},
 	"bio": {
 		"img": {
-			"desktop": "/src/media/images/portrait.jpeg",
-			"mobile": "/src/media/images/portrait-square.jpeg",
+			"desktop": "/dist/media/images/portrait.jpeg",
+			"mobile": "/dist/media/images/portrait-square.jpeg",
 			"alt": "A photograph of Kyle Jorve smiling at the camera, a blurred scene of lush plant life behind him"
 		}
 	}

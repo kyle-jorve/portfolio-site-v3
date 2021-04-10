@@ -313,31 +313,12 @@
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
 
-@mixin activeSubnav {
-	$nav: '.nav';
-
-	&::before {
-		opacity: 1;
-		bottom: -0.5em;
-	}
-
-	#{$nav}__a {
-		opacity: 1;
-	}
-
-	#{$nav}__ul--subnav {
-		pointer-events: auto;
-		opacity: 1;
-		visibility: visible;
-		bottom: 0;
-	}
-}
-
-@mixin activeMobileNavItem {
-	color: text-color($mobileNavBg);
+@mixin activeNavItem {
+	opacity: 1;
 
 	.nav__text::before {
-		width: 100%;
+		opacity: 1;
+		transform: translateX(-50%);
 	}
 }
 
@@ -346,171 +327,6 @@
 /*//                   COMPONENTS                     //*/
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
-
-@mixin label {
-	display: block;
-	margin-bottom: 0.25em;
-	font-size: $inputLabelFontSize;
-	font-family: $inputLabelFont;
-	font-weight: $inputLabelWeight;
-	text-transform: $inputLabelTextTrans;
-
-	&.input__label--check,
-	&.input__label--radio,
-	&.form__label--check,
-	&.form__label--radio {
-		cursor: pointer;
-		display: inline-block;
-		margin-bottom: 0;
-		margin-left: 0.5rem;
-	}
-
-	&.input__label--checkboxHeading,
-	&.input__label--file,
-	&.form__label--checkboxHeading,
-	&.form__label--file {
-		font-size: $largeFontSize;
-		font-weight: $primaryBold;
-		margin-bottom: 0.25em;
-	}
-
-	&.input__label--helpTextFollows,
-	&.form__label--helpTextFollows {
-		margin-bottom: 0;
-	}
-}
-
-@mixin inputError {
-	border: $errorBorder;
-	background-color: $errorBg;
-	color: $errorTextColor;
-}
-
-@mixin date {
-	background-image: url('/images/calendar-icon.svg');
-	background-size: auto 1em;
-	background-repeat: no-repeat;
-	background-position: calc(100% - 1em) center;
-	padding-right: 36px;
-}
-
-@mixin search {
-	background-image: url('/images/search-icon.svg');
-	background-size: auto 1em;
-	background-repeat: no-repeat;
-	background-position: calc(100% - 1em) center;
-	padding-right: 36px;
-}
-
-@mixin select {
-	background-image: url('/images/caret-down.svg');
-	background-repeat: no-repeat;
-	background-position: calc(100% - 1em) center;
-	background-size: 10px auto;
-	padding-right: 36px;
-}
-
-@mixin option {
-	background: map-get($bgColors, lightBg);
-	color: $darkTextColor;
-}
-
-@mixin textarea {
-	height: auto;
-	resize: none;
-	min-height: 10em;
-}
-
-@mixin checkbox {
-	cursor: pointer;
-	width: 16px;
-	height: 16px;
-	padding: 0;
-	background: none;
-	border: $checkboxBorder;
-	background: none;
-
-	@if ($inputBorderRadius > 0 or $inputBorderRadius != 0) {
-		border-radius: 4px;
-	}
-
-	&:checked {
-		background-image: url('/images/check-mark.svg');
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: 100% auto;
-		background-color: $linkColor;
-		border-color: $linkColor;
-	}
-
-	&.input-validation-error,
-	&.error {
-		@include inputError;
-	}
-}
-
-@mixin radio {
-	cursor: pointer;
-	width: 16px;
-	height: 16px;
-	padding: 0;
-	background: none;
-	border: $checkboxBorder;
-	border-radius: 50%;
-	background: none;
-
-	&:checked {
-		background: $linkColor;
-		border-color: $linkColor;
-	}
-
-	&.input-validation-error,
-	&.error {
-		@include inputError;
-	}
-}
-
-@mixin input {
-	display: block;
-	appearance: none;
-	width: 100%;
-	padding: 1em;
-	background-color: $inputBg;
-	border: $inputBorder;
-	border-radius: $inputBorderRadius;
-	font-family: $inputFont;
-	font-size: 16px;
-	color: $inputTextColor;
-	font-weight: $inputTextWeight;
-	letter-spacing: $inputLetterSpacing;
-	position: relative;
-	z-index: 1;
-	transition: $transition;
-
-	&.error,
-	&.input-validation-error {
-		@include inputError;
-	}
-
-	&[readonly],
-	&[disabled] {
-		background-color: $readOnlyInputBg;
-		border: $readOnlyInputBorder;
-		color: $readOnlyInputColor;
-	}
-
-	&:focus {
-		outline: none;
-		border-color: $inputFocusBorderColor;
-		box-shadow: 0 0 ($medShadowOffset * 2) rgba($linkColor, 0.35);
-
-		&[readonly],
-		&[disabled] {
-			border-color: $readOnlyInputBorderColor;
-			box-shadow: none;
-		}
-	}
-}
 
 @mixin tooltipReveal {
 	$tooltip: '.tooltip';
@@ -552,7 +368,7 @@
 	font-size: $fontSize;
 	font-weight: $buttonFontWeight;
 	line-height: $buttonLineHeight;
-	transition: $transition;
+	transition: background-color $transitionAppendix;
 	appearance: none;
 	position: relative;
 	z-index: 1;
@@ -579,7 +395,7 @@
 	flex-shrink: 0;
 	border-radius: 50%;
 	position: relative;
-	transition: $transition;
+	transition: background-color $transitionAppendix, border-color $transitionAppendix, color $transitionAppendix;
 
 	&::before,
 	svg {
@@ -594,7 +410,7 @@
 		width: $circleBtnDiam * 0.5;
 		height: $circleBtnDiam * 0.5;
 		fill: text-color(bg-color(map-get($bgColors, bodyBg)));
-		transition: $transition;
+		transition: fill $transitionAppendix;
 
 		* {
 			fill: inherit;
@@ -603,7 +419,7 @@
 
 	@media (hover: hover) {
 		&:hover {
-			background: $linkColor;
+			background-color: $linkColor;
 			border-color: $linkColor;
 			color: text-color($linkColor);
 

@@ -1,0 +1,62 @@
+<div class="header__row">
+    <a class="header__logo logo" href="/">
+        <img class="logo__img" src="/dist/media/icons/logo-circle.svg" alt="Kyle Jorve logo">
+    </a>
+</div>
+
+<div class="mobileNav">
+    {{#each mobileNav}}
+        <a class="mobileNav__item" href="{{this.url}}">
+            <img class="mobileNav__icon" src="{{this.icon}}" alt="{{this.alt}}">
+            <span class="mobileNav__label">{{this.pageName}}</span>
+        </a>
+    {{/each}}
+
+    <button class="nav__button" id="navBtn">
+        <div class="nav__buttonBlocks">
+            <span class="nav__buttonBlock"></span>
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
+            <span class="nav__buttonBlock"></span>
+
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
+            <span class="nav__buttonBlock"></span>
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
+
+            <span class="nav__buttonBlock"></span>
+            <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
+            <span class="nav__buttonBlock"></span>
+        </div>
+    </button>
+</div>
+
+<nav class="nav">
+    <div class="nav__wrp">
+        <ul class="nav__ul">
+            {{#each nav}}
+                <li class="nav__li{{#if this.currentPage}} nav__li--current{{/if}}">
+                    <a class="nav__a" href="{{this.url}}"{{#if this.target}} target="{{this.target}}"{{/if}}{{#if this.rel}} rel="{{this.rel}}"{{/if}}>
+                        <span class="nav__text">{{this.pageName}}</span>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+
+        <section class="recentWork">
+            <div class="wrapper wrapper--section">
+                <h2 class="flexLine">Recent Work</h2>
+
+                <div class="portfolio__grid portfolio__grid--nav">
+                    {{#each recentWork}}
+                        {{{printPortfolioItem this}}}
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+
+        <div class="social social--header">
+            {{#each social}}
+                {{{printSocialIcon this}}}
+            {{/each}}
+        </div>
+    </div>
+</nav>
