@@ -1,4 +1,4 @@
-import { global } from './global.js';
+import { global } from '/dist/scripts/global.js';
 
 const seoProps = {
 	canonicalUrl: 'canon',

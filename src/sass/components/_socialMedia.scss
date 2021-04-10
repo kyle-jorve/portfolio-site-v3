@@ -5,38 +5,23 @@
 /*//////////////////////////////////////////////////////*/
 
 .social {
-	&__ul,
-	&__li {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+	$social: &;
 
-	&__ul {
-		@include flexWrap(row, wrap, center, center);
+	@include flexWrap(row, wrap, center, center);
+	padding: 2em 0;
+	margin-top: 1em;
 
-		&--justifyLeft {
-			justify-content: flex-start;
-		}
-
-		&--justifyRight {
-			justify-content: flex-end;
-		}
-	}
-
-	&__li {
+	&__item {
 		display: block;
-		margin: 0.75em;
-	}
-
-	&__icon {
 		width: $socialIconDiam;
 		height: $socialIconDiam;
 		border-radius: 50%;
 		background-color: $linkColor;
 		padding: 0;
+		margin: 0.5em;
 		text-decoration: none;
-		color: text-color($linkColor);
+		color: $lightTextColor;
+		position: relative;
 		transition: background-color $transitionAppendix, color $transitionAppendix;
 
 		&::before {
@@ -44,9 +29,21 @@
 			font-size: $socialIconDiam * 0.5;
 		}
 
+		svg {
+			@include absolute(center);
+			width: $socialIconDiam * 0.5;
+			height: $socialIconDiam * 0.5;
+			fill: $lightTextColor;
+			transition: fill $transitionAppendix;
+
+			* {
+				fill: inherit;
+			}
+		}
+
 		@media (hover: hover) {
 			&:hover {
-				background-color: text-color($linkColor);
+				background-color: $lightTextColor;
 				color: $linkColor;
 			}
 		}
@@ -55,36 +52,38 @@
 	&__text {
 		display: none;
 	}
-}
 
-/*==========----------==========*/
-/*        TOP NAV SOCIAL        */
-/*==========----------==========*/
+	/*==========----------==========*/
+	/*         HEADER SOCIAL        */
+	/*==========----------==========*/
 
-.header .social {
-	&__li {
-		opacity: 0;
-		visibility: hidden;
-		margin: 0.5em 1em;
-		position: relative;
-		transform: translateX(-1em);
-		transition: opacity $transitionAppendix, transform $transitionAppendix;
+	&--header {
+		#{$social}__item {
+			opacity: 0;
+			background: map-get($bgColors, lightBg);
+			color: $linkColor;
+			transform: translateX(2em);
+			transition: color $transitionAppendix, background-color $transitionAppendix,
+				transform $longTransitionAppendix, opacity $longTransitionAppendix;
 
-		&.active {
-			opacity: 1;
-			visibility: visible;
-			transform: none;
-		}
-	}
+			svg {
+				fill: $linkColor;
+			}
 
-	&__icon {
-		background: text-color($mobileNavBg);
-		color: $linkColor;
+			&.active {
+				opacity: 1;
+				transform: none;
+			}
 
-		@media (hover: hover) {
-			&:hover {
-				background: lighten-or-darken(bg-color($mobileNavBg));
-				color: text-color(lighten-or-darken(bg-color($mobileNavBg)));
+			@media (hover: hover) {
+				&:hover {
+					background: lighten($mobileNavBg, 10%);
+					color: $lightTextColor;
+
+					svg {
+						fill: $lightTextColor;
+					}
+				}
 			}
 		}
 	}

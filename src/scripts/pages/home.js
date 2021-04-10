@@ -1,6 +1,7 @@
-import { global } from './global.js';
-import { head } from './head.js';
-import { header } from './header.js';
+import { global } from '/dist/scripts/global.js';
+import { head } from '/dist/scripts/head.js';
+import { header } from '/dist/scripts/header.js';
+import { nav } from '/dist/scripts/nav.js';
 
 let data;
 let template;
@@ -37,4 +38,8 @@ global
 
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
-	.catch(err => console.warn(err));
+	.catch(err => console.warn(err))
+	// initiate the navigation
+	.finally(() => {
+		nav.initiateNav();
+	});

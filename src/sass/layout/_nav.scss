@@ -7,10 +7,9 @@
 $nav: '.nav';
 
 #{$nav} {
-	// opacity: 0;
-	// visibility: hidden;
-	// pointer-events: none;
-	pointer-events: all;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
 	max-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -22,6 +21,7 @@ $nav: '.nav';
 	bottom: 0;
 	left: 0;
 	z-index: 98;
+	transition: opacity $longTransitionAppendix, visibility $longTransitionAppendix;
 
 	&__wrp {
 		@include gradient(($mobileNavBg, #e83477), vertical);
@@ -83,10 +83,18 @@ $nav: '.nav';
 	}
 
 	&__li {
+		opacity: 0;
 		position: relative;
+		transform: translateY(2em);
+		transition: transform 0.5s ease, opacity 0.5s ease;
 
 		&--current > #{$nav}__a {
 			@include activeNavItem();
+		}
+
+		&.active {
+			opacity: 1;
+			transform: none;
 		}
 	}
 
@@ -107,7 +115,7 @@ $nav: '.nav';
 		background-color: $linkColor;
 		box-shadow: $softShadow;
 		position: relative;
-		transition: background-color $longTransitionDur $transitionEase;
+		transition: background-color $longTransitionAppendix;
 
 		&Blocks {
 			@include absolute(center);
@@ -127,7 +135,7 @@ $nav: '.nav';
 
 			&--disapparate {
 				opacity: 1;
-				transition: opacity $longTransitionDur $transitionEase;
+				transition: opacity $longTransitionAppendix;
 			}
 		}
 
@@ -161,11 +169,21 @@ $nav: '.nav';
 	top: 0;
 	right: 0;
 	z-index: 99;
-	transition: box-shadow $longTransitionDur $transitionEase, background-color $longTransitionDur $transitionEase;
+	transition: box-shadow $longTransitionAppendix, background-color $longTransitionAppendix;
 
 	&__item {
 		display: none;
 	}
+}
+
+/*==========----------==========*/
+/*      REVEAL NAVIGATION       */
+/*==========----------==========*/
+
+.showNav #{$nav} {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
 }
 
 /*//////////////////////////////////////////////////////*/
@@ -175,479 +193,15 @@ $nav: '.nav';
 /*//////////////////////////////////////////////////////*/
 
 /*==========----------==========*/
-/*         1900PX WIDTH         */
-/*==========----------==========*/
-@media only screen and (max-width: 1900px) {
-	$navItemPadding: 1rem;
-
-	#{$nav} {
-		&--topBar {
-			#{$nav}__a {
-				padding: 0.25rem $navItemPadding;
-			}
-		}
-
-		&--top {
-			#{$nav}__li {
-				margin: 0 0.5em;
-
-				&:first-child {
-					margin-left: 0;
-				}
-
-				&:last-child {
-					margin-right: 0;
-				}
-
-				&--subnav {
-					margin: 0;
-				}
-			}
-		}
-	}
-}
-
-/*==========----------==========*/
-/*         1400PX WIDTH         */
-/*==========----------==========*/
-@media only screen and (max-width: 1400px) {
-	#{$nav} {
-		&__cat {
-			margin: 0 2em;
-
-			&:first-child {
-				margin-left: 0;
-			}
-
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-	}
-}
-
-/*==========----------==========*/
-/*         1300PX WIDTH         */
-/*==========----------==========*/
-
-@media only screen and (max-width: 1300px) {
-	#{$nav} {
-		&__cats {
-			justify-content: space-between;
-		}
-	}
-}
-
-/*==========----------==========*/
-/*         1100PX WIDTH         */
-/*==========----------==========*/
-@media only screen and (max-width: 1100px) {
-	#{$nav} {
-		&--top {
-			#{$nav}__a {
-				font-size: 1em;
-			}
-		}
-	}
-}
-
-/*==========----------==========*/
-/*     $navBreakpoint WIDTH     */
-/*==========----------==========*/
-
-@media only screen and (max-width: $navBreakpoint) {
-	/*======---- GENERAL ----======*/
-
-	$navItemPadding: 2rem;
-
-	#{$nav} {
-		position: relative;
-		z-index: 1;
-
-		&__li--home,
-		&__button {
-			display: block;
-		}
-
-		@media (hover: hover) {
-			&:hover {
-				#{$nav}__a {
-					opacity: 1;
-				}
-			}
-		}
-
-		/*======---- TOP and TOP BAR NAVS ----======*/
-		&--top,
-		&--topBar {
-			text-align: left;
-
-			#{$nav}__ul:not(#{$nav}__ul--subnav) {
-				@include flexWrap(column, nowrap, flex-start, flex-start);
-			}
-
-			#{$nav}__a {
-				display: inline-block;
-				color: text-color($mobileNavBg);
-
-				@media (hover: hover) {
-					&:hover {
-						@include activeNavItem;
-					}
-				}
-			}
-
-			#{$nav}__text::before {
-				display: block;
-				width: 0;
-				background: text-color($mobileNavBg);
-				left: 0;
-				transform: none;
-			}
-
-			#{$nav}__li {
-				margin: 0.5em 0;
-				opacity: 0;
-				visibility: hidden;
-				left: 40px;
-
-				&,
-				&--subnav {
-					text-align: inherit;
-				}
-
-				&--subnav {
-					opacity: 1;
-					visibility: visible;
-					left: 0;
-				}
-
-				&--current {
-					& > #{$nav}__a {
-						@include activeNavItem;
-					}
-				}
-
-				&.active {
-					opacity: 1;
-					visibility: visible;
-					left: 0;
-				}
-			}
-		}
-
-		/*======---- TOP NAV ----======*/
-		&--top {
-			padding: 0;
-
-			#{$nav}__a:not(#{$nav}__a--subnav) {
-				@include heading(h3);
-				padding: 1.5rem $navItemPadding;
-				margin: 0;
-				font-weight: $headingBold;
-			}
-
-			#{$nav}__expandBtn {
-				width: $circleBtnDiam;
-				height: $circleBtnDiam;
-
-				&::before {
-					font-size: $circleBtnDiam * 0.5;
-				}
-			}
-		}
-
-		/*======---- TOP BAR NAV ----======*/
-		&--topBar {
-			margin: 0;
-			position: relative;
-
-			&::before {
-				display: block;
-				content: '';
-				width: map-get($golden-ratio, small);
-				height: $borderThickness;
-				margin: $navItemPadding;
-				background: $lightBorderColor;
-
-				@if ($borderRadius != 0) {
-					border-radius: $borderThickness / 2;
-				}
-			}
-
-			#{$nav}__a {
-				padding: 0.5rem $navItemPadding;
-				font-size: $largeFontSize;
-			}
-
-			#{$nav}__expandBtn {
-				width: $circleBtnDiam * 0.75;
-				height: $circleBtnDiam * 0.75;
-
-				&::before {
-					font-size: $circleBtnDiam * 0.375;
-				}
-			}
-		}
-
-		/*======---- SUBNAVS ----======*/
-
-		&__ul--subnav {
-			display: none;
-			width: 100% !important;
-			padding-left: 2em !important;
-			padding-top: 0;
-			margin: 0;
-			min-width: 0;
-			opacity: 1;
-			visibility: visible;
-			pointer-events: auto;
-			border-radius: 0;
-			position: relative;
-			left: auto;
-			bottom: auto;
-			transition: none;
-
-			&,
-			&Right,
-			&Left {
-				transform: none;
-			}
-			&#{$nav}__ul--showSubnav {
-				display: block;
-			}
-
-			#{$nav}__text::before {
-				display: block !important;
-			}
-		}
-
-		&__li {
-			&--hasSubnav::before {
-				display: none;
-			}
-
-			&--subnav {
-				background: none;
-				border-radius: 0;
-				margin: 0;
-
-				&#{$nav}__li--current {
-					background: none;
-
-					#{$nav}__a--subnav {
-						color: text-color($mobileNavBg);
-					}
-				}
-			}
-		}
-
-		&__expandBtn {
-			display: block !important;
-			margin: 0 1rem 0 2rem;
-		}
-
-		/*-- Top Subnav --*/
-		&--top {
-			#{$nav}__a--subnav {
-				@include heading(h4);
-				padding: 1rem $navItemPadding;
-				margin: 0;
-				color: text-color($mobileNavBg);
-				font-weight: $headingLight;
-			}
-		}
-
-		/*-- Top Bar Subnav --*/
-		&--topBar {
-			#{$nav}__a--subnav {
-				padding: 0.5rem $navItemPadding;
-				font-size: 1em;
-				font-weight: $primaryFontWeight;
-			}
-		}
-	}
-}
-
-/*==========----------==========*/
-/*          700PX WIDTH         */
-/*==========----------==========*/
-
-@media only screen and (max-width: 700px) {
-	&__expandBtn {
-		margin-left: 1rem;
-	}
-}
-
-/*==========----------==========*/
-/*          600PX WIDTH         */
-/*==========----------==========*/
-
-@media only screen and (max-width: 600px) {
-	$navItemPadding: 1.5rem;
-
-	#{$nav} {
-		/*======---- TOP NAV ----======*/
-		&--top {
-			#{$nav}__a:not(#{$nav}__a--subnav) {
-				padding: 1rem $navItemPadding;
-			}
-		}
-
-		/*======---- TOP BAR NAV ----======*/
-		&--topBar {
-			&::before {
-				margin: $navItemPadding;
-			}
-
-			#{$nav}__a {
-				padding: 0.5rem $navItemPadding;
-			}
-
-			#{$nav}__li {
-				margin: 0.25em 0;
-			}
-		}
-
-		/*======---- SUBNAVS ----======*/
-
-		/*-- Top Subnav --*/
-		&--top {
-			#{$nav}__a--subnav {
-				padding: 0.65rem $navItemPadding;
-			}
-		}
-
-		/*-- Top Bar Subnav --*/
-		&--topBar {
-			#{$nav}__li--subnav {
-				margin: 0;
-			}
-		}
-
-		/*======---- FOOTER NAV ----======*/
-		&__cats {
-			display: block;
-		}
-
-		&__catName {
-			text-align: center;
-		}
-
-		&__cat {
-			margin: 2em 0;
-			padding-bottom: 1em;
-			border-bottom: $borderThickness solid rgba($lightTextColor, 0.25);
-
-			&:first-child {
-				margin-top: 0;
-			}
-
-			&:last-child {
-				padding-bottom: 0;
-				border-bottom: none;
-			}
-		}
-
-		&--footer {
-			#{$nav}__li {
-				text-align: center;
-			}
-
-			#{$nav}__a {
-				display: inline-block;
-			}
-
-			#{$nav}__text::before {
-				@include absolute(center-horizontal);
-			}
-		}
-	}
-}
-
-/*==============----------==============*/
-/*   $typeBreakpoint3 WIDTH or HEIGHT   */
-/*==============----------==============*/
-
-@media only screen and (max-width: $typeBreakpoint3), only screen and (max-height: $typeBreakpoint3) {
-	#{$nav}--top {
-		#{$nav}__expandBtn {
-			width: $circleBtnDiam * 0.75;
-			height: $circleBtnDiam * 0.75;
-
-			&::before {
-				font-size: $circleBtnDiam * 0.375;
-			}
-		}
-	}
-}
-
-/*==========----------==========*/
 /*         $phone WIDTH         */
 /*==========----------==========*/
 
-@media only screen and (max-width: $phone) {
-	$navItemPadding: 1.5rem;
-
-	#{$nav} {
-		&__button--top {
-			display: none;
-		}
-
-		&__drawer {
-			display: flex;
-		}
-
-		/*======---- TOP BAR NAV ----======*/
-		&--topBar {
-			&::before {
-				margin: $navItemPadding;
-			}
-
-			#{$nav}__a {
-				padding: 0.5rem $navItemPadding;
-			}
-		}
-
-		/*======---- SUBNAVS ----======*/
-		&__parentRow {
-			justify-content: space-between;
-		}
-	}
-
-	/*======---- ACTIVE NAV ----======*/
-
-	.showMobileNav #{$nav} {
-		&__drawer {
-			pointer-events: none;
-			background: none;
-			box-shadow: none;
-		}
-
-		&--drawer {
-			opacity: 0;
-			visibility: hidden;
-		}
-	}
-}
-
 /*==========----------==========*/
-/*           IPHONE X           */
+/*           IPHONE X+          */
 /*==========----------==========*/
 
 /* iPhone X, XS */
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
 	/* iPhone XR */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
 	/* iPhone XS Max */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-	#{$nav} {
-		&--drawer {
-			#{$nav}__a {
-				padding-bottom: calc(1.25em + env(safe-area-inset-bottom));
-			}
-		}
-
-		&__button--drawer {
-			flex: 0 1 4em;
-		}
-	}
 }

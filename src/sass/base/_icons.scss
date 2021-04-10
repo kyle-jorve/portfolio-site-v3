@@ -13,11 +13,14 @@ $icons: (
 		font-weight: 400,
 		font-family: 'Font Awesome 5 Brands',
 		///// ^^^ Please do not move or modify these ^^^ /////
+		artstation: '\f77a',
 		facebook: '\f39e',
 		foursquare: '\f180',
 		google: '\f1a0',
 		google-plus: '\f0d5',
 		instagram: '\f16d',
+		linkedin: '\f0e1',
+		patreon: '\f3d9',
 		tumblr: '\f173',
 		twitter: '\f099',
 		yelp: '\f1e9',
@@ -271,7 +274,6 @@ $icons: (
 	} @else {
 		#{$icon}--absolute#{$posString} {
 			display: block;
-			padding: 15px !important;
 
 			&::before {
 				@include absolute(center);

@@ -29,7 +29,7 @@
     </button>
 </div>
 
-<nav class="nav">
+<nav class="nav" id="mainNav">
     <div class="nav__wrp">
         <ul class="nav__ul">
             {{#each nav}}
@@ -41,9 +41,9 @@
             {{/each}}
         </ul>
 
-        <section class="recentWork">
+        <section class="nav__recentWork">
             <div class="wrapper wrapper--section">
-                <h2 class="flexLine">Recent Work</h2>
+                <h2 class="nav__recentWorkTitle flexLine">Recent Work</h2>
 
                 <div class="portfolio__grid portfolio__grid--nav">
                     {{#each recentWork}}

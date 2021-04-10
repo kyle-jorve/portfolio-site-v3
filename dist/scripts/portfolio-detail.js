@@ -1,6 +1,6 @@
-import { global } from './global.js';
-import { head } from './head.js';
-import { header } from './header.js';
+import { global } from '/dist/scripts/global.js';
+import { head } from '/dist/scripts/head.js';
+import { header } from '/dist/scripts/header.js';
 
 const search = window.location.search;
 const urlParams = new URLSearchParams(search);
