@@ -39,7 +39,7 @@ global
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
 	.catch(err => console.warn(err))
-	// initiate the navigation
 	.finally(() => {
+		// initiate the navigation
 		nav.initiateNav();
 	});

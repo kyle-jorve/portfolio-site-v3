@@ -45,7 +45,7 @@
             <div class="wrapper wrapper--section">
                 <h2 class="nav__recentWorkTitle flexLine">Recent Work</h2>
 
-                <div class="portfolio__grid portfolio__grid--nav">
+                <div class="portfolio__grid portfolio__grid--nav{{#if (isOdd recentWorkLimit)}} portfolio__grid--odd{{/if}}">
                     {{#each recentWork}}
                         {{{printPortfolioItem this}}}
                     {{/each}}

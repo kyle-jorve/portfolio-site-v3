@@ -140,15 +140,15 @@
 							"minScreenSize": 1440
 						},
 						{
-							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_crow-1440.jpg",
+							"url": "/dist/media/portfolio/crow/final/kyle-jorve_crow-1440.jpg",
 							"minScreenSize": 1024
 						},
 						{
-							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_crow-1024.jpg",
+							"url": "/dist/media/portfolio/crow/final/kyle-jorve_crow-1024.jpg",
 							"minScreenSize": 640
 						}
 					],
-					"mobileSource": "/dist/media/portfolio/crow/final/kyle-jorve_crow-640.jpeg",
+					"mobileSource": "/dist/media/portfolio/crow/final/kyle-jorve_crow-640.jpg",
 					"alt": "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing"
 				},
 				{
@@ -158,15 +158,15 @@
 							"minScreenSize": 1440
 						},
 						{
-							"url": "/dist/media/portfolio/cargha/detail-1/kyle-jorve_crow-detail-1-1440.jpg",
+							"url": "/dist/media/portfolio/crow/detail-1/kyle-jorve_crow-detail-1-1440.jpg",
 							"minScreenSize": 1024
 						},
 						{
-							"url": "/dist/media/portfolio/cargha/detail-1/kyle-jorve_crow-detail-1-1024.jpg",
+							"url": "/dist/media/portfolio/crow/detail-1/kyle-jorve_crow-detail-1-1024.jpg",
 							"minScreenSize": 640
 						}
 					],
-					"mobileSource": "/dist/media/portfolio/crow/detail-1/kyle-jorve_crow-detail-1-640.jpeg",
+					"mobileSource": "/dist/media/portfolio/crow/detail-1/kyle-jorve_crow-detail-1-640.jpg",
 					"alt": "a detailed crop showing Crow's face"
 				},
 				{
@@ -176,15 +176,15 @@
 							"minScreenSize": 1440
 						},
 						{
-							"url": "/dist/media/portfolio/cargha/detail-2/kyle-jorve_crow-detail-2-1440.jpg",
+							"url": "/dist/media/portfolio/crow/detail-2/kyle-jorve_crow-detail-2-1440.jpg",
 							"minScreenSize": 1024
 						},
 						{
-							"url": "/dist/media/portfolio/cargha/detail-2/kyle-jorve_crow-detail-2-1024.jpg",
+							"url": "/dist/media/portfolio/crow/detail-2/kyle-jorve_crow-detail-2-1024.jpg",
 							"minScreenSize": 640
 						}
 					],
-					"mobileSource": "/dist/media/portfolio/crow/detail-2/kyle-jorve_crow-detail-2-640.jpeg",
+					"mobileSource": "/dist/media/portfolio/crow/detail-2/kyle-jorve_crow-detail-2-640.jpg",
 					"alt": "a detail crop showing the upper portion of the illustration"
 				}
 			]

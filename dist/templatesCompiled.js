@@ -111,6 +111,8 @@ templates['components/header'] = template({"1":function(container,depth0,helpers
     + container.escapeExpression(container.lambda((depth0 != null ? lookupProperty(depth0,"rel") : depth0), depth0))
     + "\"";
 },"10":function(container,depth0,helpers,partials,data) {
+    return " portfolio__grid--odd";
+},"12":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
@@ -121,7 +123,7 @@ templates['components/header'] = template({"1":function(container,depth0,helpers
   return "                        "
     + ((stack1 = (lookupProperty(helpers,"printPortfolioItem")||(depth0 && lookupProperty(depth0,"printPortfolioItem"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),depth0,{"name":"printPortfolioItem","hash":{},"data":data,"loc":{"start":{"line":50,"column":24},"end":{"line":50,"column":53}}})) != null ? stack1 : "")
     + "\n";
-},"12":function(container,depth0,helpers,partials,data) {
+},"14":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
@@ -144,10 +146,12 @@ templates['components/header'] = template({"1":function(container,depth0,helpers
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"mobileNav") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":8,"column":4},"end":{"line":13,"column":13}}})) != null ? stack1 : "")
     + "\n    <button class=\"nav__button\" id=\"navBtn\">\n        <div class=\"nav__buttonBlocks\">\n            <span class=\"nav__buttonBlock\"></span>\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n            <span class=\"nav__buttonBlock\"></span>\n\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n            <span class=\"nav__buttonBlock\"></span>\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n\n            <span class=\"nav__buttonBlock\"></span>\n            <span class=\"nav__buttonBlock nav__buttonBlock--disapparate\"></span>\n            <span class=\"nav__buttonBlock\"></span>\n        </div>\n    </button>\n</div>\n\n<nav class=\"nav\" id=\"mainNav\">\n    <div class=\"nav__wrp\">\n        <ul class=\"nav__ul\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"nav") : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":35,"column":12},"end":{"line":41,"column":21}}})) != null ? stack1 : "")
-    + "        </ul>\n\n        <section class=\"nav__recentWork\">\n            <div class=\"wrapper wrapper--section\">\n                <h2 class=\"nav__recentWorkTitle flexLine\">Recent Work</h2>\n\n                <div class=\"portfolio__grid portfolio__grid--nav\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWork") : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":49,"column":20},"end":{"line":51,"column":29}}})) != null ? stack1 : "")
+    + "        </ul>\n\n        <section class=\"nav__recentWork\">\n            <div class=\"wrapper wrapper--section\">\n                <h2 class=\"nav__recentWorkTitle flexLine\">Recent Work</h2>\n\n                <div class=\"portfolio__grid portfolio__grid--nav"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(lookupProperty(helpers,"isOdd")||(depth0 && lookupProperty(depth0,"isOdd"))||container.hooks.helperMissing).call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWorkLimit") : depth0),{"name":"isOdd","hash":{},"data":data,"loc":{"start":{"line":48,"column":70},"end":{"line":48,"column":93}}}),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":48,"column":64},"end":{"line":48,"column":123}}})) != null ? stack1 : "")
+    + "\">\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWork") : depth0),{"name":"each","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":49,"column":20},"end":{"line":51,"column":29}}})) != null ? stack1 : "")
     + "                </div>\n            </div>\n        </section>\n\n        <div class=\"social social--header\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"social") : depth0),{"name":"each","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":57,"column":12},"end":{"line":59,"column":21}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"social") : depth0),{"name":"each","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":57,"column":12},"end":{"line":59,"column":21}}})) != null ? stack1 : "")
     + "        </div>\n    </div>\n</nav>";
 },"useData":true});
 templates['pages/cv'] = template({"1":function(container,depth0,helpers,partials,data) {

@@ -80,9 +80,17 @@ picture {
 		height: 80px;
 	}
 
+	/*=====---- MEDIA QUERIES ----=====*/
 	@media (hover: hover) {
 		&:hover {
 			background: none;
+		}
+	}
+
+	@media (max-width: $phone) {
+		svg,
+		&__img {
+			height: 60px;
 		}
 	}
 }

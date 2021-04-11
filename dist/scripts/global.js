@@ -87,6 +87,8 @@ Handlebars.registerHelper('printPortfolioItem', item => {
         </article>`;
 });
 
+Handlebars.registerHelper('isOdd', number => number % 2 === 1);
+
 function fetchFn(dataSrc) {
 	const dataFetch = fetch(`${dataLoc.root}${dataSrc}`).then(res => {
 		if (res.ok) {

@@ -193,8 +193,63 @@ $nav: '.nav';
 /*//////////////////////////////////////////////////////*/
 
 /*==========----------==========*/
+/*         $tablet WIDTH        */
+/*==========----------==========*/
+
+@media (max-width: $tablet) {
+	#{$nav} {
+		&__wrp {
+			padding: 8em 1em 2em 1em;
+		}
+	}
+}
+
+/*==========----------==========*/
 /*         $phone WIDTH         */
 /*==========----------==========*/
+
+@media (max-width: $phone) {
+	#{$nav} {
+		&__wrp {
+			padding: 6em 1em 2em 1em;
+		}
+
+		&__button {
+			border-radius: 50%;
+			transform: translate(-0.5em, -0.5em);
+		}
+	}
+
+	.mobileNav {
+		@include flexWrap(row, nowrap, flex-start, flex-start);
+		background: $navDrawerBg;
+		top: auto;
+		left: 0;
+		bottom: 0;
+
+		&__item {
+			@include flexWrap(column, nowrap, center, center);
+			flex: 1 0 auto;
+			padding: 0.5em 0.25em 0.25em 0.25em;
+			text-align: center;
+		}
+
+		&__icon {
+			width: 100%;
+			height: auto;
+			max-width: 36px;
+			max-height: 28px;
+		}
+
+		&__label {
+			@include heading;
+			display: block;
+			margin: 0.35em 0 0 0;
+			font-size: 0.65em;
+			color: $lightTextColor;
+		}
+	}
+}
 
 /*==========----------==========*/
 /*           IPHONE X+          */
