@@ -5,197 +5,167 @@
 /*//////////////////////////////////////////////////////*/
 
 .hero {
-    $hero: &;
+	$hero: &;
 
-    @include flexWrap(column, nowrap, center, center);
-    color: text-color(map-get($bgColors, darkBg));
-    width: 100%;
-    min-height: $heroHeight;
-    padding:$sectionPadding;
-    position: relative;
-    z-index: 2;
+	@include flexWrap(column, nowrap, flex-end, center);
+	color: text-color(map-get($bgColors, darkBg));
+	width: 100%;
+	min-height: 100vh;
+	padding: 8em 2em 5em 2em;
+	position: relative;
+	z-index: 2;
 
-    &__content {
-        width: 100%;
-        max-width: $narrowWidth;
-        margin: 0 auto;
-        padding: 2em 0;
-        text-align: center;
-        position: relative;
-        z-index: 3;
-    }
+	&::before,
+	&::after {
+		display: block;
+		content: '';
+		height: 10em;
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 2;
+	}
 
-    &__bgWrp {
-        @include absolute(cover);
-        overflow: hidden;
-    }
+	&::before {
+		@include gradient((rgba(map-get($bgColors, darkBg), 0.5), rgba(map-get($bgColors, darkBg), 0)), vertical);
+		top: 0;
+	}
 
-    &__bg {
-        @include absolute(cover);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        opacity: .5;
+	&::after {
+		@include gradient((rgba(map-get($bgColors, darkBg), 0), map-get($bgColors, darkBg)), vertical);
+		bottom: 0;
+	}
 
-        &--lowOpacity {
-            opacity: .35;
-        }
-    }
+	&__content {
+		text-align: center;
+		position: relative;
+		z-index: 3;
+	}
 
-    /*==========----------==========*/
-    /*          SLIDESHOW           */
-    /*==========----------==========*/
+	&__title,
+	&__subtitle {
+		margin: 0;
+	}
 
-    &--hasSlideshow{
-        padding-bottom:7em;
-    }
+	&__title {
+		font-size: 4em;
+	}
 
-    &__slides,
-    &__slide,
-    .slick-list{
-        width:100%;
-        height:100%;
-    }
+	&__titleText,
+	&__subtitle {
+		@include gradient((map-get($colorScheme, violet), map-get($colorScheme, red)), diagonal-up);
+	}
 
-    &__arrows{
-        @include flexWrap(row, nowrap, space-between, center);
-        @include absolute(center-vertical, 4);
-        pointer-events:none;
-        width:100%;
-        padding:0 2em;
-    }
+	&__titleText {
+		display: block;
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+	}
 
-    &__dots{
-        position:absolute;
-        right:0;
-        bottom:4em;
-        left:0;
-        z-index:4;
-    }
+	&__subtitle {
+		padding: 1rem 1rem 0.5rem 1rem;
+		margin-top: -1.35rem;
+		font-weight: $primaryLight;
+		font-size: 2rem;
+		position: relative;
+		z-index: -1;
+	}
 
-    .slick-track{
-        height:100%;
-    }
+	&__bg,
+	&__img {
+		@include absolute(cover);
+	}
 
-    .slick-dots li{
-        &::before{
-            background: $lightTextColor;
-            box-shadow:$boxShadow;
-        }
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
 
-        &.slick-active::before{
-            background:none;
-            border-color:$lightTextColor;
-        }
-    }
+/*==========----------==========*/
+/*        SCROLL GRAPHIC        */
+/*==========----------==========*/
 
-    /*==========----------==========*/
-    /*          VIDEO HERO          */
-    /*==========----------==========*/
-    &--video {
-        display:block;
-        height: $heroHeight;
-        min-height: 400px;
-        max-height: 80vh;
-        padding:0;
-    }
+$trackHeight: 8px;
+$ballDiam: 4px;
 
-    /*==========----------==========*/
-    /*           MAP HERO           */
-    /*==========----------==========*/
-    &--map {
-        display: block;
-        height: $heroHeight;
-        min-height: 400px;
-        max-height: 60vh;
-        padding:0;
+.scrollGraphic {
+	@include absolute(center-horizontal);
+	opacity: 1;
+	display: block;
+	padding: 1em;
+	bottom: -1px;
+	z-index: 4;
+	transition: opacity $transitionAppendix;
 
-        &Short{
-            height:$heroHeight / 2;
-        }
+	&__icon,
+	&__track,
+	&__ball {
+		display: block;
+	}
 
-        &::before {
-            display: none;
-        }
+	&__icon {
+		width: 20px;
+		height: 30px;
+		border-radius: 10px;
+		border: 2px solid $lightTextColor;
+		position: relative;
+	}
 
-        iframe,
-        .map__iframe,
-        .map__img {
-            @include absolute(cover);
-        }
-    }
+	&__track {
+		@include absolute(center-horizontal);
+		height: $trackHeight;
+		top: 4px;
+	}
 
-    /*==========----------==========*/
-    /*          SHORT HERO          */
-    /*==========----------==========*/
-    &--short {
-        min-height: $shortHeroHeight;
-        height:auto;
-        padding-top: 12em;
+	&__ball {
+		@include animation(slide-down, 1s, ease, 0s, normal, infinite);
+		opacity: 1;
+		width: $ballDiam;
+		height: $ballDiam;
+		border-radius: 50%;
+		background: $lightTextColor;
+		transform: none;
+	}
+}
 
-        #{$hero}__content {
-            max-width: $contentWidth;
-            padding: 0;
-        }
-    }
+@keyframes slide-down {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translateY($trackHeight);
+	}
+}
 
-    /*==========----------==========*/
-    /*         CONTENT HERO          */
-    /*==========----------==========*/
-    &--content {
-        align-items:flex-start;
-        justify-content:flex-end;
+/*//////////////////////////////////////////////////////*/
+/*//====================----------====================//*/
+/*//                   MEDIA QUERIES                  //*/
+/*//====================----------====================//*/
+/*//////////////////////////////////////////////////////*/
 
-        #{$hero}__content {
-            max-width: $contentWidth;
-            text-align: left;
-        }
-    }
+/*==========----------==========*/
+/*         $tablet WIDTH        */
+/*==========----------==========*/
+@media only screen and (max-width: $tablet) {
+	.hero {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+}
 
-    /*//////////////////////////////////////////////////////*/
-    /*//====================----------====================//*/
-    /*//                   MEDIA QUERIES                  //*/
-    /*//====================----------====================//*/
-    /*//////////////////////////////////////////////////////*/
-
-    /*==========----------==========*/
-    /*         1200PX WIDTH         */
-    /*==========----------==========*/
-    @media only screen and (max-width:1200px) {
-        &--short{
-            padding:8em 1em 4em 1em;
-        }
-    }
-
-    /*==========----------==========*/
-    /*         1000PX WIDTH         */
-    /*==========----------==========*/
-    @media only screen and (max-width:1000px) {
-        padding-left:1em;
-        padding-right:1em;
-
-        &--video,
-        &--map{
-            padding:0;
-        }
-    }
-
-    /*==========----------==========*/
-    /*         $phone WIDTH         */
-    /*==========----------==========*/
-    @media only screen and (max-width:$phone) {
-        &--short{
-            padding:4em 1em;
-        }
-
-        &--map{
-            min-height: 0;
-            max-height: none;
-            height: 40vh;
-
-            &Short{
-                height:30vh;
-            }
-        }
-    }
+/*==========----------==========*/
+/*         $phone WIDTH         */
+/*==========----------==========*/
+@media only screen and (max-width: $phone) {
+	.hero {
+		padding: 6em 1em 5em 1em;
+	}
 }

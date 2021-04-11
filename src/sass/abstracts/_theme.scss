@@ -12,7 +12,7 @@ $colorScheme: (
 	coolBlack: map-get($coolGrays, coolGray9),
 	yellow: #f4ce56,
 	red: #ff5652,
-	violet: #f027ee
+	violet: #e83477
 );
 
 /*Background Colors*/
@@ -47,7 +47,7 @@ $longTransition: all $longTransitionDur $transitionEase;
 /*===========================
     Borders
 ===========================*/
-$borderRadius: 0.75rem;
+$borderRadius: 0.5rem;
 
 $borderThickness: 1px;
 $thickBorderThickness: 1rem;
@@ -207,12 +207,6 @@ $boxBg: rgba(map-get($bgColors, lightBg), 0.6);
 /*//////////////////////////////////////////////////////*/
 
 /*===========================
-    Hero
-===========================*/
-$heroHeight: 47vw;
-$shortHeroHeight: 25vw;
-
-/*===========================
     Nav
 ===========================*/
 $navBtnDiam: 60px;
@@ -223,4 +217,3 @@ $socialIconDiam: 44px;
 
 /* Responsive */
 $mobileNavBg: $linkColor;
-$navBreakpoint: $typeBreakpoint1;

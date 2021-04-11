@@ -1,9 +1,9 @@
 <section class="section hero">
     <div class="hero__content">
-        <h1>{{title}}
-            {{#if subtitle}}
-                <br>
-                <small>{{subtitle}}</small>
+        <h1 class="hero__title">
+            <span class="hero__titleText">{{intro.title}}</span>
+            {{#if intro.subtitle}}
+                <small class="hero__subtitle">{{intro.subtitle}}</small>
             {{/if}}
         </h1>
     </div>
@@ -11,18 +11,16 @@
     <div class="hero__bg">
         <picture>
             {{#each heroBg.sources}}
-                <source srcset="{{this.url}}"{{#if this.minScreenWidth}} media="(min-width: {{this.minScreenWidth}})"{{/if}}>
+                <source srcset="{{this.url}}"{{#if this.minScreenSize}} media="(min-width: {{this.minScreenSize}}px)"{{/if}}>
             {{/each}}
-            <img class="hero__img" src="{{heroBg.sources.0.url}}" alt="{{heroBg.alt}}">
+            <img class="hero__img" src="{{heroBg.mobileSource}}" alt="{{heroBg.alt}}">
         </picture>
     </div>
 
     <a class="scrollGraphic" href="#featured-work">
         <span class="scrollGraphic__icon">
-            <span class="scrollGraphic__mouse">
-                <span class="scrollGraphic__track">
-                    <span class="scrollGraphic__ball"></span>
-                </span>
+            <span class="scrollGraphic__track">
+                <span class="scrollGraphic__ball"></span>
             </span>
         </span>
     </a>

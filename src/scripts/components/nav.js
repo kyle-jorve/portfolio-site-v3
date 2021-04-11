@@ -84,5 +84,5 @@ function initiateNav() {
 }
 
 export const nav = {
-	initiateNav
+	init: initiateNav
 };

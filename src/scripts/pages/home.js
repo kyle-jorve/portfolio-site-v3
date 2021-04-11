@@ -41,5 +41,5 @@ global
 	.catch(err => console.warn(err))
 	.finally(() => {
 		// initiate the navigation
-		nav.initiateNav();
+		nav.init();
 	});

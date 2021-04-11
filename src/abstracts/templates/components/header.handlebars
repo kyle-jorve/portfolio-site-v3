@@ -6,7 +6,7 @@
 
 <div class="mobileNav">
     {{#each mobileNav}}
-        <a class="mobileNav__item" href="{{this.url}}">
+        <a class="mobileNav__item{{#if this.currentPage}} mobileNav__item--current{{/if}}" href="{{this.url}}">
             <img class="mobileNav__icon" src="{{this.icon}}" alt="{{this.alt}}">
             <span class="mobileNav__label">{{this.pageName}}</span>
         </a>

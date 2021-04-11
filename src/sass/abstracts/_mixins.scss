@@ -40,6 +40,10 @@
 		background: radial-gradient(circle at right bottom, $colorList);
 	} @else if ($orientation == radial-from-top-right) {
 		background: radial-gradient(circle at right top, $colorList);
+	} @else if ($orientation == radial-from-top) {
+		background: radial-gradient(circle at center top, $colorList);
+	} @else if ($orientation == radial-from-bottom) {
+		background: radial-gradient(circle at center bottom, $colorList);
 	} @else if $orientation == diagonal-up {
 		//diagonal up
 		background: linear-gradient(45deg, $colorList);
@@ -263,8 +267,15 @@
 	}
 
 	.lightText,
-	&.lightText {
+	&.lightText,
+	small,
+	&.small {
 		font-weight: $headingLight;
+	}
+
+	small {
+		display: block;
+		line-height: 1;
 	}
 
 	em,

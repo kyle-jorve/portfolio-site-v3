@@ -24,7 +24,7 @@ $nav: '.nav';
 	transition: opacity $longTransitionAppendix, visibility $longTransitionAppendix;
 
 	&__wrp {
-		@include gradient(($mobileNavBg, #e83477), vertical);
+		@include gradient(($mobileNavBg, map-get($colorScheme, violet)), vertical);
 		min-height: 100vh;
 		padding: 8em 2em 2em 2em;
 	}
@@ -173,6 +173,67 @@ $nav: '.nav';
 
 	&__item {
 		display: none;
+		flex: 1 0 auto;
+		padding: 0.65em 0.25em 0.25em 0.25em;
+		text-align: center;
+		transition: opacity $longTransitionAppendix;
+		position: relative;
+
+		&::before,
+		&::after {
+			display: none;
+			content: '';
+			pointer-events: none;
+		}
+
+		&::before {
+			@include absolute(center-horizontal);
+			top: 0;
+			z-index: 2;
+			width: 40%;
+			height: 0.35em;
+			border-radius: 0 0 0.35em 0.35em;
+			background: $lightTextColor;
+		}
+
+		&::after {
+			@include absolute(cover);
+			@include gradient((map-get($colorScheme, violet), rgba(map-get($colorScheme, violet), 0)), radial-from-top);
+		}
+
+		&--current {
+			&::before,
+			&::after {
+				display: block;
+			}
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				background: none;
+			}
+		}
+	}
+
+	&__icon,
+	&__label {
+		position: relative;
+		z-index: 3;
+	}
+
+	&__icon {
+		width: 100%;
+		height: auto;
+		max-width: 36px;
+		max-height: 28px;
+	}
+
+	&__label {
+		@include heading;
+		display: block;
+		margin: 0.35em 0 0 0;
+		font-size: 0.65em;
+		color: $lightTextColor;
 	}
 }
 
@@ -215,38 +276,35 @@ $nav: '.nav';
 		}
 
 		&__button {
+			width: $navBtnDiam * 1.15;
+			height: $navBtnDiam * 1.15;
 			border-radius: 50%;
 			transform: translate(-0.5em, -0.5em);
 		}
 	}
 
 	.mobileNav {
-		@include flexWrap(row, nowrap, flex-start, flex-start);
-		background: $navDrawerBg;
+		@include flexWrap(row, nowrap, flex-start, stretch);
+		background-color: $navDrawerBg;
+		box-shadow: $mediumShadowUp;
 		top: auto;
 		left: 0;
 		bottom: 0;
 
 		&__item {
 			@include flexWrap(column, nowrap, center, center);
-			flex: 1 0 auto;
-			padding: 0.5em 0.25em 0.25em 0.25em;
-			text-align: center;
 		}
+	}
 
-		&__icon {
-			width: 100%;
-			height: auto;
-			max-width: 36px;
-			max-height: 28px;
-		}
+	/*=====---- REVEAL NAVIGATION ----=====*/
 
-		&__label {
-			@include heading;
-			display: block;
-			margin: 0.35em 0 0 0;
-			font-size: 0.65em;
-			color: $lightTextColor;
+	.showNav .mobileNav {
+		background-color: transparent;
+		box-shadow: none;
+
+		&__item {
+			opacity: 0;
+			pointer-events: none;
 		}
 	}
 }
@@ -259,4 +317,8 @@ $nav: '.nav';
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
 	/* iPhone XR */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
 	/* iPhone XS Max */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+	.mobileNav__item {
+		padding-bottom: calc(constant(safe-area-inset-bottom) + 0.25em); /*iOS 11*/
+		padding-bottom: calc(env(safe-area-inset-bottom) + 0.25em); /*iOS 11.2*/
+	}
 }

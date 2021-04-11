@@ -3,6 +3,16 @@ import { global } from '/dist/scripts/global.js';
 let data;
 let template;
 
+function getCurrentPage(items, url) {
+	for (let item of items) {
+		if (item.url === url) {
+			item.currentPage = true;
+
+			break;
+		}
+	}
+}
+
 // build the header
 function buildHeader(dataSrc) {
 	global
@@ -23,13 +33,9 @@ function buildHeader(dataSrc) {
 			return global.fetchFn(dataSrc);
 		})
 		.then(d => {
-			for (let item of data.nav) {
-				if (item.url === d.url) {
-					item.currentPage = true;
+			getCurrentPage(data.nav, d.url);
 
-					break;
-				}
-			}
+			getCurrentPage(data.mobileNav, d.url);
 
 			template = Handlebars.templates[global.templateSources.header](data);
 
