@@ -41,7 +41,7 @@ button {
 
 	&__wrapper {
 		@include flexWrap(row, wrap, flex-start, center);
-		padding: 1em 0;
+		padding: 2em 0;
 
 		&--justifyRight {
 			justify-content: flex-end;
@@ -60,7 +60,7 @@ button {
 		}
 
 		#{$button} {
-			margin: 0.5em 0 0.5em 1em;
+			margin: 1em;
 		}
 	}
 
@@ -90,14 +90,15 @@ button {
 	/*        PRIMARY BUTTON        */
 	/*==========----------==========*/
 	&--primary {
-		background: $linkColor;
-		color: text-color($linkColor);
+		@include gradient((map-get($colorScheme, red), map-get($colorScheme, yellow)), horizontal);
+		background-size: 200% 100%;
+		background-position: 0 center;
+		color: $lightTextColor;
+		transition: background-position $transitionAppendix;
 
 		@media (hover: hover) {
 			&:hover {
-				background: lighten-or-darken($linkColor);
-				border-color: lighten-or-darken(lighten-or-darken($linkColor));
-				color: text-color(lighten-or-darken($linkColor));
+				background-position: 100% center;
 			}
 		}
 	}
@@ -105,54 +106,17 @@ button {
 	/*       SECONDARY BUTTON       */
 	/*==========----------==========*/
 	&--secondary {
-		background: transparent;
+		background-color: transparent;
 		border: $borderThickness solid $linkColor;
 		color: $linkColor;
+		transition: color $transitionAppendix, background-color $transitionAppendix;
 
 		@media (hover: hover) {
 			&:hover {
-				background: $linkColor;
-				color: text-color($linkColor);
-				border-color: $linkColor;
+				background-color: $linkColor;
+				color: $lightTextColor;
 			}
 		}
-	}
-	/*==========----------==========*/
-	/*       TERTIARY BUTTON        */
-	/*==========----------==========*/
-	&--tertiary {
-		background: transparent;
-		border: $borderThickness solid $medTextColor;
-		color: $medTextColor;
-
-		@media (hover: hover) {
-			&:hover {
-				background: $linkColor;
-				color: text-color($linkColor);
-				border-color: $linkColor;
-			}
-		}
-	}
-	/*==========----------==========*/
-	/*      LIGHT BORDER BUTTON     */
-	/*==========----------==========*/
-	&--lightBorder {
-		background: transparent;
-		border: $borderThickness solid $lightTextColor;
-		color: $lightTextColor;
-
-		@media (hover: hover) {
-			&:hover {
-				background: $lightTextColor;
-				color: $darkTextColor;
-			}
-		}
-	}
-	/*==========----------==========*/
-	/*         TOAST BUTTON         */
-	/*==========----------==========*/
-	&--toastBtn {
-		font-size: $smallFontSize;
 	}
 	/*==========----------==========*/
 	/*         IMAGE BUTTON         */
@@ -180,27 +144,6 @@ button {
 			&:hover {
 				background: $imageBtnBorderColor;
 				color: text-color($imageBtnBorderColor);
-			}
-		}
-	}
-	/*==========----------==========*/
-	/*         INFO BUTTON          */
-	/*==========----------==========*/
-	&--info {
-		padding: 0.5em 1em;
-		background: bg-color(map-get($bgColors, bodyBg));
-		color: text-color(bg-color(map-get($bgColors, bodyBg)));
-
-		&::before {
-			@include icon(solid, info);
-			margin-right: 0.5em;
-			vertical-align: bottom;
-		}
-
-		@media (hover: hover) {
-			&:hover {
-				background: lighten-or-darken(bg-color(map-get($bgColors, bodyBg)));
-				color: text-color(lighten-or-darken(bg-color(map-get($bgColors, bodyBg))));
 			}
 		}
 	}

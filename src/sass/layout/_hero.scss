@@ -19,7 +19,6 @@
 	&::after {
 		display: block;
 		content: '';
-		height: 10em;
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -29,11 +28,13 @@
 	&::before {
 		@include gradient((rgba(map-get($bgColors, darkBg), 0.5), rgba(map-get($bgColors, darkBg), 0)), vertical);
 		top: 0;
+		height: 10em;
 	}
 
 	&::after {
 		@include gradient((rgba(map-get($bgColors, darkBg), 0), map-get($bgColors, darkBg)), vertical);
 		bottom: 0;
+		height: 20em;
 	}
 
 	&__content {
@@ -128,6 +129,12 @@ $ballDiam: 4px;
 		border-radius: 50%;
 		background: $lightTextColor;
 		transform: none;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background: none;
+		}
 	}
 }
 

@@ -1,4 +1,5 @@
 import { global } from '/dist/scripts/global.js';
+import { nav } from '/dist/scripts/nav.js';
 
 let data;
 let template;
@@ -41,7 +42,8 @@ function buildHeader(dataSrc) {
 
 			global.els.header.insertAdjacentHTML('afterbegin', template);
 		})
-		.catch(err => console.warn(err));
+		.catch(err => console.warn(err))
+		.finally(() => nav.init());
 }
 
 // -- PUBLIC -- //

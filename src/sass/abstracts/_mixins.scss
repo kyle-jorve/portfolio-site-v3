@@ -164,8 +164,15 @@
 /*//////////////////////////////////////////////////////*/
 
 @mixin underlineText {
-	padding-bottom: 0.25em;
-	border-bottom: $borderThickness solid $darkBorderColor;
+	&::after {
+		display: block;
+		content: '';
+		width: 100%;
+		height: $borderThickness;
+		max-width: 150px;
+		background: map-get($colorScheme, red);
+		margin-top: 0.5em;
+	}
 }
 
 @mixin bodyText {
@@ -363,7 +370,7 @@
 	}
 }
 
-@mixin button($margin: 0.5em, $padding: $buttonPadding, $fontSize: $buttonFontSize) {
+@mixin button($margin: 1em, $padding: $buttonPadding, $fontSize: $buttonFontSize) {
 	display: inline-block;
 	padding: $padding;
 	margin: $margin;
@@ -388,10 +395,6 @@
 		&:hover {
 			text-decoration: none;
 		}
-	}
-	@media only screen and (max-width: 600px) {
-		padding: (number(#{nth(str-split(#{$buttonPadding}, ' '), 1)}) * 0.75)
-			(number(#{nth(str-split(#{$buttonPadding}, ' '), 2)}) * 0.75);
 	}
 	@media only screen and (max-width: $phone) {
 		font-size: $buttonFontSize * 0.9;

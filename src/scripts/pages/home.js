@@ -29,7 +29,7 @@ global
 	})
 	.then(d => {
 		for (let prop in d.bio) {
-			data.bio[prop] = d[prop];
+			data.bio[prop] = d.bio[prop];
 		}
 
 		data.bio.url = d.url;
@@ -38,8 +38,4 @@ global
 
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
-	.catch(err => console.warn(err))
-	.finally(() => {
-		// initiate the navigation
-		nav.init();
-	});
+	.catch(err => console.warn(err));

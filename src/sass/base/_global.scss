@@ -284,11 +284,12 @@ picture {
 
 .box {
 	border-radius: $borderRadius;
-	padding: 2em;
+	padding: 2em 4em 4em 4em;
 	background: $boxBg;
 	backdrop-filter: blur(1em);
-	color: text-color($boxBg);
+	border-top: $thickBorderThickness solid map-get($colorScheme, red);
 	box-shadow: $softShadow;
+	color: $darkTextColor;
 	position: relative;
 	z-index: 1;
 }
@@ -602,8 +603,7 @@ hr {
 /*==========----------==========*/
 @media only screen and (max-width: 1000px) {
 	.section {
-		padding-left: 1em;
-		padding-right: 1em;
+		padding: 4em 1em;
 	}
 
 	.scrollIcon {
@@ -645,7 +645,7 @@ hr {
 /*==========----------==========*/
 @media only screen and (max-width: 700px), only screen and (max-height: 700px) {
 	.box {
-		padding: 1em;
+		padding: 2em;
 	}
 }
 

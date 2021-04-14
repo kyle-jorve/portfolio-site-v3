@@ -4,8 +4,54 @@
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
 
-.home {
+.bio {
+	&__wrapper {
+		position: relative;
+		z-index: 3;
+	}
 
+	&__mobileImg {
+		display: none;
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto -2em auto;
+		border-radius: $borderRadius;
+		box-shadow: $softShadow;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__bg,
+	&__img {
+		@include absolute(cover);
+	}
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: right center;
+	}
+
+	&__box {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content {
+		max-width: $narrowWidth;
+	}
+
+	&__heading {
+		@include headingTag(h3);
+		@include underlineText();
+		margin-top: 0;
+		color: map-get($colorScheme, red);
+	}
+
+	&__btnWrp {
+		padding-bottom: 0;
+	}
 }
 
 /*//////////////////////////////////////////////////////*/
@@ -15,5 +61,54 @@
 /*//////////////////////////////////////////////////////*/
 
 /*==========----------==========*/
-/*            QUERY             */
+/*         1175PX WIDTH         */
 /*==========----------==========*/
+
+@media (max-width: 1175px) {
+	.bio {
+		&__img {
+			object-position: 66% center;
+		}
+	}
+}
+
+/*==========----------==========*/
+/*         $tablet WIDTH         */
+/*==========----------==========*/
+
+@media (max-width: $tablet) {
+	.bio {
+		background: darken(map-get($bgColors, lightBg), 5%);
+
+		&__img {
+			display: none;
+		}
+
+		&__content {
+			max-width: none;
+		}
+
+		&__box {
+			padding-top: 4em;
+			backdrop-filter: none;
+			background: map-get($bgColors, lightBg);
+		}
+
+		&__mobileImg {
+			display: block;
+		}
+
+		&__heading {
+			text-align: center;
+
+			&::after {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		&__btnWrp {
+			justify-content: center;
+		}
+	}
+}

@@ -174,13 +174,13 @@ $lightboxBg: bg-color(map-get($bgColors, bodyBg));
 /*General*/
 $buttonBorderRadius: 999px;
 $buttonBorder: none;
-$buttonPadding: 0.5em 2em;
+$buttonPadding: 1.25em 3em;
 $buttonTextTrans: $headingTextTransform;
 $buttonLineHeight: $headingLineHeight;
-$buttonFontSize: 1em;
+$buttonFontSize: $smallFontSize;
 $buttonFont: $headingFont;
 $buttonLetterSpacing: $headingLetterSpacing;
-$buttonFontWeight: $primaryBold;
+$buttonFontWeight: $headingFontWeight;
 
 /*Cross Button*/
 $crossBtnDiam: 40px;
@@ -198,7 +198,7 @@ $imageBtnBg: white-or-black(map-get($bgColors, bodyBg));
 /*===========================
     Boxes
 ===========================*/
-$boxBg: rgba(map-get($bgColors, lightBg), 0.6);
+$boxBg: rgba(map-get($bgColors, lightBg), 0.8);
 
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/

@@ -40,16 +40,28 @@
     </div>
 </section>
 
-<section class="section bio" style="background-image: url('{{bio.img.desktop}}');">
-    <div class="wrapper wrapper--section">
+<section class="section bio">
+    <div class="bio__wrapper wrapper wrapper--section">
         <article class="bio__content">
-            <img class="bio__mobileImg" src="{{bio.img.mobile}}" alt="{{bio.img.alt}}">
-            <h3 class="bio__heading">{{bio.title}}</h3>
-            {{{bio.content}}}
+            <img class="bio__mobileImg" src="{{bio.img.square}}" aria-hidden="true">
+
+            <div class="bio__box box">
+                <h2 class="bio__heading">{{bio.title}}</h2>
+                {{{bio.content}}}
+            </div>
 
             <div class="bio__btnWrp button__wrapper button__wrapper--justifyRight">
-                <a class="button button--primary" href="{{bio.url}}"></a>
+                <a class="button button--primary" href="{{bio.url}}">{{{bio.buttonText}}}</a>
             </div>
         </article>
+    </div>
+
+    <div class="bio__bg">
+        <picture>
+            {{#each bio.img.sources}}
+                <source srcset="{{this.url}}" media="(min-width: {{this.minScreenSize}}px)">
+            {{/each}}
+            <img class="bio__img" alt="{{bio.img.alt}}" src="{{bio.img.mobileSource}}">
+        </picture>
     </div>
 </section>
