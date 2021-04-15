@@ -26,10 +26,10 @@
     </a>
 </section>
 
- <section class="section portfolio" id="featured-work">
+ <section class="section portfolio portfolio--home" id="featured-work">
      <h2>{{portfolio.heading}}</h2>
 
-    <div class="portfolio__grid">
+    <div class="portfolio__grid portfolio__grid--home">
         {{#each portfolio.featured}}
             {{{printPortfolioItem this}}}
         {{/each}}
@@ -40,7 +40,7 @@
     </div>
 </section>
 
-<section class="section bio">
+<section class="section bio bio--home">
     <div class="bio__wrapper wrapper wrapper--section">
         <article class="bio__content">
             <img class="bio__mobileImg" src="{{bio.img.square}}" aria-hidden="true">

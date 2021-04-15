@@ -14,6 +14,20 @@
 			"dimensions": [640, 1067],
 			"orientation": "top",
 			"featured": true,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-320.jpg",
+				"alt": "Cargha stands stoically holding a dagger in one hand and a khopesh in the other"
+			},
 			"media": [
 				{
 					"sources": [
@@ -132,6 +146,20 @@
 			"dimensions": [640, 853],
 			"orientation": "top",
 			"featured": true,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/crow/final/kyle-jorve_crow-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/crow/final/kyle-jorve_crow-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/crow/final/kyle-jorve_crow-320.jpg",
+				"alt": "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing"
+			},
 			"media": [
 				{
 					"sources": [
@@ -196,6 +224,20 @@
 			"dimensions": [640, 986],
 			"orientation": "top",
 			"featured": true,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/tyene/final/kyle-jorve_tyene-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/tyene/final/kyle-jorve_tyene-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/tyene/final/kyle-jorve_tyene-320.jpg",
+				"alt": "Tyene, a half-elf ranger, stands in the middle of a forest, a pond at her back, looking at and reaching up toward a pixie"
+			},
 			"media": [
 				{
 					"sources": [
@@ -440,25 +482,21 @@
 			"dimensions": [640, 640],
 			"orientation": "center",
 			"featured": true,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-320.jpg",
+				"alt": "a close-up crop of Pendrake and Kyra lying in bed together"
+			},
 			"media": [
-				{
-					"sources": [
-						{
-							"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-1920.jpg",
-							"minScreenSize": 1440
-						},
-						{
-							"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-1440.jpg",
-							"minScreenSize": 1024
-						},
-						{
-							"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-1024.jpg",
-							"minScreenSize": 640
-						}
-					],
-					"mobileSource": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-640.jpg",
-					"alt": "a close-up crop of Pendrake and Kyra lying in bed together"
-				},
 				{
 					"sources": [
 						{
@@ -476,6 +514,24 @@
 					],
 					"mobileSource": "/dist/media/portfolio/pendrakes-chamber/final/kyle-jorve_pendrakes-chamber-640.jpg",
 					"alt": "the full image; Pendrake's bedroom in isometric perspective"
+				},
+				{
+					"sources": [
+						{
+							"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-1920.jpg",
+							"minScreenSize": 1440
+						},
+						{
+							"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-1440.jpg",
+							"minScreenSize": 1024
+						},
+						{
+							"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-1024.jpg",
+							"minScreenSize": 640
+						}
+					],
+					"mobileSource": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-640.jpg",
+					"alt": "a close-up crop of Pendrake and Kyra lying in bed together"
 				},
 				{
 					"sources": [
@@ -558,6 +614,20 @@
 			"dimensions": [640, 853],
 			"orientation": "center",
 			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/berned/kyle-jorve_berned-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/berned/kyle-jorve_berned-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/berned/kyle-jorve_berned-320.jpg",
+				"alt": "Berned stands before the circular, red door to his house"
+			},
 			"media": [
 				{
 					"sources": [
@@ -586,6 +656,20 @@
 			"dimensions": [640, 896],
 			"orientation": "center",
 			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/olfactory/kyle-jorve_olfactory-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/olfactory/kyle-jorve_olfactory-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/olfactory/kyle-jorve_olfactory-320.jpg",
+				"alt": "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia"
+			},
 			"media": [
 				{
 					"sources": [
@@ -614,6 +698,20 @@
 			"dimensions": [640, 1252],
 			"orientation": "center",
 			"featured": true,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-320.jpg",
+				"alt": "Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence"
+			},
 			"media": [
 				{
 					"sources": [
@@ -642,6 +740,20 @@
 			"dimensions": [640, 1047],
 			"orientation": "top",
 			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/crows/kyle-jorve_crows-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/crows/kyle-jorve_crows-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/crows/kyle-jorve_crows-320.jpg",
+				"alt": "Crow stands before a cluster of dead ravens as more fall from the sky; the raven immediately before him is white"
+			},
 			"media": [
 				{
 					"sources": [
@@ -664,12 +776,110 @@
 			]
 		},
 		{
+			"name": "assembly-of-a-complex-organism",
+			"title": "Assembly of a Complex Organism",
+			"content": "<p>My process when working on abstract pieces like this is an exercise in never, ever forcing the painting to be anything other than what it wants to be. Perhaps that sounds like I'm attributing too much significance to subconscious processes. But for those of you who <em>do</em> paint, you may know what I'm talking about.</p><p>Whenever I try to force a painting in some direction, I can feel it. The painting doesn't want to cooperate; it fights me; it forces me off-course and into a creative ditch, after which my only hope of making any more progress is to back up and start <strong>listening</strong>.</p><p>I'm not always great at this, but with pieces like this I can exercise this muscle in a more pronounced way. Because, really, with impressionistic or abstract pieces, it may seem like you could go in <strong>any</strong> direction, but that could not be further from the truth. With these kinds of pieces, in my experience, you have an even narrower path to walk, and you must walk it carefully.</p><p>So, what is it about? After finishing this painting, I thought on it a good while, and it put to mind the history of life and of evolution. All life on this planet started as single cells, which eventually grew together to cooperate and build larger organisms. We are nothing but the collection of trillions of microscopic organisms, assembling and cooperating toward the goal of sustaining a larger lifeform that they can never have any awareness of. This painting, to me, reminds me of that process--of assembling and cooperating, of beginning a partnership of separate pieces and seemingly disparate goals in order to sustain and build something greater and more complex.</p>",
+			"dimensions": [640, 418],
+			"orientation": "center",
+			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-320.jpg",
+				"alt": "An abstract assembly of colors and materials, all layering over and feeding into one another, like spreading fungus"
+			},
+			"media": [
+				{
+					"sources": [
+						{
+							"url": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-1920.jpg",
+							"minScreenSize": 1440
+						},
+						{
+							"url": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-1440.jpg",
+							"minScreenSize": 1024
+						},
+						{
+							"url": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-1024.jpg",
+							"minScreenSize": 640
+						}
+					],
+					"mobileSource": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-640.jpg",
+					"alt": "An abstract assembly of colors and materials, all layering over and feeding into one another, like spreading fungus"
+				}
+			]
+		},
+		{
+			"name": "orlandatime",
+			"title": "Orlandatime",
+			"content": "<p class=\"largeText\">This was part of an attempt to steer my work in a certain direction—one which would see both myself and my audience connecting more with it.</p><p>I kept the brushstrokes loose and worked with the textures that naturally arose to pick out spots of detail. The landscape that resulted was inspired by one of my favorite games, <strong>No Man's Sky</strong>.</p>",
+			"dimensions": [640, 366],
+			"orientation": "center",
+			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-320.jpg",
+				"alt": "Sol stands in a forest, looking warily toward the viewer, clutching the handle of her dagger"
+			},
+			"media": [
+				{
+					"sources": [
+						{
+							"url": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-1920.jpg",
+							"minScreenSize": 1440
+						},
+						{
+							"url": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-1440.jpg",
+							"minScreenSize": 1024
+						},
+						{
+							"url": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-1024.jpg",
+							"minScreenSize": 640
+						}
+					],
+					"mobileSource": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-640.jpg",
+					"alt": "Sol stands in a forest, looking warily toward the viewer, clutching the handle of her dagger"
+				}
+			]
+		},
+		{
 			"name": "sol",
 			"title": "Sol",
 			"content": "<p class=\"largeText\">\"More than one reason they call her the Girl in Black. They say she's a witch, what can talk to the dead, spirits and the like. She'll not be coming back to this town, no. If she does, there'll be trouble, and from more than just me.\"<br><small>—Junas</small></p><p>Sol is a mysterious helper in the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story's protagonists locate her missing husband, Luna, who has disappeared without a trace.</p>",
 			"dimensions": [640, 1158],
 			"orientation": "top",
 			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/sol/kyle-jorve_sol-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/sol/kyle-jorve_sol-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/sol/kyle-jorve_sol-320.jpg",
+				"alt": "Sol stands in a forest, looking warily toward the viewer, clutching the handle of her dagger"
+			},
 			"media": [
 				{
 					"sources": [
@@ -698,6 +908,20 @@
 			"dimensions": [640, 915],
 			"orientation": "center",
 			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1-320.jpg",
+				"alt": "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island"
+			},
 			"media": [
 				{
 					"sources": [
@@ -726,6 +950,20 @@
 			"dimensions": [640, 915],
 			"orientation": "center",
 			"featured": false,
+			"thumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2-480.jpg",
+						"minScreenSize": 1024
+					},
+					{
+						"url": "/dist/media/portfolio/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2-512.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2-320.jpg",
+				"alt": "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; the heart-shaped moon glows overhead"
+			},
 			"media": [
 				{
 					"sources": [

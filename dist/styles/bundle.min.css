@@ -6510,17 +6510,17 @@ hr {
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
 /*==========----------==========*/
-/*         1400PX WIDTH         */
+/*        $desktop WIDTH        */
 /*==========----------==========*/
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1440px) {
   .parallaxBg {
     background-position: center center;
     background-attachment: scroll; } }
 
 /*==========----------==========*/
-/*         1000PX WIDTH         */
+/*         $tablet WIDTH        */
 /*==========----------==========*/
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1024px) {
   .section {
     padding: 4em 1em; }
   .scrollIcon {
@@ -6530,23 +6530,10 @@ hr {
       width: 1.25em;
       height: 1.6667em; } }
 
-/*==========----------==========*/
-/*         800PX WIDTH          */
-/*==========----------==========*/
-@media only screen and (max-width: 800px) {
-  .overflow--before {
-    padding-bottom: 6em !important; }
-  .overflow--after {
-    padding-top: 6em !important; }
-  .overflow--up {
-    transform: translateY(-4em); }
-  .overflow--down {
-    transform: translateY(4em); } }
-
-/*==========----------==========*/
-/*  700PX WIDTH or 700PX HEIGHT */
-/*==========----------==========*/
-@media only screen and (max-width: 700px), only screen and (max-height: 700px) {
+/*==========----------============*/
+/*  $phone WIDTH or $phone HEIGHT */
+/*==========----------============*/
+@media only screen and (max-width: 640px), only screen and (max-height: 640px) {
   .box {
     padding: 2em; } }
 
@@ -8743,6 +8730,10 @@ sup {
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
 .portfolio {
+  padding-top: 8em;
+  /*==========----------==========*/
+  /*        NAV & HOME GRID       */
+  /*==========----------==========*/
   /*==========----------==========*/
   /*           NAV GRID           */
   /*==========----------==========*/
@@ -8752,18 +8743,29 @@ sup {
   /*//====================----------====================//*/
   /*//////////////////////////////////////////////////////*/
   /*==========----------==========*/
-  /*         1100PX WIDTH         */
+  /*        $desktop WIDTH        */
+  /*==========----------==========*/
+  /*==========----------==========*/
+  /*         $tablet WIDTH        */
   /*==========----------==========*/
   /*==========----------==========*/
   /*         $phone WIDTH         */
   /*==========----------==========*/ }
+  .portfolio__heading::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    max-width: 150px;
+    background: #ff5652;
+    margin-top: 0.5em; }
   .portfolio__grid {
     display: grid;
-    grid-template: repeat(2, minmax(200px, 30vw))/repeat(3, 1fr);
+    grid-template: repeat(2, 20vw)/repeat(4, 1fr);
     gap: 1em;
     grid-auto-flow: dense;
-    grid-auto-rows: minmax(200px, 30vw);
-    grid-auto-columns: minmax(200px, 1fr); }
+    grid-auto-rows: 20vw;
+    grid-auto-columns: 1fr; }
   .portfolio__itemLink {
     display: block;
     background: none;
@@ -8857,6 +8859,9 @@ sup {
       grid-row: span 2; }
     .portfolio__item--wide {
       grid-column: span 2; }
+    .portfolio__item:last-child, .portfolio__item:nth-last-child(2), .portfolio__item:nth-last-child(3), .portfolio__item:nth-last-child(4), .portfolio__item:nth-last-child(5) {
+      grid-row: span 1;
+      grid-column: span 1; }
     @media (hover: hover) {
       .portfolio__item:hover {
         transform: scale(1.02);
@@ -8868,6 +8873,12 @@ sup {
           opacity: 1; }
         .portfolio__item:hover .portfolio__itemInner {
           transform: none; } }
+  .portfolio__grid--nav, .portfolio__grid--home {
+    grid-template-columns: repeat(3, 1fr); }
+    .portfolio__grid--nav .portfolio__item--tall:first-child, .portfolio__grid--nav .portfolio__item--tall:nth-child(3), .portfolio__grid--nav .portfolio__item--wide:first-child, .portfolio__grid--nav .portfolio__item--wide:nth-child(3), .portfolio__grid--home .portfolio__item--tall:first-child, .portfolio__grid--home .portfolio__item--tall:nth-child(3), .portfolio__grid--home .portfolio__item--wide:first-child, .portfolio__grid--home .portfolio__item--wide:nth-child(3) {
+      grid-row: span 2; }
+    .portfolio__grid--nav .portfolio__item--tall:nth-child(2), .portfolio__grid--nav .portfolio__item--tall:last-child, .portfolio__grid--nav .portfolio__item--wide:nth-child(2), .portfolio__grid--nav .portfolio__item--wide:last-child, .portfolio__grid--home .portfolio__item--tall:nth-child(2), .portfolio__grid--home .portfolio__item--tall:last-child, .portfolio__grid--home .portfolio__item--wide:nth-child(2), .portfolio__grid--home .portfolio__item--wide:last-child {
+      grid-row: span 1; }
   .portfolio__grid--nav {
     grid-template-rows: repeat(2, 300px);
     grid-auto-rows: 300px; }
@@ -8881,16 +8892,32 @@ sup {
         @media (hover: hover) {
           .portfolio__grid--nav .portfolio__item.active:hover {
             transform: scale(1.02); } }
-  @media (max-width: 1100px) {
+  @media (max-width: 1440px) {
+    .portfolio__grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 27vw;
+      grid-auto-rows: 27vw; }
+    .portfolio__item:last-child, .portfolio__item:nth-last-child(2), .portfolio__item:nth-last-child(3), .portfolio__item:nth-last-child(4) {
+      grid-row: span 1;
+      grid-column: span 1; }
+    .portfolio__item--tall:nth-last-child(5) {
+      grid-row: span 2; }
+    .portfolio__item--wide:nth-last-child(5) {
+      grid-column: span 2; } }
+  @media (max-width: 1024px) {
     .portfolio__grid--nav {
-      grid-template-rows: repeat(2, 25vw);
-      grid-auto-rows: 25vw; } }
+      grid-template-rows: repeat(2, 30vw);
+      grid-auto-rows: 30vw; } }
   @media (max-width: 640px) {
-    .portfolio__grid--nav {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5em; }
-      .portfolio__grid--nav.portfolio__grid--odd .portfolio__item:last-child:nth-child(odd) {
-        grid-column: span 2; } }
+    .portfolio {
+      padding-top: 6em; }
+      .portfolio__grid {
+        grid-template: 35vw / 1fr 1fr;
+        grid-auto-rows: 35vw;
+        gap: 0.5em; }
+      .portfolio__item:last-child, .portfolio__item:nth-last-child(2), .portfolio__item:nth-last-child(3), .portfolio__item:nth-last-child(4), .portfolio__item:nth-last-child(5) {
+        grid-row: span 1;
+        grid-column: span 1; } }
 
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
@@ -9797,11 +9824,14 @@ button {
 /*//                    HOME PAGE                     //*/
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
-.bio__wrapper {
+.portfolio--home {
+  padding: 6em 2em; }
+
+.bio--home .bio__wrapper {
   position: relative;
   z-index: 3; }
 
-.bio__mobileImg {
+.bio--home .bio__mobileImg {
   display: none;
   width: 100%;
   max-width: 300px;
@@ -9811,7 +9841,8 @@ button {
   position: relative;
   z-index: 2; }
 
-.bio__bg, .bio__img {
+.bio--home .bio__bg,
+.bio--home .bio__img {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -9819,33 +9850,33 @@ button {
   bottom: 0;
   left: 0; }
 
-.bio__img {
+.bio--home .bio__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: right center; }
 
-.bio__box {
+.bio--home .bio__box {
   position: relative;
   z-index: 1; }
 
-.bio__content {
+.bio--home .bio__content {
   max-width: 600px; }
 
-.bio__heading {
+.bio--home .bio__heading {
   font-size: 1.77689em;
   margin-top: 0;
   color: #ff5652; }
   @media only screen and (max-width: 1440px), only screen and (max-height: 1440px) {
-    .bio__heading {
+    .bio--home .bio__heading {
       font-size: 1.5625em; } }
   @media only screen and (max-width: 1024px), only screen and (max-height: 1024px), print {
-    .bio__heading {
+    .bio--home .bio__heading {
       font-size: 1.44em; } }
   @media only screen and (max-width: 640px), only screen and (max-height: 640px) {
-    .bio__heading {
+    .bio--home .bio__heading {
       font-size: 1.26562em; } }
-  .bio__heading::after {
+  .bio--home .bio__heading::after {
     display: block;
     content: '';
     width: 100%;
@@ -9854,7 +9885,7 @@ button {
     background: #ff5652;
     margin-top: 0.5em; }
 
-.bio__btnWrp {
+.bio--home .bio__btnWrp {
   padding-bottom: 0; }
 
 /*//////////////////////////////////////////////////////*/
@@ -9866,31 +9897,33 @@ button {
 /*         1175PX WIDTH         */
 /*==========----------==========*/
 @media (max-width: 1175px) {
-  .bio__img {
+  .bio--home .bio__img {
     object-position: 66% center; } }
 
 /*==========----------==========*/
-/*         $tablet WIDTH         */
+/*         $tablet WIDTH        */
 /*==========----------==========*/
 @media (max-width: 1024px) {
+  .portfolio--home {
+    padding: 4em 1em; }
   .bio {
     background: #e4e6e8; }
-    .bio__img {
+    .bio .bio__img {
       display: none; }
-    .bio__content {
+    .bio .bio__content {
       max-width: none; }
-    .bio__box {
+    .bio .bio__box {
       padding-top: 4em;
       backdrop-filter: none;
       background: #f2f3f4; }
-    .bio__mobileImg {
+    .bio .bio__mobileImg {
       display: block; }
-    .bio__heading {
+    .bio .bio__heading {
       text-align: center; }
-      .bio__heading::after {
+      .bio .bio__heading::after {
         margin-left: auto;
         margin-right: auto; }
-    .bio__btnWrp {
+    .bio .bio__btnWrp {
       justify-content: center; } }
 
 /*//////////////////////////////////////////////////////*/

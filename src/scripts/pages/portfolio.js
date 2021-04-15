@@ -25,5 +25,4 @@ global
 
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
-	.catch(err => console.warn(err))
-	.finally(() => nav.init());
+	.catch(err => console.warn(err));
