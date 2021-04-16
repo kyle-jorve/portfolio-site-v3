@@ -96,6 +96,20 @@ picture {
 }
 
 /*===========================
+    Logo Icon
+===========================*/
+
+.logoIcon {
+	@include absolute(center-horizontal);
+	width: 60px;
+	height: 60px;
+	pointer-events: none;
+	bottom: 0;
+	z-index: 3;
+	transform: translate(-50%, 50%);
+}
+
+/*===========================
     Content Wrappers
 ===========================*/
 
@@ -603,7 +617,7 @@ hr {
 /*==========----------==========*/
 @media only screen and (max-width: $tablet) {
 	.section {
-		padding: 4em 1em;
+		padding: $mobilSectionPadding;
 	}
 
 	.scrollIcon {
@@ -623,6 +637,16 @@ hr {
 @media only screen and (max-width: $phone), only screen and (max-height: $phone) {
 	.box {
 		padding: 2em;
+	}
+}
+
+/*==========----------============*/
+/*         $phone WIDTH           */
+/*==========----------============*/
+
+@media (max-width: $phone) {
+	body {
+		padding-bottom: 70px;
 	}
 }
 

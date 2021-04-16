@@ -1,0 +1,140 @@
+/*//////////////////////////////////////////////////////*/
+/*//====================----------====================//*/
+/*//                     CV PAGE                      //*/
+/*//====================----------====================//*/
+/*//////////////////////////////////////////////////////*/
+
+.bio {
+	&__page {
+		background: map-get($bgColors, lightBg);
+		color: $darkTextColor;
+
+		footer {
+			background: map-get($bgColors, darkBg);
+			color: $lightTextColor;
+		}
+	}
+
+	&__section {
+		padding: 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__hero,
+	&__content {
+		padding: $sectionPadding;
+	}
+
+	&__hero {
+		height: 20vw;
+		min-height: 300px;
+		padding-top: 8em;
+		position: relative;
+		z-index: 1;
+
+		&::before {
+			@include absolute(cover);
+			@include gradient(
+				(rgba(map-get($colorScheme, violet), 0), rgba(map-get($colorScheme, violet), 0.2)),
+				diagonal-down
+			);
+			display: block;
+			content: '';
+			backdrop-filter: blur(46px);
+			z-index: 2;
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__pageImgWrp {
+		@include decorateImage(-1em);
+		width: calc(100% - 4em);
+		max-width: 400px;
+		margin: -200px auto 0 auto;
+		position: relative;
+		z-index: 3;
+	}
+
+	&__pageImg {
+		border-radius: $borderRadius;
+		box-shadow: $softShadow;
+		position: relative;
+		z-index: 1;
+	}
+
+	&__pageBg {
+		@include absolute(cover);
+		opacity: 0.5;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 1;
+	}
+
+	&__title {
+		@include underlineText(center);
+		text-align: center;
+		color: map-get($colorScheme, red);
+	}
+}
+
+.resume {
+	$resume: &;
+
+	background: map-get($bgColors, medBg);
+	border-top: $borderThickness solid $lightBorderColor;
+
+	&__heading {
+		@include underlineText(center);
+		text-align: center;
+	}
+
+	&__itemHeading {
+		color: map-get($colorScheme, red);
+	}
+
+	&__subItemYear {
+		display: block;
+		font-weight: $headingLight;
+	}
+
+	&__hr {
+		margin: 4em auto;
+		max-width: 240px;
+		background: map-get($colorScheme, red);
+	}
+
+	&__item:last-child {
+		#{$resume}__hr {
+			display: none;
+		}
+	}
+}
+
+/*//////////////////////////////////////////////////////*/
+/*//====================----------====================//*/
+/*//                  MEDIA QUERIES                   //*/
+/*//====================----------====================//*/
+/*//////////////////////////////////////////////////////*/
+
+/*==========----------==========*/
+/*         $tablet WIDTH        */
+/*==========----------==========*/
+
+@media (max-width: $tablet) {
+	.bio {
+		&__hero,
+		&__content {
+			padding: $mobilSectionPadding;
+		}
+
+		&__hero {
+			padding-top: 6em;
+		}
+	}
+}

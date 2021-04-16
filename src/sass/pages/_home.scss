@@ -7,46 +7,94 @@
 $bio: '.bio';
 $portfolio: '.portfolio';
 
+.home {
+	&__title,
+	&__subtitle {
+		margin: 0;
+	}
+
+	&__title {
+		font-size: 4em;
+	}
+
+	&__titleText,
+	&__subtitle {
+		@include gradient((map-get($colorScheme, violet), map-get($colorScheme, red)), diagonal-up);
+	}
+
+	&__titleText {
+		display: block;
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		line-height: 1;
+	}
+
+	&__subtitle {
+		padding: 1rem 1rem 0.5rem 1rem;
+		margin-top: -0.65rem;
+		font-weight: $primaryLight;
+		font-size: 2rem;
+		position: relative;
+		z-index: -1;
+	}
+}
+
+/*==========----------==========*/
+/*       PORTFOLIO SECTION      */
+/*==========----------==========*/
+
 #{$portfolio}--home {
 	padding: $sectionPadding;
 }
 
+/*==========----------==========*/
+/*         BIO SECTION          */
+/*==========----------==========*/
+
 #{$bio}--home {
 	#{$bio}__wrapper {
-		position: relative;
-		z-index: 3;
+		padding-bottom: 6em;
 	}
 
-	#{$bio}__mobileImg {
+	#{$bio}__mobileImgWrp {
+		@include decorateImage(-1em);
 		display: none;
 		width: 100%;
 		max-width: 300px;
 		margin: 0 auto -2em auto;
-		border-radius: $borderRadius;
-		box-shadow: $softShadow;
 		position: relative;
 		z-index: 2;
 	}
 
-	#{$bio}__bg,
-	#{$bio}__img {
-		@include absolute(cover);
+	#{$bio}__mobileImg {
+		border-radius: $borderRadius;
+		box-shadow: $softShadow;
+		position: relative;
+		z-index: 1;
+	}
+
+	#{$bio}__bg {
+		@include absolute(center-vertical);
+		@include decorateImage();
+		width: calc(100% - 8em);
+		max-width: 1100px;
+		right: 0;
 	}
 
 	#{$bio}__img {
 		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: right center;
-	}
-
-	#{$bio}__box {
+		border-radius: $borderRadius;
 		position: relative;
 		z-index: 1;
 	}
 
 	#{$bio}__content {
+		width: 100%;
 		max-width: $narrowWidth;
+		flex: 1 0 $narrowWidth;
+		position: relative;
+		z-index: 2;
 	}
 
 	#{$bio}__heading {
@@ -72,6 +120,8 @@ $portfolio: '.portfolio';
 /*==========----------==========*/
 
 @media (max-width: 1175px) {
+	/*=====---- BIO SECTION ----=====*/
+
 	#{$bio}--home {
 		#{$bio}__img {
 			object-position: 66% center;
@@ -84,12 +134,30 @@ $portfolio: '.portfolio';
 /*==========----------==========*/
 
 @media (max-width: $tablet) {
+	.home {
+		&__title {
+			font-size: 3.5em;
+		}
+
+		&__subtitle {
+			font-size: 1.5rem;
+		}
+	}
+
+	/*=====---- PORTFOLIO SECTION ----=====*/
+
 	#{$portfolio}--home {
 		padding: 4em 1em;
 	}
 
-	#{$bio} {
-		background: darken(map-get($bgColors, lightBg), 5%);
+	/*=====---- BIO SECTION ----=====*/
+
+	#{$bio}--home {
+		background: map-get($bgColors, medBg);
+
+		#{$bio}__wrapper {
+			padding-bottom: 0;
+		}
 
 		#{$bio}__img {
 			display: none;
@@ -105,7 +173,7 @@ $portfolio: '.portfolio';
 			background: map-get($bgColors, lightBg);
 		}
 
-		#{$bio}__mobileImg {
+		#{$bio}__mobileImgWrp {
 			display: block;
 		}
 
@@ -120,6 +188,59 @@ $portfolio: '.portfolio';
 
 		#{$bio}__btnWrp {
 			justify-content: center;
+		}
+	}
+}
+
+/*==========----------==========*/
+/*         $phone WIDTH         */
+/*==========----------==========*/
+
+@media (max-width: $phone) {
+	.home {
+		&__title {
+			font-size: 2.5em;
+		}
+
+		&__subtitle {
+			margin-top: -0.45rem;
+			font-size: 1.2rem;
+		}
+	}
+}
+
+/*==========----------==========*/
+/*         480PX WIDTH          */
+/*==========----------==========*/
+
+@media (max-width: 480px) {
+	.home {
+		&__title {
+			font-size: 2em;
+		}
+
+		&__subtitle {
+			padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+			margin-top: -0.35rem;
+			font-size: 1rem;
+		}
+	}
+}
+
+/*==========----------==========*/
+/*         350PX WIDTH          */
+/*==========----------==========*/
+
+@media (max-width: 350px) {
+	.home {
+		&__title {
+			font-size: 1.5em;
+		}
+
+		&__subtitle {
+			padding: 0.5rem 0.35rem 0.35rem 0.35rem;
+			margin-top: -0.25rem;
+			font-size: 0.8rem;
 		}
 	}
 }

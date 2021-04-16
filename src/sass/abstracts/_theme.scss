@@ -19,6 +19,7 @@ $colorScheme: (
 $bgColors: (
 	bodyBg: map-get($colorScheme, coolBlack),
 	lightBg: map-get($colorScheme, coolWhite),
+	medBg: darken(map-get($colorScheme, coolWhite), 5%),
 	darkBg: map-get($colorScheme, coolBlack),
 	//this must be darker than the bodyBg
 	contentBg: map-get($colorScheme, coolWhite)
@@ -64,7 +65,7 @@ $headingFont: 'Montserrat', sans-serif;
 $headingTextTransform: uppercase;
 $headingFontWeight: 800;
 $headingBold: 800;
-$headingLight: 600;
+$headingLight: 400;
 $headingLetterSpacing: 0.3em;
 $headingLineHeight: 1.35;
 $headingTypeMargin: 1.5em 0 0.85em;
@@ -198,7 +199,7 @@ $imageBtnBg: white-or-black(map-get($bgColors, bodyBg));
 /*===========================
     Boxes
 ===========================*/
-$boxBg: rgba(map-get($bgColors, lightBg), 0.8);
+$boxBg: rgba(map-get($bgColors, lightBg), 0.85);
 
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/

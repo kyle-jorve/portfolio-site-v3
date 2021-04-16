@@ -55,7 +55,7 @@ $golden-ratio: (
 $superWide: 2200px;
 $wide: 1600px;
 $sectionWidth: 1200px;
-$contentWidth: 900px;
+$contentWidth: 72ch;
 $narrowWidth: 600px;
 $superNarrowWidth: 30em;
 
@@ -67,6 +67,7 @@ $gaps: 0, 1em, 2em, 4em;
 $edges: top, right, bottom, left;
 
 $sectionPadding: 6em 2em;
+$mobilSectionPadding: 4em 1em;
 
 /*===========================
     Positions

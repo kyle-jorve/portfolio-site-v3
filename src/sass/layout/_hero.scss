@@ -43,36 +43,6 @@
 		z-index: 3;
 	}
 
-	&__title,
-	&__subtitle {
-		margin: 0;
-	}
-
-	&__title {
-		font-size: 4em;
-	}
-
-	&__titleText,
-	&__subtitle {
-		@include gradient((map-get($colorScheme, violet), map-get($colorScheme, red)), diagonal-up);
-	}
-
-	&__titleText {
-		display: block;
-		background-clip: text;
-		-webkit-background-clip: text;
-		color: transparent;
-	}
-
-	&__subtitle {
-		padding: 1rem 1rem 0.5rem 1rem;
-		margin-top: -1.35rem;
-		font-weight: $primaryLight;
-		font-size: 2rem;
-		position: relative;
-		z-index: -1;
-	}
-
 	&__bg,
 	&__img {
 		@include absolute(cover);
@@ -174,5 +144,9 @@ $ballDiam: 4px;
 @media only screen and (max-width: $phone) {
 	.hero {
 		padding: 6em 1em 5em 1em;
+	}
+
+	.scrollGraphic {
+		display: none;
 	}
 }

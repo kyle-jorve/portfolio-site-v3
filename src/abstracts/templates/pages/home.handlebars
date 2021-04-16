@@ -1,9 +1,9 @@
 <section class="section hero">
     <div class="hero__content">
-        <h1 class="hero__title">
-            <span class="hero__titleText">{{intro.title}}</span>
+        <h1 class="home__title">
+            <span class="home__titleText">{{intro.title}}</span>
             {{#if intro.subtitle}}
-                <small class="hero__subtitle">{{intro.subtitle}}</small>
+                <small class="home__subtitle">{{intro.subtitle}}</small>
             {{/if}}
         </h1>
     </div>
@@ -41,9 +41,11 @@
 </section>
 
 <section class="section bio bio--home">
-    <div class="bio__wrapper wrapper wrapper--section">
+    <div class="bio__wrapper wrapper wrapper--wide">
         <article class="bio__content">
-            <img class="bio__mobileImg" src="{{bio.img.square}}" aria-hidden="true">
+            <div class="bio__mobileImgWrp">
+                <img class="bio__mobileImg" src="{{bio.img.square}}" aria-hidden="true">
+            </div>
 
             <div class="bio__box box">
                 <h2 class="bio__heading">{{bio.title}}</h2>
@@ -54,14 +56,14 @@
                 <a class="button button--primary" href="{{bio.url}}">{{{bio.buttonText}}}</a>
             </div>
         </article>
-    </div>
 
-    <div class="bio__bg">
-        <picture>
-            {{#each bio.img.sources}}
-                <source srcset="{{this.url}}" media="(min-width: {{this.minScreenSize}}px)">
-            {{/each}}
-            <img class="bio__img" alt="{{bio.img.alt}}" src="{{bio.img.mobileSource}}">
-        </picture>
+        <div class="bio__bg">
+            <picture>
+                {{#each bio.img.sources}}
+                    <source srcset="{{this.url}}" media="(min-width: {{this.minScreenSize}}px)">
+                {{/each}}
+                <img class="bio__img" alt="{{bio.img.alt}}" src="{{bio.img.mobileSource}}">
+            </picture>
+        </div>
     </div>
 </section>

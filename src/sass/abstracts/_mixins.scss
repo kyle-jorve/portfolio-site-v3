@@ -20,8 +20,6 @@
 		$colorList: append($colorList, nth($colors, $i) $percent, 'comma');
 	}
 
-	background: nth($colors, 1);
-
 	@if $orientation == vertical {
 		// vertical
 		background: linear-gradient(to bottom, $colorList);
@@ -64,6 +62,31 @@
 	} @else {
 		width: $borderThickness;
 		height: 100%;
+	}
+}
+
+@mixin decorateImage($borderOffset: -1.5em) {
+	&::before,
+	&::after {
+		@include absolute(cover);
+		display: block;
+		content: '';
+		border-radius: $borderRadius;
+	}
+
+	&::before {
+		border: $borderThickness solid map-get($colorScheme, red);
+		pointer-events: none;
+		transform: translate($borderOffset, $borderOffset);
+		z-index: 3;
+	}
+
+	&::after {
+		@include gradient(
+			(rgba(map-get($colorScheme, violet), 0), rgba(map-get($colorScheme, violet), 0.2)),
+			diagonal-down
+		);
+		z-index: 2;
 	}
 }
 
@@ -163,7 +186,7 @@
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
 
-@mixin underlineText {
+@mixin underlineText($align: left) {
 	&::after {
 		display: block;
 		content: '';
@@ -172,6 +195,14 @@
 		max-width: 150px;
 		background: map-get($colorScheme, red);
 		margin-top: 0.5em;
+
+		@if ($align == right) {
+			margin-left: auto;
+		}
+
+		@if ($align == center) {
+			margin: 0.5em auto 0 auto;
+		}
 	}
 }
 
