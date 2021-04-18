@@ -26,7 +26,7 @@
     </a>
 </section>
 
- <section class="section portfolio portfolio--home" id="featured-work">
+ <section class="section" id="featured-work">
      <h2>{{portfolio.heading}}</h2>
 
     <div class="portfolio__grid portfolio__grid--home">
@@ -40,29 +40,29 @@
     </div>
 </section>
 
-<section class="section bio bio--home">
-    <div class="bio__wrapper wrapper wrapper--wide">
-        <article class="bio__content">
-            <div class="bio__mobileImgWrp">
-                <img class="bio__mobileImg" src="{{bio.img.square}}" aria-hidden="true">
+<section class="section bioHome">
+    <div class="bioHome__wrapper wrapper wrapper--wide">
+        <article class="bioHome__content">
+            <div class="bioHome__mobileImgWrp">
+                <img class="bioHome__mobileImg" src="{{bio.img.square}}" aria-hidden="true">
             </div>
 
-            <div class="bio__box box">
-                <h2 class="bio__heading">{{bio.title}}</h2>
+            <div class="bioHome__box box">
+                <h2 class="bioHome__heading">{{bio.title}}</h2>
                 {{{bio.content}}}
             </div>
 
-            <div class="bio__btnWrp button__wrapper button__wrapper--justifyRight">
+            <div class="bioHome__btnWrp button__wrapper button__wrapper--justifyRight">
                 <a class="button button--primary" href="{{bio.url}}">{{{bio.buttonText}}}</a>
             </div>
         </article>
 
-        <div class="bio__bg">
+        <div class="bioHome__bg">
             <picture>
                 {{#each bio.img.sources}}
                     <source srcset="{{this.url}}" media="(min-width: {{this.minScreenSize}}px)">
                 {{/each}}
-                <img class="bio__img" alt="{{bio.img.alt}}" src="{{bio.img.mobileSource}}">
+                <img class="bioHome__img" alt="{{bio.img.alt}}" src="{{bio.img.mobileSource}}">
             </picture>
         </div>
     </div>

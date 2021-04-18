@@ -43,14 +43,12 @@ body {
 img,
 svg,
 iframe,
-video,
-picture {
+video {
 	display: block;
 }
 
 img,
-svg,
-picture {
+svg {
 	width: auto;
 	height: auto;
 	max-width: 100%;
@@ -617,7 +615,7 @@ hr {
 /*==========----------==========*/
 @media only screen and (max-width: $tablet) {
 	.section {
-		padding: $mobilSectionPadding;
+		padding: $mobileSectionPadding;
 	}
 
 	.scrollIcon {

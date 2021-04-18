@@ -1,37 +1,23 @@
 <div class="showcase">
     <section class="showcase__section showcase__section--media">
         <div class="showcase__slider" id="showcaseSlider">
-            {{#each media}}
-                <div class="showcase__slide">
-                    <picture>
-                        <source srcset="{{this.url}}">
-                        <img class="showcase__img" src="{{this.url}}" alt="{{this.alt}}">
-                    </picture>
-
-                    <div class="showcase__slideIcons">
-                        <button class="portfolio__expand showcase__icon icon icon--expand">
-                            <span class="icon__text">View Full Screen</span>
-                        </button>
-                    </div>
-                </div>
-            {{/each}}
+            {{{printSlides media}}}
         </div>
 
-        {{#if isSlider}}
+        {{#if (isSlider media)}}
             <div class="slider__arrows">
-                <button class="slider__arrow slider__arrow--prev" id="arrowPrev"></button>
-                <button class="slider__arrow slider__arrow--next" id="arrowNext"></button>
+                <button class="slider__arrow circleBtn circleBtn--prev" id="arrowPrev" data-dir="prev"><span class="icon__text">Previous Slide</span></button>
+                <button class="slider__arrow circleBtn circleBtn--next" id="arrowNext" data-dir="next"><span class="icon__text">Next Slide</span></button>
             </div>
 
-            <div class="slider__dots" id="sliderDots"></div>
+            <div class="slider__dots" id="sliderDots">
+                {{{printDots media}}}
+            </div>
         {{/if}}
 
-        {{#each media}}
-            <picture aria-hidden="true">
-                <source srcset="{{this.url}}">
-                <img class="showcase__bg" src="{{this.url}}">
-            </picture>
-        {{/each}}
+        <div class="showcase__bgWrp">
+            {{{printBgs media}}}
+        </div>
     </section>
     
     <section class="showcase__section showcase__section--content">

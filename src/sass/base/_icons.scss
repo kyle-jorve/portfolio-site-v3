@@ -26,6 +26,32 @@ $icons: (
 		yelp: '\f1e9',
 		youtube: '\f167'
 	),
+	regular: (
+		//////////////////////////////////////////////////////
+		font-weight: 400,
+		font-family: 'Font Awesome 5 Free',
+		///// ^^^ Please do not move or modify these ^^^ /////
+		calendar: '\f133',
+		check-circle: '\f058',
+		clock: '\f017',
+		closed-captioning: '\f20a',
+		credit-card: '\f09d',
+		comment-bubble: '\f27a',
+		comments: '\f086',
+		dot: '\f111',
+		envelope: '\f0e0',
+		file-alt: '\f15c',
+		file-pdf: '\f1c1',
+		file-word: '\f1c2',
+		paper-plane: '\f1d8',
+		pencil-square: '\f044',
+		person: '\f007',
+		play-circle: '\f144',
+		share-square: '\f14d',
+		smile-face: '\f118',
+		star: '\f005',
+		times-circle: '\f057'
+	),
 	solid: (
 		//////////////////////////////////////////////////////
 		font-weight: 900,
@@ -80,6 +106,8 @@ $icons: (
 		list: '\f00b',
 		location-pin: '\f041',
 		location-pin-alt: '\f3c5',
+		long-arrow-alt-left: '\f30a',
+		long-arrow-alt-right: '\f30b',
 		minus: '\f068',
 		minus-circle: '\f056',
 		mobile: '\f3cd',
@@ -112,32 +140,6 @@ $icons: (
 		video-camera: '\f03d',
 		wheelchair: '\f193',
 		zoom: '\f00e'
-	),
-	regular: (
-		//////////////////////////////////////////////////////
-		font-weight: 400,
-		font-family: 'Font Awesome 5 Free',
-		///// ^^^ Please do not move or modify these ^^^ /////
-		calendar: '\f133',
-		check-circle: '\f058',
-		clock: '\f017',
-		closed-captioning: '\f20a',
-		credit-card: '\f09d',
-		comment-bubble: '\f27a',
-		comments: '\f086',
-		dot: '\f111',
-		envelope: '\f0e0',
-		file-alt: '\f15c',
-		file-pdf: '\f1c1',
-		file-word: '\f1c2',
-		paper-plane: '\f1d8',
-		pencil-square: '\f044',
-		person: '\f007',
-		play-circle: '\f144',
-		share-square: '\f14d',
-		smile-face: '\f118',
-		star: '\f005',
-		times-circle: '\f057'
 	)
 );
 

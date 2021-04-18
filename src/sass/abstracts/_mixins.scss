@@ -194,14 +194,14 @@
 		height: $borderThickness;
 		max-width: 150px;
 		background: map-get($colorScheme, red);
-		margin-top: 0.5em;
+		margin-top: 0.5rem;
 
 		@if ($align == right) {
 			margin-left: auto;
 		}
 
 		@if ($align == center) {
-			margin: 0.5em auto 0 auto;
+			margin: 0.5rem auto 0 auto;
 		}
 	}
 }

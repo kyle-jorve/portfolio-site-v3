@@ -1,0 +1,53 @@
+/*//////////////////////////////////////////////////////*/
+/*//====================----------====================//*/
+/*//                    SLIDESHOW                     //*/
+/*//====================----------====================//*/
+/*//////////////////////////////////////////////////////*/
+
+.slider {
+	&__arrows,
+	&__dots {
+		pointer-events: none;
+		padding: 0 2em;
+	}
+
+	&__arrow,
+	&__dot {
+		pointer-events: all;
+	}
+
+	&__arrows {
+		@include absolute(center-vertical);
+		@include flexWrap(row, nowrap, space-between, center);
+		left: 0;
+		right: 0;
+		z-index: 5;
+	}
+
+	&__dots {
+		@include flexWrap(row, wrap, center, center);
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 3em;
+		z-index: 4;
+		transform: translateY(50%);
+	}
+
+	&__dot {
+		display: block;
+		flex-shrink: 0;
+		width: 1em;
+		height: 1em;
+		margin: 0.5em;
+		background-color: transparent;
+		border: $borderThickness solid $lightTextColor;
+		border-radius: 50%;
+		transition: background-color $transitionAppendix;
+
+		&.active {
+			background-color: $lightTextColor;
+			pointer-events: none;
+		}
+	}
+}

@@ -36,8 +36,8 @@
 		&::before {
 			@include absolute(cover);
 			@include gradient(
-				(rgba(map-get($colorScheme, violet), 0), rgba(map-get($colorScheme, violet), 0.2)),
-				diagonal-down
+				(rgba(map-get($colorScheme, violet), 0.35), rgba(map-get($colorScheme, yellow), 0.25)),
+				diagonal-up
 			);
 			display: block;
 			content: '';
@@ -51,7 +51,7 @@
 		z-index: 2;
 	}
 
-	&__pageImgWrp {
+	&__imgWrp {
 		@include decorateImage(-1em);
 		width: calc(100% - 4em);
 		max-width: 400px;
@@ -60,14 +60,14 @@
 		z-index: 3;
 	}
 
-	&__pageImg {
+	&__img {
 		border-radius: $borderRadius;
 		box-shadow: $softShadow;
 		position: relative;
 		z-index: 1;
 	}
 
-	&__pageBg {
+	&__bg {
 		@include absolute(cover);
 		opacity: 0.5;
 		width: 100%;
@@ -130,7 +130,7 @@
 	.bio {
 		&__hero,
 		&__content {
-			padding: $mobilSectionPadding;
+			padding: $mobileSectionPadding;
 		}
 
 		&__hero {

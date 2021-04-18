@@ -385,6 +385,31 @@ button {
 		@include iconContent(solid, minus);
 	}
 
+	/*---------- PREV & NEXT BUTTONS ----------*/
+
+	&--prev,
+	&--next {
+		background-color: map-get($colorScheme, red);
+		border: none;
+		color: $lightTextColor;
+		touch-action: none;
+
+		@media (hover: hover) {
+			&:hover {
+				background-color: lighten(map-get($colorScheme, red), 15%);
+				color: $darkTextColor;
+			}
+		}
+	}
+
+	&--prev::before {
+		@include iconContent(solid, long-arrow-alt-left);
+	}
+
+	&--next::before {
+		@include iconContent(solid, long-arrow-alt-right);
+	}
+
 	/*---------- SMALL CIRCLE BUTTON ----------*/
 	&--small {
 		width: $circleBtnDiam * 0.65;

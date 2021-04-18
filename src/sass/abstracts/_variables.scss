@@ -45,8 +45,8 @@ $flex-growths: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 ===========================*/
 
 $golden-ratio: (
-	small: 38.2%,
-	large: 61.8%
+	small: 38.2,
+	large: 61.8
 );
 
 /*===========================
@@ -66,8 +66,14 @@ $superNarrowWidth: 30em;
 $gaps: 0, 1em, 2em, 4em;
 $edges: top, right, bottom, left;
 
-$sectionPadding: 6em 2em;
-$mobilSectionPadding: 4em 1em;
+$sectionPaddingVert: 6em;
+$sectionPaddingHoriz: 2em;
+
+$mobileSectionPaddingVert: 4em;
+$mobileSectionPaddingHoriz: 1em;
+
+$sectionPadding: $sectionPaddingVert $sectionPaddingHoriz;
+$mobileSectionPadding: $mobileSectionPaddingVert $mobileSectionPaddingHoriz;
 
 /*===========================
     Positions

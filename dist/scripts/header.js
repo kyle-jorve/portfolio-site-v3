@@ -22,7 +22,15 @@ function buildHeader(dataSrc) {
 			data = {
 				nav: d.nav,
 				mobileNav: d.mobileNav,
-				social: [...d.socialIcons.standard, ...d.socialIcons.commerce],
+				social: [
+					...d.socialIcons.standard,
+					{
+						name: 'email',
+						cssClass: 'envelope',
+						url: `mailto:${d.email}`
+					},
+					...d.socialIcons.commerce
+				],
 				recentWorkLimit: d.recentWorkLimit
 			};
 

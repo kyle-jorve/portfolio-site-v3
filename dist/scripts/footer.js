@@ -11,8 +11,15 @@ global
 	.then(d => {
 		data = {
 			socialIcons: d.socialIcons,
-			copyright: d.copyright.replace(yearToken, curYear)
+			copyright: d.copyright.replace(yearToken, curYear),
+			email: d.email
 		};
+
+		data.socialIcons.standard.push({
+			name: 'email',
+			cssClass: 'envelope',
+			url: `mailto:${d.email}`
+		});
 
 		template = Handlebars.templates[global.templateSources.footer](data);
 

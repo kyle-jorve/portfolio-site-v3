@@ -4,9 +4,6 @@
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
 
-$bio: '.bio';
-$portfolio: '.portfolio';
-
 .home {
 	&__title,
 	&__subtitle {
@@ -41,23 +38,15 @@ $portfolio: '.portfolio';
 }
 
 /*==========----------==========*/
-/*       PORTFOLIO SECTION      */
-/*==========----------==========*/
-
-#{$portfolio}--home {
-	padding: $sectionPadding;
-}
-
-/*==========----------==========*/
 /*         BIO SECTION          */
 /*==========----------==========*/
 
-#{$bio}--home {
-	#{$bio}__wrapper {
+.bioHome {
+	&__wrapper {
 		padding-bottom: 6em;
 	}
 
-	#{$bio}__mobileImgWrp {
+	&__mobileImgWrp {
 		@include decorateImage(-1em);
 		display: none;
 		width: 100%;
@@ -67,14 +56,14 @@ $portfolio: '.portfolio';
 		z-index: 2;
 	}
 
-	#{$bio}__mobileImg {
+	&__mobileImg {
 		border-radius: $borderRadius;
 		box-shadow: $softShadow;
 		position: relative;
 		z-index: 1;
 	}
 
-	#{$bio}__bg {
+	&__bg {
 		@include absolute(center-vertical);
 		@include decorateImage();
 		width: calc(100% - 8em);
@@ -82,14 +71,14 @@ $portfolio: '.portfolio';
 		right: 0;
 	}
 
-	#{$bio}__img {
+	&__img {
 		width: 100%;
 		border-radius: $borderRadius;
 		position: relative;
 		z-index: 1;
 	}
 
-	#{$bio}__content {
+	&__content {
 		width: 100%;
 		max-width: $narrowWidth;
 		flex: 1 0 $narrowWidth;
@@ -97,14 +86,14 @@ $portfolio: '.portfolio';
 		z-index: 2;
 	}
 
-	#{$bio}__heading {
+	&__heading {
 		@include headingTag(h3);
 		@include underlineText();
 		margin-top: 0;
 		color: map-get($colorScheme, red);
 	}
 
-	#{$bio}__btnWrp {
+	&__btnWrp {
 		padding-bottom: 0;
 	}
 }
@@ -122,8 +111,8 @@ $portfolio: '.portfolio';
 @media (max-width: 1175px) {
 	/*=====---- BIO SECTION ----=====*/
 
-	#{$bio}--home {
-		#{$bio}__img {
+	.bioHome {
+		&__img {
 			object-position: 66% center;
 		}
 	}
@@ -143,41 +132,34 @@ $portfolio: '.portfolio';
 			font-size: 1.5rem;
 		}
 	}
-
-	/*=====---- PORTFOLIO SECTION ----=====*/
-
-	#{$portfolio}--home {
-		padding: 4em 1em;
-	}
-
 	/*=====---- BIO SECTION ----=====*/
 
-	#{$bio}--home {
+	.bioHome {
 		background: map-get($bgColors, medBg);
 
-		#{$bio}__wrapper {
+		&__wrapper {
 			padding-bottom: 0;
 		}
 
-		#{$bio}__img {
+		&__img {
 			display: none;
 		}
 
-		#{$bio}__content {
+		&__content {
 			max-width: none;
 		}
 
-		#{$bio}__box {
+		&__box {
 			padding-top: 4em;
 			backdrop-filter: none;
 			background: map-get($bgColors, lightBg);
 		}
 
-		#{$bio}__mobileImgWrp {
+		&__mobileImgWrp {
 			display: block;
 		}
 
-		#{$bio}__heading {
+		&__heading {
 			text-align: center;
 
 			&::after {
@@ -186,7 +168,7 @@ $portfolio: '.portfolio';
 			}
 		}
 
-		#{$bio}__btnWrp {
+		&__btnWrp {
 			justify-content: center;
 		}
 	}

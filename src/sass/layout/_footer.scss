@@ -7,7 +7,7 @@
 .footer {
 	&__icons {
 		display: grid;
-		grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
+		grid-template: auto / #{map-get($golden-ratio, large)}fr #{map-get($golden-ratio, small)}fr;
 	}
 
 	&__copyright {
@@ -24,10 +24,10 @@
 	/*//////////////////////////////////////////////////////*/
 
 	/*==========----------==========*/
-	/*         $phone WIDTH         */
+	/*         $tablet WIDTH        */
 	/*==========----------==========*/
 
-	@media (max-width: $phone) {
+	@media (max-width: $tablet) {
 		&__icons {
 			grid-template: auto auto / 1fr;
 		}

@@ -62,11 +62,20 @@
 
 	&__icons {
 		@include flexWrap(row, nowrap, flex-end, center);
-		gap: 1em;
+		margin-left: 1em;
 	}
 
 	&__icon {
+		margin: 0 0.5em;
 		transition: color $transitionAppendix;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
 
 		@media (hover: hover) {
 			&:hover {
@@ -135,7 +144,8 @@
 		&:nth-last-child(2),
 		&:nth-last-child(3),
 		&:nth-last-child(4),
-		&:nth-last-child(5) {
+		&:nth-last-child(5),
+		&:nth-last-child(6) {
 			grid-row: span 1;
 			grid-column: span 1;
 		}
@@ -170,6 +180,7 @@
 		grid-template-columns: repeat(3, 1fr);
 
 		#{$portfolio}__item {
+			&,
 			&--tall,
 			&--wide {
 				&:first-child,

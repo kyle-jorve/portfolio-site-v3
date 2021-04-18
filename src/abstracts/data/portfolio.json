@@ -10,43 +10,25 @@
 		{
 			"name": "cargha",
 			"title": "Cargha Bezamik",
-			"content": "<p class=\"largeText\">\"Who the Hills are you?\" I managed, in a voice that tried to be bold and yet shriveled in my throat.<br />Cargha smiled and pulled back his hood. His long ears and short, curling hair sprang from it like an animal freed, and it was then I saw the network of tattoos that adorned the close-trimmed sides of his head. \"I am Cargha Bezamik,of the island of <i>Dorokilson</i>, and I am pleased to meet you, Lord Pendrake of House Sommer.\" He sketched a bowand then stood straight, surveying me.<br />\"What do you want with me?\" I stammered.<br />\"For now? I want you to stay alive.\"</p><p><strong>Cargha Bezamik</strong> is employed as a spy and assassin for the antagonist in an in-progress fantasy novel. As with much else in this story, Cargha is not quite what he seems at first, and his motivations are oftennebulous.</p>",
-			"dimensions": [640, 1067],
-			"orientation": "top",
+			"content": "<p><strong>\"Who the Hills are you?\" I managed, in a voice that tried to be bold and yet shriveled in my throat.</strong></p><p><strong>Cargha smiled and pulled back his hood. His long ears and short, curling hair sprang from it like an animal freed, and it was then I saw the network of tattoos that adorned the close-trimmed sides of his head. \"I am Cargha Bezamik,of the island of <i>Dorokilson</i>, and I am pleased to meet you, Lord Pendrake of House Sommer.\" He sketched a bowand then stood straight, surveying me.</strong></p><p><strong>\"What do you want with me?\" I stammered.</strong></p><p><strong>\"For now? I want you to stay alive.\"</strong></p><p><strong>Cargha Bezamik</strong> is employed as a spy and assassin for the antagonist in an in-progress fantasy novel. As with much else in this story, Cargha is not quite what he seems at first, and his motivations are oftennebulous.</p>",
+			"dimensions": [640, 848],
+			"orientation": "center",
 			"featured": true,
 			"thumbnail": {
 				"sources": [
 					{
-						"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-480.jpg",
+						"url": "/dist/media/portfolio/cargha/portrait/kyle-jorve_cargha-portrait-480.jpg",
 						"minScreenSize": 1024
 					},
 					{
-						"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-512.jpg",
+						"url": "/dist/media/portfolio/cargha/portrait/kyle-jorve_cargha-portrait-512.jpg",
 						"minScreenSize": 640
 					}
 				],
-				"mobileSource": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-320.jpg",
+				"mobileSource": "/dist/media/portfolio/cargha/portrait/kyle-jorve_cargha-portrait-320.jpg",
 				"alt": "Cargha stands stoically holding a dagger in one hand and a khopesh in the other"
 			},
 			"media": [
-				{
-					"sources": [
-						{
-							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-1920.jpg",
-							"minScreenSize": 1440
-						},
-						{
-							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-1440.jpg",
-							"minScreenSize": 1024
-						},
-						{
-							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-1024.jpg",
-							"minScreenSize": 640
-						}
-					],
-					"mobileSource": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-640.jpg",
-					"alt": "Cargha stands stoically holding a dagger in one hand and a khopesh in the other"
-				},
 				{
 					"sources": [
 						{
@@ -64,6 +46,24 @@
 					],
 					"mobileSource": "/dist/media/portfolio/cargha/portrait/kyle-jorve_cargha-portrait-640.jpg",
 					"alt": "a portrait of Cargha, featuring his scarred-over left eye and the tattoo that covers it"
+				},
+				{
+					"sources": [
+						{
+							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-1920.jpg",
+							"minScreenSize": 1440
+						},
+						{
+							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-1440.jpg",
+							"minScreenSize": 1024
+						},
+						{
+							"url": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-1024.jpg",
+							"minScreenSize": 640
+						}
+					],
+					"mobileSource": "/dist/media/portfolio/cargha/final/kyle-jorve_cargha-640.jpg",
+					"alt": "Cargha stands stoically holding a dagger in one hand and a khopesh in the other"
 				},
 				{
 					"sources": [
@@ -610,7 +610,7 @@
 		{
 			"name": "berned",
 			"title": "Berned",
-			"content": "<p class=\"largeText\">\"I wouldn't call him a kind man, but he's loyal. As soon slug you in the face as laugh at your jesting. All depends on which side of him you lie on. I wouldn't want to be on his bad side, though. Fair lot of trouble follows those what fall on his bad side.\"<br><small>—Malder, Foothills Tavern</small></p><p>Berned is Auerstel Town's constable—at times of help, at times an obstacle, and sometimes, when he feels like it, a downright villain.</p><p>He plays a critical role in the <strong>Ignoble Blood</strong> series, which is a fantasy story in progress. In it, Berned apprehends Sol Ferro and charges her with the crime of murdering Luna, a series protagonist, who at this point in the story has gone strangely missing without a trace.</p>",
+			"content": "<p><strong>\"I wouldn't call him a kind man, but he's loyal. As soon slug you in the face as laugh at your jesting. All depends on which side of him you lie on. I wouldn't want to be on his bad side, though. Fair lot of trouble follows those what fall on his bad side.\"</strong><br><small>—Malder, Foothills Tavern</small></p><p>Berned is Auerstel Town's constable—at times of help, at times an obstacle, and sometimes, when he feels like it, a downright villain.</p><p>He plays a critical role in the <strong>Ignoble Blood</strong> series, which is a fantasy story in progress. In it, Berned apprehends Sol Ferro and charges her with the crime of murdering Luna, a series protagonist, who at this point in the story has gone strangely missing without a trace.</p>",
 			"dimensions": [640, 853],
 			"orientation": "center",
 			"featured": false,
@@ -652,7 +652,7 @@
 		{
 			"name": "olfactory",
 			"title": "Olfactory",
-			"content": "<p class=\"largeText\">I have no idea why, but I love doing portraits of aliens.</p><p>This is a creature that lives on a planet whose atmosphere is so thick that the sense of sight never evolved, so instead this species developed extra-sensitive olfactory senses. Threads stretching over the holes in its \"face\" protect against contaminants as it inhales.</p>",
+			"content": "<p><strong>I have no idea why, but I love doing portraits of aliens.</strong></p><p>This is a creature that lives on a planet whose atmosphere is so thick that the sense of sight never evolved, so instead this species developed extra-sensitive olfactory senses. Threads stretching over the holes in its \"face\" protect against contaminants as it inhales.</p>",
 			"dimensions": [640, 896],
 			"orientation": "center",
 			"featured": false,
@@ -694,7 +694,7 @@
 		{
 			"name": "becoming-eidolon",
 			"title": "Becoming Eidolon",
-			"content": "<p class=\"largeText\">“Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you’d seen his body and known the stillness of it. There will be no peace for you until you do.\"<br><small>—Duke Pendrake Sommer</small></p><p>The character depicted here is a protagonist of the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is in hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>",
+			"content": "<p><strong>“Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you’d seen his body and known the stillness of it. There will be no peace for you until you do.\"</strong><br><small>—Duke Pendrake Sommer</small></p><p>The character depicted here is a protagonist of the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is in hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>",
 			"dimensions": [640, 1252],
 			"orientation": "center",
 			"featured": true,
@@ -736,7 +736,7 @@
 		{
 			"name": "crows",
 			"title": "Crows",
-			"content": "<p class=\"largeText\">\"The Ravens still exist, if you can believe it. Though they take a different form today. Different stories tell it different ways, but I prefer to believe they linger as men now, having forgotten all they once were.\"<br><small>—Eden, The Sunken Valley</small></p><p>Crow is a professional assassin and the protagonist of a science fiction story I am currently working on called <em>Post-Autumn</em>.</p><p>In it, mankind has been forced by a cataclysmic event to live in domed cities called Arks. When tensions between Arks escalate, having no means to do battle out in the uninhabitable wastelands between cities, governments must quell their conflicts by more surgical means.</p>",
+			"content": "<p><strong>\"The Ravens still exist, if you can believe it. Though they take a different form today. Different stories tell it different ways, but I prefer to believe they linger as men now, having forgotten all they once were.\"</strong><br><small>—Eden, The Sunken Valley</small></p><p>Crow is a professional assassin and the protagonist of a science fiction story I am currently working on called <em>Post-Autumn</em>.</p><p>In it, mankind has been forced by a cataclysmic event to live in domed cities called Arks. When tensions between Arks escalate, having no means to do battle out in the uninhabitable wastelands between cities, governments must quell their conflicts by more surgical means.</p>",
 			"dimensions": [640, 1047],
 			"orientation": "top",
 			"featured": false,
@@ -820,7 +820,7 @@
 		{
 			"name": "orlandatime",
 			"title": "Orlandatime",
-			"content": "<p class=\"largeText\">This was part of an attempt to steer my work in a certain direction—one which would see both myself and my audience connecting more with it.</p><p>I kept the brushstrokes loose and worked with the textures that naturally arose to pick out spots of detail. The landscape that resulted was inspired by one of my favorite games, <strong>No Man's Sky</strong>.</p>",
+			"content": "<p><strong>This was part of an attempt to steer my work in a certain direction—one which would see both myself and my audience connecting more with it.</strong></p><p>I kept the brushstrokes loose and worked with the textures that naturally arose to pick out spots of detail. The landscape that resulted was inspired by one of my favorite games, <strong>No Man's Sky</strong>.</p>",
 			"dimensions": [640, 366],
 			"orientation": "center",
 			"featured": false,
@@ -862,7 +862,7 @@
 		{
 			"name": "sol",
 			"title": "Sol",
-			"content": "<p class=\"largeText\">\"More than one reason they call her the Girl in Black. They say she's a witch, what can talk to the dead, spirits and the like. She'll not be coming back to this town, no. If she does, there'll be trouble, and from more than just me.\"<br><small>—Junas</small></p><p>Sol is a mysterious helper in the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story's protagonists locate her missing husband, Luna, who has disappeared without a trace.</p>",
+			"content": "<p><strong>\"More than one reason they call her the Girl in Black. They say she's a witch, what can talk to the dead, spirits and the like. She'll not be coming back to this town, no. If she does, there'll be trouble, and from more than just me.\"</strong><br><small>—Junas</small></p><p>Sol is a mysterious helper in the <strong>Ignoble Blood</strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story's protagonists locate her missing husband, Luna, who has disappeared without a trace.</p>",
 			"dimensions": [640, 1158],
 			"orientation": "top",
 			"featured": false,
@@ -904,7 +904,7 @@
 		{
 			"name": "kingdom-hearts-1",
 			"title": "The Future Doesn't Scare Me",
-			"content": "<p class=\"largeText\">Part of a duology. Its companion, <em>Where Fears and Lies Melt Away</em>, can be found here.</p><p><strong>Kingdom Hearts</strong> is copyrighted and owned by Disney and Square Enix.</p>",
+			"content": "<p><strong>Part of a duology. Its companion, <em>Where Fears and Lies Melt Away</em>, can be found here.</strong></p><p><strong>Kingdom Hearts</strong> is copyrighted and owned by Disney and Square Enix.</p>",
 			"dimensions": [640, 915],
 			"orientation": "center",
 			"featured": false,
@@ -946,7 +946,7 @@
 		{
 			"name": "kingdom-hearts-2",
 			"title": "Where Fears and Lies Melt Away",
-			"content": "<p class=\"largeText\">Part of a duology. Its companion, <em>The Future Doesn't Scare Me</em>, can be found here.</p><p>Kingdom Hearts is copyrighted and owned by Disney and Square Enix.</p>",
+			"content": "<p><strong>Part of a duology. Its companion, <em>The Future Doesn't Scare Me</em>, can be found here.</strong></p><p>Kingdom Hearts is copyrighted and owned by Disney and Square Enix.</p>",
 			"dimensions": [640, 915],
 			"orientation": "center",
 			"featured": false,
