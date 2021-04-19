@@ -4,6 +4,10 @@ import { nav } from '/dist/scripts/nav.js';
 let data;
 let template;
 
+Handlebars.registerHelper('isPortfolioDetailPage', currentPage => {
+	return currentPage === global.pageURLs.portfolioDetail;
+});
+
 function getCurrentPage(items, url) {
 	for (let item of items) {
 		if (item.url === url) {
@@ -42,6 +46,8 @@ function buildHeader(dataSrc) {
 			return global.fetchFn(dataSrc);
 		})
 		.then(d => {
+			data.currentPage = d.url;
+
 			getCurrentPage(data.nav, d.url);
 
 			getCurrentPage(data.mobileNav, d.url);
@@ -51,7 +57,13 @@ function buildHeader(dataSrc) {
 			global.els.header.insertAdjacentHTML('afterbegin', template);
 		})
 		.catch(err => console.warn(err))
-		.finally(() => nav.init());
+		.finally(() => {
+			if (data.currentPage === global.pageURLs.portfolioDetail) {
+				nav.initPortfolioDetail();
+			} else {
+				nav.init();
+			}
+		});
 }
 
 // -- PUBLIC -- //

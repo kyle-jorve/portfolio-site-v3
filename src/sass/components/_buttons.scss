@@ -60,7 +60,7 @@ button {
 		}
 
 		#{$button} {
-			margin: 1em;
+			margin: 0.5em;
 		}
 	}
 
@@ -74,8 +74,8 @@ button {
 	}
 
 	&--small {
-		padding: 0.25em 0.5em;
-		font-size: 1em;
+		padding: 0.65em 1.5em;
+		font-size: 0.65em;
 	}
 
 	&--displayNone {
@@ -125,6 +125,16 @@ button {
 	&--download {
 		&::before {
 			@include icon(solid, save);
+			margin-right: 1em;
+		}
+	}
+
+	/*==========----------==========*/
+	/*          SHOP BUTTON         */
+	/*==========----------==========*/
+	&--shop {
+		&::before {
+			@include icon(solid, shopping-bag);
 			margin-right: 1em;
 		}
 	}
@@ -226,11 +236,12 @@ button {
 		$thisBar: &;
 
 		display: block;
-		width: 75%;
-		height: $borderThickness;
+		width: 50%;
+		height: 4px;
 		margin: 0;
 		padding: 0;
 		border: none;
+		border-radius: 2px;
 		background-color: text-color(map-get($colorScheme, red));
 		position: absolute;
 		top: 50%;
@@ -305,18 +316,23 @@ button {
 		}
 	}
 
-	/*---------- BACK BUTTON ----------*/
-	&--back {
+	/*---------- BACK & FORWARD BUTTONS ----------*/
+	&--back,
+	&--forward {
 		background: bg-color(map-get($bgColors, bodyBg));
 
 		svg {
 			width: auto;
 			height: 50%;
 		}
+	}
 
-		&::before {
-			@include iconContent(solid, angle-left);
-		}
+	&--back::before {
+		@include iconContent(solid, angle-left);
+	}
+
+	&--forward::before {
+		@include iconContent(solid, angle-right);
 	}
 
 	/*---------- QUESTION BUTTON ----------*/
@@ -419,6 +435,18 @@ button {
 			font-size: $circleBtnDiam * 0.3;
 		}
 	}
+
+	/*---------- OUTLINED BUTTON ----------*/
+
+	&--outlined {
+		background-color: transparent;
+		border: $borderThickness solid $linkColor;
+		color: $linkColor;
+
+		svg {
+			fill: $linkColor;
+		}
+	}
 }
 
 /*//////////////////////////////////////////////////////*/
@@ -431,7 +459,7 @@ button {
 /*         1000PX WIDTH         */
 /*==========----------==========*/
 
-@media only screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
 	.circleBtn--question::before {
 		font-size: $circleBtnDiam * 0.25;
 	}
@@ -441,8 +469,7 @@ button {
 /*         600PX WIDTH          */
 /*==========----------==========*/
 
-@media only screen and (max-width: 600px) {
-	.crossBtn,
+@media (max-width: 600px) {
 	.closeBtn {
 		width: $crossBtnDiam * 0.75;
 		height: $crossBtnDiam * 0.75;

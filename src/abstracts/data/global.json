@@ -42,6 +42,15 @@
 			"url": "/portfolio/",
 			"icon": "/dist/media/icons/portfolio-icon.svg",
 			"alt": "Icon for Portfolio page"
+		},
+		{
+			"pageName": "Shop",
+			"url": "https://www.inprnt.com/gallery/kylejorve/",
+			"icon": "/dist/media/icons/cart-icon.svg",
+			"alt": "Icon for shop page",
+			"cssClass": "mobileNav__item--shop",
+			"target": "_blank",
+			"rel": "noreferrer noopener nofollow"
 		}
 	],
 	"socialIcons": {

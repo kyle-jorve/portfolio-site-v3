@@ -201,7 +201,7 @@
 	/*==========----------==========*/
 	/*         900PX WIDTH          */
 	/*==========----------==========*/
-	@media only screen and (max-width: 900px) {
+	@media (max-width: 900px) {
 		&--footer {
 			#{$toast}__inner {
 				display: block;
@@ -232,7 +232,7 @@
 	/*==========----------==========*/
 	/*         400PX WIDTH          */
 	/*==========----------==========*/
-	@media only screen and (max-width: 400px) {
+	@media (max-width: 400px) {
 		padding: $crossBtnDiam + 8px 1em 1em 1em;
 		padding-left: 1em !important;
 		padding-right: 1em !important;

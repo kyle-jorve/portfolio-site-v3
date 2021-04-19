@@ -18,7 +18,8 @@ global
 	.then(d => {
 		data = {
 			title: d.title,
-			items: d.items
+			items: d.items,
+			url: d.url
 		};
 
 		template = Handlebars.templates[global.templateSources.portfolio](data);

@@ -232,6 +232,58 @@ li {
 	}
 }
 
+/*===========================
+    Block Quotes
+===========================*/
+
+.blockquote {
+	margin: 3em 0 2em 0;
+	padding: 2em 0 2em 2em;
+	border-radius: $borderRadius 0 0 0;
+	border: $borderThickness solid transparent;
+	border-top-color: map-get($colorScheme, red);
+	border-left-color: map-get($colorScheme, red);
+	font-style: italic;
+	position: relative;
+
+	&::before {
+		@include icon(solid, quote-left, flex, 1.5rem, 1, map-get($colorScheme, red), middle);
+		@include flexWrap(column, nowrap, center, center);
+		width: 4rem;
+		height: 4rem;
+		border: $borderThickness solid map-get($colorScheme, red);
+		border-radius: 50%;
+		background: map-get($bgColors, lightBg);
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(-50%, -50%);
+	}
+
+	p {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	i,
+	em,
+	cite,
+	.cite {
+		font-style: normal;
+	}
+}
+
+cite,
+.cite {
+	display: block;
+	margin-top: 1em;
+}
+
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
 /*//                  MEDIA QUERIES                   //*/
@@ -241,7 +293,7 @@ li {
 /*==========----------==========*/
 /*         1200PX WIDTH         */
 /*==========----------==========*/
-@media only screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
 	.textCols {
 		column-count: unset !important;
 		column-gap: unset;
@@ -258,9 +310,9 @@ li {
 }
 
 /*==========----------==========*/
-/*          600PX WIDTH         */
+/*         $phone WIDTH         */
 /*==========----------==========*/
-@media only screen and (max-width: 600px) {
+@media (max-width: $phone) {
 	.largeText {
 		font-size: 1.2em;
 	}

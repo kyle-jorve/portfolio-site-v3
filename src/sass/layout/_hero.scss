@@ -101,9 +101,25 @@ $ballDiam: 4px;
 		transform: none;
 	}
 
+	// contradicting global anchor hover styles
 	@media (hover: hover) {
 		&:hover {
 			background: none;
+		}
+	}
+
+	@media (hover: none) {
+		&__icon {
+			border-radius: 4px;
+		}
+
+		&__track {
+			top: auto;
+			bottom: 8px;
+		}
+
+		&__ball {
+			animation-name: slide-up;
 		}
 	}
 }
@@ -122,6 +138,20 @@ $ballDiam: 4px;
 	}
 }
 
+@keyframes slide-up {
+	0% {
+		opacity: 1;
+		transform: translateY($trackHeight);
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(0);
+	}
+}
+
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
 /*//                   MEDIA QUERIES                  //*/
@@ -131,7 +161,7 @@ $ballDiam: 4px;
 /*==========----------==========*/
 /*         $tablet WIDTH        */
 /*==========----------==========*/
-@media only screen and (max-width: $tablet) {
+@media (max-width: $tablet) {
 	.hero {
 		padding-left: 1em;
 		padding-right: 1em;
@@ -141,7 +171,7 @@ $ballDiam: 4px;
 /*==========----------==========*/
 /*         $phone WIDTH         */
 /*==========----------==========*/
-@media only screen and (max-width: $phone) {
+@media (max-width: $phone) {
 	.hero {
 		padding: 6em 1em 5em 1em;
 	}

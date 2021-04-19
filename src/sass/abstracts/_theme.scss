@@ -66,11 +66,12 @@ $headingTextTransform: uppercase;
 $headingFontWeight: 800;
 $headingBold: 800;
 $headingLight: 400;
+$headingThin: 300;
 $headingLetterSpacing: 0.3em;
 $headingLineHeight: 1.35;
 $headingTypeMargin: 1.5em 0 0.85em;
 $headingFontStyle: normal;
-$headingItalic: normal;
+$headingItalic: italic;
 
 /*Main Font*/
 $primaryFont: $headingFont;
@@ -78,11 +79,12 @@ $primaryTextTransform: none;
 $primaryFontWeight: 400;
 $primaryBold: 600;
 $primaryLight: 400;
+$primaryThin: 300;
 $primaryLetterSpacing: 0.015em;
 $primaryLineHeight: 1.5;
 $primaryTypeMargin: 1em 0;
 $primaryFontStyle: normal;
-$primaryItalic: normal;
+$primaryItalic: italic;
 
 $listTypeMargin: 0.5em 0;
 
@@ -107,15 +109,15 @@ $linkHoverTextDecoration: none;
     Shadows
 ===========================*/
 /*Text Shadows*/
-$textShadowColor: rgba($black, 0.5);
+$textShadowColor: $black;
 $whiteTextShadowColor: rgba($white, 0.5);
 
-$textShadow: 1px 1px $textShadowColor;
+$textShadow: 0 0 16px $textShadowColor;
 $whiteTextShadow: 1px 1px $whiteTextShadowColor;
 
 /*Box Shadows*/
-$softShadowColor: rgba($darkTextColor, 0.15);
-$shadowColor: rgba($darkTextColor, 0.2);
+$softShadowColor: rgba($darkTextColor, 0.25);
+$shadowColor: rgba($darkTextColor, 0.3);
 $mediumShadowColor: rgba($darkTextColor, 0.25);
 $darkShadowColor: rgba($darkTextColor, 0.5);
 $accentShadowColor: rgba(map-get($colorScheme, red), 0.6);

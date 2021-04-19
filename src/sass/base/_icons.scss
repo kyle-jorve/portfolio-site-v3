@@ -124,6 +124,7 @@ $icons: (
 		plus-circle: '\f055',
 		print: '\f02f',
 		question-mark: '\f128',
+		quote-left: '\f10d',
 		reply: '\f3e5',
 		save: '\f0c7',
 		search: '\f002',
@@ -318,7 +319,7 @@ $icons: (
 
 /*---------- $gridBreakpoint WIDTH ----------*/
 
-@media only screen and (max-width: $gridBreakpoint) {
+@media (max-width: $gridBreakpoint) {
 	.icon__wrapper {
 		@include flexWrap(row, nowrap);
 	}
@@ -326,7 +327,7 @@ $icons: (
 
 /*---------- 400PX WIDTH ----------*/
 
-@media only screen and (max-width: 400px) {
+@media (max-width: 400px) {
 	.icon__wrapper {
 		@include flexWrap(column, nowrap, center, center);
 	}

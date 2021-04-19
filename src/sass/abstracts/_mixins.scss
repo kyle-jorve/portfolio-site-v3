@@ -227,7 +227,7 @@
 		font-size: $baseFontSize * $typeScaleMultiplier;
 	}
 
-	@media only screen and (max-width: $typeBreakpoint1), only screen and (max-height: $typeBreakpoint1) {
+	@media (max-width: $typeBreakpoint1), (max-height: $typeBreakpoint1) {
 		// let's switch type scales
 		$curScaleIndex: index($typeScales, $typeScaleMultiplier);
 		$newScale: if(
@@ -247,7 +247,7 @@
 		}
 	}
 
-	@media only screen and (max-width: $typeBreakpoint2), only screen and (max-height: $typeBreakpoint2), print {
+	@media (max-width: $typeBreakpoint2), (max-height: $typeBreakpoint2), print {
 		// let's switch type scales
 		$curScaleIndex: index($typeScales, $newScale);
 		$newScale: if(length($typeScales) > $curScaleIndex, nth($typeScales, ($curScaleIndex + 1)), $newScale);
@@ -263,7 +263,7 @@
 		}
 	}
 
-	@media only screen and (max-width: $typeBreakpoint3), only screen and (max-height: $typeBreakpoint3) {
+	@media (max-width: $typeBreakpoint3), (max-height: $typeBreakpoint3) {
 		// let's switch type scales
 		$curScaleIndex: index($typeScales, $newScale);
 		$newScale: if(length($typeScales) > $curScaleIndex, nth($typeScales, ($curScaleIndex + 1)), $newScale);
@@ -320,7 +320,8 @@
 	.em,
 	.italic,
 	&.em,
-	&.italic {
+	&.italic,
+	i {
 		font-style: $headingItalic;
 	}
 }
@@ -427,7 +428,7 @@
 			text-decoration: none;
 		}
 	}
-	@media only screen and (max-width: $phone) {
+	@media (max-width: $phone) {
 		font-size: $buttonFontSize * 0.9;
 	}
 }
@@ -473,7 +474,7 @@
 			}
 		}
 	}
-	@media only screen and (max-width: 1000px) {
+	@media (max-width: 1000px) {
 		width: $circleBtnDiam * 0.9;
 		height: $circleBtnDiam * 0.9;
 	}

@@ -5,6 +5,7 @@
 /*//////////////////////////////////////////////////////*/
 
 $nav: '.nav';
+$mobileNav: '.mobileNav';
 
 #{$nav} {
 	opacity: 0;
@@ -102,9 +103,9 @@ $nav: '.nav';
 	/*      MOBILE NAV BUTTON       */
 	/*==========----------==========*/
 	&__button {
-		/*====------ GENERAL ------====*/
-
 		$navBtn: &;
+
+		/*====------ GENERAL ------====*/
 
 		flex-shrink: 0;
 		cursor: pointer;
@@ -115,10 +116,19 @@ $nav: '.nav';
 		background-color: $linkColor;
 		box-shadow: $softShadow;
 		position: relative;
-		transition: background-color $longTransitionAppendix;
+		transition: background-color $transitionAppendix;
+
+		&Blocks,
+		&Lines {
+			@include absolute(center);
+		}
+
+		&Block,
+		&Line {
+			background: $lightTextColor;
+		}
 
 		&Blocks {
-			@include absolute(center);
 			display: grid;
 			grid-template: auto auto auto / auto auto auto;
 			align-content: space-between;
@@ -131,11 +141,10 @@ $nav: '.nav';
 			width: $navBtnBlockDiam;
 			height: $navBtnBlockDiam;
 			border-radius: 50%;
-			background: $lightTextColor;
 
 			&--disapparate {
 				opacity: 1;
-				transition: opacity $longTransitionAppendix;
+				transition: opacity $transitionAppendix;
 			}
 		}
 
@@ -158,18 +167,59 @@ $nav: '.nav';
 				}
 			}
 		}
+
+		/*====------ CLOSE BUTTON ------====*/
+		/*-- (for portfolio detail page) --*/
+
+		&Lines {
+			width: 50%;
+			height: 50%;
+		}
+
+		&Line {
+			@include absolute(center);
+			display: block;
+			width: 100%;
+			height: 4px;
+			border-radius: 2px;
+			transform: translate(-50%, -50%) rotate(45deg);
+
+			&--2 {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
 	}
 }
 
 /*==========----------==========*/
 /*      MOBILE NAV DRAWER       */
 /*==========----------==========*/
-.mobileNav {
+
+#{$mobileNav} {
 	position: fixed;
 	top: 0;
 	right: 0;
 	z-index: 99;
-	transition: box-shadow $longTransitionAppendix, background-color $longTransitionAppendix;
+	transition: box-shadow $transitionAppendix, background-color $transitionAppendix;
+
+	&__icon,
+	&__label {
+		position: relative;
+		z-index: 3;
+	}
+
+	&__icon {
+		width: auto;
+		height: 28px;
+	}
+
+	&__label {
+		@include heading;
+		display: block;
+		margin: 0.35em 0 0 0;
+		font-size: 0.65em;
+		color: $lightTextColor;
+	}
 
 	&__item {
 		display: none;
@@ -201,10 +251,20 @@ $nav: '.nav';
 			@include gradient((map-get($colorScheme, violet), rgba(map-get($colorScheme, violet), 0)), radial-from-top);
 		}
 
+		&:last-of-type {
+			margin-right: 0.5em;
+		}
+
 		&--current {
 			&::before,
 			&::after {
 				display: block;
+			}
+		}
+
+		&--shop {
+			#{$mobileNav}__icon {
+				transform: translateX(-10%);
 			}
 		}
 
@@ -213,27 +273,6 @@ $nav: '.nav';
 				background: none;
 			}
 		}
-	}
-
-	&__icon,
-	&__label {
-		position: relative;
-		z-index: 3;
-	}
-
-	&__icon {
-		width: 100%;
-		height: auto;
-		max-width: 36px;
-		max-height: 28px;
-	}
-
-	&__label {
-		@include heading;
-		display: block;
-		margin: 0.35em 0 0 0;
-		font-size: 0.65em;
-		color: $lightTextColor;
 	}
 }
 
@@ -275,7 +314,7 @@ $nav: '.nav';
 			padding: 6em 1em 2em 1em;
 		}
 
-		&__button {
+		&__button:not(#{$nav}__button--close) {
 			width: $navBtnDiam * 1.15;
 			height: $navBtnDiam * 1.15;
 			border-radius: 50%;
@@ -283,7 +322,7 @@ $nav: '.nav';
 		}
 	}
 
-	.mobileNav {
+	#{$mobileNav}:not(#{$mobileNav}--portfolioDetail) {
 		@include flexWrap(row, nowrap, flex-start, stretch);
 		background-color: $navDrawerBg;
 		box-shadow: $mediumShadowUp;
@@ -291,20 +330,32 @@ $nav: '.nav';
 		left: 0;
 		bottom: 0;
 
-		&__item {
+		#{$mobileNav}__item {
 			@include flexWrap(column, nowrap, center, center);
 		}
 	}
 
 	/*=====---- REVEAL NAVIGATION ----=====*/
 
-	.showNav .mobileNav {
+	.showNav #{$mobileNav} {
 		background-color: transparent;
 		box-shadow: none;
 
 		&__item {
 			opacity: 0;
 			pointer-events: none;
+		}
+	}
+}
+
+/*==========----------==========*/
+/*         400PX WIDTH          */
+/*==========----------==========*/
+
+@media (max-width: 400px) {
+	#{$mobileNav} {
+		&__label {
+			font-size: 7px;
 		}
 	}
 }
@@ -317,7 +368,7 @@ $nav: '.nav';
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
 	/* iPhone XR */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
 	/* iPhone XS Max */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-	.mobileNav__item {
+	#{$mobileNav}__item {
 		padding-bottom: calc(constant(safe-area-inset-bottom) + 0.25em); /*iOS 11*/
 		padding-bottom: calc(env(safe-area-inset-bottom) + 0.25em); /*iOS 11.2*/
 	}

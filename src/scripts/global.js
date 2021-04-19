@@ -3,6 +3,7 @@ const dataLoc = {
 	global: 'global.json',
 	home: 'home.json',
 	portfolio: 'portfolio.json',
+	portfolioDetail: 'portfolio-detail.json',
 	cv: 'cv.json'
 };
 const templateSources = {
@@ -32,6 +33,10 @@ const els = {
 };
 const wideAspect = 1.333;
 const tallAspect = 0.75;
+const agent = window.navigator.userAgent.toLowerCase();
+const android = agent.includes('android');
+const search = window.location.search;
+const urlParams = new URLSearchParams(search);
 
 Handlebars.registerHelper('printSocialIcon', item => {
 	const itemIsGumroad = item.name.toLowerCase() === 'gumroad';
@@ -49,14 +54,14 @@ Handlebars.registerHelper('printSocialIcon', item => {
         </a>`;
 });
 
-Handlebars.registerHelper('printPortfolioItem', item => {
+Handlebars.registerHelper('printPortfolioItem', (item, url) => {
 	const aspect = item.dimensions[0] / item.dimensions[1];
 	const itemClass =
 		aspect > wideAspect ? cssClasses.portfolioItemWide : aspect < tallAspect ? cssClasses.portfolioItemTall : '';
 
 	return `
         <article class="portfolio__item ${itemClass}">
-            <a class="portfolio__itemLink" href="${pageURLs.portfolioDetail}?piece=${item.name}">
+            <a class="portfolio__itemLink" href="${pageURLs.portfolioDetail}?piece=${item.name}&from=${url}">
                 <div class="portfolio__itemInner">
                     <h3 class="portfolio__itemTitle">${item.title}</h3>
                     <div class="portfolio__icons">
@@ -87,6 +92,17 @@ Handlebars.registerHelper('printPortfolioItem', item => {
 
 Handlebars.registerHelper('isOdd', number => number % 2 === 1);
 
+// detect if touch device device
+function detectTouch() {
+	return 'ontouchstart' in document.documentElement;
+}
+
+// detect if mobile device
+function detectMobile() {
+	return typeof window.orientation !== 'undefined';
+}
+
+// global data fetch function
 function fetchFn(dataSrc) {
 	const dataFetch = fetch(`${dataLoc.root}${dataSrc}`).then(res => {
 		if (res.ok) {
@@ -99,6 +115,7 @@ function fetchFn(dataSrc) {
 	return dataFetch;
 }
 
+// simple function to grab data from global.json
 function getGlobalData() {
 	const dataFetch = fetchFn(dataLoc.global);
 
@@ -109,8 +126,17 @@ function getGlobalData() {
 export const global = {
 	dataLoc,
 	els,
+	pageURLs,
 	templateSources,
+	urlParams,
 
 	fetchFn,
-	getGlobalData
+	getGlobalData,
+
+	get detectTouch() {
+		return detectTouch();
+	},
+	get detectMobile() {
+		return detectMobile();
+	}
 };

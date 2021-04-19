@@ -1,6 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
+import { helpers } from '/dist/scripts/portfolio-detail-helpers.js';
 
 const dataAttrs = {
 	active: 'data-active',
@@ -15,84 +16,14 @@ const cssClasses = {
 	active: 'active',
 	bg: 'showcase__bg',
 	dot: 'slider__dot',
-	imgWrp: 'showcase__imgWrp'
+	imgWrp: 'showcase__imgWrp',
+	transOut: 'transOut'
 };
-const search = window.location.search;
-const urlParams = new URLSearchParams(search);
 let data;
 let template;
 let els;
 let slideTransDur;
-
-Handlebars.registerHelper('isSlider', media => media.length > 1);
-
-Handlebars.registerHelper('printDots', media => {
-	return media
-		.map((m, index) => {
-			return `
-                <button
-                    class="${cssClasses.dot}${index === 0 ? ` ${cssClasses.active}` : ''}"
-                    data-index="${index}"
-                    ${index === 0 ? dataAttrs.active : ''}>
-                    </button>`;
-		})
-		.join('');
-});
-
-Handlebars.registerHelper('printSlides', media => {
-	return media
-		.map((m, index) => {
-			return `
-                <div
-                    class="showcase__slide${index === 0 ? ` ${cssClasses.active}` : ''}"
-                    style="z-index: ${media.length - index + 1};"
-                    ${dataAttrs.index}="${index}"
-                    ${index === 0 ? dataAttrs.active : ''}>
-                    <div class="${cssClasses.imgWrp}${index === 0 ? ` ${cssClasses.active}` : ''}">
-                        <picture>
-                            ${m.sources
-								.map(s => {
-									return `
-                                        <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
-								})
-								.join('')}                    
-                            <img
-                                class="showcase__img"
-                                src="${m.mobileSource}"
-                                alt="${m.alt}">
-                        </picture>
-
-                        <div class="showcase__slideIcons">
-                            <button class="portfolio__expand portfolio__icon showcase__icon icon icon--zoom">
-                                <span class="icon__text">View Full Screen</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>`;
-		})
-		.join('');
-});
-
-Handlebars.registerHelper('printBgs', media => {
-	return media
-		.map((m, index) => {
-			return `
-            <picture aria-hidden="true">
-                ${m.sources
-					.map(s => {
-						return `
-                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
-					})
-					.join('')}
-                <img
-                    class="${cssClasses.bg}${index === 0 ? ` ${cssClasses.active}` : ''}"
-                    src="${m.mobileSource}"
-                    ${dataAttrs.index}="${index}"
-                    ${index === 0 ? dataAttrs.active : ''}>
-            </picture>`;
-		})
-		.join('');
-});
+let itemIndex;
 
 function moveSlides(destination) {
 	// destination has the following properties:
@@ -107,9 +38,6 @@ function moveSlides(destination) {
 		slide: els.slides.find(s => s.hasAttribute(dataAttrs.active))
 	};
 
-	// set active index and bg
-	active.index = Number(active.slide.getAttribute(dataAttrs.index));
-
 	// prevent arrow and dot clicks while slides are transitioning
 	[...els.arrows, ...els.dots].forEach(el => (el.style.pointerEvents = 'none'));
 
@@ -119,11 +47,11 @@ function moveSlides(destination) {
 	// activate destination bg
 	activateBg(destination.bg);
 
+	// activate destination slide
+	activateSlide(destination);
+
 	// after active slide has transitioned out...
 	setTimeout(() => {
-		// activate destination slide
-		activateSlide(destination);
-
 		// allow arrow clicks
 		[...els.arrows, ...els.dots].forEach(el => (el.style.pointerEvents = ''));
 	}, slideTransDur);
@@ -136,10 +64,16 @@ function deactivateSlide(active) {
 	// - bg: DOM element
 	// - index: number, index of currently active slide
 
+	active.slide.classList.add(cssClasses.transOut);
+
 	[active.slide, active.dot, active.bg].forEach(el => {
 		el.classList.remove(cssClasses.active);
 		el.removeAttribute(dataAttrs.active);
 	});
+
+	setTimeout(() => {
+		active.slide.classList.remove(cssClasses.transOut);
+	}, slideTransDur);
 }
 
 function activateSlide(destination) {
@@ -147,7 +81,6 @@ function activateSlide(destination) {
 	// - dot: DOM element
 	// - slide: DOM element
 	// - bg: DOM element
-	// - index: number, index of destination slide
 
 	[destination.dot, destination.slide].forEach(el => {
 		el.classList.add(cssClasses.active);
@@ -161,13 +94,20 @@ function activateBg(bg) {
 }
 
 // build the <header>
-header.buildHeader(global.dataLoc.portfolio);
+header.buildHeader(global.dataLoc.portfolioDetail);
 
 // build the page
 global
 	.fetchFn(global.dataLoc.portfolio)
 	.then(d => {
-		data = d.items.find(i => i.name === urlParams.get('piece'));
+		data = d.items.find(i => i.name === global.urlParams.get('piece'));
+
+		itemIndex = d.items.indexOf(data);
+
+		data.neighbors = {
+			next: d.items[itemIndex + 1],
+			previous: d.items[itemIndex - 1]
+		};
 
 		data.seo = {
 			canon: `portfolio/detail/?piece=${data.name}`,
@@ -244,3 +184,9 @@ global
 			);
 		}
 	});
+
+export const portfolioDetail = {
+	dataAttrs,
+	directions,
+	cssClasses
+};

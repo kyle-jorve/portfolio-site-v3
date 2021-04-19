@@ -83,6 +83,15 @@ function initiateNav() {
 	});
 }
 
+function initForPortfolioDetail() {
+	const button = document.querySelector('#navBtn');
+	const search = window.location.search;
+	const destination = new URLSearchParams(search).get('from');
+
+	button.addEventListener('click', () => (window.location.pathname = destination));
+}
+
 export const nav = {
-	init: initiateNav
+	init: initiateNav,
+	initPortfolioDetail: initForPortfolioDetail
 };

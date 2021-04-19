@@ -5,8 +5,12 @@
 /*//////////////////////////////////////////////////////*/
 
 .showcase {
+	/*==========----------==========*/
+	/*           GENERAL            */
+	/*==========----------==========*/
+
 	$showcase: &;
-	$sectionPadding: (8em, 4em, 6em, 4em);
+	$showcaseSectionPadding: (8em, 4em, 6em, 4em);
 
 	display: grid;
 	grid-template: auto / #{map-get($golden-ratio, large)}fr #{map-get($golden-ratio, small)}fr;
@@ -17,16 +21,26 @@
 
 		&--media {
 			z-index: 2;
+
+			&,
+			* {
+				user-select: none;
+			}
 		}
 
 		&--content {
 			@include flexWrap(column, nowrap, center);
-			padding: nth($sectionPadding, 1) nth($sectionPadding, 2) nth($sectionPadding, 3) nth($sectionPadding, 4);
+			padding: nth($showcaseSectionPadding, 1) nth($showcaseSectionPadding, 2) nth($showcaseSectionPadding, 3)
+				nth($showcaseSectionPadding, 4);
 			background: map-get($bgColors, lightBg);
 			color: $darkTextColor;
 			z-index: 1;
 		}
 	}
+
+	/*==========----------==========*/
+	/*           CAROUSEL           */
+	/*==========----------==========*/
 
 	&__slider {
 		position: relative;
@@ -51,7 +65,7 @@
 
 	&__img {
 		object-fit: contain;
-		max-height: calc(100vh - #{nth($sectionPadding, 1) + nth($sectionPadding, 3)});
+		max-height: calc(100vh - #{nth($showcaseSectionPadding, 1) + nth($showcaseSectionPadding, 3)});
 		border-radius: $borderRadius;
 		box-shadow: $softShadow;
 		position: relative;
@@ -63,7 +77,7 @@
 		border-radius: $borderRadius;
 		position: relative;
 		z-index: 3;
-		transform: translateY(-2em);
+		transform: translateY(2em);
 		transition: transform $transitionAppendix;
 
 		&::before {
@@ -131,7 +145,8 @@
 		overflow: hidden;
 		width: 100%;
 		height: 100vh;
-		padding: nth($sectionPadding, 1) nth($sectionPadding, 2) nth($sectionPadding, 3) nth($sectionPadding, 4);
+		padding: nth($showcaseSectionPadding, 1) nth($showcaseSectionPadding, 2) nth($showcaseSectionPadding, 3)
+			nth($showcaseSectionPadding, 4);
 		position: relative;
 		z-index: 2;
 		transition: opacity $transitionAppendix;
@@ -148,11 +163,194 @@
 				transform: none;
 			}
 		}
+
+		&.transOut {
+			pointer-events: none;
+
+			#{$showcase}__imgWrp {
+				transform: translateY(-2em);
+			}
+		}
 	}
+
+	/*==========----------==========*/
+	/*           CONTENT            */
+	/*==========----------==========*/
 
 	&__title {
 		@include underlineText();
 		color: map-get($colorScheme, red);
+	}
+
+	&__buttons {
+		padding-bottom: 0;
+	}
+
+	&__hr {
+		width: 100%;
+		max-width: 150px;
+		margin: 2em 0 2em auto;
+		background: map-get($colorScheme, red);
+	}
+
+	/*==========----------==========*/
+	/*           NEIGHBORS          */
+	/*==========----------==========*/
+
+	&__neighbors {
+		display: grid;
+		grid-template: auto / 1fr 1fr;
+		grid-auto-flow: dense;
+		padding-top: 2em;
+		margin: 0 -1em;
+	}
+
+	&__neighbor {
+		$neighbor: &;
+
+		height: 180px;
+		border-radius: $borderRadius;
+		box-shadow: $boxShadow;
+		color: $lightTextColor;
+		position: relative;
+		z-index: 1;
+		transform: none;
+		transform-origin: left top;
+		transition: transform $longTransitionAppendix;
+
+		&Link,
+		&ImgWrp,
+		&Img {
+			width: 100%;
+			height: 100%;
+		}
+
+		&Link {
+			display: block;
+			color: inherit;
+
+			@media (hover: hover) {
+				&:hover {
+					background: none;
+				}
+			}
+		}
+
+		&ImgWrp {
+			@include decorateImage(-0.75em);
+			position: relative;
+			z-index: 1;
+
+			&::after {
+				@include gradient(
+					(rgba(map-get($colorScheme, violet), 0.75), rgba(map-get($colorScheme, violet), 0)),
+					diagonal-up
+				);
+				opacity: 1;
+				transition: opacity $longTransitionAppendix;
+			}
+		}
+
+		&Img {
+			object-fit: cover;
+			object-position: center center;
+			border-radius: $borderRadius;
+
+			&--top {
+				object-position: center top;
+			}
+
+			&--bottom {
+				object-position: center bottom;
+			}
+		}
+
+		&Inner {
+			@include absolute(cover);
+			@include flexWrap(column, nowrap, space-between, flex-start);
+			padding: 2em;
+			z-index: 2;
+		}
+
+		&Heading,
+		&Title {
+			opacity: 1;
+			margin: 0;
+			font-size: 1em;
+			transition: opacity $transitionAppendix;
+		}
+
+		&Heading {
+			font-weight: $headingThin;
+		}
+
+		&Arrow {
+			display: block;
+			margin-bottom: 1em;
+			border-color: $lightTextColor;
+			color: $lightTextColor;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				transform: scale(1.05);
+
+				#{$neighbor}ImgWrp::after {
+					opacity: 0;
+				}
+
+				#{$neighbor}Arrow {
+					background-color: $linkColor;
+					border-color: $linkColor;
+					color: text-color($linkColor);
+				}
+
+				#{$neighbor}Heading,
+				#{$neighbor}Title {
+					opacity: 0;
+				}
+			}
+		}
+
+		&--previous {
+			order: -1;
+			margin: 0 -0.75em 0 0;
+
+			#{$neighbor}Inner {
+				padding-right: 3em;
+			}
+		}
+
+		&--next {
+			grid-column: 2;
+			box-shadow: $mediumShadow;
+			margin: 2em 0 0 -0.75em;
+			text-align: right;
+			z-index: 2;
+			transform-origin: right bottom;
+
+			#{$neighbor}ImgWrp {
+				&::before {
+					transform: translate(0.75em, 0.75em);
+				}
+
+				&::after {
+					@include gradient(
+						(rgba(map-get($colorScheme, violet), 0), rgba(map-get($colorScheme, violet), 0.75)),
+						diagonal-down
+					);
+				}
+			}
+
+			#{$neighbor}Inner {
+				align-items: flex-end;
+				padding-left: 3em;
+			}
+		}
+
+		&--solo {
+			margin: 0;
+		}
 	}
 
 	/*//////////////////////////////////////////////////////*/
@@ -162,13 +360,157 @@
 	/*//////////////////////////////////////////////////////*/
 
 	/*==========----------==========*/
-	/*         $tablet WIDTH        */
+	/*        $desktop WIDTH        */
 	/*==========----------==========*/
 
-	@media (max-width: $tablet) {
-		&__section {
+	@media (max-width: $desktop) {
+		&__neighbors {
+			grid-template: auto auto / 1fr;
+			gap: 1em;
+		}
+
+		&__neighbor {
+			$neighbor: &;
+
+			&--previous,
+			&--next {
+				#{$neighbor}Inner {
+					padding: 2em;
+				}
+			}
+
+			&--previous {
+				margin: 0 2em 0 0;
+			}
+
+			&--next {
+				grid-column: 1;
+				margin: 0 0 0 2em;
+			}
+		}
+	}
+
+	/*==========----------==========*/
+	/*         1200PX WIDTH         */
+	/*==========----------==========*/
+
+	@media (max-width: 1200px) {
+		&__section--content {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
+
+		&__neighbors {
+			margin: 0;
+		}
+	}
+
+	/*==========----------==========*/
+	/*    $tablet WIDTH or HEIGHT   */
+	/*==========----------==========*/
+
+	@media (max-width: $tablet), (max-height: $tablet) {
+		display: block;
+		min-height: 0;
+
+		&__section--content,
+		&__slide {
 			padding: $mobileSectionPadding;
+		}
+
+		&__section--content {
+			display: block;
+			background: map-get($bgColors, medBg);
+		}
+
+		&__slide {
+			height: 90vh;
+			padding-top: 8em;
+			padding-right: 2em;
+			padding-left: 2em;
+		}
+
+		&__img {
+			max-height: calc(90vh - 12em);
+		}
+
+		&__neighbors {
+			grid-template: auto / 1fr 1fr;
+			gap: 0;
+			margin: 0;
+			padding: 2em 1em;
+		}
+
+		&__neighbor {
+			$neighbor: &;
+
+			&--previous {
+				margin: 0 -0.75em 0 0;
+
+				#{$neighbor}Inner {
+					padding-right: 3em;
+				}
+			}
+
+			&--next {
+				grid-column: 2;
+				margin: 2em 0 0 -0.75em;
+
+				#{$neighbor}Inner {
+					padding-left: 3em;
+				}
+			}
+
+			&--solo {
+				margin: 0;
+			}
+		}
+	}
+
+	/*==========----------==========*/
+	/*         $phone WIDTH         */
+	/*==========----------==========*/
+
+	@media (max-width: $phone) {
+		&__slide {
 			padding-top: 6em;
+		}
+
+		&__neighbors {
+			grid-template: auto auto / 1fr;
+			gap: 1em;
+		}
+
+		&__neighbor {
+			$neighbor: &;
+
+			&ImgWrp {
+				&::before {
+					transform: translate(-0.5em, -0.5em);
+				}
+			}
+
+			&--previous,
+			&--next {
+				#{$neighbor}Inner {
+					padding: 1em;
+				}
+			}
+
+			&--previous {
+				margin: 0 2em 0 0;
+			}
+
+			&--next {
+				grid-column: 1;
+				margin: 0 0 0 2em;
+
+				#{$neighbor}ImgWrp {
+					&::before {
+						transform: translate(0.5em, 0.5em);
+					}
+				}
+			}
 		}
 	}
 }

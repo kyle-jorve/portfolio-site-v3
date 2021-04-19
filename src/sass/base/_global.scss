@@ -603,7 +603,7 @@ hr {
 /*==========----------==========*/
 /*        $desktop WIDTH        */
 /*==========----------==========*/
-@media only screen and (max-width: $desktop) {
+@media (max-width: $desktop) {
 	.parallaxBg {
 		background-position: center center;
 		background-attachment: scroll;
@@ -613,7 +613,7 @@ hr {
 /*==========----------==========*/
 /*         $tablet WIDTH        */
 /*==========----------==========*/
-@media only screen and (max-width: $tablet) {
+@media (max-width: $tablet) {
 	.section {
 		padding: $mobileSectionPadding;
 	}
@@ -632,7 +632,7 @@ hr {
 /*==========----------============*/
 /*  $phone WIDTH or $phone HEIGHT */
 /*==========----------============*/
-@media only screen and (max-width: $phone), only screen and (max-height: $phone) {
+@media (max-width: $phone), (max-height: $phone) {
 	.box {
 		padding: 2em;
 	}

@@ -25,6 +25,24 @@
             <h1 class="showcase__title">{{title}}</h1>
 
             {{{content}}}
+
+            {{#if (hasPurchaseLinks this)}}
+                <div class="showcase__buttons button__wrapper button__wrapper--justifyRight">
+                    {{#if purchaseLink}}
+                        <a class="button button--primary button--shop" href="{{purchaseLink}}" target="_blank" rel="nofollow noopener noreferrer">Purchase</a>
+                    {{/if}}
+
+                    {{#if downloadLink}}
+                        <a class="button button--primary button--download" href="{{purchaseLink}}" target="_blank" rel="nofollow noopener noreferrer">Download</a>
+                    {{/if}}
+                </div>
+            {{/if}}
+
+            <hr class="showcase__hr">
+
+            <div class="showcase__neighbors">
+                {{{neighbors this}}}
+            </div>
         </div>
     </section>
 </div>
