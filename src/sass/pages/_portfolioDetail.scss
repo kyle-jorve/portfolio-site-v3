@@ -293,7 +293,7 @@
 
 		@media (hover: hover) {
 			&:hover {
-				transform: scale(1.05);
+				transform: scale(1.025);
 
 				#{$neighbor}ImgWrp::after {
 					opacity: 0;
@@ -398,6 +398,11 @@
 		&__section--content {
 			padding-left: 2em;
 			padding-right: 2em;
+
+			.blockquote,
+			blockquote {
+				margin-left: 1em;
+			}
 		}
 
 		&__neighbors {
@@ -421,6 +426,16 @@
 		&__section--content {
 			display: block;
 			background: map-get($bgColors, medBg);
+
+			.blockquote,
+			blockquote {
+				margin-left: 2em;
+				margin-right: 2em;
+
+				&::before {
+					background: map-get($bgColors, medBg);
+				}
+			}
 		}
 
 		&__slide {
@@ -472,6 +487,14 @@
 	/*==========----------==========*/
 
 	@media (max-width: $phone) {
+		&__section--content {
+			blockquote,
+			.blockquote {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+
 		&__slide {
 			padding-top: 6em;
 		}

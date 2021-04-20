@@ -21,6 +21,10 @@ const pageURLs = {
 	portfolioDetail: '/portfolio/detail/',
 	cv: '/cv/'
 };
+const searchParams = {
+	piece: 'piece',
+	from: 'from'
+};
 const cssClasses = {
 	portfolioItemTall: 'portfolio__item--tall',
 	portfolioItemWide: 'portfolio__item--wide'
@@ -122,16 +126,32 @@ function getGlobalData() {
 	return dataFetch;
 }
 
+function updateLinks() {
+	const links = Array.from(document.querySelectorAll('a'));
+
+	links.forEach(l => {
+		let url = new URL(l.href);
+
+		if (url.pathname.toLowerCase().includes(pageURLs.portfolioDetail) && !url.searchParams.get(searchParams.from)) {
+			url.searchParams.set(searchParams.from, window.location.pathname);
+
+			l.href = `${url.origin}${url.pathname}${url.search}`;
+		}
+	});
+}
+
 // -- PUBLIC -- //
 export const global = {
 	dataLoc,
 	els,
 	pageURLs,
+	searchParams,
 	templateSources,
 	urlParams,
 
 	fetchFn,
 	getGlobalData,
+	updateLinks,
 
 	get detectTouch() {
 		return detectTouch();

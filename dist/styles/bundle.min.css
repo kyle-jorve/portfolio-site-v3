@@ -5509,7 +5509,7 @@ svg {
   .wrapper--section {
     max-width: 1200px; }
   .wrapper--content {
-    max-width: 72ch; }
+    max-width: 64ch; }
   .wrapper--narrow {
     max-width: 600px; }
   .wrapper--intro {
@@ -8258,7 +8258,8 @@ li {
 /*===========================
     Block Quotes
 ===========================*/
-.blockquote {
+.blockquote,
+blockquote {
   margin: 3em 0 2em 0;
   padding: 2em 0 2em 2em;
   border-radius: 0.5rem 0 0 0;
@@ -8267,7 +8268,8 @@ li {
   border-left-color: #ff5652;
   font-style: italic;
   position: relative; }
-  .blockquote::before {
+  .blockquote::before,
+  blockquote::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "";
@@ -8293,14 +8295,20 @@ li {
     top: 0;
     left: 0;
     transform: translate(-50%, -50%); }
-  .blockquote p:first-child {
+  .blockquote p:first-child,
+  blockquote p:first-child {
     margin-top: 0; }
-  .blockquote p:last-child {
+  .blockquote p:last-child,
+  blockquote p:last-child {
     margin-bottom: 0; }
   .blockquote i,
   .blockquote em,
   .blockquote cite,
-  .blockquote .cite {
+  .blockquote .cite,
+  blockquote i,
+  blockquote em,
+  blockquote cite,
+  blockquote .cite {
     font-style: normal; }
 
 cite,
@@ -8333,7 +8341,17 @@ cite,
 /*==========----------==========*/
 @media (max-width: 640px) {
   .largeText {
-    font-size: 1.2em; } }
+    font-size: 1.2em; }
+  .blockquote,
+  blockquote {
+    padding: 2em 0 1em 1em; }
+    .blockquote::before,
+    blockquote::before {
+      width: 3rem;
+      height: 3rem;
+      font-size: 1.25rem;
+      left: 0.5em;
+      transform: translateY(-50%); } }
 
 fieldset {
   border: none;
@@ -10757,7 +10775,7 @@ button {
       color: #f2f3f4; }
     @media (hover: hover) {
       .showcase__neighbor:hover {
-        transform: scale(1.05); }
+        transform: scale(1.025); }
         .showcase__neighbor:hover .showcase__neighborImgWrp::after {
           opacity: 0; }
         .showcase__neighbor:hover .showcase__neighborArrow {
@@ -10803,6 +10821,9 @@ button {
     .showcase__section--content {
       padding-left: 2em;
       padding-right: 2em; }
+      .showcase__section--content .blockquote,
+      .showcase__section--content blockquote {
+        margin-left: 1em; }
     .showcase__neighbors {
       margin: 0; } }
   @media (max-width: 1024px), (max-height: 1024px) {
@@ -10814,6 +10835,13 @@ button {
       .showcase__section--content {
         display: block;
         background: #e4e6e8; }
+        .showcase__section--content .blockquote,
+        .showcase__section--content blockquote {
+          margin-left: 2em;
+          margin-right: 2em; }
+          .showcase__section--content .blockquote::before,
+          .showcase__section--content blockquote::before {
+            background: #e4e6e8; }
       .showcase__slide {
         height: 90vh;
         padding-top: 8em;
@@ -10838,6 +10866,10 @@ button {
       .showcase__neighbor--solo {
         margin: 0; } }
   @media (max-width: 640px) {
+    .showcase__section--content blockquote,
+    .showcase__section--content .blockquote {
+      margin-left: 0;
+      margin-right: 0; }
     .showcase__slide {
       padding-top: 6em; }
     .showcase__neighbors {
