@@ -356,7 +356,7 @@ templates['pages/home'] = template({"1":function(container,depth0,helpers,partia
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"portfolio") : depth0)) != null ? lookupProperty(stack1,"url") : stack1), depth0))
     + "\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"portfolio") : depth0)) != null ? lookupProperty(stack1,"btnText") : stack1), depth0))
-    + "</a>\n    </div>\n</section>\n\n<section class=\"section bioHome\">\n    <div class=\"bioHome__wrapper wrapper wrapper--wide\">\n        <article class=\"bioHome__content\">\n            <div class=\"bioHome__mobileImgWrp\">\n                <img class=\"bioHome__mobileImg\" src=\""
+    + "</a>\n    </div>\n</section>\n\n<section class=\"section bioHome\" id=\"bio\">\n    <div class=\"bioHome__wrapper wrapper wrapper--wide\">\n        <article class=\"bioHome__content\">\n            <div class=\"bioHome__mobileImgWrp\">\n                <img class=\"bioHome__mobileImg\" src=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"img") : stack1)) != null ? lookupProperty(stack1,"square") : stack1), depth0))
     + "\" aria-hidden=\"true\">\n            </div>\n\n            <div class=\"bioHome__box box\">\n                <h2 class=\"bioHome__heading\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"title") : stack1), depth0))

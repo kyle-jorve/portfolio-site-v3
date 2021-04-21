@@ -137,6 +137,9 @@ global
 		slideTransDur =
 			parseFloat(window.getComputedStyle(els.slides[0]).getPropertyValue('transition-duration')) * 1000;
 
+		// update any links to another portfolio detail page with the existing "from" parameter
+		global.updateLinks();
+
 		if (els.slides.length > 1) {
 			// add click events for slide arrows
 			els.arrows.forEach(a =>

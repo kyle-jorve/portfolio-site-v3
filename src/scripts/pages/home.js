@@ -39,4 +39,7 @@ global
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
 	.catch(err => console.warn(err))
-	.finally(() => global.updateLinks());
+	.finally(() => {
+		global.scrollToSection();
+		global.updateLinks();
+	});

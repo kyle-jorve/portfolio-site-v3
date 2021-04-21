@@ -22,8 +22,9 @@ const pageURLs = {
 	cv: '/cv/'
 };
 const searchParams = {
+	from: 'from',
 	piece: 'piece',
-	from: 'from'
+	section: 'section'
 };
 const cssClasses = {
 	portfolioItemTall: 'portfolio__item--tall',
@@ -133,11 +134,31 @@ function updateLinks() {
 		let url = new URL(l.href);
 
 		if (url.pathname.toLowerCase().includes(pageURLs.portfolioDetail) && !url.searchParams.get(searchParams.from)) {
-			url.searchParams.set(searchParams.from, window.location.pathname);
+			const sectionID = l.closest('section').id;
+			let searchParam = urlParams.get(searchParams.from) ?? window.location.pathname;
 
-			l.href = `${url.origin}${url.pathname}${url.search}`;
+			url.searchParams.set(searchParams.from, searchParam);
+
+			if (sectionID && sectionID.length) {
+				url.searchParams.set(searchParams.section, sectionID);
+			}
+
+			l.href = decodeURIComponent(url.href);
 		}
 	});
+}
+
+function removeSearchParams() {}
+
+function scrollToSection() {
+	const section = document.querySelector(`#${urlParams.get(searchParams.section)}`);
+	let offset;
+
+	if (section) {
+		offset = section.getBoundingClientRect().top + window.scrollY;
+
+		window.scrollTo(0, offset);
+	}
 }
 
 // -- PUBLIC -- //
@@ -151,6 +172,7 @@ export const global = {
 
 	fetchFn,
 	getGlobalData,
+	scrollToSection,
 	updateLinks,
 
 	get detectTouch() {
