@@ -1,7 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
-import { nav } from '/dist/scripts/nav.js';
+import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
 let template;

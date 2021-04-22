@@ -30,6 +30,16 @@
 				"mobileSource": "/dist/media/portfolio/cargha/portrait/kyle-jorve_cargha-portrait-320.jpg",
 				"alt": "Cargha stands stoically holding a dagger in one hand and a khopesh in the other"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/cargha/portrait/kyle-jorve_cargha-portrait-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/cargha/portrait/kyle-jorve_cargha-portrait-640.jpg",
+				"alt": "Cargha stands stoically holding a dagger in one hand and a khopesh in the other"
+			},
 			"media": [
 				{
 					"sources": [
@@ -164,6 +174,16 @@
 				"mobileSource": "/dist/media/portfolio/crow/final/kyle-jorve_crow-320.jpg",
 				"alt": "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/crow/final/kyle-jorve_crow-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/crow/final/kyle-jorve_crow-640.jpg",
+				"alt": "Crow stands against a wall smoking an e-cigarette, his mechanical right eye glowing"
+			},
 			"media": [
 				{
 					"sources": [
@@ -241,6 +261,16 @@
 					}
 				],
 				"mobileSource": "/dist/media/portfolio/tyene/final/kyle-jorve_tyene-320.jpg",
+				"alt": "Tyene, a half-elf ranger, stands in the middle of a forest, a pond at her back, looking at and reaching up toward a pixie"
+			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/tyene/final/kyle-jorve_tyene-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/tyene/final/kyle-jorve_tyene-640.jpg",
 				"alt": "Tyene, a half-elf ranger, stands in the middle of a forest, a pond at her back, looking at and reaching up toward a pixie"
 			},
 			"media": [
@@ -503,6 +533,16 @@
 				"mobileSource": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-320.jpg",
 				"alt": "a close-up crop of Pendrake and Kyra lying in bed together"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/pendrakes-chamber/detail-1/kyle-jorve_pendrakes-chamber-detail-1-640.jpg",
+				"alt": "a close-up crop of Pendrake and Kyra lying in bed together"
+			},
 			"media": [
 				{
 					"sources": [
@@ -637,6 +677,16 @@
 				"mobileSource": "/dist/media/portfolio/berned/kyle-jorve_berned-320.jpg",
 				"alt": "Berned stands before the circular, red door to his house"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/berned/kyle-jorve_berned-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/berned/kyle-jorve_berned-640.jpg",
+				"alt": "Berned stands before the circular, red door to his house"
+			},
 			"media": [
 				{
 					"sources": [
@@ -679,6 +729,16 @@
 					}
 				],
 				"mobileSource": "/dist/media/portfolio/olfactory/kyle-jorve_olfactory-320.jpg",
+				"alt": "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia"
+			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/olfactory/kyle-jorve_olfactory-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/olfactory/kyle-jorve_olfactory-640.jpg",
 				"alt": "an alien breathes in the thick atmoshpere of its home planet through a mouth overgrown with filtering cilia"
 			},
 			"media": [
@@ -725,6 +785,16 @@
 				"mobileSource": "/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-320.jpg",
 				"alt": "Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-640.jpg",
+				"alt": "Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence"
+			},
 			"media": [
 				{
 					"sources": [
@@ -767,6 +837,16 @@
 					}
 				],
 				"mobileSource": "/dist/media/portfolio/crows/kyle-jorve_crows-320.jpg",
+				"alt": "Crow stands before a cluster of dead ravens as more fall from the sky; the raven immediately before him is white"
+			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/crows/kyle-jorve_crows-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/crows/kyle-jorve_crows-640.jpg",
 				"alt": "Crow stands before a cluster of dead ravens as more fall from the sky; the raven immediately before him is white"
 			},
 			"media": [
@@ -813,6 +893,16 @@
 				"mobileSource": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-320.jpg",
 				"alt": "An abstract assembly of colors and materials, all layering over and feeding into one another, like spreading fungus"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/assembly-of-a-complex-organism/kyle-jorve_assembly-of-a-complex-organism-640.jpg",
+				"alt": "An abstract assembly of colors and materials, all layering over and feeding into one another, like spreading fungus"
+			},
 			"media": [
 				{
 					"sources": [
@@ -855,6 +945,16 @@
 					}
 				],
 				"mobileSource": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-320.jpg",
+				"alt": "a landscape of an alien planet, bright red vegetation rolling across a sweeping, craggy hill"
+			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/orlandatime/kyle-jorve_orlandatime-640.jpg",
 				"alt": "a landscape of an alien planet, bright red vegetation rolling across a sweeping, craggy hill"
 			},
 			"media": [
@@ -901,6 +1001,16 @@
 				"mobileSource": "/dist/media/portfolio/sol/kyle-jorve_sol-320.jpg",
 				"alt": "Sol stands in a forest, looking warily toward the viewer, clutching the handle of her dagger"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/sol/kyle-jorve_sol-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/sol/kyle-jorve_sol-640.jpg",
+				"alt": "Sol stands in a forest, looking warily toward the viewer, clutching the handle of her dagger"
+			},
 			"media": [
 				{
 					"sources": [
@@ -943,6 +1053,16 @@
 				"mobileSource": "/dist/media/portfolio/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1-320.jpg",
 				"alt": "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island"
 			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/kingdom-hearts-1/kyle-jorve_kingdom-hearts-1-640.jpg",
+				"alt": "Sora, Riku, and Kairi stand on a sandy beach on Destiny Island"
+			},
 			"media": [
 				{
 					"sources": [
@@ -983,6 +1103,16 @@
 					}
 				],
 				"mobileSource": "/dist/media/portfolio/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2-320.jpg",
+				"alt": "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; the heart-shaped moon glows overhead"
+			},
+			"detailThumbnail": {
+				"sources": [
+					{
+						"url": "/dist/media/portfolio/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2-480.jpg",
+						"minScreenSize": 640
+					}
+				],
+				"mobileSource": "/dist/media/portfolio/kingdom-hearts-2/kyle-jorve_kingdom-hearts-2-640.jpg",
 				"alt": "Riku, Namine, and Roxas stand on a dark, destroyed beach on Destiny Island; fissures crack the landscape; Mickey stands hidden in the distance; the heart-shaped moon glows overhead"
 			},
 			"media": [

@@ -1,6 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
+import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
 let template;
@@ -26,4 +27,7 @@ global
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
 	.catch(err => console.warn(err))
-	.finally(() => global.updateLinks());
+	.finally(() => {
+		global.updateLinks();
+		global.scrollToSection();
+	});

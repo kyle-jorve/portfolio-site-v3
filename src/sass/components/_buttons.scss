@@ -242,7 +242,7 @@ button {
 		padding: 0;
 		border: none;
 		border-radius: 2px;
-		background-color: text-color(map-get($colorScheme, red));
+		background-color: $lightTextColor;
 		position: absolute;
 		top: 50%;
 		left: 50%;

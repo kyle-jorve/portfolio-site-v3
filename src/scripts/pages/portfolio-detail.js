@@ -1,7 +1,8 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
-import { helpers } from '/dist/scripts/portfolio-detail-helpers.js';
+import { helpers } from '/dist/scripts/global-helpers.js';
+import { detailHelpers } from '/dist/scripts/portfolio-detail-helpers.js';
 
 const dataAttrs = {
 	active: 'data-active',

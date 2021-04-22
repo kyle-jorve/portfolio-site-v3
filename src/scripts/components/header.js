@@ -1,5 +1,6 @@
 import { global } from '/dist/scripts/global.js';
 import { nav } from '/dist/scripts/nav.js';
+import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
 let template;
@@ -52,12 +53,14 @@ function buildHeader(dataSrc) {
 
 			getCurrentPage(data.mobileNav, d.url);
 
+			// build header
 			template = Handlebars.templates[global.templateSources.header](data);
 
 			global.els.header.insertAdjacentHTML('afterbegin', template);
 		})
 		.catch(err => console.warn(err))
 		.finally(() => {
+			// initialize nav
 			if (data.currentPage === global.pageURLs.portfolioDetail) {
 				nav.initPortfolioDetail();
 			} else {

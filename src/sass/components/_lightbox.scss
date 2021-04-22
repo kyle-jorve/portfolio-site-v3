@@ -7,8 +7,8 @@
 .lightbox {
 	$lightbox: &;
 
-	opacity: 0;
-	visibility: hidden;
+	// opacity: 0;
+	// visibility: hidden;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -24,8 +24,8 @@
 
 	&__box {
 		@include absolute(center, 2);
-		opacity: 0;
-		visibility: hidden;
+		// opacity: 0;
+		// visibility: hidden;
 		width: calc(100% - 2em);
 		max-width: $narrowWidth;
 		padding: ($crossBtnDiam + 16px) $lightboxPadding $lightboxPadding $lightboxPadding;

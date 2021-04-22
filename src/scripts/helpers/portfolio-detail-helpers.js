@@ -82,6 +82,11 @@ Handlebars.registerHelper('neighbors', item => {
 	const solo = entries.filter(ent => ent[1] ?? false).length < 2;
 	let markup = '';
 
+	// initial: 544 ==> 640
+	// 640vw: 335 ==>   480
+	// 1024vw: 422 ==>  480
+	// 1440vw: 331 ==>  480
+
 	for (let [key, value] of entries) {
 		if (value) {
 			markup += `
@@ -94,7 +99,7 @@ Handlebars.registerHelper('neighbors', item => {
                         
                         <div class="showcase__neighborImgWrp">
                             <picture>
-                                ${value.thumbnail.sources
+                                ${value.detailThumbnail.sources
 									.map(s => {
 										return `
                                         <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
@@ -102,8 +107,8 @@ Handlebars.registerHelper('neighbors', item => {
 									.join('')}
                                 <img
                                     class="showcase__neighborImg showcase__neighborImg--${value.orientation}"
-                                    src="${value.thumbnail.mobileSource}"
-                                    alt="${value.thumbnail.alt}">
+                                    src="${value.detailThumbnail.mobileSource}"
+                                    alt="${value.detailThumbnail.alt}">
                             </picture>
                         </div>
 
@@ -132,7 +137,7 @@ Handlebars.registerHelper('hasPurchaseLinks', item => {
 	return item.purchaseLink || item.downloadLink;
 });
 
-export const helpers = {
+export const detailHelpers = {
 	hasPurchaseLinks: Handlebars.helpers.hasPurchaseLinks,
 	isSlider: Handlebars.helpers.isSlider,
 	neighbors: Handlebars.helpers.neighbors,

@@ -1,4 +1,5 @@
 import { global } from '/dist/scripts/global.js';
+import { helpers } from '/dist/scripts/global-helpers.js';
 
 const yearToken = '[[year]]';
 const curYear = new Date().getFullYear();

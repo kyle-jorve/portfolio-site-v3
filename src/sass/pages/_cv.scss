@@ -5,18 +5,10 @@
 /*//////////////////////////////////////////////////////*/
 
 .bio {
-	&__page {
-		background: map-get($bgColors, lightBg);
-		color: $darkTextColor;
-
-		footer {
-			background: map-get($bgColors, darkBg);
-			color: $lightTextColor;
-		}
-	}
-
 	&__section {
 		padding: 0;
+		background: map-get($bgColors, lightBg);
+		color: $darkTextColor;
 		position: relative;
 		z-index: 2;
 	}
@@ -88,6 +80,7 @@
 
 	background: map-get($bgColors, medBg);
 	border-top: $borderThickness solid $lightBorderColor;
+	color: $darkTextColor;
 
 	&__heading {
 		@include underlineText(center);

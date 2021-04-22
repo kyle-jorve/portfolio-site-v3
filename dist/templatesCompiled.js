@@ -230,6 +230,9 @@ templates['components/header'] = template({"1":function(container,depth0,helpers
     + "    </button>\n</div>\n\n"
     + ((stack1 = lookupProperty(helpers,"unless").call(alias1,(lookupProperty(helpers,"isPortfolioDetailPage")||(depth0 && lookupProperty(depth0,"isPortfolioDetailPage"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"currentPage") : depth0),{"name":"isPortfolioDetailPage","hash":{},"data":data,"loc":{"start":{"line":48,"column":10},"end":{"line":48,"column":45}}}),{"name":"unless","hash":{},"fn":container.program(19, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":48,"column":0},"end":{"line":80,"column":11}}})) != null ? stack1 : "");
 },"useData":true,"useDepths":true});
+templates['components/lightbox'] = template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"lightbox\" id=\"lightboxWrp\">\n    <div class=\"lightbox__box\" id=\"lightbox\">\n        <div class=\"lightbox__closeBtn closeBtn\" id=\"closeLightbox\">\n            <span class=\"closeBtn__bar closeBtn__bar--1\"></span>\n            <span class=\"closeBtn__bar closeBtn__bar--2\"></span>\n        </div>\n\n        <div class=\"lightbox__content\" id=\"lightboxContent\">\n            <!-- lightbox message gets inserted here -->\n        </div>\n\n        <div id=\"lbVidWrp\" class=\"lightbox__video\">\n            <!-- video source gets inserted here -->\n            <iframe class=\"lightbox__iframe\" id=\"lbVidFrame\" width=\"560\" height=\"315\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </div>\n    </div>\n    <div class=\"lightbox__overlay\" id=\"lightboxOverlay\"></div>\n</div>";
+},"useData":true});
 templates['pages/cv'] = template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -261,7 +264,7 @@ templates['pages/cv'] = template({"1":function(container,depth0,helpers,partials
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"title") : stack1), depth0))
     + "</h1>\n\n            "
     + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"content") : stack1), depth0)) != null ? stack1 : "")
-    + "\n        </div>\n    </div>\n\n    <img class=\"logoIcon\" src=\"/dist/media/icons/logo-circle-icon.svg\">\n</section>\n\n<section class=\"section resume\">\n    <div class=\"wrapper wrapper--content\">\n        <h2 class=\"resume__heading\">"
+    + "\n        </div>\n    </div>\n\n    <img class=\"logoIcon\" src=\"/dist/media/icons/logo-circle-icon.svg\">\n</section>\n\n<section class=\"section resume\" id=\"resume\">\n    <div class=\"wrapper wrapper--content\">\n        <h2 class=\"resume__heading\">"
     + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"resume") : depth0)) != null ? lookupProperty(stack1,"title") : stack1), depth0)) != null ? stack1 : "")
     + "</h2>\n        <div class=\"button__wrapper button__wrapper--justifyCenter\">\n            <a class=\"button button--primary button--download\" href=\""
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"resume") : depth0)) != null ? lookupProperty(stack1,"docUrl") : stack1), depth0))

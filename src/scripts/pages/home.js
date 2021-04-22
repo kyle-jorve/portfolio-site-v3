@@ -1,7 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
-import { nav } from '/dist/scripts/nav.js';
+import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
 let template;
@@ -32,7 +32,7 @@ global
 			data.bio[prop] = d.bio[prop];
 		}
 
-		data.bio.url = d.url;
+		data.bio.url = `${d.url}#resume`;
 
 		template = Handlebars.templates[global.templateSources.home](data);
 
@@ -42,4 +42,5 @@ global
 	.finally(() => {
 		global.scrollToSection();
 		global.updateLinks();
+		global.removeSearchParams();
 	});

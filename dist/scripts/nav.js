@@ -5,14 +5,43 @@ const cssClasses = {
 	showNav: 'showNav'
 };
 let navActive = false;
+let els;
+let scrollPos;
+
+// un-fix scroll anchors
+function unfixScroll() {
+	// un-style the scrollAnchors
+	els.scrollAnchors.forEach(cur => {
+		cur.style.position = '';
+		cur.style.top = '';
+		cur.style.overflow = '';
+	});
+
+	// keep window scrolled, though
+	window.scroll(0, scrollPos);
+}
+
+// fix scroll anchors
+function fixScroll() {
+	// define scrollPos
+	scrollPos = window.scrollY;
+
+	// style the scrollAnchors
+	els.scrollAnchors.forEach(cur => {
+		cur.style.position = 'fixed';
+		cur.style.top = `-${scrollPos}px`;
+		cur.style.overflow = 'hidden';
+	});
+}
 
 function initiateNav() {
-	const els = {
+	els = {
 		body: global.els.body,
 		nav: document.querySelector('#mainNav'),
 		navButton: document.querySelector('#navBtn'),
 		navLI: Array.from(document.querySelectorAll('.header .nav__li')),
 		recentWorkItems: Array.from(document.querySelectorAll('.header .portfolio__item')),
+		scrollAnchors: [global.els.body, document.querySelector('html')],
 		socialIcons: Array.from(document.querySelectorAll('.header .social__item'))
 	};
 	const navTransitionDur =
@@ -29,6 +58,9 @@ function initiateNav() {
 			els.navButton.classList.remove(cssClasses.active);
 			els.body.classList.remove(cssClasses.showNav);
 
+			// fix body scroll position
+			unfixScroll();
+
 			// wait until the nav is fully hidden before removing classes from list items, portfolio items, and social icons
 			setTimeout(() => {
 				[...els.navLI, ...els.recentWorkItems, ...els.socialIcons].forEach(li =>
@@ -41,6 +73,9 @@ function initiateNav() {
 			// add classes
 			els.navButton.classList.add(cssClasses.active);
 			els.body.classList.add(cssClasses.showNav);
+
+			// fix body scroll position
+			fixScroll();
 
 			// stagger class additions to list items
 			for (let i = 0; i < els.navLI.length; i++) {

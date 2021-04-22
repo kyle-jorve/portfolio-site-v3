@@ -10,6 +10,8 @@ const templateSources = {
 	head: 'components/head',
 	header: 'components/header',
 	footer: 'components/footer',
+	lightbox: 'components/lightbox',
+
 	home: 'pages/home',
 	portfolio: 'pages/portfolio',
 	portfolioDetail: 'pages/portfolio-detail',
@@ -26,76 +28,17 @@ const searchParams = {
 	piece: 'piece',
 	section: 'section'
 };
-const cssClasses = {
-	portfolioItemTall: 'portfolio__item--tall',
-	portfolioItemWide: 'portfolio__item--wide'
-};
 const els = {
-	head: document.querySelector('head'),
 	body: document.querySelector('body'),
-	header: document.querySelector('#header'),
-	footer: document.querySelector('#footer')
+	footer: document.querySelector('#footer'),
+	head: document.querySelector('head'),
+	header: document.querySelector('#header')
 };
-const wideAspect = 1.333;
-const tallAspect = 0.75;
+
 const agent = window.navigator.userAgent.toLowerCase();
 const android = agent.includes('android');
 const search = window.location.search;
 const urlParams = new URLSearchParams(search);
-
-Handlebars.registerHelper('printSocialIcon', item => {
-	const itemIsGumroad = item.name.toLowerCase() === 'gumroad';
-	const cssClass = item.cssClass ?? item.name;
-
-	return `
-        <a
-            class="social__item${!itemIsGumroad ? ` icon icon--absoluteCenter icon--${cssClass}` : ''}"
-            href="${item.url}"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            title="${item.name}">
-            ${item.icon ?? ''}
-            <span class="icon__text">${item.name}</span>
-        </a>`;
-});
-
-Handlebars.registerHelper('printPortfolioItem', (item, url) => {
-	const aspect = item.dimensions[0] / item.dimensions[1];
-	const itemClass =
-		aspect > wideAspect ? cssClasses.portfolioItemWide : aspect < tallAspect ? cssClasses.portfolioItemTall : '';
-
-	return `
-        <article class="portfolio__item ${itemClass}">
-            <a class="portfolio__itemLink" href="${pageURLs.portfolioDetail}?piece=${item.name}&from=${url}">
-                <div class="portfolio__itemInner">
-                    <h3 class="portfolio__itemTitle">${item.title}</h3>
-                    <div class="portfolio__icons">
-                        <button class="portfolio__icon icon icon--align-justify" href="#">
-                            <span class="icon__text">View Description</span>
-                        </button>
-                        <button class="portfolio__icon portfolio__expand icon icon--search-plus">
-                            <span class="icon__text">View Full Screen</span>
-                        </button>
-                    </div>
-                </div>
-
-                <picture>
-                    ${item.thumbnail.sources
-						.map(i => {
-							return `<source srcset="${i.url}" media="(min-width: ${i.minScreenSize}px)">`;
-						})
-						.join('')}
-                    <img class="portfolio__img portfolio__img--${item.orientation}"
-                        src="${item.thumbnail.mobileSource}"
-                        alt="${item.thumbnail.alt}"
-                        width="${item.dimensions[0]}"
-                        height="${item.dimensions[1]}">
-                </picture>
-            </a>
-        </article>`;
-});
-
-Handlebars.registerHelper('isOdd', number => number % 2 === 1);
 
 // detect if touch device device
 function detectTouch() {
@@ -148,10 +91,20 @@ function updateLinks() {
 	});
 }
 
-function removeSearchParams() {}
+function removeSearchParams() {
+	let url = new URL(window.location.href);
+
+	for (let p in searchParams) {
+		url.searchParams.delete(searchParams[p]);
+	}
+
+	window.history.replaceState({}, document.title, url.href);
+}
 
 function scrollToSection() {
-	const section = document.querySelector(`#${urlParams.get(searchParams.section)}`);
+	const section = window.location.hash.length
+		? document.querySelector(window.location.hash)
+		: document.querySelector(`#${urlParams.get(searchParams.section)}`);
 	let offset;
 
 	if (section) {
@@ -172,6 +125,7 @@ export const global = {
 
 	fetchFn,
 	getGlobalData,
+	removeSearchParams,
 	scrollToSection,
 	updateLinks,
 

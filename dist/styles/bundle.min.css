@@ -8570,7 +8570,7 @@ sup {
 /*==========----------==========*/
 @media (max-width: 640px) {
   .hero {
-    padding: 6em 1em 5em 1em; }
+    padding: 6em 1em; }
   .scrollGraphic {
     display: none; } }
 
@@ -9367,7 +9367,7 @@ button {
     padding: 0;
     border: none;
     border-radius: 2px;
-    background-color: #131516;
+    background-color: #f2f3f4;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -9573,8 +9573,6 @@ button {
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
 .lightbox {
-  opacity: 0;
-  visibility: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -9591,8 +9589,6 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
-    visibility: hidden;
     width: calc(100% - 2em);
     max-width: 600px;
     padding: 56px 2em 2em 2em;
@@ -10367,15 +10363,10 @@ button {
 /*//                     CV PAGE                      //*/
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
-.bio__page {
-  background: #f2f3f4;
-  color: #131516; }
-  .bio__page footer {
-    background: #131516;
-    color: #f2f3f4; }
-
 .bio__section {
   padding: 0;
+  background: #f2f3f4;
+  color: #131516;
   position: relative;
   z-index: 2; }
 
@@ -10464,7 +10455,8 @@ button {
 
 .resume {
   background: #e4e6e8;
-  border-top: 1px solid #c1c7c9; }
+  border-top: 1px solid #c1c7c9;
+  color: #131516; }
   .resume__heading {
     text-align: center; }
     .resume__heading::after {
