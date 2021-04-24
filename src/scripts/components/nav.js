@@ -6,33 +6,6 @@ const cssClasses = {
 };
 let navActive = false;
 let els;
-let scrollPos;
-
-// un-fix scroll anchors
-function unfixScroll() {
-	// un-style the scrollAnchors
-	els.scrollAnchors.forEach(cur => {
-		cur.style.position = '';
-		cur.style.top = '';
-		cur.style.overflow = '';
-	});
-
-	// keep window scrolled, though
-	window.scroll(0, scrollPos);
-}
-
-// fix scroll anchors
-function fixScroll() {
-	// define scrollPos
-	scrollPos = window.scrollY;
-
-	// style the scrollAnchors
-	els.scrollAnchors.forEach(cur => {
-		cur.style.position = 'fixed';
-		cur.style.top = `-${scrollPos}px`;
-		cur.style.overflow = 'hidden';
-	});
-}
 
 function initiateNav() {
 	els = {
@@ -41,7 +14,6 @@ function initiateNav() {
 		navButton: document.querySelector('#navBtn'),
 		navLI: Array.from(document.querySelectorAll('.header .nav__li')),
 		recentWorkItems: Array.from(document.querySelectorAll('.header .portfolio__item')),
-		scrollAnchors: [global.els.body, document.querySelector('html')],
 		socialIcons: Array.from(document.querySelectorAll('.header .social__item'))
 	};
 	const navTransitionDur =
@@ -59,7 +31,7 @@ function initiateNav() {
 			els.body.classList.remove(cssClasses.showNav);
 
 			// fix body scroll position
-			unfixScroll();
+			global.unfixBodyScroll();
 
 			// wait until the nav is fully hidden before removing classes from list items, portfolio items, and social icons
 			setTimeout(() => {
@@ -75,7 +47,7 @@ function initiateNav() {
 			els.body.classList.add(cssClasses.showNav);
 
 			// fix body scroll position
-			fixScroll();
+			global.fixBodyScroll();
 
 			// stagger class additions to list items
 			for (let i = 0; i < els.navLI.length; i++) {

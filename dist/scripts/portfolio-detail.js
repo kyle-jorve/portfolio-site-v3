@@ -1,6 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
+import { lightbox } from '/dist/scripts/lightbox.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 import { detailHelpers } from '/dist/scripts/portfolio-detail-helpers.js';
 
@@ -18,6 +19,7 @@ const cssClasses = {
 	bg: 'showcase__bg',
 	dot: 'slider__dot',
 	imgWrp: 'showcase__imgWrp',
+	slide: 'showcase__slide',
 	transOut: 'transOut'
 };
 let data;
@@ -26,17 +28,87 @@ let els;
 let slideTransDur;
 let itemIndex;
 
+function initSlider() {
+	els = {
+		arrows: Array.from(document.querySelectorAll('.slider__arrow')),
+		bgs: Array.from(document.querySelectorAll(`.${cssClasses.bg}`)),
+		dots: Array.from(document.querySelectorAll(`.${cssClasses.dot}`)),
+		showcaseSlider: document.querySelector('#showcaseSlider')
+	};
+
+	els.showcaseSlides = Array.from(els.showcaseSlider.querySelectorAll(`.${cssClasses.slide}`));
+
+	els.lightboxSlides = Array.from(lightbox.els.wrapper.querySelectorAll(`.${cssClasses.slide}`));
+
+	slideTransDur =
+		parseFloat(window.getComputedStyle(els.showcaseSlides[0]).getPropertyValue('transition-duration')) * 1000;
+
+	// add event listeners
+	if (els.showcaseSlides.length > 1) {
+		// add click events for slide arrows
+		els.arrows.forEach(a => a.addEventListener('click', () => arrowHandler(a)));
+
+		// add click events for dots
+		els.dots.forEach(dot => dot.addEventListener('click', () => dotHandler(dot)));
+	}
+}
+
+function arrowHandler(arrow) {
+	const direction = arrow.getAttribute(dataAttrs.dir);
+	const activeIndex = Number(
+		els.showcaseSlides.find(s => s.hasAttribute(dataAttrs.active)).getAttribute(dataAttrs.index)
+	);
+	let destination = {};
+
+	// get destination slide
+	if (direction === directions.prev) {
+		destination.slide = els.showcaseSlides[activeIndex - 1]
+			? [els.showcaseSlides[activeIndex - 1], els.lightboxSlides[activeIndex - 1]]
+			: [els.showcaseSlides[els.showcaseSlides.length - 1], els.lightboxSlides[els.showcaseSlides.length - 1]];
+	} else {
+		destination.slide = els.showcaseSlides[activeIndex + 1]
+			? [els.showcaseSlides[activeIndex + 1], els.lightboxSlides[activeIndex + 1]]
+			: [els.showcaseSlides[0], els.lightboxSlides[0]];
+	}
+
+	// set destination index, dot, and bg
+	destination.index = Number(destination.slide[0].getAttribute(dataAttrs.index));
+
+	destination.dot = els.dots.filter(d => d.getAttribute(dataAttrs.index) == destination.index);
+
+	destination.bg = els.bgs.filter(bg => bg.getAttribute(dataAttrs.index) == destination.index);
+
+	moveSlides(destination);
+}
+
+function dotHandler(dot) {
+	let destination = {
+		dot: els.dots.filter(d => d.getAttribute(dataAttrs.index) == dot.getAttribute(dataAttrs.index))
+	};
+
+	// set destination index, slide, and bg
+	destination.index = Number(dot.getAttribute(dataAttrs.index));
+
+	destination.slide = [...els.showcaseSlides, ...els.lightboxSlides].filter(
+		s => s.getAttribute(dataAttrs.index) == destination.index
+	);
+
+	destination.bg = els.bgs.filter(bg => bg.getAttribute(dataAttrs.index) == destination.index);
+
+	moveSlides(destination);
+}
+
 function moveSlides(destination) {
 	// destination has the following properties:
-	// - dot: DOM element
-	// - slide: DOM element
-	// - bg: DOM element
+	// - dot: array of DOM elements
+	// - slide: array of DOM elements
+	// - bg: array of DOM elements
 	// - index: number, index of destination slide
 
 	const active = {
-		bg: els.bgs.find(bg => bg.hasAttribute(dataAttrs.active)),
-		dot: els.dots.find(d => d.hasAttribute(dataAttrs.active)),
-		slide: els.slides.find(s => s.hasAttribute(dataAttrs.active))
+		bg: els.bgs.filter(bg => bg.hasAttribute(dataAttrs.active)),
+		dot: els.dots.filter(d => d.hasAttribute(dataAttrs.active)),
+		slide: [...els.showcaseSlides, ...els.lightboxSlides].filter(s => s.hasAttribute(dataAttrs.active))
 	};
 
 	// prevent arrow and dot clicks while slides are transitioning
@@ -60,38 +132,40 @@ function moveSlides(destination) {
 
 function deactivateSlide(active) {
 	// active has the following properties:
-	// - dot: DOM element
-	// - slide: DOM element
-	// - bg: DOM element
+	// - dot: array of DOM elements
+	// - slide: array of DOM elements
+	// - bg: array of DOM elements
 	// - index: number, index of currently active slide
 
-	active.slide.classList.add(cssClasses.transOut);
+	active.slide.forEach(sl => sl.classList.add(cssClasses.transOut));
 
-	[active.slide, active.dot, active.bg].forEach(el => {
+	[...active.slide, ...active.dot, ...active.bg].forEach(el => {
 		el.classList.remove(cssClasses.active);
 		el.removeAttribute(dataAttrs.active);
 	});
 
 	setTimeout(() => {
-		active.slide.classList.remove(cssClasses.transOut);
+		active.slide.forEach(sl => sl.classList.remove(cssClasses.transOut));
 	}, slideTransDur);
 }
 
 function activateSlide(destination) {
 	// destination has the following properties:
-	// - dot: DOM element
-	// - slide: DOM element
-	// - bg: DOM element
+	// - dot: array of DOM elements
+	// - slide: array of DOM elements
+	// - bg: array of DOM elements
 
-	[destination.dot, destination.slide].forEach(el => {
+	[...destination.dot, ...destination.slide].forEach(el => {
 		el.classList.add(cssClasses.active);
 		el.setAttribute(dataAttrs.active, true);
 	});
 }
 
-function activateBg(bg) {
-	bg.classList.add(cssClasses.active);
-	bg.setAttribute(dataAttrs.active, true);
+function activateBg(bgs) {
+	bgs.forEach(bg => {
+		bg.classList.add(cssClasses.active);
+		bg.setAttribute(dataAttrs.active, true);
+	});
 }
 
 // build the <header>
@@ -116,6 +190,8 @@ global
 			metaImage: data.media[0].url
 		};
 
+		data.isPortfolioDetailPage = true;
+
 		// build the <head>
 		head.buildHead(false, data.seo);
 
@@ -123,70 +199,17 @@ global
 		template = Handlebars.templates[global.templateSources.portfolioDetail](data);
 
 		global.els.header.insertAdjacentHTML('afterend', template);
+
+		// initialize lightbox
+		lightbox.init(data);
 	})
 	.catch(err => console.warn(err))
 	.finally(() => {
-		els = {
-			bgs: Array.from(document.querySelectorAll(`.${cssClasses.bg}`)),
-			dots: Array.from(document.querySelectorAll(`.${cssClasses.dot}`)),
-			arrows: Array.from(document.querySelectorAll('.slider__arrow')),
-			nextArrow: document.querySelector('#arrowNext'),
-			prevArrow: document.querySelector('#arrowPrev'),
-			slider: document.querySelector('#showcaseSlider'),
-			slides: Array.from(document.querySelectorAll('.showcase__slide'))
-		};
-		slideTransDur =
-			parseFloat(window.getComputedStyle(els.slides[0]).getPropertyValue('transition-duration')) * 1000;
-
 		// update any links to another portfolio detail page with the existing "from" parameter
 		global.updateLinks();
 
-		if (els.slides.length > 1) {
-			// add click events for slide arrows
-			els.arrows.forEach(a =>
-				a.addEventListener('click', () => {
-					const direction = a.getAttribute(dataAttrs.dir);
-					const activeIndex = Number(
-						els.slides.find(s => s.hasAttribute(dataAttrs.active)).getAttribute(dataAttrs.index)
-					);
-					let destination = {};
-
-					// get destination slide
-					if (direction === directions.prev) {
-						destination.slide = els.slides[activeIndex - 1] ?? els.slides[els.slides.length - 1];
-					} else {
-						destination.slide = els.slides[activeIndex + 1] ?? els.slides[0];
-					}
-
-					// set destination index, dot, and bg
-					destination.index = Number(destination.slide.getAttribute(dataAttrs.index));
-
-					destination.dot = els.dots.find(d => d.getAttribute(dataAttrs.index) == destination.index);
-
-					destination.bg = els.bgs.find(bg => bg.getAttribute(dataAttrs.index) == destination.index);
-
-					moveSlides(destination);
-				})
-			);
-
-			// add click events for dots
-			els.dots.forEach(dot =>
-				dot.addEventListener('click', () => {
-					let destination = {
-						dot
-					};
-
-					// set destination index, slide, and bg
-					destination.index = Number(dot.getAttribute(dataAttrs.index));
-
-					destination.slide = els.slides.find(s => s.getAttribute(dataAttrs.index) == destination.index);
-
-					destination.bg = els.bgs.find(bg => bg.getAttribute(dataAttrs.index) == destination.index);
-
-					moveSlides(destination);
-				})
-			);
-		}
+		// initialize slider
+		initSlider();
 	});
 
 export const portfolioDetail = {

@@ -1,3 +1,9 @@
+const cssClasses = {
+	portfolioItem: 'portfolio__item',
+	portfolioItemLoading: 'portfolio__item--loading',
+	portfolioItemTall: 'portfolio__item--tall',
+	portfolioItemWide: 'portfolio__item--wide'
+};
 const dataLoc = {
 	root: '/src/abstracts/data/',
 	global: 'global.json',
@@ -15,7 +21,9 @@ const templateSources = {
 	home: 'pages/home',
 	portfolio: 'pages/portfolio',
 	portfolioDetail: 'pages/portfolio-detail',
-	cv: 'pages/cv'
+	cv: 'pages/cv',
+
+	sliderNav: '/partials/slider-navigation'
 };
 const pageURLs = {
 	home: '/',
@@ -32,13 +40,13 @@ const els = {
 	body: document.querySelector('body'),
 	footer: document.querySelector('#footer'),
 	head: document.querySelector('head'),
-	header: document.querySelector('#header')
+	header: document.querySelector('#header'),
+	scrollAnchors: [document.querySelector('body'), document.querySelector('html')]
 };
-
 const agent = window.navigator.userAgent.toLowerCase();
-const android = agent.includes('android');
 const search = window.location.search;
 const urlParams = new URLSearchParams(search);
+let scrollPos;
 
 // detect if touch device device
 function detectTouch() {
@@ -71,18 +79,19 @@ function getGlobalData() {
 }
 
 function updateLinks() {
-	const links = Array.from(document.querySelectorAll('a'));
+	const links = Array.from(document.querySelectorAll('a')).filter(a => a.href);
 
 	links.forEach(l => {
 		let url = new URL(l.href);
 
 		if (url.pathname.toLowerCase().includes(pageURLs.portfolioDetail) && !url.searchParams.get(searchParams.from)) {
-			const sectionID = l.closest('section').id;
+			const section = l.closest('section');
+			const sectionID = section && section.id && section.id.length ? section.id : false;
 			let searchParam = urlParams.get(searchParams.from) ?? window.location.pathname;
 
 			url.searchParams.set(searchParams.from, searchParam);
 
-			if (sectionID && sectionID.length) {
+			if (sectionID) {
 				url.searchParams.set(searchParams.section, sectionID);
 			}
 
@@ -114,8 +123,35 @@ function scrollToSection() {
 	}
 }
 
+// fix scroll anchors
+function fixBodyScroll() {
+	// define scrollPos
+	scrollPos = window.scrollY;
+
+	// style the scrollAnchors
+	els.scrollAnchors.forEach(cur => {
+		cur.style.position = 'fixed';
+		cur.style.top = `-${scrollPos}px`;
+		cur.style.overflow = 'hidden';
+	});
+}
+
+// un-fix scroll anchors
+function unfixBodyScroll() {
+	// un-style the scrollAnchors
+	els.scrollAnchors.forEach(cur => {
+		cur.style.position = '';
+		cur.style.top = '';
+		cur.style.overflow = '';
+	});
+
+	// keep window scrolled, though
+	window.scroll(0, scrollPos);
+}
+
 // -- PUBLIC -- //
 export const global = {
+	cssClasses,
 	dataLoc,
 	els,
 	pageURLs,
@@ -124,9 +160,11 @@ export const global = {
 	urlParams,
 
 	fetchFn,
+	fixBodyScroll,
 	getGlobalData,
 	removeSearchParams,
 	scrollToSection,
+	unfixBodyScroll,
 	updateLinks,
 
 	get detectTouch() {

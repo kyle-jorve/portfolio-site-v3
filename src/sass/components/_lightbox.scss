@@ -7,9 +7,15 @@
 .lightbox {
 	$lightbox: &;
 
-	// opacity: 0;
-	// visibility: hidden;
+	/*==========----------==========*/
+	/*           GENERAL            */
+	/*==========----------==========*/
+
+	@include flexWrap(column, nowrap, center, center);
+	opacity: 0;
+	padding: 2em;
 	position: fixed;
+	pointer-events: none;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -19,144 +25,239 @@
 
 	&.active {
 		opacity: 1;
-		visibility: visible;
+		pointer-events: all;
 	}
 
 	&__box {
-		@include absolute(center, 2);
-		// opacity: 0;
-		// visibility: hidden;
-		width: calc(100% - 2em);
-		max-width: $narrowWidth;
-		padding: ($crossBtnDiam + 16px) $lightboxPadding $lightboxPadding $lightboxPadding;
-		border-radius: $borderRadius;
-		background: $lightboxBg;
-		color: text-color($lightboxBg);
-		top: 50%;
-		transform: translate(-50%, -52%);
+		opacity: 0;
+		position: relative;
+		z-index: 4;
+		transform: translateY(2em);
 		transition: opacity $transitionAppendix, transform $transitionAppendix;
 
 		&.active {
 			opacity: 1;
-			visibility: visible;
-			transform: translate(-50%, -50%);
+			transform: none;
 		}
 	}
 
 	&__overlay {
 		@include absolute(cover);
-		background: rgba(map-get($bgColors, bodyBg), 0.9);
+		cursor: pointer;
 	}
 
-	&__buttonWrp:last-child {
-		padding-bottom: 0;
-	}
+	/*==========----------==========*/
+	/*        IMAGE LIGHTBOX        */
+	/*==========----------==========*/
 
-	&__content,
-	&__video {
-		display: none;
+	$maxImgHeight: calc(100vh - 4em);
+
+	&__img {
+		max-height: $maxImgHeight;
+		border-radius: $borderRadius;
+		box-shadow: $softShadow;
 		position: relative;
 		z-index: 1;
 	}
 
+	&__overlay {
+		background: map-get($bgColors, bodyBg);
+
+		&::before {
+			@include absolute(cover, 2);
+			display: block;
+			content: '';
+			backdrop-filter: blur(40px);
+		}
+	}
+
+	&__bg {
+		@include absolute(cover);
+		opacity: 0.2;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__closeBtn--outer {
+		border-radius: 0 0 0 $borderRadius;
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 5;
+	}
+
+	&__button {
+		position: absolute;
+		bottom: 2em;
+		right: 2em;
+		z-index: 5;
+	}
+
+	/*==========----------==========*/
+	/*      SLIDESHOW LIGHTBOX      */
+	/*==========----------==========*/
+
+	$maxSlideHeight: calc(100vh - 6em);
+
+	.slider__arrows,
+	.slider__dots,
+	.showcase__imgWrp::before,
+	.showcase__slideIcons {
+		display: none;
+	}
+
+	.slider__dots {
+		bottom: 2em;
+	}
+
+	.showcase__slide {
+		display: none;
+		height: $maxSlideHeight;
+		padding: 0;
+		overflow: visible;
+
+		&.active {
+			pointer-events: none;
+		}
+	}
+
+	&.active .showcase__slide.active {
+		pointer-events: all;
+	}
+
+	.showcase__img {
+		max-height: $maxSlideHeight;
+	}
+
+	&--slider {
+		padding: 2em 2em 4em 2em;
+
+		#{$lightbox}__slider {
+			display: block;
+		}
+
+		.showcase__slide,
+		.slider__arrows,
+		.slider__dots {
+			display: flex;
+		}
+	}
+
+	/*==========----------==========*/
+	/*       CONTENT LIGHTBOX       */
+	/*==========----------==========*/
+
+	&__header {
+		@include flexWrap(row, nowrap, space-between, flex-start);
+		background: $lightboxBg;
+		border-radius: $borderRadius $borderRadius 0 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__header,
 	&__content {
-		max-height: calc(100vh - #{$crossBtnDiam + 16px} - #{$lightboxPadding + 2em});
+		display: none;
+	}
+
+	&__content {
+		// max-height: calc(100vh - #{$crossBtnDiam + 16px} - #{$lightboxPadding + 2em});
+		padding: 1em 2em 2em 2em;
 		overflow-x: hidden;
 		overflow-y: auto;
-		-webkit-overflow-scrolling: touch;
+		position: relative;
+		z-index: 1;
 	}
 
 	&__heading {
 		@include headingTag(h3);
-		margin-top: 0;
+		@include underlineText;
+		margin: 0;
+		padding: 1rem 2rem;
+		color: map-get($colorScheme, red);
 	}
 
-	&__video {
-		max-height: calc(100vh - 2em);
-
-		&::before {
-			display: block;
-			content: '';
-			width: 100%;
-			padding-bottom: 56%;
-			position: relative;
-			z-index: 1;
-		}
-	}
-
-	&__iframe {
-		@include absolute(cover, 2);
-		width: 100%;
-		height: 100%;
-	}
-
-	&__closeBtn {
+	&__closeBtn--inner {
 		border-radius: 0 $borderRadius;
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: 2;
+		position: relative;
 	}
 
 	&--message {
-		#{$lightbox}__content {
-			display: block;
+		#{$lightbox} {
+			&__header {
+				display: flex;
+			}
+
+			&__content {
+				display: block;
+			}
+
+			&__closeBtn--outer,
+			&__button {
+				display: none;
+			}
+
+			&__box {
+				width: 100%;
+				max-width: $contentWidth;
+				border-radius: $borderRadius;
+				background: $lightboxBg;
+				color: text-color($lightboxBg);
+			}
+
+			&__overlay {
+				background: rgba(0, 0, 0, 0.8);
+				backdrop-filter: blur(40px);
+
+				&::before {
+					display: none;
+				}
+			}
 		}
 	}
 
-	&--video {
-		#{$lightbox}__box {
-			padding: 0;
-			max-width: none;
+	/*==========----------==========*/
+	/*        MEDIA QUERIES         */
+	/*==========----------==========*/
+
+	/*---------- $tablet WIDTH or HEIGHT ----------*/
+
+	@media (max-width: $tablet), (max-height: $tablet) {
+		$maxImgHeight: calc(100vh - 2em);
+		$maxSlideHeight: calc(100vh - 5em);
+
+		padding: 1em;
+
+		&__img {
+			max-height: $maxImgHeight;
 		}
 
-		#{$lightbox}__video {
-			display: block;
+		.showcase__img {
+			max-height: $maxSlideHeight;
+		}
+
+		.showcase__slide {
+			height: $maxSlideHeight;
+		}
+
+		&--slider {
+			padding: 1em 2em 4em 2em;
 		}
 	}
-}
 
-/*==========----------==========*/
-/*        MEDIA QUERIES         */
-/*==========----------==========*/
+	/*---------- $phone WIDTH ----------*/
 
-/*---------- 1000PX WIDTH ----------*/
-
-@media (max-width: 1000px) {
-	.lightbox {
-		&__box {
-			padding: ($crossBtnDiam + 16px) 1em 1em 1em;
-		}
-
-		&__content {
-			max-height: calc(100vh - #{$crossBtnDiam + 16px} - 3em);
-		}
-	}
-}
-
-/*---------- 600PX WIDTH ----------*/
-
-@media (max-width: 600px) {
-	.lightbox {
-		&__box {
-			padding: (($crossBtnDiam * 0.75) + 16px) 1em 1em 1em;
-		}
-
-		&__content {
-			max-height: calc(100vh - #{($crossBtnDiam * 0.75) + 16px} - 3em);
-		}
-
+	@media (max-width: $phone) {
 		&__closeBtn {
-			width: 44px;
-			height: 44px;
+			width: $crossBtnDiam;
+			height: $crossBtnDiam;
 		}
 	}
-}
 
-/*---------- PRINT ----------*/
+	/*---------- PRINT ----------*/
 
-@media print {
-	.lightbox {
+	@media print {
 		display: none;
 	}
 }

@@ -1,18 +1,44 @@
-<div class="lightbox" id="lightboxWrp">
-    <div class="lightbox__box" id="lightbox">
-        <div class="lightbox__closeBtn closeBtn" id="closeLightbox">
-            <span class="closeBtn__bar closeBtn__bar--1"></span>
-            <span class="closeBtn__bar closeBtn__bar--2"></span>
-        </div>
+<section class="lightbox" id="lbWrapper">
+    <button class="lightbox__closeBtn lightbox__closeBtn--outer closeBtn">
+        <span class="closeBtn__bar closeBtn__bar--1"></span>
+        <span class="closeBtn__bar closeBtn__bar--2"></span>
+    </button>
 
-        <div class="lightbox__content" id="lightboxContent">
+    {{#unless this.isPortfolioDetailPage}}
+        <a class="button button--primary lightbox__button icon icon--after icon--long-arrow-alt-right" id="lbButton">See More</a>
+    {{/unless}}
+
+    <div class="lightbox__box" id="lightbox">
+        <header class="lightbox__header">
+            <h2 class="lightbox__heading" id="lbHeading">
+                <!-- lightbox heading gets inserted here -->
+            </h2>
+
+            <button class="lightbox__closeBtn lightbox__closeBtn--inner closeBtn">
+                <span class="closeBtn__bar closeBtn__bar--1"></span>
+                <span class="closeBtn__bar closeBtn__bar--2"></span>
+            </button>
+        </header>
+
+        <div class="lightbox__content" id="lbContent">
             <!-- lightbox message gets inserted here -->
         </div>
 
-        <div id="lbVidWrp" class="lightbox__video">
-            <!-- video source gets inserted here -->
-            <iframe class="lightbox__iframe" id="lbVidFrame" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        {{#if this.isPortfolioDetailPage}}
+            {{{printSlides this}}}
+        {{/if}}
     </div>
-    <div class="lightbox__overlay" id="lightboxOverlay"></div>
-</div>
+
+
+    {{#if this.isPortfolioDetailPage}}
+        {{#if (isSlider media)}}
+            {{{printSliderNav media}}}
+        {{/if}}
+    {{/if}}
+
+    <div class="lightbox__overlay" id="lbOverlay">
+        {{#if this.isPortfolioDetailPage}}
+            {{{printBgs media}}}
+        {{/if}}
+    </div>
+</section>

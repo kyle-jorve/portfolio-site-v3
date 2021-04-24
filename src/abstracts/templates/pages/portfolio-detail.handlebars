@@ -1,18 +1,11 @@
 <div class="showcase">
     <section class="showcase__section showcase__section--media">
         <div class="showcase__slider" id="showcaseSlider">
-            {{{printSlides media}}}
+            {{{printSlides this}}}
         </div>
 
         {{#if (isSlider media)}}
-            <div class="slider__arrows">
-                <button class="slider__arrow circleBtn circleBtn--prev" id="arrowPrev" data-dir="prev"><span class="icon__text">Previous Slide</span></button>
-                <button class="slider__arrow circleBtn circleBtn--next" id="arrowNext" data-dir="next"><span class="icon__text">Next Slide</span></button>
-            </div>
-
-            <div class="slider__dots" id="sliderDots">
-                {{{printDots media}}}
-            </div>
+            {{{printSliderNav media}}}
         {{/if}}
 
         <div class="showcase__bgWrp">

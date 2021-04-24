@@ -456,20 +456,20 @@ button {
 /*//////////////////////////////////////////////////////*/
 
 /*==========----------==========*/
-/*         1000PX WIDTH         */
+/*         $tablet WIDTH        */
 /*==========----------==========*/
 
-@media (max-width: 1000px) {
+@media (max-width: $tablet) {
 	.circleBtn--question::before {
 		font-size: $circleBtnDiam * 0.25;
 	}
 }
 
 /*==========----------==========*/
-/*         600PX WIDTH          */
+/*         $phone WIDTH         */
 /*==========----------==========*/
 
-@media (max-width: 600px) {
+@media (max-width: $phone) {
 	.closeBtn {
 		width: $crossBtnDiam * 0.75;
 		height: $crossBtnDiam * 0.75;

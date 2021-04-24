@@ -1,6 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
+import { lightbox } from '/dist/scripts/lightbox.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
@@ -41,6 +42,7 @@ global
 	.catch(err => console.warn(err))
 	.finally(() => {
 		global.scrollToSection();
-		global.updateLinks();
 		global.removeSearchParams();
+		global.updateLinks();
+		lightbox.init();
 	});

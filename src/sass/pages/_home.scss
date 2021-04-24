@@ -78,6 +78,11 @@
 		z-index: 1;
 	}
 
+	&__box {
+		background: bg-color(map-get($bgColors, bodyBg));
+		backdrop-filter: none;
+	}
+
 	&__content {
 		width: 100%;
 		max-width: $narrowWidth;
@@ -151,8 +156,6 @@
 
 		&__box {
 			padding-top: 4em;
-			backdrop-filter: none;
-			background: map-get($bgColors, lightBg);
 		}
 
 		&__mobileImgWrp {

@@ -1,6 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { header } from '/dist/scripts/header.js';
+import { lightbox } from '/dist/scripts/lightbox.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
@@ -30,4 +31,5 @@ global
 	.finally(() => {
 		global.updateLinks();
 		global.scrollToSection();
+		lightbox.init();
 	});

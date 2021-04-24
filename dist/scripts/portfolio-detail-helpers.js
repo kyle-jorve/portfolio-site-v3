@@ -3,40 +3,52 @@ import { global } from '/dist/scripts/global.js';
 
 Handlebars.registerHelper('isSlider', media => media.length > 1);
 
-Handlebars.registerHelper('printDots', media => {
-	return media
-		.map((m, index) => {
-			return `
-                <button
-                    class="${portfolioDetail.cssClasses.dot}${
-				index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
-			}"
-                    data-index="${index}"
-                    ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
-                    </button>`;
-		})
-		.join('');
+Handlebars.registerHelper('printSliderNav', media => {
+	return `
+        <div class="slider__arrows">
+            <button class="slider__arrow circleBtn circleBtn--prev" data-dir="prev"><span class="icon__text">Previous Slide</span></button>
+            <button class="slider__arrow circleBtn circleBtn--next" data-dir="next"><span class="icon__text">Next Slide</span></button>
+        </div>
+
+        <div class="slider__dots" id="sliderDots">
+            ${media
+				.map((m, index) => {
+					return `
+                    <button
+                        class="${portfolioDetail.cssClasses.dot}${
+						index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
+					}"
+                        data-index="${index}"
+                        ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
+                        </button>`;
+				})
+				.join('')}
+        </div>`;
 });
 
-Handlebars.registerHelper('printSlides', media => {
-	return media
+Handlebars.registerHelper('printSlides', item => {
+	return item.media
 		.map((m, index) => {
 			return `
                 <div
                     class="showcase__slide${index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''}"
-                    style="z-index: ${media.length - index + 1};"
+                    style="z-index: ${item.media.length - index + 1};"
                     ${portfolioDetail.dataAttrs.index}="${index}"
                     ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
-                    <div class="${portfolioDetail.cssClasses.imgWrp}${
+
+                    <div
+                        class="${portfolioDetail.cssClasses.imgWrp}${
 				index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
 			}">
+                        
                         <picture>
                             ${m.sources
 								.map(s => {
 									return `
                                         <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
 								})
-								.join('')}                    
+								.join('')}
+                            
                             <img
                                 class="showcase__img"
                                 src="${m.mobileSource}"
@@ -44,7 +56,11 @@ Handlebars.registerHelper('printSlides', media => {
                         </picture>
 
                         <div class="showcase__slideIcons">
-                            <button class="portfolio__expand portfolio__icon showcase__icon icon icon--zoom">
+                            <button
+                                class="lightbox__slideZoom portfolio__icon showcase__icon icon icon--zoom"
+                                data-name="${item.name}"
+                                data-index="${index}">
+
                                 <span class="icon__text">View Full Screen</span>
                             </button>
                         </div>
