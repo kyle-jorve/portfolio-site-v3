@@ -27,6 +27,23 @@ Handlebars.registerHelper('printSliderNav', media => {
 });
 
 Handlebars.registerHelper('printSlides', item => {
+	function printPicture(media) {
+		return `
+            <picture>
+            ${media.sources
+				.map(s => {
+					return `
+                        <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
+				})
+				.join('')}
+            
+            <img
+                class="showcase__img"
+                src="${media.mobileSource}"
+                alt="${media.alt}">
+        </picture>`;
+	}
+
 	return item.media
 		.map((m, index) => {
 			return `
@@ -38,23 +55,9 @@ Handlebars.registerHelper('printSlides', item => {
 
                     <div
                         class="${portfolioDetail.cssClasses.imgWrp}${
-				index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
-			}">
-                        
-                        <picture>
-                            ${m.sources
-								.map(s => {
-									return `
-                                        <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
-								})
-								.join('')}
-                            
-                            <img
-                                class="showcase__img"
-                                src="${m.mobileSource}"
-                                alt="${m.alt}">
-                        </picture>
-
+				m.video ? ` ${portfolioDetail.cssClasses.videoWrp}` : ''
+			}${index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''}">
+                        ${m.video ? m.source : printPicture(m)}
                         <div class="showcase__slideIcons">
                             <button
                                 class="lightbox__slideZoom portfolio__icon showcase__icon icon icon--zoom"
@@ -71,11 +74,10 @@ Handlebars.registerHelper('printSlides', item => {
 });
 
 Handlebars.registerHelper('printBgs', media => {
-	return media
-		.map((m, index) => {
-			return `
+	function printPicture(media, index) {
+		return `
             <picture aria-hidden="true">
-                ${m.sources
+                ${media.sources
 					.map(s => {
 						return `
                             <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
@@ -83,12 +85,17 @@ Handlebars.registerHelper('printBgs', media => {
 					.join('')}
                 <img
                     class="${portfolioDetail.cssClasses.bg}${
-				index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
-			}"
-                    src="${m.mobileSource}"
+			index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
+		}"
+                    src="${media.mobileSource}"
                     ${portfolioDetail.dataAttrs.index}="${index}"
                     ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
             </picture>`;
+	}
+
+	return media
+		.map((m, index) => {
+			return m.video ? printPicture(media[m.bgIndex], index) : printPicture(m, index);
 		})
 		.join('');
 });
@@ -97,11 +104,6 @@ Handlebars.registerHelper('neighbors', item => {
 	const entries = Object.entries(item.neighbors);
 	const solo = entries.filter(ent => ent[1] ?? false).length < 2;
 	let markup = '';
-
-	// initial: 544 ==> 640
-	// 640vw: 335 ==>   480
-	// 1024vw: 422 ==>  480
-	// 1440vw: 331 ==>  480
 
 	for (let [key, value] of entries) {
 		if (value) {

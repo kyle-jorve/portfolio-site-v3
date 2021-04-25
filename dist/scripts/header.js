@@ -5,22 +5,8 @@ import { helpers } from '/dist/scripts/global-helpers.js';
 let data;
 let template;
 
-Handlebars.registerHelper('isPortfolioDetailPage', currentPage => {
-	return currentPage === global.pageURLs.portfolioDetail;
-});
-
-function getCurrentPage(items, url) {
-	for (let item of items) {
-		if (item.url === url) {
-			item.currentPage = true;
-
-			break;
-		}
-	}
-}
-
 // build the header
-function buildHeader(dataSrc) {
+function buildHeader() {
 	global
 		.getGlobalData()
 		.then(d => {
@@ -44,15 +30,6 @@ function buildHeader(dataSrc) {
 		.then(d => {
 			data.recentWork = d.items.slice(0, data.recentWorkLimit);
 
-			return global.fetchFn(dataSrc);
-		})
-		.then(d => {
-			data.currentPage = d.url;
-
-			getCurrentPage(data.nav, d.url);
-
-			getCurrentPage(data.mobileNav, d.url);
-
 			// build header
 			template = Handlebars.templates[global.templateSources.header](data);
 
@@ -61,7 +38,7 @@ function buildHeader(dataSrc) {
 		.catch(err => console.warn(err))
 		.finally(() => {
 			// initialize nav
-			if (data.currentPage === global.pageURLs.portfolioDetail) {
+			if (window.location.pathname.includes(global.pageURLs.portfolioDetail)) {
 				nav.initPortfolioDetail();
 			} else {
 				nav.init();

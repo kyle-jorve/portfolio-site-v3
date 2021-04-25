@@ -1,4 +1,5 @@
 import { global } from '/dist/scripts/global.js';
+import { loader } from '/dist/scripts/loader.js';
 
 const cssClasses = {
 	active: 'active',
@@ -95,7 +96,15 @@ function initForPortfolioDetail() {
 	const search = window.location.search;
 	const destination = new URLSearchParams(search).get('from');
 
-	button.addEventListener('click', () => (window.location.pathname = destination));
+	button.addEventListener('click', event => {
+		event.preventDefault();
+
+		loader.reveal();
+
+		setTimeout(() => {
+			window.location.pathname = destination;
+		}, loader.transDurs.loader);
+	});
 }
 
 export const nav = {

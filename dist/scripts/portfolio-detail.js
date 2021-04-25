@@ -1,6 +1,5 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
-import { header } from '/dist/scripts/header.js';
 import { lightbox } from '/dist/scripts/lightbox.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 import { detailHelpers } from '/dist/scripts/portfolio-detail-helpers.js';
@@ -19,6 +18,7 @@ const cssClasses = {
 	bg: 'showcase__bg',
 	dot: 'slider__dot',
 	imgWrp: 'showcase__imgWrp',
+	videoWrp: 'showcase__imgWrp--video',
 	slide: 'showcase__slide',
 	transOut: 'transOut'
 };
@@ -27,6 +27,42 @@ let template;
 let els;
 let slideTransDur;
 let itemIndex;
+
+// build the page
+global
+	.fetchFn(global.dataLoc.portfolio)
+	.then(d => {
+		data = d.items.find(i => i.name === global.urlParams.get('piece'));
+
+		itemIndex = d.items.indexOf(data);
+
+		data.neighbors = {
+			next: d.items[itemIndex + 1],
+			previous: d.items[itemIndex - 1]
+		};
+
+		data.seo = {
+			canon: `portfolio/detail/?piece=${data.name}`,
+			metaTitle: data.title,
+			metaImage: data.media[0].url
+		};
+
+		// build the <head>
+		head.buildHead(false, data.seo);
+
+		// build the page
+		template = Handlebars.templates[global.templateSources.portfolioDetail](data);
+
+		global.els.header.insertAdjacentHTML('afterend', template);
+	})
+	.catch(err => console.warn(err))
+	.finally(() => {
+		// initiate lightbox
+		lightbox.init(data);
+
+		// initialize slider
+		initSlider();
+	});
 
 function initSlider() {
 	els = {
@@ -167,50 +203,6 @@ function activateBg(bgs) {
 		bg.setAttribute(dataAttrs.active, true);
 	});
 }
-
-// build the <header>
-header.buildHeader(global.dataLoc.portfolioDetail);
-
-// build the page
-global
-	.fetchFn(global.dataLoc.portfolio)
-	.then(d => {
-		data = d.items.find(i => i.name === global.urlParams.get('piece'));
-
-		itemIndex = d.items.indexOf(data);
-
-		data.neighbors = {
-			next: d.items[itemIndex + 1],
-			previous: d.items[itemIndex - 1]
-		};
-
-		data.seo = {
-			canon: `portfolio/detail/?piece=${data.name}`,
-			metaTitle: data.title,
-			metaImage: data.media[0].url
-		};
-
-		data.isPortfolioDetailPage = true;
-
-		// build the <head>
-		head.buildHead(false, data.seo);
-
-		// build the page
-		template = Handlebars.templates[global.templateSources.portfolioDetail](data);
-
-		global.els.header.insertAdjacentHTML('afterend', template);
-
-		// initialize lightbox
-		lightbox.init(data);
-	})
-	.catch(err => console.warn(err))
-	.finally(() => {
-		// update any links to another portfolio detail page with the existing "from" parameter
-		global.updateLinks();
-
-		// initialize slider
-		initSlider();
-	});
 
 export const portfolioDetail = {
 	dataAttrs,

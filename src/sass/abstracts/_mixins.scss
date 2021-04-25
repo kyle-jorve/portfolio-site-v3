@@ -418,7 +418,7 @@
 	font-size: $fontSize;
 	font-weight: $buttonFontWeight;
 	line-height: $buttonLineHeight;
-	transition: background-color $transitionAppendix;
+	transition: background-color $transitionAppendix, color $transitionAppendix;
 	appearance: none;
 	position: relative;
 	z-index: 1;

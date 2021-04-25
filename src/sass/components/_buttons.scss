@@ -142,10 +142,11 @@ button {
 	/*==========----------==========*/
 	/*         IMAGE BUTTON         */
 	/*==========----------==========*/
-	&--imageBtn {
+	&--image {
 		box-shadow: $softShadow;
 		background: $imageBtnBg;
-		border: $thickBorderThickness solid $imageBtnBorderColor;
+		border: $borderThickness solid $imageBtnBorderColor;
+		border-radius: 4px;
 		color: text-color($imageBtnBg);
 
 		#{$button}__text {

@@ -93,54 +93,6 @@
 		background: rgba(map-get($bgColors, darkBg), 0.4);
 	}
 
-	&__itemLoadTrack,
-	&__itemLoadBar {
-		display: block;
-	}
-
-	&__itemLoadTrack {
-		position: relative;
-		width: 100%;
-		max-width: 300px;
-		height: 4px;
-		overflow: hidden;
-	}
-
-	&__itemLoadBar {
-		@include absolute(cover);
-		@include animation(growAndShrink, 1.25s, ease-in-out, 0s, normal, infinite);
-		background: map-get($bgColors, lightBg);
-		transform-origin: left center;
-		transform: scaleX(0);
-
-		&--2 {
-			animation-delay: 0.4125s;
-		}
-	}
-
-	@keyframes growAndShrink {
-		0% {
-			transform-origin: left center;
-			transform: scaleX(0);
-		}
-		45% {
-			transform-origin: left center;
-			transform: scaleX(1);
-		}
-		50% {
-			transform-origin: right center;
-			transform: scaleX(1);
-		}
-		95% {
-			transform-origin: right center;
-			transform: scaleX(0);
-		}
-		100% {
-			transform-origin: left center;
-			transform: scaleX(0);
-		}
-	}
-
 	&__img {
 		@include absolute(cover);
 		width: 100%;

@@ -6684,6 +6684,23 @@ hr {
     visibility: visible;
     transform: none; }
 
+@keyframes growAndShrink {
+  0% {
+    transform-origin: left center;
+    transform: scaleX(0); }
+  45% {
+    transform-origin: left center;
+    transform: scaleX(1); }
+  50% {
+    transform-origin: right center;
+    transform: scaleX(1); }
+  95% {
+    transform-origin: right center;
+    transform: scaleX(0); }
+  100% {
+    transform-origin: left center;
+    transform: scaleX(0); } }
+
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
 /*//                  MEDIA QUERIES                   //*/
@@ -8691,6 +8708,7 @@ sup {
       transform: none; }
   .nav__button {
     /*====------ GENERAL ------====*/
+    display: block;
     flex-shrink: 0;
     cursor: pointer;
     width: 60px;
@@ -9025,51 +9043,6 @@ sup {
     display: none;
     padding: 2em;
     background: rgba(19, 21, 22, 0.4); }
-  .portfolio__itemLoadTrack, .portfolio__itemLoadBar {
-    display: block; }
-  .portfolio__itemLoadTrack {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    height: 4px;
-    overflow: hidden; }
-  .portfolio__itemLoadBar {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    animation-name: growAndShrink;
-    animation-duration: 1.25s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-direction: normal;
-    animation-iteration-count: infinite;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    background: #f2f3f4;
-    transform-origin: left center;
-    transform: scaleX(0); }
-    .portfolio__itemLoadBar--2 {
-      animation-delay: 0.4125s; }
-
-@keyframes growAndShrink {
-  0% {
-    transform-origin: left center;
-    transform: scaleX(0); }
-  45% {
-    transform-origin: left center;
-    transform: scaleX(1); }
-  50% {
-    transform-origin: right center;
-    transform: scaleX(1); }
-  95% {
-    transform-origin: right center;
-    transform: scaleX(0); }
-  100% {
-    transform-origin: left center;
-    transform: scaleX(0); } }
   .portfolio__img {
     position: absolute;
     z-index: 1;
@@ -9221,7 +9194,7 @@ button {
   font-size: 0.75em;
   font-weight: 800;
   line-height: 1.35;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   appearance: none;
   position: relative;
   z-index: 1;
@@ -9322,12 +9295,13 @@ button {
     color: inherit;
     font-style: normal;
     margin-right: 1em; }
-  .button--imageBtn {
+  .button--image {
     box-shadow: 0 6px 24px rgba(19, 21, 22, 0.25);
     background: #ffffff;
-    border: 1rem solid #30d5a9;
+    border: 1px solid #30d5a9;
+    border-radius: 4px;
     color: #131516; }
-    .button--imageBtn .button__text {
+    .button--image .button__text {
       margin: 1em 0 0 0;
       font-family: "Montserrat", sans-serif;
       font-weight: 800;
@@ -9336,32 +9310,32 @@ button {
       line-height: 1.35;
       position: relative;
       display: block; }
-      .button--imageBtn .button__text:first-child {
+      .button--image .button__text:first-child {
         margin-top: 0; }
-      .button--imageBtn .button__text strong,
-      .button--imageBtn .button__text a,
-      .button--imageBtn .button__text a:visited,
-      .button--imageBtn .button__text .largeText, .button--imageBtn .button__text.largeText {
+      .button--image .button__text strong,
+      .button--image .button__text a,
+      .button--image .button__text a:visited,
+      .button--image .button__text .largeText, .button--image .button__text.largeText {
         font-weight: 800; }
-      .button--imageBtn .button__text .lightText, .button--imageBtn .button__text.lightText,
-      .button--imageBtn .button__text small, .button--imageBtn .button__text.small {
+      .button--image .button__text .lightText, .button--image .button__text.lightText,
+      .button--image .button__text small, .button--image .button__text.small {
         font-weight: 400; }
-      .button--imageBtn .button__text small {
+      .button--image .button__text small {
         display: block;
         line-height: 1; }
-      .button--imageBtn .button__text em,
-      .button--imageBtn .button__text .em,
-      .button--imageBtn .button__text .italic, .button--imageBtn .button__text.em, .button--imageBtn .button__text.italic,
-      .button--imageBtn .button__text i {
+      .button--image .button__text em,
+      .button--image .button__text .em,
+      .button--image .button__text .italic, .button--image .button__text.em, .button--image .button__text.italic,
+      .button--image .button__text i {
         font-style: italic; }
-    .button--imageBtn .button__img,
-    .button--imageBtn svg {
+    .button--image .button__img,
+    .button--image svg {
       width: auto;
       max-width: 4em;
       max-height: 4em;
       margin: 0 auto; }
     @media (hover: hover) {
-      .button--imageBtn:hover {
+      .button--image:hover {
         background: #30d5a9;
         color: #f2f3f4; } }
 
@@ -9670,6 +9644,9 @@ button {
   /*       CONTENT LIGHTBOX       */
   /*==========----------==========*/
   /*==========----------==========*/
+  /*         IE LIGHTBOX          */
+  /*==========----------==========*/
+  /*==========----------==========*/
   /*        MEDIA QUERIES         */
   /*==========----------==========*/
   /*---------- $tablet WIDTH or HEIGHT ----------*/
@@ -9680,6 +9657,7 @@ button {
     pointer-events: all; }
   .lightbox__box {
     opacity: 0;
+    max-height: 100%;
     position: relative;
     z-index: 4;
     transform: translateY(2em);
@@ -9780,6 +9758,12 @@ button {
     overflow-y: auto;
     position: relative;
     z-index: 1; }
+    .lightbox__content > *:first-child {
+      margin-top: 0;
+      padding-top: 0; }
+    .lightbox__content > *:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0; }
   .lightbox__heading {
     font-size: 1.77689em;
     margin: 0;
@@ -9812,16 +9796,19 @@ button {
   .lightbox--message .lightbox__closeBtn--outer, .lightbox--message .lightbox__button {
     display: none; }
   .lightbox--message .lightbox__box {
+    display: grid;
     width: 100%;
     max-width: 64ch;
     border-radius: 0.5rem;
     background: #f2f3f4;
     color: #131516; }
   .lightbox--message .lightbox__overlay {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(19, 21, 22, 0.8);
     backdrop-filter: blur(40px); }
     .lightbox--message .lightbox__overlay::before {
       display: none; }
+  .lightbox--ie .lightbox__overlay {
+    cursor: auto; }
   @media (max-width: 1024px), (max-height: 1024px) {
     .lightbox {
       padding: 1em; }
@@ -9846,68 +9833,68 @@ button {
 /*//                  LOADING SCREEN                  //*/
 /*//====================----------====================//*/
 /*//////////////////////////////////////////////////////*/
-.load {
+.loader {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   align-content: normal;
-  opacity: 0;
-  visibility: hidden;
   background: #131516;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1000;
-  transition: opacity 0.3s ease; }
-  .load__circle {
-    width: 4em;
-    height: 4em;
-    position: relative; }
-  .load__icon {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 3em;
-    max-width: 3em; }
-  .load__spinner {
+  z-index: 1100;
+  transform: none;
+  transform-origin: center bottom;
+  transition: transform 0.5s ease-in-out; }
+  .loader__track, .loader__bar {
+    display: block; }
+  .loader__track {
+    opacity: 0;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 4px;
+    overflow: hidden;
+    transition: opacity 0.3s ease; }
+    .loader__track.active {
+      opacity: 1; }
+  .loader__bar {
     position: absolute;
     z-index: 1;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    animation-name: loadSpin;
-    animation-duration: 1.2s;
-    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+    animation-name: growAndShrink;
+    animation-duration: 1.25s;
+    animation-timing-function: ease-in-out;
     animation-delay: 0s;
     animation-direction: normal;
     animation-iteration-count: infinite;
     animation-fill-mode: none;
     animation-play-state: running;
-    border: 2px solid transparent;
-    border-color: #f2f3f4 transparent transparent transparent;
-    border-radius: 50%; }
-    .load__spinner--1 {
-      animation-delay: -0.45s; }
-    .load__spinner--2 {
-      animation-delay: -0.3s; }
-    .load__spinner--3 {
-      animation-delay: -0.15s; }
-  .load--active {
-    opacity: 1;
-    visibility: visible; }
-
-@keyframes loadSpin {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
+    background: #f2f3f4;
+    transform-origin: left center;
+    transform: scaleX(0); }
+    .loader__bar--2 {
+      animation-delay: 0.4125s; }
+  .loader--bottom {
+    pointer-events: none;
+    display: none;
+    transform-origin: center top;
+    transform: scaleY(0); }
+    .loader--bottom.show {
+      display: block; }
+  .loader.hide {
+    transform: scaleY(0);
+    pointer-events: none; }
+  .loader.active {
+    transform: scaleY(1);
+    pointer-events: all; }
 
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
@@ -10527,7 +10514,7 @@ button {
   padding: 6em 2em; }
 
 .bio__hero {
-  height: 20vw;
+  height: 15vw;
   min-height: 300px;
   padding-top: 8em;
   position: relative;
@@ -10662,6 +10649,7 @@ button {
   /*==========----------==========*/
   /*           CAROUSEL           */
   /*==========----------==========*/
+  /*====---- VIDEOS ----====*/
   /*==========----------==========*/
   /*           CONTENT            */
   /*==========----------==========*/
@@ -10816,6 +10804,19 @@ button {
       pointer-events: none; }
       .showcase__slide.transOut .showcase__imgWrp {
         transform: translateY(-2em); }
+  .showcase__imgWrp--video {
+    width: 100%;
+    padding-bottom: 56.25%; }
+  .showcase iframe {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: calc(100vh - 14em); }
   .showcase__title {
     color: #ff5652; }
     .showcase__title::after {

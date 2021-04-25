@@ -1,3 +1,6 @@
+import { lightbox } from '/dist/scripts/lightbox.js';
+import { loader } from '/dist/scripts/loader.js';
+
 const cssClasses = {
 	portfolioItem: 'portfolio__item',
 	portfolioItemLoading: 'portfolio__item--loading',
@@ -13,17 +16,18 @@ const dataLoc = {
 	cv: 'cv.json'
 };
 const templateSources = {
+	// components
 	head: 'components/head',
 	header: 'components/header',
 	footer: 'components/footer',
 	lightbox: 'components/lightbox',
+	loader: 'components/loader',
 
+	// pages
 	home: 'pages/home',
 	portfolio: 'pages/portfolio',
 	portfolioDetail: 'pages/portfolio-detail',
-	cv: 'pages/cv',
-
-	sliderNav: '/partials/slider-navigation'
+	cv: 'pages/cv'
 };
 const pageURLs = {
 	home: '/',
@@ -41,9 +45,10 @@ const els = {
 	footer: document.querySelector('#footer'),
 	head: document.querySelector('head'),
 	header: document.querySelector('#header'),
+	loader: document.querySelector('#loader'),
+	loaderBottom: document.querySelector('#loaderBottom'),
 	scrollAnchors: [document.querySelector('body'), document.querySelector('html')]
 };
-const agent = window.navigator.userAgent.toLowerCase();
 const search = window.location.search;
 const urlParams = new URLSearchParams(search);
 let scrollPos;
@@ -78,24 +83,84 @@ function getGlobalData() {
 	return dataFetch;
 }
 
+function setURLSearchParams(link, url) {
+	let section;
+	let fromSearchParam;
+	let sectionSearchParam;
+
+	// set "from" search parameter if it's not already set
+	if (!url.searchParams.get(searchParams.from)) {
+		fromSearchParam = urlParams.get(searchParams.from) ?? window.location.pathname;
+
+		url.searchParams.set(searchParams.from, fromSearchParam);
+	}
+
+	// set "section" search parameter if applicable
+	if (!url.searchParams.get(searchParams.section)) {
+		section = link.closest('section');
+
+		sectionSearchParam =
+			urlParams.get(searchParams.section) ?? (section && section.id && section.id.length ? section.id : '');
+
+		if (sectionSearchParam && sectionSearchParam.length) {
+			url.searchParams.set(searchParams.section, sectionSearchParam);
+		}
+	}
+
+	link.href = decodeURIComponent(url.href);
+}
+
+function smoothScroll(event, hashLoc) {
+	const hashLocOffset = hashLoc.getBoundingClientRect().top + window.scrollY;
+
+	event.preventDefault();
+
+	window.scrollTo({
+		top: hashLocOffset,
+		left: 0,
+		behavior: 'smooth'
+	});
+}
+
+function smoothPageTransitions(event, url) {
+	event.preventDefault();
+
+	// reveal the loader
+	loader.reveal();
+
+	// wait for loader transition to complete, then move on to the destination page
+	setTimeout(() => {
+		window.location = url.href;
+	}, loader.transDurs.loader);
+}
+
 function updateLinks() {
-	const links = Array.from(document.querySelectorAll('a')).filter(a => a.href);
+	els.localLinks = Array.from(document.querySelectorAll('a')).filter(
+		a => a.href && a.origin === window.location.origin
+	);
 
-	links.forEach(l => {
+	els.localLinks.forEach(l => {
 		let url = new URL(l.href);
+		const originPlusPath = url.origin + url.pathname;
+		const curPage = window.location.origin + window.location.pathname;
+		let hashLoc;
 
-		if (url.pathname.toLowerCase().includes(pageURLs.portfolioDetail) && !url.searchParams.get(searchParams.from)) {
-			const section = l.closest('section');
-			const sectionID = section && section.id && section.id.length ? section.id : false;
-			let searchParam = urlParams.get(searchParams.from) ?? window.location.pathname;
+		// for all links to portfolio detail pages, update search parameters
+		if (url.pathname.toLowerCase().includes(pageURLs.portfolioDetail)) {
+			setURLSearchParams(l, url);
+		}
 
-			url.searchParams.set(searchParams.from, searchParam);
+		// smooth scroll on hash links
+		if (originPlusPath === curPage && url.hash && url.hash.length) {
+			hashLoc = document.querySelector(url.hash);
 
-			if (sectionID) {
-				url.searchParams.set(searchParams.section, sectionID);
-			}
+			l.addEventListener('click', event => smoothScroll(event, hashLoc));
+		}
 
-			l.href = decodeURIComponent(url.href);
+		// -- smooth page transitions when clicking local links -- //
+
+		if (l.target.includes('self') || !l.target || !l.target.length) {
+			l.addEventListener('click', event => smoothPageTransitions(event, url));
 		}
 	});
 }
@@ -117,9 +182,12 @@ function scrollToSection() {
 	let offset;
 
 	if (section) {
-		offset = section.getBoundingClientRect().top + window.scrollY;
+		// add a slight delay to allow time for the page to be built
+		setTimeout(() => {
+			offset = section.getBoundingClientRect().top + window.scrollY;
 
-		window.scrollTo(0, offset);
+			window.scrollTo(0, offset);
+		}, 100);
 	}
 }
 
@@ -149,6 +217,16 @@ function unfixBodyScroll() {
 	window.scroll(0, scrollPos);
 }
 
+function loaded() {
+	updateLinks();
+
+	if (!window.location.pathname.includes(pageURLs.portfolioDetail)) {
+		scrollToSection();
+		removeSearchParams();
+		lightbox.init();
+	}
+}
+
 // -- PUBLIC -- //
 export const global = {
 	cssClasses,
@@ -162,6 +240,7 @@ export const global = {
 	fetchFn,
 	fixBodyScroll,
 	getGlobalData,
+	loaded,
 	removeSearchParams,
 	scrollToSection,
 	unfixBodyScroll,

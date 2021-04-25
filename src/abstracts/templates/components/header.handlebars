@@ -4,11 +4,11 @@
     </a>
 </div>
 
-<div class="mobileNav{{#if (isPortfolioDetailPage currentPage)}} mobileNav--portfolioDetail{{/if}}">
-    {{#unless (isPortfolioDetailPage currentPage)}}
+<div class="mobileNav{{#if (isPortfolioDetailPage)}} mobileNav--portfolioDetail{{/if}}">
+    {{#unless (isPortfolioDetailPage)}}
         {{#each mobileNav}}
             <a
-                class="mobileNav__item{{#if this.cssClass}} {{this.cssClass}}{{/if}}{{#if this.currentPage}} mobileNav__item--current{{/if}}"
+                class="mobileNav__item{{#if this.cssClass}} {{this.cssClass}}{{/if}}{{#if (currentPage this)}} mobileNav__item--current{{/if}}"
                 href="{{this.url}}"
                 {{#if this.target}}target="{{this.target}}"{{/if}}
                 {{#if this.rel}}rel="{{this.rel}}"{{/if}}>
@@ -19,8 +19,8 @@
         {{/each}}
     {{/unless}}
 
-    <button class="nav__button{{#if (isPortfolioDetailPage currentPage)}} nav__button--close{{/if}}" id="navBtn">
-        {{#unless (isPortfolioDetailPage currentPage)}}
+    <button class="nav__button{{#if (isPortfolioDetailPage)}} nav__button--close{{/if}}" id="navBtn">
+        {{#unless (isPortfolioDetailPage)}}
             <div class="nav__buttonBlocks">
                 <span class="nav__buttonBlock"></span>
                 <span class="nav__buttonBlock nav__buttonBlock--disapparate"></span>
@@ -36,7 +36,7 @@
             </div>
         {{/unless}}
 
-        {{#if (isPortfolioDetailPage currentPage)}}
+        {{#if (isPortfolioDetailPage)}}
             <div class="nav__buttonLines">
                 <span class="nav__buttonLine nav__buttonLine--1"></span>
                 <span class="nav__buttonLine nav__buttonLine--2"></span>
@@ -45,12 +45,12 @@
     </button>
 </div>
 
-{{#unless (isPortfolioDetailPage currentPage)}}
+{{#unless (isPortfolioDetailPage)}}
     <nav class="nav" id="mainNav">
         <div class="nav__wrp">
             <ul class="nav__ul">
                 {{#each nav}}
-                    <li class="nav__li{{#if this.currentPage}} nav__li--current{{/if}}">
+                    <li class="nav__li{{#if (currentPage this)}} nav__li--current{{/if}}">
                         <a class="nav__a" href="{{this.url}}"{{#if this.target}} target="{{this.target}}"{{/if}}{{#if this.rel}} rel="{{this.rel}}"{{/if}}>
                             <span class="nav__text">{{this.pageName}}</span>
                         </a>
@@ -64,7 +64,7 @@
 
                     <div class="portfolio__grid portfolio__grid--nav{{#if (isOdd recentWorkLimit)}} portfolio__grid--odd{{/if}}">
                         {{#each recentWork}}
-                            {{{printPortfolioItem this ../currentPage}}}
+                            {{{printPortfolioItem this false}}}
                         {{/each}}
                     </div>
                 </div>

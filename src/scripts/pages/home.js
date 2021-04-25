@@ -1,7 +1,5 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
-import { header } from '/dist/scripts/header.js';
-import { lightbox } from '/dist/scripts/lightbox.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
@@ -9,9 +7,6 @@ let template;
 
 // build the <head>
 head.buildHead(global.dataLoc.home);
-
-// build the <header>
-header.buildHeader(global.dataLoc.home);
 
 // build the page
 global
@@ -26,6 +21,8 @@ global
 		data.portfolio.featured = data.portfolio.featured.slice(0, data.portfolio.itemsLimit);
 		data.portfolio.url = d.url;
 
+		data.portfolio.featured.forEach(f => (f.thumbnail = f.featuredThumbnail));
+
 		return global.fetchFn(global.dataLoc.cv);
 	})
 	.then(d => {
@@ -39,10 +36,4 @@ global
 
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
-	.catch(err => console.warn(err))
-	.finally(() => {
-		global.scrollToSection();
-		global.removeSearchParams();
-		global.updateLinks();
-		lightbox.init();
-	});
+	.catch(err => console.warn(err));

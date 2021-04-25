@@ -4,7 +4,7 @@
         <span class="closeBtn__bar closeBtn__bar--2"></span>
     </button>
 
-    {{#unless this.isPortfolioDetailPage}}
+    {{#unless (isPortfolioDetailPage)}}
         <a class="button button--primary lightbox__button icon icon--after icon--long-arrow-alt-right" id="lbButton">See More</a>
     {{/unless}}
 
@@ -24,20 +24,20 @@
             <!-- lightbox message gets inserted here -->
         </div>
 
-        {{#if this.isPortfolioDetailPage}}
+        {{#if (isPortfolioDetailPage)}}
             {{{printSlides this}}}
         {{/if}}
     </div>
 
 
-    {{#if this.isPortfolioDetailPage}}
+    {{#if (isPortfolioDetailPage)}}
         {{#if (isSlider media)}}
             {{{printSliderNav media}}}
         {{/if}}
     {{/if}}
 
     <div class="lightbox__overlay" id="lbOverlay">
-        {{#if this.isPortfolioDetailPage}}
+        {{#if (isPortfolioDetailPage)}}
             {{{printBgs media}}}
         {{/if}}
     </div>

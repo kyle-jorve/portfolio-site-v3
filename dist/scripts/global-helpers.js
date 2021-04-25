@@ -19,15 +19,18 @@ Handlebars.registerHelper('printSocialIcon', item => {
         </a>`;
 });
 
-Handlebars.registerHelper('printPortfolioItem', (item, url) => {
+Handlebars.registerHelper('printPortfolioItem', (item, section) => {
 	const aspect = item.dimensions[0] / item.dimensions[1];
+	const url = window.location.pathname;
 	const itemClass =
 		aspect > wideAspect
 			? global.cssClasses.portfolioItemWide
 			: aspect < tallAspect
 			? global.cssClasses.portfolioItemTall
 			: '';
-	const href = `${global.pageURLs.portfolioDetail}?piece=${item.name}&from=${url}`;
+	const href = `${global.pageURLs.portfolioDetail}?piece=${item.name}&from=${url}${
+		section ? `&${global.searchParams.section}=${section}` : ''
+	}`;
 
 	return `
         <article class="${global.cssClasses.portfolioItem} ${itemClass}">
@@ -63,9 +66,9 @@ Handlebars.registerHelper('printPortfolioItem', (item, url) => {
             </div>
 
             <div class="portfolio__itemLoader">
-                <span class="portfolio__itemLoadTrack">
-                    <span class="portfolio__itemLoadBar portfolio__itemLoadBar--1"></span>
-                    <span class="portfolio__itemLoadBar portfolio__itemLoadBar--2"></span>
+                <span class="loader__track">
+                    <span class="loader__bar loader__bar--1"></span>
+                    <span class="loader__bar loader__bar--2"></span>
                 </span>
             </div>
         </article>`;
@@ -73,8 +76,16 @@ Handlebars.registerHelper('printPortfolioItem', (item, url) => {
 
 Handlebars.registerHelper('isOdd', number => number % 2 === 1);
 
+Handlebars.registerHelper('isPortfolioDetailPage', () =>
+	window.location.pathname.includes(global.pageURLs.portfolioDetail)
+);
+
+Handlebars.registerHelper('currentPage', item => window.location.pathname === item.url);
+
 export const helpers = {
-	printSocialIcon: Handlebars.helpers.printSocialIcon,
+	currentPage: Handlebars.helpers.currentPage,
+	isOdd: Handlebars.helpers.isOdd,
+	isPortfolioDetailPage: Handlebars.helpers.isPortfolioDetailPage,
 	printPortfolioItem: Handlebars.helpers.printPortfolioItem,
-	isOdd: Handlebars.helpers.isOdd
+	printSocialIcon: Handlebars.helpers.printSocialIcon
 };

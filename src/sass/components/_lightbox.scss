@@ -30,6 +30,7 @@
 
 	&__box {
 		opacity: 0;
+		max-height: 100%;
 		position: relative;
 		z-index: 4;
 		transform: translateY(2em);
@@ -162,12 +163,23 @@
 	}
 
 	&__content {
-		// max-height: calc(100vh - #{$crossBtnDiam + 16px} - #{$lightboxPadding + 2em});
 		padding: 1em 2em 2em 2em;
 		overflow-x: hidden;
 		overflow-y: auto;
 		position: relative;
 		z-index: 1;
+
+		& > * {
+			&:first-child {
+				margin-top: 0;
+				padding-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+		}
 	}
 
 	&__heading {
@@ -199,6 +211,7 @@
 			}
 
 			&__box {
+				display: grid;
 				width: 100%;
 				max-width: $contentWidth;
 				border-radius: $borderRadius;
@@ -207,13 +220,23 @@
 			}
 
 			&__overlay {
-				background: rgba(0, 0, 0, 0.8);
+				background: rgba(map-get($bgColors, bodyBg), 0.8);
 				backdrop-filter: blur(40px);
 
 				&::before {
 					display: none;
 				}
 			}
+		}
+	}
+
+	/*==========----------==========*/
+	/*         IE LIGHTBOX          */
+	/*==========----------==========*/
+
+	&--ie {
+		#{$lightbox}__overlay {
+			cursor: auto;
 		}
 	}
 

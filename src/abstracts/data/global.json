@@ -93,6 +93,5 @@
 			}
 		]
 	},
-	"copyright": "<p>&copy; Copyright 2018-[[year]] Kyle Jorve. All rights reserved.<br>Website designed and built by Kyle Jorve.</p>",
-	"ieWarning": "<h2>Whoa There</h2><p class=\"largeText\">The browser you're using is unsupported.</p><p>In fact, it probably won't work with this site at all. The following browsers are recommended:</p><div class=\"buttonWrp buttonWrp--center buttonWrp--imgBtns\"><a rel=\"nofollow noreferrer noopener\" href=\"https://www.google.com/chrome/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/dist/media/icons/chrome-logo.png\" alt=\"Google Chrome Logo\" /><span class=\"button__text button__text--img\">Chrome</span></a><a rel=\"nofollow noreferrer noopener\" href=\"https://www.mozilla.org/en-US/firefox/new/\" target=\"_blank\" class=\"button button--img lightbox__button lightbox__button--content\"><img class=\"button__img\" src=\"/dist/media/icons/firefox-logo.png\" alt=\"Firefox Logo\" /><span class=\"button__text button__text--img\">Firefox</span></a></div>"
+	"copyright": "<p>&copy; Copyright 2018-[[year]] Kyle Jorve. All rights reserved.<br>Website designed and built by Kyle Jorve.</p>"
 }

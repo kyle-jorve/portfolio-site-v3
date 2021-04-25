@@ -1,4 +1,5 @@
 import { global } from '/dist/scripts/global.js';
+import { helpers } from '/dist/scripts/global-helpers.js';
 
 // add functionality
 const dataAttrs = {
@@ -15,7 +16,7 @@ const cssClasses = {
 let els;
 let transDurs;
 
-function buildLightbox(data = { isPortfolioDetailPage: false }) {
+function buildLightbox(data = null) {
 	// build the lightbox
 	const template = Handlebars.templates[global.templateSources.lightbox](data);
 
@@ -44,11 +45,17 @@ function initLightbox() {
 
 	// add event listeners
 	eventListeners();
+}
 
-	message({
-		heading: 'test heading',
-		content: 'test message test test test'
-	});
+function eventListeners() {
+	// close the lightbox
+	[...els.closeBtns, els.overlay].forEach(el => el.addEventListener('click', closeLightbox));
+
+	// zoom image
+	els.imageZoomButtons.forEach(butt => butt.addEventListener('click', () => zoomImage(butt)));
+
+	// zoom slide
+	els.slideZoomButtons.forEach(butt => butt.addEventListener('click', zoomSlide));
 }
 
 function openLightbox(messageMode = false) {
@@ -104,20 +111,6 @@ function closeLightbox() {
 	}, transDurs.box);
 }
 
-function makePictureMarkup(data, cssClass) {
-	return `
-        <picture>
-            ${data.media.sources
-				.map(s => {
-					return `
-                    <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
-				})
-				.join('')}
-
-            <img class="${cssClass}" src="${data.media.mobileSource}" alt="${data.media.alt}">
-        </picture>`;
-}
-
 function zoomImage(button) {
 	const imageName = button.getAttribute(dataAttrs.name);
 	const mediaIndex = Number(button.getAttribute(dataAttrs.index));
@@ -127,10 +120,11 @@ function zoomImage(button) {
 	let buttonHref = `${global.pageURLs.portfolioDetail}?${global.searchParams.piece}=${imageName}&${
 		global.searchParams.from
 	}=${window.location.pathname}${sectionID ? `&${global.searchParams.section}=${sectionID}` : ''}`;
-	let portfolioItem;
-	let imgEl;
 	let curBreakpoint = 0;
 	let imgBreakpoints;
+	let showLoadBar;
+	let portfolioItem;
+	let imgEl;
 	let data;
 	let imgMarkup;
 	let bgMarkup;
@@ -163,7 +157,7 @@ function zoomImage(button) {
 			// initiate portfolio item loader
 			portfolioItem = button.closest(`.${global.cssClasses.portfolioItem}`);
 
-			setTimeout(() => {
+			showLoadBar = setTimeout(() => {
 				portfolioItem.classList.add(global.cssClasses.portfolioItemLoading);
 			}, 500);
 
@@ -198,12 +192,26 @@ function zoomImage(button) {
 			imgEl.addEventListener('load', () => {
 				openLightbox();
 
-				setTimeout(() => {
-					portfolioItem.classList.remove(global.cssClasses.portfolioItemLoading);
-				}, 500);
+				clearTimeout(showLoadBar);
+
+				portfolioItem.classList.remove(global.cssClasses.portfolioItemLoading);
 			});
 		}
 	});
+}
+
+function makePictureMarkup(data, cssClass) {
+	return `
+        <picture>
+            ${data.media.sources
+				.map(s => {
+					return `
+                    <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
+				})
+				.join('')}
+
+            <img class="${cssClass}" src="${data.media.mobileSource}" alt="${data.media.alt}">
+        </picture>`;
 }
 
 function zoomSlide() {
@@ -225,17 +233,6 @@ function message(options) {
 
 	// open the lightbox
 	openLightbox(true);
-}
-
-function eventListeners() {
-	// close the lightbox
-	[...els.closeBtns, els.overlay].forEach(el => el.addEventListener('click', closeLightbox));
-
-	// zoom image
-	els.imageZoomButtons.forEach(butt => butt.addEventListener('click', () => zoomImage(butt)));
-
-	// zoom slide
-	els.slideZoomButtons.forEach(butt => butt.addEventListener('click', zoomSlide));
 }
 
 export const lightbox = {

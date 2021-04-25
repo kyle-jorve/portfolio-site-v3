@@ -594,6 +594,29 @@ hr {
 	}
 }
 
+@keyframes growAndShrink {
+	0% {
+		transform-origin: left center;
+		transform: scaleX(0);
+	}
+	45% {
+		transform-origin: left center;
+		transform: scaleX(1);
+	}
+	50% {
+		transform-origin: right center;
+		transform: scaleX(1);
+	}
+	95% {
+		transform-origin: right center;
+		transform: scaleX(0);
+	}
+	100% {
+		transform-origin: left center;
+		transform: scaleX(0);
+	}
+}
+
 /*//////////////////////////////////////////////////////*/
 /*//====================----------====================//*/
 /*//                  MEDIA QUERIES                   //*/
