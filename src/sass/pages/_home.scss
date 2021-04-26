@@ -38,6 +38,23 @@
 }
 
 /*==========----------==========*/
+/*        FEATURED WORK         */
+/*==========----------==========*/
+
+.featured {
+	&__heading {
+		opacity: 0;
+		transform: translateX(2rem);
+		transition: opacity $transitionAppendix, transform $transitionAppendix;
+
+		&.active {
+			opacity: 1;
+			transform: none;
+		}
+	}
+}
+
+/*==========----------==========*/
 /*         BIO SECTION          */
 /*==========----------==========*/
 
@@ -63,12 +80,27 @@
 		z-index: 1;
 	}
 
+	&__bg,
+	&__content {
+		opacity: 0;
+		transition: opacity $transitionAppendix, transform $transitionAppendix;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+
 	&__bg {
 		@include absolute(center-vertical);
 		@include decorateImage();
 		width: calc(100% - 8em);
 		max-width: 1100px;
 		right: 0;
+		transform: translateY(-45%);
+
+		&.active {
+			transform: translateY(-50%);
+		}
 	}
 
 	&__img {
@@ -89,6 +121,11 @@
 		flex: 1 0 $narrowWidth;
 		position: relative;
 		z-index: 2;
+		transform: translateY(2em);
+
+		&.active {
+			transform: none;
+		}
 	}
 
 	&__heading {
@@ -146,7 +183,7 @@
 			padding-bottom: 0;
 		}
 
-		&__img {
+		&__bg {
 			display: none;
 		}
 

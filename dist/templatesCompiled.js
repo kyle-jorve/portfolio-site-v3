@@ -416,7 +416,7 @@ templates['pages/home'] = template({"1":function(container,depth0,helpers,partia
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"heroBg") : depth0)) != null ? lookupProperty(stack1,"mobileSource") : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"heroBg") : depth0)) != null ? lookupProperty(stack1,"alt") : stack1), depth0))
-    + "\">\n        </picture>\n    </div>\n\n    <a class=\"scrollGraphic\" href=\"#featured-work\">\n        <span class=\"scrollGraphic__icon\">\n            <span class=\"scrollGraphic__track\">\n                <span class=\"scrollGraphic__ball\"></span>\n            </span>\n        </span>\n    </a>\n</section>\n\n <section class=\"section\" id=\"featured-work\">\n     <h2>"
+    + "\">\n        </picture>\n    </div>\n\n    <a class=\"scrollGraphic\" href=\"#featured-work\">\n        <span class=\"scrollGraphic__icon\">\n            <span class=\"scrollGraphic__track\">\n                <span class=\"scrollGraphic__ball\"></span>\n            </span>\n        </span>\n    </a>\n</section>\n\n <section class=\"section featured\" id=\"featured-work\">\n     <h2 class=\"featured__heading\" id=\"featuredHeading\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"portfolio") : depth0)) != null ? lookupProperty(stack1,"heading") : stack1), depth0))
     + "</h2>\n\n    <div class=\"portfolio__grid portfolio__grid--home\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"portfolio") : depth0)) != null ? lookupProperty(stack1,"featured") : stack1),{"name":"each","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":33,"column":8},"end":{"line":35,"column":17}}})) != null ? stack1 : "")
@@ -424,7 +424,7 @@ templates['pages/home'] = template({"1":function(container,depth0,helpers,partia
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"portfolio") : depth0)) != null ? lookupProperty(stack1,"url") : stack1), depth0))
     + "\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"portfolio") : depth0)) != null ? lookupProperty(stack1,"btnText") : stack1), depth0))
-    + "</a>\n    </div>\n</section>\n\n<section class=\"section bioHome\" id=\"bio\">\n    <div class=\"bioHome__wrapper wrapper wrapper--wide\">\n        <article class=\"bioHome__content\">\n            <div class=\"bioHome__mobileImgWrp\">\n                <img class=\"bioHome__mobileImg\" src=\""
+    + "</a>\n    </div>\n</section>\n\n<section class=\"section bioHome\" id=\"bio\">\n    <div class=\"bioHome__wrapper wrapper wrapper--wide\">\n        <article class=\"bioHome__content\" id=\"bioContent\">\n            <div class=\"bioHome__mobileImgWrp\">\n                <img class=\"bioHome__mobileImg\" src=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"img") : stack1)) != null ? lookupProperty(stack1,"square") : stack1), depth0))
     + "\" aria-hidden=\"true\">\n            </div>\n\n            <div class=\"bioHome__box box\">\n                <h2 class=\"bioHome__heading\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"title") : stack1), depth0))
@@ -434,7 +434,7 @@ templates['pages/home'] = template({"1":function(container,depth0,helpers,partia
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"url") : stack1), depth0))
     + "\">"
     + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"buttonText") : stack1), depth0)) != null ? stack1 : "")
-    + "</a>\n            </div>\n        </article>\n\n        <div class=\"bioHome__bg\">\n            <picture>\n"
+    + "</a>\n            </div>\n        </article>\n\n        <div class=\"bioHome__bg\" id=\"bioImg\">\n            <picture>\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"img") : stack1)) != null ? lookupProperty(stack1,"sources") : stack1),{"name":"each","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":62,"column":16},"end":{"line":64,"column":25}}})) != null ? stack1 : "")
     + "                <img class=\"bioHome__img\" alt=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"bio") : depth0)) != null ? lookupProperty(stack1,"img") : stack1)) != null ? lookupProperty(stack1,"alt") : stack1), depth0))
@@ -502,7 +502,7 @@ templates['pages/portfolio-detail'] = template({"1":function(container,depth0,he
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(lookupProperty(helpers,"isSlider")||(depth0 && lookupProperty(depth0,"isSlider"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"media") : depth0),{"name":"isSlider","hash":{},"data":data,"loc":{"start":{"line":7,"column":14},"end":{"line":7,"column":30}}}),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":7,"column":8},"end":{"line":9,"column":15}}})) != null ? stack1 : "")
     + "\n        <div class=\"showcase__bgWrp\">\n            "
     + ((stack1 = (lookupProperty(helpers,"printBgs")||(depth0 && lookupProperty(depth0,"printBgs"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"media") : depth0),{"name":"printBgs","hash":{},"data":data,"loc":{"start":{"line":12,"column":12},"end":{"line":12,"column":32}}})) != null ? stack1 : "")
-    + "\n        </div>\n    </section>\n    \n    <section class=\"showcase__section showcase__section--content\">\n        <div class=\"wrapper wrapper--content\">\n            <h1 class=\"showcase__title\">"
+    + "\n        </div>\n    </section>\n    \n    <section class=\"showcase__section showcase__section--content\">\n        <div class=\"showcase__contentWrapper wrapper wrapper--content\">\n            <h1 class=\"showcase__title\">"
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"title") || (depth0 != null ? lookupProperty(depth0,"title") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data,"loc":{"start":{"line":18,"column":40},"end":{"line":18,"column":49}}}) : helper)))
     + "</h1>\n\n            "
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"content") || (depth0 != null ? lookupProperty(depth0,"content") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"content","hash":{},"data":data,"loc":{"start":{"line":20,"column":12},"end":{"line":20,"column":25}}}) : helper))) != null ? stack1 : "")

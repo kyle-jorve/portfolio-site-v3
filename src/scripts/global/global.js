@@ -143,6 +143,7 @@ function updateLinks() {
 		let url = new URL(l.href);
 		const originPlusPath = url.origin + url.pathname;
 		const curPage = window.location.origin + window.location.pathname;
+		const isSamePageHash = l.hash && l.hash.length && originPlusPath === curPage;
 		let hashLoc;
 
 		// for all links to portfolio detail pages, update search parameters
@@ -159,7 +160,7 @@ function updateLinks() {
 
 		// -- smooth page transitions when clicking local links -- //
 
-		if (l.target.includes('self') || !l.target || !l.target.length) {
+		if (!isSamePageHash && (l.target.includes('self') || !l.target || !l.target.length)) {
 			l.addEventListener('click', event => smoothPageTransitions(event, url));
 		}
 	});

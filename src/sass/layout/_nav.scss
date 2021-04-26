@@ -127,6 +127,7 @@ $mobileNav: '.mobileNav';
 		&Block,
 		&Line {
 			background: $lightTextColor;
+			transition: background-color $transitionAppendix;
 		}
 
 		&Blocks {
@@ -145,7 +146,7 @@ $mobileNav: '.mobileNav';
 
 			&--disapparate {
 				opacity: 1;
-				transition: opacity $transitionAppendix;
+				transition: opacity $transitionAppendix, background-color $transitionAppendix;
 			}
 		}
 
@@ -153,6 +154,11 @@ $mobileNav: '.mobileNav';
 		@media (hover: hover) {
 			&:hover {
 				background-color: lighten($linkColor, 5%);
+
+				#{$navBtn}Block,
+				#{$navBtn}Line {
+					background-color: text-color(lighten($linkColor, 5%));
+				}
 			}
 		}
 
@@ -165,6 +171,16 @@ $mobileNav: '.mobileNav';
 
 				&--disapparate {
 					opacity: 0;
+				}
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: map-get($bgColors, darkBg);
+
+					#{$navBtn}Block {
+						background-color: $lightTextColor;
+					}
 				}
 			}
 		}

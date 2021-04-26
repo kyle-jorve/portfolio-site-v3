@@ -52,7 +52,7 @@ Handlebars.registerHelper('printPortfolioItem', (item, section) => {
             <div class="portfolio__itemInner">
                 <h3 class="portfolio__itemTitle">${item.title}</h3>
                 <div class="portfolio__icons">
-                    <a class="portfolio__icon icon icon--align-justify" href="${href}">
+                    <a class="portfolio__icon portfolio__icon--desc icon icon--align-justify" href="${href}">
                         <span class="icon__text">View Description</span>
                     </a>
                     <button

@@ -99,7 +99,9 @@
 	/*      SLIDESHOW LIGHTBOX      */
 	/*==========----------==========*/
 
+	$lbSliderPadding: (2em, 2em, 4em, 2em);
 	$maxSlideHeight: calc(100vh - 6em);
+	$vidWidth: '100vw - 4em';
 
 	.slider__arrows,
 	.slider__dots,
@@ -108,18 +110,36 @@
 		display: none;
 	}
 
-	.slider__dots {
-		bottom: 2em;
+	.slider {
+		&__arrows {
+			padding: 0 1em;
+			top: calc(50% + #{(nth($lbSliderPadding, 1) / 2) - (nth($lbSliderPadding, 3) / 2)});
+		}
+
+		&__dots {
+			bottom: 2em;
+		}
 	}
 
-	.showcase__slide {
-		display: none;
-		height: $maxSlideHeight;
-		padding: 0;
-		overflow: visible;
+	.showcase {
+		&__slide {
+			display: none;
+			height: $maxSlideHeight;
+			padding: 0;
+			overflow: visible;
 
-		&.active {
-			pointer-events: none;
+			&--video iframe {
+				width: calc(#{$vidWidth});
+				height: calc((#{$vidWidth}) / 16 * 9);
+			}
+
+			&.active {
+				pointer-events: none;
+			}
+		}
+
+		&__img {
+			max-height: $maxSlideHeight;
 		}
 	}
 
@@ -127,12 +147,8 @@
 		pointer-events: all;
 	}
 
-	.showcase__img {
-		max-height: $maxSlideHeight;
-	}
-
 	&--slider {
-		padding: 2em 2em 4em 2em;
+		padding: nth($lbSliderPadding, 1) nth($lbSliderPadding, 2) nth($lbSliderPadding, 3) nth($lbSliderPadding, 4);
 
 		#{$lightbox}__slider {
 			display: block;
@@ -247,8 +263,10 @@
 	/*---------- $tablet WIDTH or HEIGHT ----------*/
 
 	@media (max-width: $tablet), (max-height: $tablet) {
+		$lbSliderPadding: (1em, 2em, 4em, 2em);
 		$maxImgHeight: calc(100vh - 2em);
 		$maxSlideHeight: calc(100vh - 5em);
+		$vidWidth: '100vw - 4em';
 
 		padding: 1em;
 
@@ -256,16 +274,27 @@
 			max-height: $maxImgHeight;
 		}
 
-		.showcase__img {
-			max-height: $maxSlideHeight;
+		.slider__arrows {
+			top: calc(50% + #{(nth($lbSliderPadding, 1) / 2) - (nth($lbSliderPadding, 3) / 2)});
 		}
 
-		.showcase__slide {
-			height: $maxSlideHeight;
+		.showcase {
+			&__slide {
+				height: $maxSlideHeight;
+
+				&--video iframe {
+					width: calc(#{$vidWidth});
+					height: calc((#{$vidWidth}) / 16 * 9);
+				}
+			}
+
+			&__img {
+				max-height: $maxSlideHeight;
+			}
 		}
 
 		&--slider {
-			padding: 1em 2em 4em 2em;
+			padding: nth($lbSliderPadding, 1) nth($lbSliderPadding, 2) nth($lbSliderPadding, 3) nth($lbSliderPadding, 4);
 		}
 	}
 

@@ -20,8 +20,8 @@ let template;
 let loadTimeout;
 let revealLoadBar;
 
-function initLoader() {
-	mutationObserver = new MutationObserver(mutationHandler);
+function initLoader(callback = false) {
+	mutationObserver = new MutationObserver((mutations, observer) => mutationHandler(mutations, observer, callback));
 
 	template = Handlebars.templates[global.templateSources.loader]();
 
@@ -43,22 +43,22 @@ function initLoader() {
 
 	// set timer to dismiss loader
 	loadTimeout = setTimeout(() => {
-		revealPage();
+		detectLoad(revealPage, callback);
 	}, time);
 }
 
 // observe for full page load
-function mutationHandler(mutations, observer) {
+function mutationHandler(mutations, observer, callback) {
 	// reset timeout
 	clearTimeout(loadTimeout);
 
 	loadTimeout = setTimeout(() => {
-		detectLoad();
+		detectLoad(revealPage, callback);
 	}, time);
 }
 
 // detect if images have loaded
-function detectLoad() {
+function detectLoad(callback1, callback2 = false) {
 	const imgs = Array.from(document.querySelectorAll('img'));
 
 	mutationObserver.disconnect();
@@ -67,12 +67,20 @@ function detectLoad() {
 		imgs.forEach(img =>
 			img.addEventListener('load', () => {
 				if (imgs.every(i => i.complete)) {
-					revealPage();
+					callback1();
+
+					if (callback2) {
+						callback2();
+					}
 				}
 			})
 		);
 	} else {
-		revealPage();
+		callback1();
+
+		if (callback2) {
+			callback2();
+		}
 	}
 }
 
@@ -104,6 +112,7 @@ export const loader = {
 	init: initLoader,
 	dismiss: revealPage,
 	reveal: revealLoader,
+	detectLoad,
 
 	transDurs
 };

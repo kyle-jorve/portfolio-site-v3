@@ -465,12 +465,12 @@
 
 	@media (hover: hover) {
 		&:hover {
-			background-color: $linkColor;
-			border-color: $linkColor;
-			color: text-color($linkColor);
+			background-color: lighten($linkColor, 5%);
+			border-color: lighten($linkColor, 5%);
+			color: text-color(lighten($linkColor, 5%));
 
 			svg {
-				fill: text-color($linkColor);
+				fill: text-color(lighten($linkColor, 5%));
 			}
 		}
 	}

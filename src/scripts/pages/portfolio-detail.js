@@ -1,6 +1,7 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { lightbox } from '/dist/scripts/lightbox.js';
+import { loader } from '/dist/scripts/loader.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 import { detailHelpers } from '/dist/scripts/portfolio-detail-helpers.js';
 
@@ -18,8 +19,8 @@ const cssClasses = {
 	bg: 'showcase__bg',
 	dot: 'slider__dot',
 	imgWrp: 'showcase__imgWrp',
-	videoWrp: 'showcase__imgWrp--video',
 	slide: 'showcase__slide',
+	videoSlide: 'showcase__slide--video',
 	transOut: 'transOut'
 };
 let data;
@@ -32,6 +33,8 @@ let itemIndex;
 global
 	.fetchFn(global.dataLoc.portfolio)
 	.then(d => {
+		console.log('initialized');
+
 		data = d.items.find(i => i.name === global.urlParams.get('piece'));
 
 		itemIndex = d.items.indexOf(data);
@@ -57,10 +60,8 @@ global
 	})
 	.catch(err => console.warn(err))
 	.finally(() => {
-		// initiate lightbox
+		loader.init();
 		lightbox.init(data);
-
-		// initialize slider
 		initSlider();
 	});
 

@@ -26,8 +26,8 @@
     </a>
 </section>
 
- <section class="section" id="featured-work">
-     <h2>{{portfolio.heading}}</h2>
+ <section class="section featured" id="featured-work">
+     <h2 class="featured__heading" id="featuredHeading">{{portfolio.heading}}</h2>
 
     <div class="portfolio__grid portfolio__grid--home">
         {{#each portfolio.featured}}
@@ -42,7 +42,7 @@
 
 <section class="section bioHome" id="bio">
     <div class="bioHome__wrapper wrapper wrapper--wide">
-        <article class="bioHome__content">
+        <article class="bioHome__content" id="bioContent">
             <div class="bioHome__mobileImgWrp">
                 <img class="bioHome__mobileImg" src="{{bio.img.square}}" aria-hidden="true">
             </div>
@@ -57,7 +57,7 @@
             </div>
         </article>
 
-        <div class="bioHome__bg">
+        <div class="bioHome__bg" id="bioImg">
             <picture>
                 {{#each bio.img.sources}}
                     <source srcset="{{this.url}}" media="(min-width: {{this.minScreenSize}}px)">

@@ -1,5 +1,6 @@
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
+import { loader } from '/dist/scripts/loader.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
 let data;
@@ -22,4 +23,5 @@ global
 
 		global.els.header.insertAdjacentHTML('afterend', template);
 	})
-	.catch(err => console.warn(err));
+	.catch(err => console.warn(err))
+	.finally(() => loader.init());

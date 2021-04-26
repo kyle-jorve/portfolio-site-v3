@@ -14,7 +14,7 @@
 
 	display: grid;
 	grid-template: auto / #{map-get($golden-ratio, large)}fr #{map-get($golden-ratio, small)}fr;
-	min-height: 100vh;
+	height: 100vh;
 
 	&__section {
 		position: relative;
@@ -29,18 +29,29 @@
 		}
 
 		&--content {
-			@include flexWrap(column, nowrap, center);
-			padding: nth($showcaseSectionPadding, 1) nth($showcaseSectionPadding, 2) nth($showcaseSectionPadding, 3)
-				nth($showcaseSectionPadding, 4);
+			display: grid;
+			align-items: center;
+			max-height: 100%;
+			overflow-x: hidden;
+			overflow-y: auto;
 			background: map-get($bgColors, lightBg);
 			color: $darkTextColor;
 			z-index: 1;
 		}
 	}
 
+	&__contentWrapper {
+		padding: nth($showcaseSectionPadding, 1) nth($showcaseSectionPadding, 2) nth($showcaseSectionPadding, 3)
+			nth($showcaseSectionPadding, 4);
+	}
+
 	/*==========----------==========*/
 	/*           CAROUSEL           */
 	/*==========----------==========*/
+
+	.slider__arrows {
+		top: calc(50% + #{(nth($showcaseSectionPadding, 1) / 2) - (nth($showcaseSectionPadding, 3) / 2)});
+	}
 
 	&__slider {
 		position: relative;
@@ -50,6 +61,7 @@
 	&__slideIcons {
 		@include flexWrap(row, nowrap, flex-end);
 		padding: 1em 1.5em;
+		pointer-events: none;
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -57,10 +69,21 @@
 		z-index: 3;
 		transform: translateY(100%);
 		transition: transform $transitionAppendix;
+
+		@media (hover: none) {
+			transform: none;
+		}
 	}
 
 	&__icon {
+		pointer-events: all;
 		font-size: $largeFontSize;
+
+		@media (hover: none) {
+			opacity: 0.85;
+			color: $lightTextColor;
+			text-shadow: $textShadow;
+		}
 	}
 
 	&__img {
@@ -93,6 +116,10 @@
 			bottom: 0;
 			z-index: 2;
 			transition: opacity $transitionAppendix;
+
+			@media (hover: none) {
+				display: none;
+			}
 		}
 
 		@media (hover: hover) {
@@ -134,7 +161,7 @@
 		transition: opacity $transitionAppendix;
 
 		&.active {
-			opacity: 0.35;
+			opacity: 0.2;
 		}
 	}
 
@@ -175,16 +202,22 @@
 
 	/*====---- VIDEOS ----====*/
 
-	&__imgWrp--video {
-		width: 100%;
-		padding-bottom: 56.25%;
-	}
+	$vidWidth: calc(
+		#{map-get($golden-ratio, large)}vw - #{nth($showcaseSectionPadding, 2) + nth($showcaseSectionPadding, 4)}
+	);
 
-	iframe {
-		@include absolute(cover);
-		width: 100%;
-		height: 100%;
-		max-height: calc(100vh - #{nth($showcaseSectionPadding, 1) + nth($showcaseSectionPadding, 3)});
+	&__slide--video {
+		iframe {
+			width: $vidWidth;
+			height: calc(#{$vidWidth} / 16 * 9);
+			max-height: 100%;
+		}
+
+		@media (hover: none) {
+			#{$showcase}__slideIcons {
+				display: none;
+			}
+		}
 	}
 
 	/*==========----------==========*/
@@ -378,6 +411,10 @@
 	/*==========----------==========*/
 
 	@media (max-width: $desktop) {
+		&__title {
+			@include headingTag(h2);
+		}
+
 		&__neighbors {
 			grid-template: auto auto / 1fr;
 			gap: 1em;
@@ -410,13 +447,15 @@
 
 	@media (max-width: 1200px) {
 		&__section--content {
-			padding-left: 2em;
-			padding-right: 2em;
-
 			.blockquote,
 			blockquote {
 				margin-left: 1em;
 			}
+		}
+
+		&__contentWrapper {
+			padding-left: 2em;
+			padding-right: 2em;
 		}
 
 		&__neighbors {
@@ -429,16 +468,19 @@
 	/*==========----------==========*/
 
 	@media (max-width: $tablet), (max-height: $tablet) {
-		display: block;
-		min-height: 0;
+		$vidWidth: '100vw - 4em';
+		$slidePadding: (8em, 2em, 4em, 2em);
 
-		&__section--content,
-		&__slide {
-			padding: $mobileSectionPadding;
+		display: block;
+		height: auto;
+
+		.slider__arrows {
+			top: calc(50% + #{(nth($slidePadding, 1) / 2) - (nth($slidePadding, 3) / 2)});
 		}
 
 		&__section--content {
-			display: block;
+			max-height: none;
+			overflow: visible;
 			background: map-get($bgColors, medBg);
 
 			.blockquote,
@@ -452,15 +494,26 @@
 			}
 		}
 
+		&__contentWrapper {
+			padding: nth($mobileSectionPadding, 1) nth($mobileSectionPadding, 2);
+		}
+
+		&__title {
+			@include headingTag(h1);
+		}
+
 		&__slide {
 			height: 90vh;
-			padding-top: 8em;
-			padding-right: 2em;
-			padding-left: 2em;
+			padding: nth($slidePadding, 1) nth($slidePadding, 2) nth($slidePadding, 3) nth($slidePadding, 4);
+
+			&--video iframe {
+				width: calc(#{$vidWidth});
+				height: calc((#{$vidWidth}) / 16 * 9);
+			}
 		}
 
 		&__img {
-			max-height: calc(90vh - 12em);
+			max-height: calc(90vh - #{nth($slidePadding, 1) + nth($slidePadding, 3)});
 		}
 
 		&__neighbors {
@@ -501,6 +554,12 @@
 	/*==========----------==========*/
 
 	@media (max-width: $phone) {
+		$slidePadding: (6em, 2em, 4em, 2em);
+
+		.slider__arrows {
+			top: calc(50% + #{(nth($slidePadding, 1) / 2) - (nth($slidePadding, 3) / 2)});
+		}
+
 		&__section--content {
 			blockquote,
 			.blockquote {
@@ -510,7 +569,7 @@
 		}
 
 		&__slide {
-			padding-top: 6em;
+			padding-top: nth($slidePadding, 1);
 		}
 
 		&__neighbors {

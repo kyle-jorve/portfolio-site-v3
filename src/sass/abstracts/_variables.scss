@@ -66,14 +66,8 @@ $superNarrowWidth: 30em;
 $gaps: 0, 1em, 2em, 4em;
 $edges: top, right, bottom, left;
 
-$sectionPaddingVert: 6em;
-$sectionPaddingHoriz: 2em;
-
-$mobileSectionPaddingVert: 4em;
-$mobileSectionPaddingHoriz: 1em;
-
-$sectionPadding: $sectionPaddingVert $sectionPaddingHoriz;
-$mobileSectionPadding: $mobileSectionPaddingVert $mobileSectionPaddingHoriz;
+$sectionPadding: (6em, 2em);
+$mobileSectionPadding: (4em 1em);
 
 /*===========================
     Positions

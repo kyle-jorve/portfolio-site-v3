@@ -166,7 +166,7 @@
 					"alt": "an in-progress image of Cargha in color, light and shadow added"
 				},
 				{
-					"source": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_FzmNukhxFo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+					"source": "<iframe src=\"https://www.youtube.com/embed/_FzmNukhxFo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
 					"bgIndex": 0,
 					"video": true
 				}
@@ -275,6 +275,11 @@
 					],
 					"mobileSource": "/dist/media/portfolio/crow/detail-2/kyle-jorve_crow-detail-2-640.jpg",
 					"alt": "a detail crop showing the upper portion of the illustration"
+				},
+				{
+					"source": "<iframe src=\"https://www.youtube.com/embed/oRzRz7eev2c\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+					"bgIndex": 0,
+					"video": true
 				}
 			]
 		},
@@ -930,6 +935,11 @@
 					],
 					"mobileSource": "/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-640.jpg",
 					"alt": "Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence"
+				},
+				{
+					"source": "<iframe src=\"https://www.youtube.com/embed/PxoZ4MjlxOY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+					"bgIndex": 0,
+					"video": true
 				}
 			]
 		},
@@ -1210,6 +1220,11 @@
 					],
 					"mobileSource": "/dist/media/portfolio/sol/kyle-jorve_sol-640.jpg",
 					"alt": "Sol stands in a forest, looking warily toward the viewer, clutching the handle of her dagger"
+				},
+				{
+					"source": "<iframe src=\"https://www.youtube.com/embed/G6oRYT55IWc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+					"bgIndex": 0,
+					"video": true
 				}
 			]
 		},

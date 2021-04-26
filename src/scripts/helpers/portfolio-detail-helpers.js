@@ -1,4 +1,4 @@
-import { portfolioDetail } from '/dist/scripts/portfolio-detail.js';
+import { portfolioDetail } from '/dist/scripts/portfolio-detail.js?v=1.0.0';
 import { global } from '/dist/scripts/global.js';
 
 Handlebars.registerHelper('isSlider', media => media.length > 1);
@@ -30,34 +30,38 @@ Handlebars.registerHelper('printSlides', item => {
 	function printPicture(media) {
 		return `
             <picture>
-            ${media.sources
-				.map(s => {
-					return `
-                        <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
-				})
-				.join('')}
-            
-            <img
-                class="showcase__img"
-                src="${media.mobileSource}"
-                alt="${media.alt}">
-        </picture>`;
+                ${media.sources
+					.map(s => {
+						return `
+                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
+					})
+					.join('')}
+                
+                <img
+                    class="showcase__img"
+                    src="${media.mobileSource}"
+                    alt="${media.alt}">
+            </picture>`;
 	}
 
 	return item.media
 		.map((m, index) => {
 			return `
                 <div
-                    class="showcase__slide${index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''}"
+                    class="showcase__slide${index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''}${
+				m.video ? ` ${portfolioDetail.cssClasses.videoSlide}` : ''
+			}"
                     style="z-index: ${item.media.length - index + 1};"
                     ${portfolioDetail.dataAttrs.index}="${index}"
                     ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
 
                     <div
                         class="${portfolioDetail.cssClasses.imgWrp}${
-				m.video ? ` ${portfolioDetail.cssClasses.videoWrp}` : ''
-			}${index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''}">
+				index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
+			}">
+
                         ${m.video ? m.source : printPicture(m)}
+
                         <div class="showcase__slideIcons">
                             <button
                                 class="lightbox__slideZoom portfolio__icon showcase__icon icon icon--zoom"
@@ -105,6 +109,31 @@ Handlebars.registerHelper('neighbors', item => {
 	const solo = entries.filter(ent => ent[1] ?? false).length < 2;
 	let markup = '';
 
+	function truncateTitle(title) {
+		const titleArr = title.split(' ');
+		const maxLength = 25;
+		let truncTitle = '';
+
+		for (let i = 0; i < titleArr.length; i++) {
+			const word = titleArr[i];
+			const isLastWord = i === titleArr.length - 1;
+
+			if (truncTitle.length + word.length <= maxLength) {
+				truncTitle += `${word}${isLastWord ? '' : ' '}`;
+			} else {
+				truncTitle = truncTitle.trim();
+
+				if (truncTitle.length < title.length) {
+					truncTitle += '...';
+				}
+
+				break;
+			}
+		}
+
+		return truncTitle;
+	}
+
 	for (let [key, value] of entries) {
 		if (value) {
 			markup += `
@@ -139,7 +168,7 @@ Handlebars.registerHelper('neighbors', item => {
 
                             <div class="showcase__neighborContent">
                                 <h2 class="showcase__neighborHeading">${key.charAt(0).toUpperCase()}${key.slice(1)}</h2>
-                                <h3 class="showcase__neighborTitle">${value.title}</h3>
+                                <h3 class="showcase__neighborTitle">${truncateTitle(value.title)}</h3>
                             </div>
                         </div>
 

@@ -15,7 +15,7 @@
 
 	&__hero,
 	&__content {
-		padding: $sectionPadding;
+		padding: nth($sectionPadding, 1) nth($sectionPadding, 2);
 	}
 
 	&__hero {
@@ -123,7 +123,7 @@
 	.bio {
 		&__hero,
 		&__content {
-			padding: $mobileSectionPadding;
+			padding: nth($mobileSectionPadding, 1) nth($mobileSectionPadding, 2);
 		}
 
 		&__hero {
