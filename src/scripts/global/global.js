@@ -8,7 +8,7 @@ const cssClasses = {
 	portfolioItemWide: 'portfolio__item--wide'
 };
 const dataLoc = {
-	root: '/src/abstracts/data/',
+	root: '/dist/abstracts/data/',
 	global: 'global.json',
 	home: 'home.json',
 	portfolio: 'portfolio.json',
