@@ -16,7 +16,7 @@
 			"url": "/"
 		},
 		{
-			"pageName": "Portfolio",
+			"pageName": "Gallery",
 			"url": "/portfolio/"
 		},
 		{
@@ -32,13 +32,13 @@
 	],
 	"mobileNav": [
 		{
-			"pageName": "CV and Bio",
+			"pageName": "CV",
 			"url": "/cv/",
 			"icon": "/dist/media/icons/cv-icon.svg",
 			"alt": "Icon for Bio page"
 		},
 		{
-			"pageName": "Portfolio",
+			"pageName": "Gallery",
 			"url": "/portfolio/",
 			"icon": "/dist/media/icons/portfolio-icon.svg",
 			"alt": "Icon for Portfolio page"

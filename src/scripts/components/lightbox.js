@@ -56,6 +56,11 @@ function eventListeners() {
 
 	// zoom slide
 	els.slideZoomButtons.forEach(butt => butt.addEventListener('click', zoomSlide));
+
+	// trigger smooth page transitions on button click
+	if (els.button) {
+		els.button.addEventListener('click', event => global.smoothPageTransitions(event, els.button.href));
+	}
 }
 
 function openLightbox(messageMode = false) {

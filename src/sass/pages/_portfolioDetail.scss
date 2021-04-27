@@ -71,19 +71,13 @@
 		transition: transform $transitionAppendix;
 
 		@media (hover: none) {
-			transform: none;
+			display: none;
 		}
 	}
 
 	&__icon {
 		pointer-events: all;
 		font-size: $largeFontSize;
-
-		@media (hover: none) {
-			opacity: 0.85;
-			color: $lightTextColor;
-			text-shadow: $textShadow;
-		}
 	}
 
 	&__img {
@@ -143,11 +137,13 @@
 			@include absolute(cover);
 		}
 
-		&::before {
-			display: block;
-			content: '';
-			backdrop-filter: blur(40px);
-			z-index: 2;
+		@supports (backdrop-filter: blur()) {
+			&::before {
+				display: block;
+				content: '';
+				backdrop-filter: blur(40px);
+				z-index: 2;
+			}
 		}
 	}
 
@@ -159,6 +155,17 @@
 		max-width: none;
 		object-fit: cover;
 		transition: opacity $transitionAppendix;
+
+		@supports not (backdrop-filter: blur()) {
+			width: calc(100% + 80px);
+			height: calc(100% + 80px);
+			max-width: none;
+			filter: blur(40px);
+			top: -40px;
+			right: -40px;
+			bottom: -40px;
+			left: -40px;
+		}
 
 		&.active {
 			opacity: 0.2;

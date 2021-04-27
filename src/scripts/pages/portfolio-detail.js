@@ -33,8 +33,6 @@ let itemIndex;
 global
 	.fetchFn(global.dataLoc.portfolio)
 	.then(d => {
-		console.log('initialized');
-
 		data = d.items.find(i => i.name === global.urlParams.get('piece'));
 
 		itemIndex = d.items.indexOf(data);

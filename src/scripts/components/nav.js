@@ -31,11 +31,11 @@ function initiateNav() {
 			els.navButton.classList.remove(cssClasses.active);
 			els.body.classList.remove(cssClasses.showNav);
 
-			// fix body scroll position
-			global.unfixBodyScroll();
-
-			// wait until the nav is fully hidden before removing classes from list items, portfolio items, and social icons
+			// wait until the nav is fully hidden before removing classes from list items, portfolio items, and social icons, and unfixing body scroll
 			setTimeout(() => {
+				// fix body scroll position
+				global.unfixBodyScroll();
+
 				[...els.navLI, ...els.recentWorkItems, ...els.socialIcons].forEach(li =>
 					li.classList.remove(cssClasses.active)
 				);

@@ -50,6 +50,10 @@
 		z-index: 3;
 		transform: translateY(100%);
 		transition: transform $transitionAppendix;
+
+		@media (hover: none) {
+			display: none;
+		}
 	}
 
 	&__itemTitle {
@@ -140,6 +144,10 @@
 			@include gradient((rgba(map-get($bgColors, darkBg), 0), rgba(map-get($bgColors, darkBg), 0.85)), vertical);
 			opacity: 0;
 			top: 50%;
+
+			@media (hover: none) {
+				display: none;
+			}
 		}
 
 		&--tall {
@@ -289,6 +297,16 @@
 			&--wide:nth-last-child(5) {
 				grid-column: span 2;
 			}
+		}
+	}
+
+	/*==========----------==========*/
+	/*     $sectionWidth WIDTH      */
+	/*==========----------==========*/
+
+	@media (max-width: $sectionWidth) {
+		&__grid--nav #{$portfolio}__item {
+			transform: translateY(2em);
 		}
 	}
 

@@ -19,6 +19,7 @@
 	}
 
 	&__hero {
+		overflow: hidden;
 		height: 15vw;
 		min-height: 300px;
 		padding-top: 8em;
@@ -33,8 +34,11 @@
 			);
 			display: block;
 			content: '';
-			backdrop-filter: blur(46px);
 			z-index: 2;
+
+			@supports (backdrop-filter: blur()) {
+				backdrop-filter: blur(40px);
+			}
 		}
 	}
 
@@ -65,7 +69,17 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		z-index: 1;
+
+		@supports not (backdrop-filter: blur()) {
+			width: calc(100% + 80px);
+			height: calc(100% + 80px);
+			max-width: none;
+			filter: blur(40px);
+			top: -40px;
+			right: -40px;
+			bottom: -40px;
+			left: -40px;
+		}
 	}
 
 	&__title {

@@ -8,12 +8,10 @@ $nav: '.nav';
 $mobileNav: '.mobileNav';
 
 #{$nav} {
+	@include gradient(($mobileNavBg, map-get($colorScheme, violet)), vertical);
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
-	max-height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
 	color: $lightTextColor;
 	text-align: center;
 	position: fixed;
@@ -25,8 +23,9 @@ $mobileNav: '.mobileNav';
 	transition: opacity $longTransitionAppendix, visibility $longTransitionAppendix;
 
 	&__wrp {
-		@include gradient(($mobileNavBg, map-get($colorScheme, violet)), vertical);
-		min-height: 100vh;
+		max-height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
 		padding: 8em 2em 2em 2em;
 	}
 
@@ -241,20 +240,16 @@ $mobileNav: '.mobileNav';
 	&__item {
 		display: none;
 		flex: 1 0 auto;
-		padding: 0.65em 0.25em 0.25em 0.25em;
+		padding: 0.65em 0.5em 0.25em 0.5em;
 		text-align: center;
 		transition: opacity $longTransitionAppendix;
 		position: relative;
 
-		&::before,
-		&::after {
+		&::before {
+			@include absolute(center-horizontal);
 			display: none;
 			content: '';
 			pointer-events: none;
-		}
-
-		&::before {
-			@include absolute(center-horizontal);
 			top: 0;
 			z-index: 2;
 			width: 40%;
@@ -263,18 +258,12 @@ $mobileNav: '.mobileNav';
 			background: $lightTextColor;
 		}
 
-		&::after {
-			@include absolute(cover);
-			@include gradient((map-get($colorScheme, violet), rgba(map-get($colorScheme, violet), 0)), radial-from-top);
-		}
-
 		&:last-of-type {
 			margin-right: 0.5em;
 		}
 
 		&--current {
-			&::before,
-			&::after {
+			&::before {
 				display: block;
 			}
 		}

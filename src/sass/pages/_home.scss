@@ -43,6 +43,7 @@
 
 .featured {
 	&__heading {
+		display: inline-block;
 		opacity: 0;
 		transform: translateX(2rem);
 		transition: opacity $transitionAppendix, transform $transitionAppendix;
@@ -174,6 +175,15 @@
 			font-size: 1.5rem;
 		}
 	}
+
+	/*=====---- FEATURED WORK SECTION ----=====*/
+
+	.featured {
+		&__heading {
+			transform: translateY(2rem);
+		}
+	}
+
 	/*=====---- BIO SECTION ----=====*/
 
 	.bioHome {

@@ -163,6 +163,7 @@ $ballDiam: 4px;
 /*==========----------==========*/
 @media (max-width: $tablet) {
 	.hero {
+		min-height: 100vw;
 		padding-left: 1em;
 		padding-right: 1em;
 	}
@@ -173,7 +174,8 @@ $ballDiam: 4px;
 /*==========----------==========*/
 @media (max-width: $phone) {
 	.hero {
-		padding: 6em 1em;
+		min-height: 100vh;
+		padding: 6em 1em 8em 1em;
 	}
 
 	.scrollGraphic {

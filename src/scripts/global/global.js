@@ -122,7 +122,7 @@ function smoothScroll(event, hashLoc) {
 	});
 }
 
-function smoothPageTransitions(event, url) {
+function smoothPageTransitions(event, href) {
 	event.preventDefault();
 
 	// reveal the loader
@@ -130,7 +130,7 @@ function smoothPageTransitions(event, url) {
 
 	// wait for loader transition to complete, then move on to the destination page
 	setTimeout(() => {
-		window.location = url.href;
+		window.location = href;
 	}, loader.transDurs.loader);
 }
 
@@ -161,7 +161,7 @@ function updateLinks() {
 		// -- smooth page transitions when clicking local links -- //
 
 		if (!isSamePageHash && (l.target.includes('self') || !l.target || !l.target.length)) {
-			l.addEventListener('click', event => smoothPageTransitions(event, url));
+			l.addEventListener('click', event => smoothPageTransitions(event, url.href));
 		}
 	});
 }
@@ -244,6 +244,7 @@ export const global = {
 	loaded,
 	removeSearchParams,
 	scrollToSection,
+	smoothPageTransitions,
 	unfixBodyScroll,
 	updateLinks,
 

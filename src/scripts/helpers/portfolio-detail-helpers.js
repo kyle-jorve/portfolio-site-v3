@@ -80,7 +80,7 @@ Handlebars.registerHelper('printSlides', item => {
 Handlebars.registerHelper('printBgs', media => {
 	function printPicture(media, index) {
 		return `
-            <picture aria-hidden="true">
+            <picture>
                 ${media.sources
 					.map(s => {
 						return `

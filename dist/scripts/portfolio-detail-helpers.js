@@ -43,7 +43,7 @@ import{portfolioDetail}from"/dist/scripts/portfolio-detail.js?v=1.0.0";import{gl
                         </div>
                     </div>
                 </div>`}).join("")}),Handlebars.registerHelper("printBgs",i=>{function r(e,s){return`
-            <picture aria-hidden="true">
+            <picture>
                 ${e.sources.map(e=>`
                             <source srcset="${e.url}" media="(min-width: ${e.minScreenSize}px)">`).join("")}
                 <img

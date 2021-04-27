@@ -194,6 +194,10 @@
 				height: $socialIconDiam * 0.4;
 			}
 		}
+
+		&--header #{$social}__item {
+			transform: none;
+		}
 	}
 
 	/*==========----------==========*/
