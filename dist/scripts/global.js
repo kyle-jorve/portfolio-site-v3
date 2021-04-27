@@ -1,1 +1,257 @@
-import{lightbox}from"/dist/scripts/lightbox.js";import{loader}from"/dist/scripts/loader.js";const cssClasses={portfolioItem:"portfolio__item",portfolioItemLoading:"portfolio__item--loading",portfolioItemTall:"portfolio__item--tall",portfolioItemWide:"portfolio__item--wide"},dataLoc={root:"/dist/abstracts/data/",global:"global.json",home:"home.json",portfolio:"portfolio.json",portfolioDetail:"portfolio-detail.json",cv:"cv.json"},templateSources={head:"components/head",header:"components/header",footer:"components/footer",lightbox:"components/lightbox",loader:"components/loader",home:"pages/home",portfolio:"pages/portfolio",portfolioDetail:"pages/portfolio-detail",cv:"pages/cv"},pageURLs={home:"/",portfolio:"/portfolio/",portfolioDetail:"/portfolio/detail/",cv:"/cv/"},searchParams={from:"from",piece:"piece",section:"section"},els={body:document.querySelector("body"),footer:document.querySelector("#footer"),head:document.querySelector("head"),header:document.querySelector("#header"),loader:document.querySelector("#loader"),loaderBottom:document.querySelector("#loaderBottom"),scrollAnchors:[document.querySelector("body"),document.querySelector("html")]},search=window.location.search,urlParams=new URLSearchParams(search);let scrollPos;function detectTouch(){return"ontouchstart"in document.documentElement}function detectMobile(){return void 0!==window.orientation}function fetchFn(o){return fetch(`${dataLoc.root}${o}`).then(o=>{if(o.ok)return o.json();throw new Error(`${status}: ${o.statusText}`)})}function getGlobalData(){return fetchFn(dataLoc.global)}function setURLSearchParams(o,e){var t;e.searchParams.get(searchParams.from)||(t=urlParams.get(searchParams.from)??window.location.pathname,e.searchParams.set(searchParams.from,t)),e.searchParams.get(searchParams.section)||(t=o.closest("section"),(t=urlParams.get(searchParams.section)??(t&&t.id&&t.id.length?t.id:""))&&t.length&&e.searchParams.set(searchParams.section,t)),o.href=decodeURIComponent(e.href)}function smoothScroll(o,e){e=e.getBoundingClientRect().top+window.scrollY;o.preventDefault(),window.scrollTo({top:e,left:0,behavior:"smooth"})}function smoothPageTransitions(o,e){o.preventDefault(),loader.reveal(),setTimeout(()=>{window.location=e},loader.transDurs.loader)}function updateLinks(){els.localLinks=Array.from(document.querySelectorAll("a")).filter(o=>o.href&&o.origin===window.location.origin),els.localLinks.forEach(o=>{let e=new URL(o.href);var t=e.origin+e.pathname,r=window.location.origin+window.location.pathname,a=o.hash&&o.hash.length&&t===r;let l;e.pathname.toLowerCase().includes(pageURLs.portfolioDetail)&&setURLSearchParams(o,e),t===r&&e.hash&&e.hash.length&&(l=document.querySelector(e.hash),o.addEventListener("click",o=>smoothScroll(o,l))),a||!o.target.includes("self")&&o.target&&o.target.length||o.addEventListener("click",o=>smoothPageTransitions(o,e.href))})}function removeSearchParams(){let o=new URL(window.location.href);for(var e in searchParams)o.searchParams.delete(searchParams[e]);window.history.replaceState({},document.title,o.href)}function scrollToSection(){const o=window.location.hash.length?document.querySelector(window.location.hash):document.querySelector(`#${urlParams.get(searchParams.section)}`);let e;o&&setTimeout(()=>{e=o.getBoundingClientRect().top+window.scrollY,window.scrollTo(0,e)},100)}function fixBodyScroll(){scrollPos=window.scrollY,els.scrollAnchors.forEach(o=>{o.style.position="fixed",o.style.top=`-${scrollPos}px`,o.style.overflow="hidden"})}function unfixBodyScroll(){els.scrollAnchors.forEach(o=>{o.style.position="",o.style.top="",o.style.overflow=""}),window.scroll(0,scrollPos)}function loaded(){updateLinks(),window.location.pathname.includes(pageURLs.portfolioDetail)||(scrollToSection(),removeSearchParams(),lightbox.init())}const global={cssClasses:cssClasses,dataLoc:dataLoc,els:els,pageURLs:pageURLs,searchParams:searchParams,templateSources:templateSources,urlParams:urlParams,fetchFn:fetchFn,fixBodyScroll:fixBodyScroll,getGlobalData:getGlobalData,loaded:loaded,removeSearchParams:removeSearchParams,scrollToSection:scrollToSection,smoothPageTransitions:smoothPageTransitions,unfixBodyScroll:unfixBodyScroll,updateLinks:updateLinks,get detectTouch(){return detectTouch()},get detectMobile(){return detectMobile()}};export{global};
+import { lightbox } from '/dist/scripts/lightbox.js';
+import { loader } from '/dist/scripts/loader.js';
+
+const cssClasses = {
+	portfolioItem: 'portfolio__item',
+	portfolioItemLoading: 'portfolio__item--loading',
+	portfolioItemTall: 'portfolio__item--tall',
+	portfolioItemWide: 'portfolio__item--wide'
+};
+const dataLoc = {
+	root: '/dist/abstracts/data/',
+	global: 'global.json',
+	home: 'home.json',
+	portfolio: 'portfolio.json',
+	portfolioDetail: 'portfolio-detail.json',
+	cv: 'cv.json'
+};
+const templateSources = {
+	// components
+	head: 'components/head',
+	header: 'components/header',
+	footer: 'components/footer',
+	lightbox: 'components/lightbox',
+	loader: 'components/loader',
+
+	// pages
+	home: 'pages/home',
+	portfolio: 'pages/portfolio',
+	portfolioDetail: 'pages/portfolio-detail',
+	cv: 'pages/cv'
+};
+const pageURLs = {
+	home: '/',
+	portfolio: '/portfolio/',
+	portfolioDetail: '/portfolio/detail/',
+	cv: '/cv/'
+};
+const searchParams = {
+	from: 'from',
+	piece: 'piece',
+	section: 'section'
+};
+const els = {
+	body: document.querySelector('body'),
+	footer: document.querySelector('#footer'),
+	head: document.querySelector('head'),
+	header: document.querySelector('#header'),
+	loader: document.querySelector('#loader'),
+	loaderBottom: document.querySelector('#loaderBottom'),
+	scrollAnchors: [document.querySelector('body'), document.querySelector('html')]
+};
+const search = window.location.search;
+const urlParams = new URLSearchParams(search);
+let scrollPos;
+
+// detect if touch device device
+function detectTouch() {
+	return 'ontouchstart' in document.documentElement;
+}
+
+// detect if mobile device
+function detectMobile() {
+	return typeof window.orientation !== 'undefined';
+}
+
+// global data fetch function
+function fetchFn(dataSrc) {
+	const dataFetch = fetch(`${dataLoc.root}${dataSrc}`).then(res => {
+		if (res.ok) {
+			return res.json();
+		} else {
+			throw new Error(`${status}: ${res.statusText}`);
+		}
+	});
+
+	return dataFetch;
+}
+
+// simple function to grab data from global.json
+function getGlobalData() {
+	const dataFetch = fetchFn(dataLoc.global);
+
+	return dataFetch;
+}
+
+function setURLSearchParams(link, url) {
+	let section;
+	let fromSearchParam;
+	let sectionSearchParam;
+
+	// set "from" search parameter if it's not already set
+	if (!url.searchParams.get(searchParams.from)) {
+		fromSearchParam = urlParams.get(searchParams.from) ?? window.location.pathname;
+
+		url.searchParams.set(searchParams.from, fromSearchParam);
+	}
+
+	// set "section" search parameter if applicable
+	if (!url.searchParams.get(searchParams.section)) {
+		section = link.closest('section');
+
+		sectionSearchParam =
+			urlParams.get(searchParams.section) ?? (section && section.id && section.id.length ? section.id : '');
+
+		if (sectionSearchParam && sectionSearchParam.length) {
+			url.searchParams.set(searchParams.section, sectionSearchParam);
+		}
+	}
+
+	link.href = decodeURIComponent(url.href);
+}
+
+function smoothScroll(event, hashLoc) {
+	const hashLocOffset = hashLoc.getBoundingClientRect().top + window.scrollY;
+
+	event.preventDefault();
+
+	window.scrollTo({
+		top: hashLocOffset,
+		left: 0,
+		behavior: 'smooth'
+	});
+}
+
+function smoothPageTransitions(event, href) {
+	event.preventDefault();
+
+	// reveal the loader
+	loader.reveal();
+
+	// wait for loader transition to complete, then move on to the destination page
+	setTimeout(() => {
+		window.location = href;
+	}, loader.transDurs.loader);
+}
+
+function updateLinks() {
+	els.localLinks = Array.from(document.querySelectorAll('a')).filter(
+		a => a.href && a.origin === window.location.origin
+	);
+
+	els.localLinks.forEach(l => {
+		let url = new URL(l.href);
+		const originPlusPath = url.origin + url.pathname;
+		const curPage = window.location.origin + window.location.pathname;
+		const isSamePageHash = l.hash && l.hash.length && originPlusPath === curPage;
+		let hashLoc;
+
+		// for all links to portfolio detail pages, update search parameters
+		if (url.pathname.toLowerCase().includes(pageURLs.portfolioDetail)) {
+			setURLSearchParams(l, url);
+		}
+
+		// smooth scroll on hash links
+		if (originPlusPath === curPage && url.hash && url.hash.length) {
+			hashLoc = document.querySelector(url.hash);
+
+			l.addEventListener('click', event => smoothScroll(event, hashLoc));
+		}
+
+		// -- smooth page transitions when clicking local links -- //
+
+		if (!isSamePageHash && (l.target.includes('self') || !l.target || !l.target.length)) {
+			l.addEventListener('click', event => smoothPageTransitions(event, url.href));
+		}
+	});
+}
+
+function removeSearchParams() {
+	let url = new URL(window.location.href);
+
+	for (let p in searchParams) {
+		url.searchParams.delete(searchParams[p]);
+	}
+
+	window.history.replaceState({}, document.title, url.href);
+}
+
+function scrollToSection() {
+	const section = window.location.hash.length
+		? document.querySelector(window.location.hash)
+		: document.querySelector(`#${urlParams.get(searchParams.section)}`);
+	let offset;
+
+	if (section) {
+		// add a slight delay to allow time for the page to be built
+		setTimeout(() => {
+			offset = section.getBoundingClientRect().top + window.scrollY;
+
+			window.scrollTo(0, offset);
+		}, 100);
+	}
+}
+
+// fix scroll anchors
+function fixBodyScroll() {
+	// define scrollPos
+	scrollPos = window.scrollY;
+
+	// style the scrollAnchors
+	els.scrollAnchors.forEach(cur => {
+		cur.style.position = 'fixed';
+		cur.style.top = `-${scrollPos}px`;
+		cur.style.overflow = 'hidden';
+	});
+}
+
+// un-fix scroll anchors
+function unfixBodyScroll() {
+	// un-style the scrollAnchors
+	els.scrollAnchors.forEach(cur => {
+		cur.style.position = '';
+		cur.style.top = '';
+		cur.style.overflow = '';
+	});
+
+	// keep window scrolled, though
+	window.scroll(0, scrollPos);
+}
+
+function loaded() {
+	updateLinks();
+
+	if (!window.location.pathname.includes(pageURLs.portfolioDetail)) {
+		scrollToSection();
+		removeSearchParams();
+		lightbox.init();
+	}
+}
+
+// -- PUBLIC -- //
+export const global = {
+	cssClasses,
+	dataLoc,
+	els,
+	pageURLs,
+	searchParams,
+	templateSources,
+	urlParams,
+
+	fetchFn,
+	fixBodyScroll,
+	getGlobalData,
+	loaded,
+	removeSearchParams,
+	scrollToSection,
+	smoothPageTransitions,
+	unfixBodyScroll,
+	updateLinks,
+
+	get detectTouch() {
+		return detectTouch();
+	},
+	get detectMobile() {
+		return detectMobile();
+	}
+};
