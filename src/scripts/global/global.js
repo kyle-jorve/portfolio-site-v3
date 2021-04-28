@@ -177,9 +177,10 @@ function scrollToSection() {
 	const section = window.location.hash.length
 		? document.querySelector(window.location.hash)
 		: document.querySelector(`#${urlParams.get(searchParams.section)}`);
+	const onPortfolioDetailPage = window.location.pathname.includes(pageURLs.portfolioDetail);
 	let offset;
 
-	if (section) {
+	if (section && !onPortfolioDetailPage) {
 		// add a slight delay to allow time for the page to be built
 		setTimeout(() => {
 			offset = section.getBoundingClientRect().top + window.scrollY;

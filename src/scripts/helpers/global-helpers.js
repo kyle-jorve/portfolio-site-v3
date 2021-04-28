@@ -1,4 +1,4 @@
-import { global } from '/dist/scripts/global.js?v=1.0.2';
+import { global } from '/dist/scripts/global.js';
 
 const wideAspect = 1.333;
 const tallAspect = 0.75;
