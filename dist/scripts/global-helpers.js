@@ -1,4 +1,4 @@
-import{global}from"/dist/scripts/global.js";const wideAspect=1.333,tallAspect=.75;Handlebars.registerHelper("printSocialIcon",e=>{var a="gumroad"===e.name.toLowerCase(),o=e.cssClass??e.name;return`
+import{global}from"/dist/scripts/global.js?v=1.0.2";const wideAspect=1.333,tallAspect=.75;Handlebars.registerHelper("printSocialIcon",e=>{var a="gumroad"===e.name.toLowerCase(),o=e.cssClass??e.name;return`
         <a
             class="social__item${a?"":` icon icon--absoluteCenter icon--${o}`}"
             href="${e.url}"

@@ -1,4 +1,4 @@
-import{global}from"/dist/scripts/global.js";const dataAttrs={active:"data-active",dir:"data-dir",index:"data-index"},cssClasses={active:"active",bg:"showcase__bg",dot:"slider__dot",imgWrp:"showcase__imgWrp",slide:"showcase__slide",videoSlide:"showcase__slide--video",transOut:"transOut"};Handlebars.registerHelper("isSlider",s=>1<s.length),Handlebars.registerHelper("printSliderNav",s=>`
+import{global}from"/dist/scripts/global.js?v=1.0.2";const dataAttrs={active:"data-active",dir:"data-dir",index:"data-index"},cssClasses={active:"active",bg:"showcase__bg",dot:"slider__dot",imgWrp:"showcase__imgWrp",slide:"showcase__slide",videoSlide:"showcase__slide--video",transOut:"transOut"};Handlebars.registerHelper("isSlider",s=>1<s.length),Handlebars.registerHelper("printSliderNav",s=>`
         <div class="slider__arrows">
             <button class="slider__arrow circleBtn circleBtn--prev" data-dir="prev"><span class="icon__text">Previous Slide</span></button>
             <button class="slider__arrow circleBtn circleBtn--next" data-dir="next"><span class="icon__text">Next Slide</span></button>

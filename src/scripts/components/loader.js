@@ -1,4 +1,4 @@
-import { global } from '/dist/scripts/global.js';
+import { global } from '/dist/scripts/global.js?v=1.0.2';
 
 const cssClasses = {
 	active: 'active',

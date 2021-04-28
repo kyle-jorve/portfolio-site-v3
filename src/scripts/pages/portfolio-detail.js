@@ -1,4 +1,4 @@
-import { global } from '/dist/scripts/global.js';
+import { global } from '/dist/scripts/global.js?v=1.0.2';
 import { head } from '/dist/scripts/head.js';
 import { lightbox } from '/dist/scripts/lightbox.js';
 import { loader } from '/dist/scripts/loader.js';
