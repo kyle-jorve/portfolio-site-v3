@@ -187,7 +187,7 @@ function scrollToSection() {
 
 			window.scrollTo(0, offset);
 		}, 100);
-	} else {
+	} else if (!section || onPortfolioDetailPage) {
 		// the user keeps being pushed to the middle of the page on load on mobile
 		// this is to prevent that
 		window.scrollTo(0, 0);
