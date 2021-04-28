@@ -16,16 +16,11 @@ const els = {};
 const transDurs = {};
 const time = 300; // time to wait to dismiss the loader
 let mutationObserver;
-let template;
 let loadTimeout;
 let revealLoadBar;
 
 function initLoader(callback = false) {
 	mutationObserver = new MutationObserver((mutations, observer) => mutationHandler(mutations, observer, callback));
-
-	template = Handlebars.templates[global.templateSources.loader]();
-
-	global.els.loader.insertAdjacentHTML('afterbegin', template);
 
 	els.track = global.els.loader.querySelector(`.${cssClasses.track}`);
 

@@ -238,6 +238,7 @@ export const global = {
 	pageURLs,
 	searchParams,
 	templateSources,
+	urlParams,
 
 	fetchFn,
 	fixBodyScroll,
@@ -247,12 +248,5 @@ export const global = {
 	scrollToSection,
 	smoothPageTransitions,
 	unfixBodyScroll,
-	updateLinks,
-
-	get urlParams() {
-		search = window.location.search;
-		urlParams = new URLSearchParams(search);
-
-		return urlParams;
-	}
+	updateLinks
 };

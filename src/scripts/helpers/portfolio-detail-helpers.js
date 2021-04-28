@@ -1,5 +1,19 @@
-import { portfolioDetail } from '/dist/scripts/portfolio-detail.js?v=1.0.0';
 import { global } from '/dist/scripts/global.js';
+
+const dataAttrs = {
+	active: 'data-active',
+	dir: 'data-dir',
+	index: 'data-index'
+};
+const cssClasses = {
+	active: 'active',
+	bg: 'showcase__bg',
+	dot: 'slider__dot',
+	imgWrp: 'showcase__imgWrp',
+	slide: 'showcase__slide',
+	videoSlide: 'showcase__slide--video',
+	transOut: 'transOut'
+};
 
 Handlebars.registerHelper('isSlider', media => media.length > 1);
 
@@ -15,11 +29,9 @@ Handlebars.registerHelper('printSliderNav', media => {
 				.map((m, index) => {
 					return `
                     <button
-                        class="${portfolioDetail.cssClasses.dot}${
-						index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
-					}"
+                        class="${cssClasses.dot}${index === 0 ? ` ${cssClasses.active}` : ''}"
                         data-index="${index}"
-                        ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
+                        ${index === 0 ? dataAttrs.active : ''}>
                         </button>`;
 				})
 				.join('')}
@@ -48,17 +60,15 @@ Handlebars.registerHelper('printSlides', item => {
 		.map((m, index) => {
 			return `
                 <div
-                    class="showcase__slide${index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''}${
-				m.video ? ` ${portfolioDetail.cssClasses.videoSlide}` : ''
+                    class="showcase__slide${index === 0 ? ` ${cssClasses.active}` : ''}${
+				m.video ? ` ${cssClasses.videoSlide}` : ''
 			}"
                     style="z-index: ${item.media.length - index + 1};"
-                    ${portfolioDetail.dataAttrs.index}="${index}"
-                    ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
+                    ${dataAttrs.index}="${index}"
+                    ${index === 0 ? dataAttrs.active : ''}>
 
                     <div
-                        class="${portfolioDetail.cssClasses.imgWrp}${
-				index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
-			}">
+                        class="${cssClasses.imgWrp}${index === 0 ? ` ${cssClasses.active}` : ''}">
 
                         ${m.video ? m.source : printPicture(m)}
 
@@ -88,12 +98,10 @@ Handlebars.registerHelper('printBgs', media => {
 					})
 					.join('')}
                 <img
-                    class="${portfolioDetail.cssClasses.bg}${
-			index === 0 ? ` ${portfolioDetail.cssClasses.active}` : ''
-		}"
+                    class="${cssClasses.bg}${index === 0 ? ` ${cssClasses.active}` : ''}"
                     src="${media.mobileSource}"
-                    ${portfolioDetail.dataAttrs.index}="${index}"
-                    ${index === 0 ? portfolioDetail.dataAttrs.active : ''}>
+                    ${dataAttrs.index}="${index}"
+                    ${index === 0 ? dataAttrs.active : ''}>
             </picture>`;
 	}
 
@@ -185,6 +193,9 @@ Handlebars.registerHelper('hasPurchaseLinks', item => {
 });
 
 export const detailHelpers = {
+	cssClasses,
+	dataAttrs,
+
 	hasPurchaseLinks: Handlebars.helpers.hasPurchaseLinks,
 	isSlider: Handlebars.helpers.isSlider,
 	neighbors: Handlebars.helpers.neighbors,

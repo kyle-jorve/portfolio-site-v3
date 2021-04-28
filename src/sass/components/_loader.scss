@@ -42,10 +42,6 @@
 		background: map-get($bgColors, lightBg);
 		transform-origin: left center;
 		transform: scaleX(0);
-
-		&--2 {
-			animation-delay: 0.4125s;
-		}
 	}
 
 	&--bottom {

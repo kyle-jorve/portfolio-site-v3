@@ -2,20 +2,27 @@
 <html encoding="UTF-8" charset="UTF-8" dir="ltr" lang="en-US" language="English">
 	<head>
 		<!-- STYLES -->
-		<link rel="stylesheet" href="/dist/styles/bundle.min.css?v=1.0.3" />
+		<link rel="stylesheet" href="/dist/styles/bundle.min.css?v=1.0.4" />
 
 		<!-- SCRIPTS -->
 		<!-- Handlebars -->
 		<script src="/node_modules/handlebars/dist/handlebars.runtime.min.js"></script>
-		<script src="/dist/templatesCompiled.js?v=1.0.1"></script>
+		<script src="/dist/templatesCompiled.js?v=1.0.2"></script>
+
+		<!-- IE warning -->
+		<script defer src="/dist/scripts/ie-warning.js?v=1.0.0"></script>
 
 		<!-- Build Templates -->
 		<script src="/dist/scripts/shell.js?v=1.0.1" type="module"></script>
-		<script src="/dist/scripts/cv.js?v=1.0.1" type="module"></script>
+		<script src="/dist/scripts/cv.js?v=1.0.2" type="module"></script>
 	</head>
 
 	<body>
-		<div class="loader" id="loader"></div>
+		<div class="loader" id="loader">
+			<span class="loader__track">
+				<span class="loader__bar"></span>
+			</span>
+		</div>
 		<div class="loader loader--bottom" id="loaderBottom"></div>
 		<header class="header" id="header"></header>
 		<footer class="footer" id="footer"></footer>

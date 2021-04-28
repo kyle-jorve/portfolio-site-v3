@@ -1,70 +1,70 @@
-import{portfolioDetail}from"/dist/scripts/portfolio-detail.js?v=1.0.0";import{global}from"/dist/scripts/global.js";Handlebars.registerHelper("isSlider",e=>1<e.length),Handlebars.registerHelper("printSliderNav",e=>`
+import{global}from"/dist/scripts/global.js";const dataAttrs={active:"data-active",dir:"data-dir",index:"data-index"},cssClasses={active:"active",bg:"showcase__bg",dot:"slider__dot",imgWrp:"showcase__imgWrp",slide:"showcase__slide",videoSlide:"showcase__slide--video",transOut:"transOut"};Handlebars.registerHelper("isSlider",s=>1<s.length),Handlebars.registerHelper("printSliderNav",s=>`
         <div class="slider__arrows">
             <button class="slider__arrow circleBtn circleBtn--prev" data-dir="prev"><span class="icon__text">Previous Slide</span></button>
             <button class="slider__arrow circleBtn circleBtn--next" data-dir="next"><span class="icon__text">Next Slide</span></button>
         </div>
 
         <div class="slider__dots" id="sliderDots">
-            ${e.map((e,s)=>`
+            ${s.map((s,e)=>`
                     <button
-                        class="${portfolioDetail.cssClasses.dot}${0===s?` ${portfolioDetail.cssClasses.active}`:""}"
-                        data-index="${s}"
-                        ${0===s?portfolioDetail.dataAttrs.active:""}>
+                        class="${cssClasses.dot}${0===e?` ${cssClasses.active}`:""}"
+                        data-index="${e}"
+                        ${0===e?dataAttrs.active:""}>
                         </button>`).join("")}
-        </div>`),Handlebars.registerHelper("printSlides",i=>{return i.media.map((e,s)=>{return`
+        </div>`),Handlebars.registerHelper("printSlides",i=>{return i.media.map((s,e)=>{return`
                 <div
-                    class="showcase__slide${0===s?` ${portfolioDetail.cssClasses.active}`:""}${e.video?` ${portfolioDetail.cssClasses.videoSlide}`:""}"
-                    style="z-index: ${i.media.length-s+1};"
-                    ${portfolioDetail.dataAttrs.index}="${s}"
-                    ${0===s?portfolioDetail.dataAttrs.active:""}>
+                    class="showcase__slide${0===e?` ${cssClasses.active}`:""}${s.video?` ${cssClasses.videoSlide}`:""}"
+                    style="z-index: ${i.media.length-e+1};"
+                    ${dataAttrs.index}="${e}"
+                    ${0===e?dataAttrs.active:""}>
 
                     <div
-                        class="${portfolioDetail.cssClasses.imgWrp}${0===s?` ${portfolioDetail.cssClasses.active}`:""}">
+                        class="${cssClasses.imgWrp}${0===e?` ${cssClasses.active}`:""}">
 
-                        ${e.video?e.source:(e=e,`
+                        ${s.video?s.source:(s=s,`
             <picture>
-                ${e.sources.map(e=>`
-                            <source srcset="${e.url}" media="(min-width: ${e.minScreenSize}px)">`).join("")}
+                ${s.sources.map(s=>`
+                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`).join("")}
                 
                 <img
                     class="showcase__img"
-                    src="${e.mobileSource}"
-                    alt="${e.alt}">
+                    src="${s.mobileSource}"
+                    alt="${s.alt}">
             </picture>`)}
 
                         <div class="showcase__slideIcons">
                             <button
                                 class="lightbox__slideZoom portfolio__icon showcase__icon icon icon--zoom"
                                 data-name="${i.name}"
-                                data-index="${s}">
+                                data-index="${e}">
 
                                 <span class="icon__text">View Full Screen</span>
                             </button>
                         </div>
                     </div>
-                </div>`}).join("")}),Handlebars.registerHelper("printBgs",i=>{function r(e,s){return`
+                </div>`}).join("")}),Handlebars.registerHelper("printBgs",i=>{function a(s,e){return`
             <picture>
-                ${e.sources.map(e=>`
-                            <source srcset="${e.url}" media="(min-width: ${e.minScreenSize}px)">`).join("")}
+                ${s.sources.map(s=>`
+                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`).join("")}
                 <img
-                    class="${portfolioDetail.cssClasses.bg}${0===s?` ${portfolioDetail.cssClasses.active}`:""}"
-                    src="${e.mobileSource}"
-                    ${portfolioDetail.dataAttrs.index}="${s}"
-                    ${0===s?portfolioDetail.dataAttrs.active:""}>
-            </picture>`}return i.map((e,s)=>e.video?r(i[e.bgIndex],s):r(e,s)).join("")}),Handlebars.registerHelper("neighbors",e=>{const s=Object.entries(e.neighbors);var i,r,t=s.filter(e=>e[1]??!1).length<2;let a="";for([i,r]of s)r&&(a+=`
-                <article class="showcase__neighbor showcase__neighbor--${i}${t?" showcase__neighbor--solo":""}">
+                    class="${cssClasses.bg}${0===e?` ${cssClasses.active}`:""}"
+                    src="${s.mobileSource}"
+                    ${dataAttrs.index}="${e}"
+                    ${0===e?dataAttrs.active:""}>
+            </picture>`}return i.map((s,e)=>s.video?a(i[s.bgIndex],e):a(s,e)).join("")}),Handlebars.registerHelper("neighbors",s=>{const e=Object.entries(s.neighbors);var i,a,r=e.filter(s=>s[1]??!1).length<2;let t="";for([i,a]of e)a&&(t+=`
+                <article class="showcase__neighbor showcase__neighbor--${i}${r?" showcase__neighbor--solo":""}">
                     <a
                         class="showcase__neighborLink"
-                        href="/portfolio/detail/?piece=${r.name}&from=${global.urlParams.get("from")}">
+                        href="/portfolio/detail/?piece=${a.name}&from=${global.urlParams.get("from")}">
                         
                         <div class="showcase__neighborImgWrp">
                             <picture>
-                                ${r.detailThumbnail.sources.map(e=>`
-                                        <source srcset="${e.url}" media="(min-width: ${e.minScreenSize}px)">`).join("")}
+                                ${a.detailThumbnail.sources.map(s=>`
+                                        <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`).join("")}
                                 <img
-                                    class="showcase__neighborImg showcase__neighborImg--${r.orientation}"
-                                    src="${r.detailThumbnail.mobileSource}"
-                                    alt="${r.detailThumbnail.alt}">
+                                    class="showcase__neighborImg showcase__neighborImg--${a.orientation}"
+                                    src="${a.detailThumbnail.mobileSource}"
+                                    alt="${a.detailThumbnail.alt}">
                             </picture>
                         </div>
 
@@ -75,9 +75,9 @@ import{portfolioDetail}from"/dist/scripts/portfolio-detail.js?v=1.0.0";import{gl
 
                             <div class="showcase__neighborContent">
                                 <h2 class="showcase__neighborHeading">${i.charAt(0).toUpperCase()}${i.slice(1)}</h2>
-                                <h3 class="showcase__neighborTitle">${function(s){var i=s.split(" ");let r="";for(let e=0;e<i.length;e++){var t=i[e],a=e===i.length-1;if(!(r.length+t.length<=25)){r=r.trim(),r.length<s.length&&(r+="...");break}r+=`${t}${a?"":" "}`}return r}(r.title)}</h3>
+                                <h3 class="showcase__neighborTitle">${function(e){var i=e.split(" ");let a="";for(let s=0;s<i.length;s++){var r=i[s],t=s===i.length-1;if(!(a.length+r.length<=25)){a=a.trim(),a.length<e.length&&(a+="...");break}a+=`${r}${t?"":" "}`}return a}(a.title)}</h3>
                             </div>
                         </div>
 
                     </a>
-                </article>`);return a}),Handlebars.registerHelper("hasPurchaseLinks",e=>e.purchaseLink||e.downloadLink);const detailHelpers={hasPurchaseLinks:Handlebars.helpers.hasPurchaseLinks,isSlider:Handlebars.helpers.isSlider,neighbors:Handlebars.helpers.neighbors,printDots:Handlebars.helpers.printDots,printSlides:Handlebars.helpers.printSlides,printBgs:Handlebars.helpers.printBgs};export{detailHelpers};
+                </article>`);return t}),Handlebars.registerHelper("hasPurchaseLinks",s=>s.purchaseLink||s.downloadLink);const detailHelpers={cssClasses:cssClasses,dataAttrs:dataAttrs,hasPurchaseLinks:Handlebars.helpers.hasPurchaseLinks,isSlider:Handlebars.helpers.isSlider,neighbors:Handlebars.helpers.neighbors,printDots:Handlebars.helpers.printDots,printSlides:Handlebars.helpers.printSlides,printBgs:Handlebars.helpers.printBgs};export{detailHelpers};

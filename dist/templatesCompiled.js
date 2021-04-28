@@ -295,9 +295,6 @@ templates['components/lightbox'] = template({"1":function(container,depth0,helpe
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(lookupProperty(helpers,"isPortfolioDetailPage")||(depth0 && lookupProperty(depth0,"isPortfolioDetailPage"))||alias2).call(alias1,{"name":"isPortfolioDetailPage","hash":{},"data":data,"loc":{"start":{"line":40,"column":14},"end":{"line":40,"column":37}}}),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":40,"column":8},"end":{"line":42,"column":15}}})) != null ? stack1 : "")
     + "    </div>\n</section>";
 },"useData":true});
-templates['components/loader'] = template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<span class=\"loader__track\">\n    <span class=\"loader__bar loader__bar--1\"></span>\n    <span class=\"loader__bar loader__bar--2\"></span>\n</span>";
-},"useData":true});
 templates['pages/cv'] = template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
