@@ -10,8 +10,6 @@ $mobileNav: '.mobileNav';
 #{$nav} {
 	@include gradient(($mobileNavBg, map-get($colorScheme, violet)), vertical);
 	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
 	max-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -24,7 +22,13 @@ $mobileNav: '.mobileNav';
 	bottom: 0;
 	left: 0;
 	z-index: 98;
-	transition: opacity $longTransitionAppendix, visibility $transitionAppendix;
+	transition: opacity $longTransitionAppendix;
+
+	&,
+	a,
+	button {
+		pointer-events: none;
+	}
 
 	&__ul,
 	&__li {
@@ -287,6 +291,12 @@ $mobileNav: '.mobileNav';
 	opacity: 1;
 	visibility: visible;
 	pointer-events: all;
+
+	&,
+	a,
+	button {
+		pointer-events: all;
+	}
 }
 
 /*//////////////////////////////////////////////////////*/

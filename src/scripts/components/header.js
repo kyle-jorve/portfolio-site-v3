@@ -12,7 +12,6 @@ function buildHeader() {
 		.then(d => {
 			data = {
 				nav: d.nav,
-				mobileNav: d.mobileNav,
 				social: [
 					...d.socialIcons.standard,
 					{
@@ -24,6 +23,8 @@ function buildHeader() {
 				],
 				recentWorkLimit: d.recentWorkLimit
 			};
+
+			data.mobileNav = d.nav.filter(ni => ni.showInMobileNav);
 
 			return global.fetchFn(global.dataLoc.portfolio);
 		})

@@ -49,18 +49,13 @@ const els = {
 	loaderBottom: document.querySelector('#loaderBottom'),
 	scrollAnchors: [document.querySelector('body'), document.querySelector('html')]
 };
-const search = window.location.search;
-const urlParams = new URLSearchParams(search);
+let search = window.location.search;
+let urlParams = new URLSearchParams(search);
 let scrollPos;
 
-// detect if touch device device
-function detectTouch() {
-	return 'ontouchstart' in document.documentElement;
-}
-
-// detect if mobile device
-function detectMobile() {
-	return typeof window.orientation !== 'undefined';
+function updateCurrentSearchParams() {
+	search = window.location.search;
+	urlParams = new URLSearchParams(search);
 }
 
 // global data fetch function
@@ -174,6 +169,8 @@ function removeSearchParams() {
 	}
 
 	window.history.replaceState({}, document.title, url.href);
+
+	updateCurrentSearchParams();
 }
 
 function scrollToSection() {
@@ -189,6 +186,10 @@ function scrollToSection() {
 
 			window.scrollTo(0, offset);
 		}, 100);
+	} else {
+		// the user keeps being pushed to the middle of the page on load on mobile
+		// this is to prevent that
+		window.scrollTo(0, 0);
 	}
 }
 
@@ -219,13 +220,14 @@ function unfixBodyScroll() {
 }
 
 function loaded() {
-	updateLinks();
+	scrollToSection();
 
 	if (!window.location.pathname.includes(pageURLs.portfolioDetail)) {
-		scrollToSection();
 		removeSearchParams();
 		lightbox.init();
 	}
+
+	updateLinks();
 }
 
 // -- PUBLIC -- //
@@ -236,7 +238,6 @@ export const global = {
 	pageURLs,
 	searchParams,
 	templateSources,
-	urlParams,
 
 	fetchFn,
 	fixBodyScroll,
@@ -248,10 +249,10 @@ export const global = {
 	unfixBodyScroll,
 	updateLinks,
 
-	get detectTouch() {
-		return detectTouch();
-	},
-	get detectMobile() {
-		return detectMobile();
+	get urlParams() {
+		search = window.location.search;
+		urlParams = new URLSearchParams(search);
+
+		return urlParams;
 	}
 };

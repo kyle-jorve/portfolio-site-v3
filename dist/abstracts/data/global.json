@@ -17,40 +17,27 @@
 		},
 		{
 			"pageName": "Gallery",
-			"url": "/portfolio/"
+			"url": "/portfolio/",
+			"icon": "/dist/media/icons/portfolio-icon.svg",
+			"alt": "Icon for Portfolio page",
+			"showInMobileNav": true
 		},
-		{
-			"pageName": "CV",
-			"url": "/cv/"
-		},
-		{
-			"pageName": "Shop",
-			"url": "https://www.inprnt.com/gallery/kylejorve/",
-			"target": "_blank",
-			"rel": "noreferrer noopener nofollow"
-		}
-	],
-	"mobileNav": [
 		{
 			"pageName": "CV",
 			"url": "/cv/",
 			"icon": "/dist/media/icons/cv-icon.svg",
-			"alt": "Icon for Bio page"
-		},
-		{
-			"pageName": "Gallery",
-			"url": "/portfolio/",
-			"icon": "/dist/media/icons/portfolio-icon.svg",
-			"alt": "Icon for Portfolio page"
+			"alt": "Icon for Bio page",
+			"showInMobileNav": true
 		},
 		{
 			"pageName": "Shop",
 			"url": "https://www.inprnt.com/gallery/kylejorve/",
+			"target": "_blank",
+			"rel": "noreferrer noopener nofollow",
 			"icon": "/dist/media/icons/cart-icon.svg",
 			"alt": "Icon for shop page",
 			"cssClass": "mobileNav__item--shop",
-			"target": "_blank",
-			"rel": "noreferrer noopener nofollow"
+			"showInMobileNav": true
 		}
 	],
 	"socialIcons": {
