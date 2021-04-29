@@ -2,18 +2,11 @@ import { lightbox } from '/dist/scripts/lightbox.js';
 import { loader } from '/dist/scripts/loader.js';
 
 const cssClasses = {
+	loaded: 'loaded',
 	portfolioItem: 'portfolio__item',
 	portfolioItemLoading: 'portfolio__item--loading',
 	portfolioItemTall: 'portfolio__item--tall',
 	portfolioItemWide: 'portfolio__item--wide'
-};
-const dataLoc = {
-	root: '/dist/abstracts/data/',
-	global: 'global.json',
-	home: 'home.json',
-	portfolio: 'portfolio.json',
-	portfolioDetail: 'portfolio-detail.json',
-	cv: 'cv.json'
 };
 const templateSources = {
 	// components
@@ -56,26 +49,6 @@ let scrollPos;
 function updateCurrentSearchParams() {
 	search = window.location.search;
 	urlParams = new URLSearchParams(search);
-}
-
-// global data fetch function
-function fetchFn(dataSrc) {
-	const dataFetch = fetch(`${dataLoc.root}${dataSrc}`).then(res => {
-		if (res.ok) {
-			return res.json();
-		} else {
-			throw new Error(`${status}: ${res.statusText}`);
-		}
-	});
-
-	return dataFetch;
-}
-
-// simple function to grab data from global.json
-function getGlobalData() {
-	const dataFetch = fetchFn(dataLoc.global);
-
-	return dataFetch;
 }
 
 function setURLSearchParams(link, url) {
@@ -180,6 +153,8 @@ function scrollToSection() {
 	const onPortfolioDetailPage = window.location.pathname.includes(pageURLs.portfolioDetail);
 	let offset;
 
+	els.scrollAnchors.forEach(el => el.classList.add(cssClasses.loaded));
+
 	if (section && !onPortfolioDetailPage) {
 		// add a slight delay to allow time for the page to be built
 		setTimeout(() => {
@@ -187,10 +162,6 @@ function scrollToSection() {
 
 			window.scrollTo(0, offset);
 		}, 100);
-	} else if (!section || onPortfolioDetailPage) {
-		// the user keeps being pushed to the middle of the page on load on mobile
-		// this is to prevent that
-		window.scrollTo(0, 0);
 	}
 }
 
@@ -234,16 +205,13 @@ function loaded() {
 // -- PUBLIC -- //
 export const global = {
 	cssClasses,
-	dataLoc,
 	els,
 	pageURLs,
 	searchParams,
 	templateSources,
 	urlParams,
 
-	fetchFn,
 	fixBodyScroll,
-	getGlobalData,
 	loaded,
 	removeSearchParams,
 	scrollToSection,

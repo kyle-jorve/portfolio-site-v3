@@ -1,27 +1,21 @@
+import { cvData } from '/dist/scripts/cv-data.js';
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { loader } from '/dist/scripts/loader.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
-let data;
-let template;
+const data = {
+	heroImg: cvData.heroImg,
+	bio: cvData.bio,
+	resume: cvData.resume
+};
+const template = Handlebars.templates[global.templateSources.cv](data);
 
 // build the <head>
-head.buildHead(global.dataLoc.cv);
+head.buildHead(cvData);
 
 // build the page
-global
-	.fetchFn(global.dataLoc.cv)
-	.then(d => {
-		data = {
-			heroImg: d.heroImg,
-			bio: d.bio,
-			resume: d.resume
-		};
+global.els.header.insertAdjacentHTML('afterend', template);
 
-		template = Handlebars.templates[global.templateSources.cv](data);
-
-		global.els.header.insertAdjacentHTML('afterend', template);
-	})
-	.catch(err => console.warn(err))
-	.finally(() => loader.init());
+// initialize loader
+loader.init();

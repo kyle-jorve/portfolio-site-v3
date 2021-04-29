@@ -1,50 +1,35 @@
+import { globalData } from '/dist/scripts/global-data.js';
+import { portfolioData } from '/dist/scripts/portfolio-data.js';
 import { global } from '/dist/scripts/global.js';
 import { nav } from '/dist/scripts/nav.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
-let data;
-let template;
+const data = {
+	nav: globalData.nav,
+	mobileNav: globalData.nav.filter(ni => ni.showInMobileNav),
+	social: [
+		...globalData.socialIcons.standard,
+		{
+			name: 'email',
+			cssClass: 'envelope',
+			url: `mailto:${globalData.email}`
+		},
+		...globalData.socialIcons.commerce
+	],
+	recentWork: portfolioData.items.slice(0, globalData.recentWorkLimit)
+};
+const template = Handlebars.templates[global.templateSources.header](data);
 
 // build the header
 function buildHeader() {
-	global
-		.getGlobalData()
-		.then(d => {
-			data = {
-				nav: d.nav,
-				social: [
-					...d.socialIcons.standard,
-					{
-						name: 'email',
-						cssClass: 'envelope',
-						url: `mailto:${d.email}`
-					},
-					...d.socialIcons.commerce
-				],
-				recentWorkLimit: d.recentWorkLimit
-			};
+	global.els.header.insertAdjacentHTML('afterbegin', template);
 
-			data.mobileNav = d.nav.filter(ni => ni.showInMobileNav);
-
-			return global.fetchFn(global.dataLoc.portfolio);
-		})
-		.then(d => {
-			data.recentWork = d.items.slice(0, data.recentWorkLimit);
-
-			// build header
-			template = Handlebars.templates[global.templateSources.header](data);
-
-			global.els.header.insertAdjacentHTML('afterbegin', template);
-		})
-		.catch(err => console.warn(err))
-		.finally(() => {
-			// initialize nav
-			if (window.location.pathname.includes(global.pageURLs.portfolioDetail)) {
-				nav.initPortfolioDetail();
-			} else {
-				nav.init();
-			}
-		});
+	// initialize nav
+	if (window.location.pathname.includes(global.pageURLs.portfolioDetail)) {
+		nav.initPortfolioDetail();
+	} else {
+		nav.init();
+	}
 }
 
 // -- PUBLIC -- //

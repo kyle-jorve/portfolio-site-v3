@@ -510,7 +510,7 @@
 		}
 
 		&__slide {
-			height: 90vh;
+			height: calc(100vh - 2em);
 			padding: nth($slidePadding, 1) nth($slidePadding, 2) nth($slidePadding, 3) nth($slidePadding, 4);
 
 			&--video iframe {

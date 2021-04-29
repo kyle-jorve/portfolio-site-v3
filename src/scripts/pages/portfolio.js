@@ -1,27 +1,21 @@
+import { portfolioData } from '/dist/scripts/portfolio-data.js';
 import { global } from '/dist/scripts/global.js';
 import { head } from '/dist/scripts/head.js';
 import { loader } from '/dist/scripts/loader.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
-let data;
-let template;
+const data = {
+	title: portfolioData.title,
+	items: portfolioData.items,
+	url: portfolioData.url
+};
+const template = Handlebars.templates[global.templateSources.portfolio](data);
 
 // build the <head>
-head.buildHead(global.dataLoc.portfolio);
+head.buildHead(portfolioData);
 
 // build the page
-global
-	.fetchFn(global.dataLoc.portfolio)
-	.then(d => {
-		data = {
-			title: d.title,
-			items: d.items,
-			url: d.url
-		};
+global.els.header.insertAdjacentHTML('afterend', template);
 
-		template = Handlebars.templates[global.templateSources.portfolio](data);
-
-		global.els.header.insertAdjacentHTML('afterend', template);
-	})
-	.catch(err => console.warn(err))
-	.finally(() => loader.init());
+// initiate loader
+loader.init();

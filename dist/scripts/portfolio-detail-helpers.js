@@ -1,83 +1,205 @@
-import{global}from"/dist/scripts/global.js";const dataAttrs={active:"data-active",dir:"data-dir",index:"data-index"},cssClasses={active:"active",bg:"showcase__bg",dot:"slider__dot",imgWrp:"showcase__imgWrp",slide:"showcase__slide",videoSlide:"showcase__slide--video",transOut:"transOut"};Handlebars.registerHelper("isSlider",s=>1<s.length),Handlebars.registerHelper("printSliderNav",s=>`
+import { global } from '/dist/scripts/global.js';
+
+const dataAttrs = {
+	active: 'data-active',
+	dir: 'data-dir',
+	index: 'data-index'
+};
+const cssClasses = {
+	active: 'active',
+	bg: 'showcase__bg',
+	dot: 'slider__dot',
+	imgWrp: 'showcase__imgWrp',
+	slide: 'showcase__slide',
+	videoSlide: 'showcase__slide--video',
+	transOut: 'transOut'
+};
+
+Handlebars.registerHelper('isSlider', media => media.length > 1);
+
+Handlebars.registerHelper('printSliderNav', media => {
+	return `
         <div class="slider__arrows">
             <button class="slider__arrow circleBtn circleBtn--prev" data-dir="prev"><span class="icon__text">Previous Slide</span></button>
             <button class="slider__arrow circleBtn circleBtn--next" data-dir="next"><span class="icon__text">Next Slide</span></button>
         </div>
 
         <div class="slider__dots" id="sliderDots">
-            ${s.map((s,e)=>`
+            ${media
+				.map((m, index) => {
+					return `
                     <button
-                        class="${cssClasses.dot}${0===e?` ${cssClasses.active}`:""}"
-                        data-index="${e}"
-                        ${0===e?dataAttrs.active:""}>
-                        </button>`).join("")}
-        </div>`),Handlebars.registerHelper("printSlides",i=>{return i.media.map((s,e)=>{return`
-                <div
-                    class="showcase__slide${0===e?` ${cssClasses.active}`:""}${s.video?` ${cssClasses.videoSlide}`:""}"
-                    style="z-index: ${i.media.length-e+1};"
-                    ${dataAttrs.index}="${e}"
-                    ${0===e?dataAttrs.active:""}>
+                        class="${cssClasses.dot}${index === 0 ? ` ${cssClasses.active}` : ''}"
+                        data-index="${index}"
+                        ${index === 0 ? dataAttrs.active : ''}>
+                        </button>`;
+				})
+				.join('')}
+        </div>`;
+});
 
-                    <div
-                        class="${cssClasses.imgWrp}${0===e?` ${cssClasses.active}`:""}">
-
-                        ${s.video?s.source:(s=s,`
+Handlebars.registerHelper('printSlides', item => {
+	function printPicture(media) {
+		return `
             <picture>
-                ${s.sources.map(s=>`
-                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`).join("")}
+                ${media.sources
+					.map(s => {
+						return `
+                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
+					})
+					.join('')}
                 
                 <img
                     class="showcase__img"
-                    src="${s.mobileSource}"
-                    alt="${s.alt}">
-            </picture>`)}
+                    src="${media.mobileSource}"
+                    alt="${media.alt}">
+            </picture>`;
+	}
+
+	return item.media
+		.map((m, index) => {
+			return `
+                <div
+                    class="showcase__slide${index === 0 ? ` ${cssClasses.active}` : ''}${
+				m.video ? ` ${cssClasses.videoSlide}` : ''
+			}"
+                    style="z-index: ${item.media.length - index + 1};"
+                    ${dataAttrs.index}="${index}"
+                    ${index === 0 ? dataAttrs.active : ''}>
+
+                    <div
+                        class="${cssClasses.imgWrp}${index === 0 ? ` ${cssClasses.active}` : ''}">
+
+                        ${m.video ? m.source : printPicture(m)}
 
                         <div class="showcase__slideIcons">
                             <button
                                 class="lightbox__slideZoom portfolio__icon showcase__icon icon icon--zoom"
-                                data-name="${i.name}"
-                                data-index="${e}">
+                                data-name="${item.name}"
+                                data-index="${index}">
 
                                 <span class="icon__text">View Full Screen</span>
                             </button>
                         </div>
                     </div>
-                </div>`}).join("")}),Handlebars.registerHelper("printBgs",i=>{function a(s,e){return`
+                </div>`;
+		})
+		.join('');
+});
+
+Handlebars.registerHelper('printBgs', media => {
+	function printPicture(media, index) {
+		return `
             <picture>
-                ${s.sources.map(s=>`
-                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`).join("")}
+                ${media.sources
+					.map(s => {
+						return `
+                            <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
+					})
+					.join('')}
                 <img
-                    class="${cssClasses.bg}${0===e?` ${cssClasses.active}`:""}"
-                    src="${s.mobileSource}"
-                    ${dataAttrs.index}="${e}"
-                    ${0===e?dataAttrs.active:""}>
-            </picture>`}return i.map((s,e)=>s.video?a(i[s.bgIndex],e):a(s,e)).join("")}),Handlebars.registerHelper("neighbors",s=>{const e=Object.entries(s.neighbors);var i,a,r=e.filter(s=>s[1]??!1).length<2;let t="";for([i,a]of e)a&&(t+=`
-                <article class="showcase__neighbor showcase__neighbor--${i}${r?" showcase__neighbor--solo":""}">
+                    class="${cssClasses.bg}${index === 0 ? ` ${cssClasses.active}` : ''}"
+                    src="${media.mobileSource}"
+                    ${dataAttrs.index}="${index}"
+                    ${index === 0 ? dataAttrs.active : ''}>
+            </picture>`;
+	}
+
+	return media
+		.map((m, index) => {
+			return m.video ? printPicture(media[m.bgIndex], index) : printPicture(m, index);
+		})
+		.join('');
+});
+
+Handlebars.registerHelper('neighbors', item => {
+	const entries = Object.entries(item.neighbors);
+	const solo = entries.filter(ent => ent[1] ?? false).length < 2;
+	let markup = '';
+
+	function truncateTitle(title) {
+		const titleArr = title.split(' ');
+		const maxLength = 25;
+		let truncTitle = '';
+
+		for (let i = 0; i < titleArr.length; i++) {
+			const word = titleArr[i];
+			const isLastWord = i === titleArr.length - 1;
+
+			if (truncTitle.length + word.length <= maxLength) {
+				truncTitle += `${word}${isLastWord ? '' : ' '}`;
+			} else {
+				truncTitle = truncTitle.trim();
+
+				if (truncTitle.length < title.length) {
+					truncTitle += '...';
+				}
+
+				break;
+			}
+		}
+
+		return truncTitle;
+	}
+
+	for (let [key, value] of entries) {
+		if (value) {
+			markup += `
+                <article class="showcase__neighbor showcase__neighbor--${key}${
+				solo ? ' showcase__neighbor--solo' : ''
+			}">
                     <a
                         class="showcase__neighborLink"
-                        href="/portfolio/detail/?piece=${a.name}&from=${global.urlParams.get("from")}">
+                        href="/portfolio/detail/?piece=${value.name}&from=${global.urlParams.get('from')}">
                         
                         <div class="showcase__neighborImgWrp">
                             <picture>
-                                ${a.detailThumbnail.sources.map(s=>`
-                                        <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`).join("")}
+                                ${value.detailThumbnail.sources
+									.map(s => {
+										return `
+                                        <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
+									})
+									.join('')}
                                 <img
-                                    class="showcase__neighborImg showcase__neighborImg--${a.orientation}"
-                                    src="${a.detailThumbnail.mobileSource}"
-                                    alt="${a.detailThumbnail.alt}">
+                                    class="showcase__neighborImg showcase__neighborImg--${value.orientation}"
+                                    src="${value.detailThumbnail.mobileSource}"
+                                    alt="${value.detailThumbnail.alt}">
                             </picture>
                         </div>
 
                         <div class="showcase__neighborInner">
                             <span
-                                class="showcase__neighborArrow circleBtn circleBtn--outlined circleBtn--${"previous"===i?"back":"forward"}">
+                                class="showcase__neighborArrow circleBtn circleBtn--outlined circleBtn--${
+									key === 'previous' ? 'back' : 'forward'
+								}">
                             </span>
 
                             <div class="showcase__neighborContent">
-                                <h2 class="showcase__neighborHeading">${i.charAt(0).toUpperCase()}${i.slice(1)}</h2>
-                                <h3 class="showcase__neighborTitle">${function(e){var i=e.split(" ");let a="";for(let s=0;s<i.length;s++){var r=i[s],t=s===i.length-1;if(!(a.length+r.length<=25)){a=a.trim(),a.length<e.length&&(a+="...");break}a+=`${r}${t?"":" "}`}return a}(a.title)}</h3>
+                                <h2 class="showcase__neighborHeading">${key.charAt(0).toUpperCase()}${key.slice(1)}</h2>
+                                <h3 class="showcase__neighborTitle">${truncateTitle(value.title)}</h3>
                             </div>
                         </div>
 
                     </a>
-                </article>`);return t}),Handlebars.registerHelper("hasPurchaseLinks",s=>s.purchaseLink||s.downloadLink);const detailHelpers={cssClasses:cssClasses,dataAttrs:dataAttrs,hasPurchaseLinks:Handlebars.helpers.hasPurchaseLinks,isSlider:Handlebars.helpers.isSlider,neighbors:Handlebars.helpers.neighbors,printDots:Handlebars.helpers.printDots,printSlides:Handlebars.helpers.printSlides,printBgs:Handlebars.helpers.printBgs};export{detailHelpers};
+                </article>`;
+		}
+	}
+
+	return markup;
+});
+
+Handlebars.registerHelper('hasPurchaseLinks', item => {
+	return item.purchaseLink || item.downloadLink;
+});
+
+export const detailHelpers = {
+	cssClasses,
+	dataAttrs,
+
+	hasPurchaseLinks: Handlebars.helpers.hasPurchaseLinks,
+	isSlider: Handlebars.helpers.isSlider,
+	neighbors: Handlebars.helpers.neighbors,
+	printDots: Handlebars.helpers.printDots,
+	printSlides: Handlebars.helpers.printSlides,
+	printBgs: Handlebars.helpers.printBgs
+};

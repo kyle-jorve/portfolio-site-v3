@@ -1,3 +1,4 @@
+import { globalData } from '/dist/scripts/global-data.js';
 import { global } from '/dist/scripts/global.js';
 
 const seoProps = {
@@ -39,40 +40,27 @@ function augmentData(augData) {
 
 // build the head
 function buildHead(dataSrc = false, augData = false) {
-	global
-		.getGlobalData()
-		.then(d => {
-			if (d.seo) {
-				data = d.seo;
-			}
+	if (globalData.seo) {
+		data = globalData.seo;
+	}
 
-			data.siteUrl = d.siteUrl;
+	data.siteUrl = globalData.siteUrl;
 
-			data.metaImage = updateMetaImage(data[seoProps.metaImage]);
+	data.metaImage = updateMetaImage(data[seoProps.metaImage]);
 
-			if (augData) {
-				augmentData(augData);
-			}
+	if (augData) {
+		augmentData(augData);
+	}
 
-			if (dataSrc) {
-				return global.fetchFn(dataSrc);
-			} else {
-				throw new Error('No augmenting data, moving on');
-			}
-		})
-		.then(d => {
-			if (d.seo) {
-				d = d.seo;
+	if (dataSrc && dataSrc.seo) {
+		dataSrc = dataSrc.seo;
 
-				augmentData(d);
-			}
-		})
-		.catch(err => console.warn(err))
-		.finally(() => {
-			template = Handlebars.templates[global.templateSources.head](data);
+		augmentData(dataSrc);
+	}
 
-			global.els.head.insertAdjacentHTML('afterbegin', template);
-		});
+	template = Handlebars.templates[global.templateSources.head](data);
+
+	global.els.head.insertAdjacentHTML('afterbegin', template);
 }
 
 // -- PUBLIC -- //

@@ -1,3 +1,4 @@
+import { portfolioData } from '/dist/scripts/portfolio-data.js';
 import { global } from '/dist/scripts/global.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
@@ -125,84 +126,75 @@ function zoomImage(button) {
 	let buttonHref = `${global.pageURLs.portfolioDetail}?${global.searchParams.piece}=${imageName}&${
 		global.searchParams.from
 	}=${window.location.pathname}${sectionID ? `&${global.searchParams.section}=${sectionID}` : ''}`;
+	const data = portfolioData.items.find(i => i.name === imageName);
+	const imgMarkup = makePictureMarkup(data, cssClass.img);
+	const bgMarkup = makePictureMarkup(data, cssClasses.bg);
 	let curBreakpoint = 0;
 	let imgBreakpoints;
 	let showLoadBar;
 	let portfolioItem;
 	let imgEl;
-	let data;
-	let imgMarkup;
-	let bgMarkup;
+
+	data.media = data.media[mediaIndex];
 
 	// update button href
 	if (els.button) {
 		els.button.href = decodeURIComponent(buttonHref);
 	}
 
-	// get image data
-	global.fetchFn(global.dataLoc.portfolio).then(d => {
-		data = d.items.find(i => i.name === imageName);
+	// inject markup
+	els.box.insertAdjacentHTML('beforeend', imgMarkup);
+	els.overlay.insertAdjacentHTML('afterbegin', bgMarkup);
 
-		data.media = data.media[mediaIndex];
+	// if we're on a portfolio detail page, just open the lightbox
+	if (onPortfolioDetailPage) {
+		openLightbox();
+	}
+	// otherwise, wait for the image to load
+	else {
+		// initiate portfolio item loader
+		portfolioItem = button.closest(`.${global.cssClasses.portfolioItem}`);
 
-		// build markup
-		imgMarkup = makePictureMarkup(data, cssClasses.img);
-		bgMarkup = makePictureMarkup(data, cssClasses.bg);
+		showLoadBar = setTimeout(() => {
+			portfolioItem.classList.add(global.cssClasses.portfolioItemLoading);
+		}, 500);
 
-		// inject markup
-		els.box.insertAdjacentHTML('beforeend', imgMarkup);
-		els.overlay.insertAdjacentHTML('afterbegin', bgMarkup);
+		// create a new image element
+		imgEl = document.createElement('img');
 
-		// if we're on a portfolio detail page, just open the lightbox
-		if (onPortfolioDetailPage) {
-			openLightbox();
-		}
-		// otherwise, wait for the image to load
-		else {
-			// initiate portfolio item loader
-			portfolioItem = button.closest(`.${global.cssClasses.portfolioItem}`);
+		// update imgEl source
+		imgEl.src =
+			curBreakpoint === 0
+				? data.media.mobileSource
+				: data.media.sources.find(src => src.minScreenSize === curBreakpoint).url;
 
-			showLoadBar = setTimeout(() => {
-				portfolioItem.classList.add(global.cssClasses.portfolioItemLoading);
-			}, 500);
+		// find out which image needs to load based on how large the viewport is
+		imgBreakpoints = data.media.sources.map(source => source.minScreenSize).sort((a, b) => a - b);
 
-			// create a new image element
-			imgEl = document.createElement('img');
+		for (let i = 0; i < imgBreakpoints.length; i++) {
+			const br = imgBreakpoints[i];
+			const nextBr = imgBreakpoints[i + 1] ?? false;
 
-			// update imgEl source
-			imgEl.src =
-				curBreakpoint === 0
-					? data.media.mobileSource
-					: data.media.sources.find(src => src.minScreenSize === curBreakpoint).url;
+			if (window.innerWidth > br) {
+				if (nextBr && window.innerWidth > nextBr) {
+					continue;
+				} else {
+					curBreakpoint = br;
 
-			// find out which image needs to load based on how large the viewport is
-			imgBreakpoints = data.media.sources.map(source => source.minScreenSize).sort((a, b) => a - b);
-
-			for (let i = 0; i < imgBreakpoints.length; i++) {
-				const br = imgBreakpoints[i];
-				const nextBr = imgBreakpoints[i + 1] ?? false;
-
-				if (window.innerWidth > br) {
-					if (nextBr && window.innerWidth > nextBr) {
-						continue;
-					} else {
-						curBreakpoint = br;
-
-						break;
-					}
+					break;
 				}
 			}
-
-			// when image loads, reveal lightbox
-			imgEl.addEventListener('load', () => {
-				openLightbox();
-
-				clearTimeout(showLoadBar);
-
-				portfolioItem.classList.remove(global.cssClasses.portfolioItemLoading);
-			});
 		}
-	});
+
+		// when image loads, reveal lightbox
+		imgEl.addEventListener('load', () => {
+			openLightbox();
+
+			clearTimeout(showLoadBar);
+
+			portfolioItem.classList.remove(global.cssClasses.portfolioItemLoading);
+		});
+	}
 }
 
 function makePictureMarkup(data, cssClass) {
