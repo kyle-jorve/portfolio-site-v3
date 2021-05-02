@@ -11,9 +11,6 @@ const data = {
 };
 const template = Handlebars.templates[global.templateSources.portfolio](data);
 
-// build the <head>
-head.buildHead(portfolioData.seo);
-
 // build the page
 global.els.header.insertAdjacentHTML('afterend', template);
 

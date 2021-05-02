@@ -476,7 +476,7 @@
 
 	@media (max-width: $tablet), (max-height: $tablet) {
 		$vidWidth: '100vw - 4em';
-		$slidePadding: (8em, 2em, 4em, 2em);
+		$slidePadding: (6.5em, 2em, 3.5em, 2em);
 
 		display: block;
 		height: auto;
@@ -561,7 +561,7 @@
 	/*==========----------==========*/
 
 	@media (max-width: $phone) {
-		$slidePadding: (6em, 2em, 4em, 2em);
+		$slidePadding: (5.5em, 1em, 2.5em, 1em);
 
 		.slider__arrows {
 			top: calc(50% + #{(nth($slidePadding, 1) / 2) - (nth($slidePadding, 3) / 2)});
@@ -576,7 +576,7 @@
 		}
 
 		&__slide {
-			padding-top: nth($slidePadding, 1);
+			padding: nth($slidePadding, 1) nth($slidePadding, 2) nth($slidePadding, 3) nth($slidePadding, 4);
 		}
 
 		&__neighbors {

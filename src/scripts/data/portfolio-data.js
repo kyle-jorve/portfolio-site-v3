@@ -1,13 +1,12 @@
 export const portfolioData = {
 	url: '/portfolio/',
-	title: 'Portfolio',
-	pageIcon: '/dist/media/icons/portfolio-icon.svg',
-	seo: { canon: 'portfolio', metaTitle: 'Portfolio' },
+	title: 'Gallery',
+	seo: { canon: 'portfolio', metaTitle: 'Gallery' },
 	items: [
 		{
 			name: 'cargha',
 			title: 'Cargha Bezamik',
-			content: `<blockquote class="blockquote"><p><strong>I was only a thief back then, part of a guild of them, living on a little Sylranian island called <i>Dorokilson</i>. In Daylish you might call it the Island of Holes. It was an apt name, for whoever came through there, if they’d anything worth losing, we made sure it was lost—eaten by the Island.</strong></p><cite class="cite"><small>&mdash;Cargha Bezamik</small></cite></blockquote><p><strong>Cargha Bezamik</strong> is employed as a spy and assassin for the antagonist in an in-progress fantasy novel. As with much else in this story, Cargha is not quite what he seems at first, and his motivations are often nebulous.</p>`,
+			content: `<blockquote class="blockquote"><p><strong>I was only a thief back then, part of a guild of them, living on a little Sylranian island called <i>Dorokilson</i>. In Daylish you might call it the Island of Holes. It was an apt name, for whoever came through there, if they'd anything worth losing, we made sure it was lost&mdash;eaten by the Island.</strong></p><cite class="cite"><small>&mdash;Cargha Bezamik</small></cite></blockquote><p><strong>Cargha Bezamik</strong> is employed as a spy and assassin for the antagonist in an in-progress fantasy novel. As with much else in this story, Cargha is not quite what he seems at first, and his motivations are often nebulous.</p>`,
 			dimensions: [640, 848],
 			orientation: 'center',
 			featured: true,
@@ -774,7 +773,7 @@ export const portfolioData = {
 		{
 			name: 'becoming-eidolon',
 			title: 'Becoming Eidolon',
-			content: `<blockquote class="blockquote"><p><strong>Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you’d seen his body and known the stillness of it. There will be no peace for you until you do.</strong><cite class="cite"><small>&mdash;Pendrake Sommer, Duke of Tersing</small></cite></p></blockquote><p>The character depicted here is a protagonist of the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>`,
+			content: `<blockquote class="blockquote"><p><strong>Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you'd seen his body and known the stillness of it. There will be no peace for you until you do.</strong><cite class="cite"><small>&mdash;Pendrake Sommer, Duke of Tersing</small></cite></p></blockquote><p>The character depicted here is a protagonist of the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>`,
 			dimensions: [640, 1252],
 			orientation: 'center',
 			featured: true,

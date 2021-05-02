@@ -5,7 +5,7 @@ export const globalData = {
 	siteUrl: 'https://kylejorve.com',
 	seo: {
 		canon: 'https://kylejorve.com/',
-		metaTitle: 'Kyle Jorve | Art, Illustration, and Design',
+		metaTitle: 'Kyle Jorve | Illustration and Design',
 		metaDesc:
 			'Kyle Jorve is an illustrator, designer, writer, and front end developer working primarily in the genres of fantasy and science fiction.',
 		metaImage: '/dist/media/portfolio/pendrakes-chamber/final/kyle-jorve_pendrakes-chamber-640.jpg'

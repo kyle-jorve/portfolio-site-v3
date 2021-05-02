@@ -98,7 +98,7 @@ function eventListeners() {
 function initForPortfolioDetail() {
 	const button = document.querySelector('#navBtn');
 	const search = window.location.search;
-	const destination = new URLSearchParams(search).get('from');
+	const destination = new URLSearchParams(search).get('from') ?? '/portfolio/';
 
 	button.addEventListener('click', event => {
 		event.preventDefault();

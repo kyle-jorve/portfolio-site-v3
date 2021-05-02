@@ -73,13 +73,27 @@
 	}
 
 	/*==========----------==========*/
-	/*    $phone WIDTH or HEIGHT   */
+	/*    $phone WIDTH or HEIGHT    */
 	/*==========----------==========*/
 
 	@media (max-width: $phone), (max-height: $phone) {
 		&__dot {
 			width: 0.75em;
 			height: 0.75em;
+		}
+	}
+
+	/*==========----------==========*/
+	/*         $phone WIDTH         */
+	/*==========----------==========*/
+
+	@media (max-width: $phone) {
+		&__arrows {
+			padding: 0 0.5em;
+		}
+
+		&__dots {
+			bottom: 1em;
 		}
 	}
 }

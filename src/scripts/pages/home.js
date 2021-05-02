@@ -21,9 +21,6 @@ data.bio.url = `${cvData.url}#resume`;
 
 template = Handlebars.templates[global.templateSources.home](data);
 
-// build the <head>
-head.buildHead();
-
 // build the page
 global.els.header.insertAdjacentHTML('afterend', template);
 

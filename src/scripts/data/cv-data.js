@@ -1,10 +1,9 @@
 export const cvData = {
 	url: '/cv/',
 	title: 'Bio',
-	pageIcon: '/dist/media/icons/cv-icon.svg',
 	seo: {
 		canon: 'cv',
-		metaTitle: 'Résumé and Bio'
+		metaTitle: 'Resume and Bio'
 	},
 	heroImg: {
 		url: '/dist/media/images/portrait/portrait-square-640.jpg',
