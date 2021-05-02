@@ -12,7 +12,7 @@ const data = {
 const template = Handlebars.templates[global.templateSources.cv](data);
 
 // build the <head>
-head.buildHead(cvData);
+head.buildHead(cvData.seo);
 
 // build the page
 global.els.header.insertAdjacentHTML('afterend', template);

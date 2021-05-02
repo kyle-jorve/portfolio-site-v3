@@ -7,11 +7,13 @@ const seoProps = {
 	metaDesc: 'metaDesc',
 	metaTitle: 'metaTitle'
 };
-let data;
+let data = globalData.seo;
 let template;
 
+data.metaImage = updateMetaImage(data[seoProps.metaImage]);
+
 function updateMetaImage(src) {
-	return `${data.siteUrl}${src}`;
+	return `${globalData.siteUrl}${src}`;
 }
 
 function augmentData(augData) {
@@ -39,23 +41,9 @@ function augmentData(augData) {
 }
 
 // build the head
-function buildHead(dataSrc = false, augData = false) {
-	if (globalData.seo) {
-		data = globalData.seo;
-	}
-
-	data.siteUrl = globalData.siteUrl;
-
-	data.metaImage = updateMetaImage(data[seoProps.metaImage]);
-
+function buildHead(augData = false) {
 	if (augData) {
 		augmentData(augData);
-	}
-
-	if (dataSrc && dataSrc.seo) {
-		dataSrc = dataSrc.seo;
-
-		augmentData(dataSrc);
 	}
 
 	template = Handlebars.templates[global.templateSources.head](data);

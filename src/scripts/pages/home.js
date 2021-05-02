@@ -13,8 +13,6 @@ data.portfolio.featured = portfolioData.items.filter(item => item.featured).slic
 
 data.portfolio.url = portfolioData.url;
 
-data.portfolio.featured.forEach(item => (item.thumbnail = item.featuredThumbnail));
-
 for (let prop in cvData.bio) {
 	data.bio[prop] = cvData.bio[prop];
 }
@@ -24,7 +22,7 @@ data.bio.url = `${cvData.url}#resume`;
 template = Handlebars.templates[global.templateSources.home](data);
 
 // build the <head>
-head.buildHead(homeData);
+head.buildHead();
 
 // build the page
 global.els.header.insertAdjacentHTML('afterend', template);

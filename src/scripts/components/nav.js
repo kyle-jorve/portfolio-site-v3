@@ -7,6 +7,7 @@ const cssClasses = {
 };
 let navActive = false;
 let els;
+let navTransitionDur;
 
 function initiateNav() {
 	els = {
@@ -17,10 +18,13 @@ function initiateNav() {
 		recentWorkItems: Array.from(document.querySelectorAll('.header .portfolio__item')),
 		socialIcons: Array.from(document.querySelectorAll('.header .social__item'))
 	};
-	const navTransitionDur =
-		parseFloat(window.getComputedStyle(els.nav).getPropertyValue('transition-duration')) * 1000;
+	navTransitionDur = parseFloat(window.getComputedStyle(els.nav).getPropertyValue('transition-duration')) * 1000;
 
-	// -- EVENT LISTENERS -- //
+	// add event listeners
+	eventListeners();
+}
+
+function eventListeners() {
 	els.navButton.addEventListener('click', () => {
 		// keep the user from clicking on the nav button too rapidly and creating a strange nav state
 		els.navButton.style.pointerEvents = 'none';

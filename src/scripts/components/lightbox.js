@@ -127,15 +127,18 @@ function zoomImage(button) {
 		global.searchParams.from
 	}=${window.location.pathname}${sectionID ? `&${global.searchParams.section}=${sectionID}` : ''}`;
 	const data = portfolioData.items.find(i => i.name === imageName);
-	const imgMarkup = makePictureMarkup(data, cssClass.img);
-	const bgMarkup = makePictureMarkup(data, cssClasses.bg);
+	const media = data.media[mediaIndex];
 	let curBreakpoint = 0;
 	let imgBreakpoints;
 	let showLoadBar;
 	let portfolioItem;
 	let imgEl;
+	let imgMarkup;
+	let bgMarkup;
 
-	data.media = data.media[mediaIndex];
+	// create image markup
+	imgMarkup = makePictureMarkup(media, cssClasses.img);
+	bgMarkup = makePictureMarkup(media, cssClasses.bg);
 
 	// update button href
 	if (els.button) {
@@ -162,14 +165,8 @@ function zoomImage(button) {
 		// create a new image element
 		imgEl = document.createElement('img');
 
-		// update imgEl source
-		imgEl.src =
-			curBreakpoint === 0
-				? data.media.mobileSource
-				: data.media.sources.find(src => src.minScreenSize === curBreakpoint).url;
-
 		// find out which image needs to load based on how large the viewport is
-		imgBreakpoints = data.media.sources.map(source => source.minScreenSize).sort((a, b) => a - b);
+		imgBreakpoints = media.sources.map(source => source.minScreenSize).sort((a, b) => a - b);
 
 		for (let i = 0; i < imgBreakpoints.length; i++) {
 			const br = imgBreakpoints[i];
@@ -186,6 +183,12 @@ function zoomImage(button) {
 			}
 		}
 
+		// update imgEl source
+		imgEl.src =
+			curBreakpoint === 0
+				? media.mobileSource
+				: media.sources.find(src => src.minScreenSize === curBreakpoint).url;
+
 		// when image loads, reveal lightbox
 		imgEl.addEventListener('load', () => {
 			openLightbox();
@@ -197,17 +200,17 @@ function zoomImage(button) {
 	}
 }
 
-function makePictureMarkup(data, cssClass) {
+function makePictureMarkup(media, cssClass) {
 	return `
         <picture>
-            ${data.media.sources
+            ${media.sources
 				.map(s => {
 					return `
                     <source srcset="${s.url}" media="(min-width: ${s.minScreenSize}px)">`;
 				})
 				.join('')}
 
-            <img class="${cssClass}" src="${data.media.mobileSource}" alt="${data.media.alt}">
+            <img class="${cssClass}" src="${media.mobileSource}" alt="${media.alt}">
         </picture>`;
 }
 

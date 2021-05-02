@@ -19,7 +19,7 @@ Handlebars.registerHelper('printSocialIcon', item => {
         </a>`;
 });
 
-Handlebars.registerHelper('printPortfolioItem', (item, section) => {
+Handlebars.registerHelper('printPortfolioItem', (item, section, isFeaturedWork) => {
 	const aspect = item.dimensions[0] / item.dimensions[1];
 	const url = window.location.pathname;
 	const itemClass =
@@ -31,19 +31,20 @@ Handlebars.registerHelper('printPortfolioItem', (item, section) => {
 	const href = `${global.pageURLs.portfolioDetail}?piece=${item.name}&from=${url}${
 		section ? `&${global.searchParams.section}=${section}` : ''
 	}`;
+	const thumbnail = isFeaturedWork ? item.featuredThumbnail : item.thumbnail;
 
 	return `
         <article class="${global.cssClasses.portfolioItem} ${itemClass}">
             <a class="portfolio__itemLink" href="${href}">
                 <picture>
-                    ${item.thumbnail.sources
+                    ${thumbnail.sources
 						.map(i => {
 							return `<source srcset="${i.url}" media="(min-width: ${i.minScreenSize}px)">`;
 						})
 						.join('')}
                     <img class="portfolio__img portfolio__img--${item.orientation}"
-                        src="${item.thumbnail.mobileSource}"
-                        alt="${item.thumbnail.alt}"
+                        src="${thumbnail.mobileSource}"
+                        alt="${thumbnail.alt}"
                         width="${item.dimensions[0]}"
                         height="${item.dimensions[1]}">
                 </picture>
@@ -58,7 +59,7 @@ Handlebars.registerHelper('printPortfolioItem', (item, section) => {
                     <button
                         class="portfolio__icon lightbox__imageZoom icon icon--search-plus"
                         data-name="${item.name}"
-                        data-index="${item.thumbnail.mediaIndex}">
+                        data-index="${thumbnail.mediaIndex}">
 
                         <span class="icon__text">View Full Screen</span>
                     </button>

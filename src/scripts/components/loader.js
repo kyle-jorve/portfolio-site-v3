@@ -12,8 +12,15 @@ const mutationObserverConfig = {
 	characterData: true,
 	attributes: true
 };
-const els = {};
-const transDurs = {};
+const els = {
+	loader: document.querySelector('#loader'),
+	loaderBottom: document.querySelector('#loaderBottom'),
+	track: document.querySelector(`#loader .${cssClasses.track}`)
+};
+const transDurs = {
+	track: parseFloat(window.getComputedStyle(els.track).getPropertyValue('transition-duration')) * 1000,
+	loader: parseFloat(window.getComputedStyle(els.loader).getPropertyValue('transition-duration')) * 1000
+};
 const time = 300; // time to wait to dismiss the loader
 let mutationObserver;
 let loadTimeout;
@@ -22,16 +29,10 @@ let revealLoadBar;
 function initLoader(callback = false) {
 	mutationObserver = new MutationObserver((mutations, observer) => mutationHandler(mutations, observer, callback));
 
-	els.track = global.els.loader.querySelector(`.${cssClasses.track}`);
-
-	transDurs.track = parseFloat(window.getComputedStyle(els.track).getPropertyValue('transition-duration')) * 1000;
-	transDurs.loader =
-		parseFloat(window.getComputedStyle(global.els.loader).getPropertyValue('transition-duration')) * 1000;
-
 	// reveal the loader
 	revealLoadBar = setTimeout(() => {
 		els.track.classList.add(cssClasses.active);
-	}, 500);
+	}, 300);
 
 	// observe the document
 	mutationObserver.observe(document, mutationObserverConfig);
@@ -88,11 +89,11 @@ function revealPage() {
 
 	// dismiss load overlay
 	setTimeout(() => {
-		global.els.loader.classList.add(cssClasses.hide);
+		els.loader.classList.add(cssClasses.hide);
 	}, transDurs.track);
 
 	// allow smooth page transitions
-	global.els.loaderBottom.classList.add(cssClasses.show);
+	els.loaderBottom.classList.add(cssClasses.show);
 
 	// trigger "fully loaded"
 	global.loaded();
@@ -100,7 +101,7 @@ function revealPage() {
 
 // reveal loader
 function revealLoader() {
-	global.els.loaderBottom.classList.add(cssClasses.active);
+	els.loaderBottom.classList.add(cssClasses.active);
 }
 
 export const loader = {

@@ -1,3 +1,4 @@
+import { lightbox } from '/dist/scripts/lightbox.js';
 import { detailHelpers } from '/dist/scripts/portfolio-detail-helpers.js';
 
 const directions = {
@@ -7,9 +8,19 @@ const directions = {
 let els;
 let slideTransDur;
 
-function initSlider(options) {
-	els = options.els;
-	slideTransDur = options.slideTransDur;
+function initSlider() {
+	// define variables
+	els = {
+		arrows: Array.from(document.querySelectorAll('.slider__arrow')),
+		bgs: Array.from(document.querySelectorAll(`.${detailHelpers.cssClasses.bg}`)),
+		dots: Array.from(document.querySelectorAll(`.${detailHelpers.cssClasses.dot}`)),
+		lightboxSlides: Array.from(lightbox.els.wrapper.querySelectorAll(`.${detailHelpers.cssClasses.slide}`)),
+		showcaseSlider: document.querySelector('#showcaseSlider'),
+		showcaseSlides: Array.from(document.querySelectorAll(`#showcaseSlider .${detailHelpers.cssClasses.slide}`))
+	};
+
+	slideTransDur =
+		parseFloat(window.getComputedStyle(els.showcaseSlides[0]).getPropertyValue('transition-duration')) * 1000;
 
 	// add event listeners
 	if (els.showcaseSlides.length > 1) {
@@ -20,10 +31,6 @@ function initSlider(options) {
 		els.dots.forEach(dot => dot.addEventListener('click', () => dotHandler(dot)));
 	}
 }
-
-export const slider = {
-	init: initSlider
-};
 
 function arrowHandler(arrow) {
 	const direction = arrow.getAttribute(detailHelpers.dataAttrs.dir);
@@ -145,3 +152,7 @@ function activateBg(bgs) {
 		bg.setAttribute(detailHelpers.dataAttrs.active, true);
 	});
 }
+
+export const slider = {
+	init: initSlider
+};

@@ -38,8 +38,6 @@ const els = {
 	footer: document.querySelector('#footer'),
 	head: document.querySelector('head'),
 	header: document.querySelector('#header'),
-	loader: document.querySelector('#loader'),
-	loaderBottom: document.querySelector('#loaderBottom'),
 	scrollAnchors: [document.querySelector('body'), document.querySelector('html')]
 };
 let search = window.location.search;
