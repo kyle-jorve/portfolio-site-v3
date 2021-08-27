@@ -6,7 +6,7 @@ import { head } from '/dist/scripts/head.js';
 import { loader } from '/dist/scripts/loader.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 
-let data = homeData;
+let data = { ...homeData };
 let template;
 
 data.portfolio.featured = portfolioData.items.filter(item => item.featured).slice(0, data.portfolio.itemsLimit);

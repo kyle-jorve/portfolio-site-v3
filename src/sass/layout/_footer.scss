@@ -7,7 +7,7 @@
 .footer {
 	&__icons {
 		display: grid;
-		grid-template: auto / #{map-get($golden-ratio, large)}fr #{map-get($golden-ratio, small)}fr;
+		grid-template: auto / 4fr 3fr;
 	}
 
 	&__copyright {

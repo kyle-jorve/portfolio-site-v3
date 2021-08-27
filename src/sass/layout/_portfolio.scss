@@ -15,7 +15,7 @@
 
 	&__grid {
 		display: grid;
-		grid-template: repeat(2, 20vw) / repeat(4, 1fr);
+		grid-template: 20vw / repeat(4, 1fr);
 		gap: 1em;
 		grid-auto-flow: dense;
 		grid-auto-rows: 20vw;
@@ -227,7 +227,7 @@
 	/*==========----------==========*/
 
 	&__grid--nav {
-		grid-template-rows: repeat(2, 300px);
+		grid-template-rows: 300px;
 		grid-auto-rows: 300px;
 
 		#{$portfolio}__item {
@@ -322,7 +322,7 @@
 
 	@media (max-width: $tablet) {
 		&__grid--nav {
-			grid-template-rows: repeat(2, 30vw);
+			grid-template-rows: 30vw;
 			grid-auto-rows: 30vw;
 		}
 	}

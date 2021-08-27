@@ -270,6 +270,8 @@
 	/*==========----------==========*/
 
 	&--ie {
+		z-index: 1200;
+
 		#{$lightbox}__overlay {
 			cursor: auto;
 		}

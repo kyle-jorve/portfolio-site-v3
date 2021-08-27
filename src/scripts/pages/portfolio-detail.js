@@ -7,14 +7,15 @@ import { slider } from '/dist/scripts/slider.js';
 import { helpers } from '/dist/scripts/global-helpers.js';
 import { detailHelpers } from '/dist/scripts/portfolio-detail-helpers.js';
 
-let data = portfolioData.items.find(i => i.name === global.urlParams.get(global.searchParams.piece));
-const itemIndex = portfolioData.items.indexOf(data);
+const portfolioDataCopy = { ...portfolioData };
+let data = portfolioDataCopy.items.find(i => i.name === global.urlParams.get(global.searchParams.piece));
+const itemIndex = portfolioDataCopy.items.indexOf(data);
 let template;
 
 // massage data
 data.neighbors = {
-	next: portfolioData.items[itemIndex + 1],
-	previous: portfolioData.items[itemIndex - 1]
+	next: portfolioDataCopy.items[itemIndex + 1],
+	previous: portfolioDataCopy.items[itemIndex - 1]
 };
 
 data.seo = {

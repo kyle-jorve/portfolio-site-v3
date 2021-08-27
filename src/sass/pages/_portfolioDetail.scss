@@ -214,16 +214,15 @@
 	);
 
 	&__slide--video {
+		#{$showcase}__imgWrp::before,
+		#{$showcase}__slideIcons {
+			display: none;
+		}
+
 		iframe {
 			width: $vidWidth;
 			height: calc(#{$vidWidth} / 16 * 9);
 			max-height: 100%;
-		}
-
-		@media (hover: none) {
-			#{$showcase}__slideIcons {
-				display: none;
-			}
 		}
 	}
 
