@@ -1,41 +1,51 @@
-<div class="showcase">
-    <section class="showcase__section showcase__section--media">
-        <div class="showcase__slider" id="showcaseSlider">
-            {{{printSlides this}}}
-        </div>
+<div class='showcase'>
+	<section class='showcase__section showcase__section--media'>
+		<div class='showcase__slider' id='showcaseSlider'>
+			{{{printSlides this}}}
+		</div>
 
-        {{#if (isSlider media)}}
-            {{{printSliderNav media}}}
-        {{/if}}
+		{{#if (isSlider media)}}
+			{{{printSliderNav media}}}
+		{{/if}}
 
-        <div class="showcase__bgWrp" aria-hidden="true">
-            {{{printBgs media}}}
-        </div>
-    </section>
-    
-    <section class="showcase__section showcase__section--content">
-        <div class="showcase__contentWrapper wrapper wrapper--content">
-            <h1 class="showcase__title">{{title}}</h1>
+		<div class='showcase__bgWrp' aria-hidden='true'>
+			{{{printBgs media}}}
+		</div>
+	</section>
 
-            {{{content}}}
+	<section class='showcase__section showcase__section--content'>
+		<div class='showcase__contentWrapper wrapper wrapper--content'>
+			<h1 class='showcase__title'>{{title}}</h1>
 
-            {{#if (hasPurchaseLinks this)}}
-                <div class="showcase__buttons button__wrapper button__wrapper--justifyRight">
-                    {{#if purchaseLink}}
-                        <a class="button button--primary button--shop" href="{{purchaseLink}}" target="_blank" rel="nofollow noopener noreferrer">Purchase</a>
-                    {{/if}}
+			{{{content}}}
 
-                    {{#if downloadLink}}
-                        <a class="button button--primary button--download" href="{{purchaseLink}}" target="_blank" rel="nofollow noopener noreferrer">Download</a>
-                    {{/if}}
-                </div>
-            {{/if}}
+			{{#if (hasPurchaseLinks this)}}
+				<div class='showcase__buttons button__wrapper button__wrapper--justifyRight'>
+					{{#if purchaseLink}}
+						<a
+							class='button button--primary button--shop'
+							href='{{purchaseLink}}'
+							target='_blank'
+							rel='nofollow noopener noreferrer'
+						>Purchase</a>
+					{{/if}}
 
-            <hr class="showcase__hr">
+					{{#if downloadLink}}
+						<a
+							class='button button--primary button--download'
+							href='{{downloadLink}}'
+							target='_blank'
+							rel='nofollow noopener noreferrer'
+						>Download</a>
+					{{/if}}
+				</div>
+			{{/if}}
 
-            <div class="showcase__neighbors">
-                {{{neighbors this}}}
-            </div>
-        </div>
-    </section>
+			<hr class='showcase__hr' />
+
+			<div class='showcase__neighbors'>
+				{{{neighbors this}}}
+			</div>
+		</div>
+	</section>
 </div>

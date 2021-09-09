@@ -14,6 +14,224 @@ export const portfolioData = {
 	get items() {
 		return [
 			{
+				name: 'talis',
+				title: 'Talis Sommer',
+				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the main protagonist in the story I'm currently writing, Ashes of the Eidolons. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
+                <p>Unlike her noble contemporaries, Talis prefers to spend her time honing her skills with a saber and bow. As such, she's earned the admiration and respect of her peers in the soldiery.</p>
+                <p>In stark contrast with her brother, Talis is highly disciplined and dedicates herself fully to everything she pursues. Some have even speculated that she should be the heir instead of her brother.</p>`,
+				dimensions: [640, 854],
+				orientation: 'center',
+				featured: true,
+				purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/',
+				downloadLink: 'https://app.gumroad.com/kylejorve',
+				thumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-480.jpg',
+							minScreenSize: 1024
+						},
+						{
+							url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-512.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-320.jpg',
+					alt: 'a portrait of Talis Sommer',
+					mediaIndex: 0
+				},
+				featuredThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-640.jpg',
+							minScreenSize: 1440
+						},
+						{
+							url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-480.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-320.jpg',
+					alt: 'a portrait of Talis Sommer',
+					mediaIndex: 0
+				},
+				detailThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-480.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-640.jpg',
+					alt: 'a portrait of Talis Sommer'
+				},
+				media: [
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-640.jpg',
+						alt: 'a portrait of Talis Sommer'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/final/kyle-jorve_talis-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/final/kyle-jorve_talis-1440.jpg',
+								minScreenSize: 1024
+							},
+							{ url: '/dist/media/portfolio/talis/final/kyle-jorve_talis-1024.jpg', minScreenSize: 640 }
+						],
+						mobileSource: '/dist/media/portfolio/talis/final/kyle-jorve_talis-640.jpg',
+						alt: 'Talis stands with an amused expression, her hand resting on the saber mounted to her belt'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/wip-1/kyle-jorve_talis-portrait-wip-1-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-1/kyle-jorve_talis-portrait-wip-1-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-1/kyle-jorve_talis-portrait-wip-1-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/wip-1/kyle-jorve_talis-portrait-wip-1-640.jpg',
+						alt: 'an in-progress image of Talis in the line art phase of the piece'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/wip-2/kyle-jorve_talis-portrait-wip-2-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-2/kyle-jorve_talis-portrait-wip-2-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-2/kyle-jorve_talis-portrait-wip-2-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/wip-2/kyle-jorve_talis-portrait-wip-2-640.jpg',
+						alt: 'an in-progress image of Talis in which flat, local colors are established'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/wip-3/kyle-jorve_talis-portrait-wip-3-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-3/kyle-jorve_talis-portrait-wip-3-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-3/kyle-jorve_talis-portrait-wip-3-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/wip-3/kyle-jorve_talis-portrait-wip-3-640.jpg',
+						alt: 'an in-progress image of Talis in which light sources and ambient occlusion are established'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/wip-4/kyle-jorve_talis-portrait-wip-4-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-4/kyle-jorve_talis-portrait-wip-4-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-4/kyle-jorve_talis-portrait-wip-4-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/wip-4/kyle-jorve_talis-portrait-wip-4-640.jpg',
+						alt: 'an in-progress image of Talis in which the light and shadows are colorized'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/wip-5/kyle-jorve_talis-portrait-wip-5-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-5/kyle-jorve_talis-portrait-wip-5-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-5/kyle-jorve_talis-portrait-wip-5-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/wip-5/kyle-jorve_talis-portrait-wip-5-640.jpg',
+						alt: 'an in-progress image of Talis in which the painting is nearly complete'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/wip-6/kyle-jorve_talis-portrait-wip-6-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-6/kyle-jorve_talis-portrait-wip-6-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-6/kyle-jorve_talis-portrait-wip-6-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/wip-6/kyle-jorve_talis-portrait-wip-6-640.jpg',
+						alt: 'an in-progress image of Talis in which the final details have been added'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/talis/wip-7/kyle-jorve_talis-portrait-wip-7-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-7/kyle-jorve_talis-portrait-wip-7-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/talis/wip-7/kyle-jorve_talis-portrait-wip-7-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/talis/wip-7/kyle-jorve_talis-portrait-wip-7-640.jpg',
+						alt: 'an in-progress image of Talis in which the final, unifying adjustments have been made'
+					},
+					{
+						source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/M8TVkpTIlI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+						bgIndex: 0,
+						video: true
+					}
+				]
+			},
+			{
 				name: 'cargha',
 				title: 'Cargha Bezamik',
 				content: `<blockquote class="blockquote"><p><strong>I was only a thief back then, part of a guild of them, living on a little Sylranian island called <i>Dorokilson</i>. In Daylish you might call it the Island of Holes. It was an apt name, for whoever came through there, if they'd anything worth losing, we made sure it was lost&mdash;eaten by the Island.</strong></p><cite class="cite"><small>&mdash;Cargha Bezamik</small></cite></blockquote><p><strong>Cargha Bezamik</strong> is employed as a spy and assassin for the antagonist in an in-progress fantasy novel. As with much else in this story, Cargha is not quite what he seems at first, and his motivations are often nebulous.</p>`,
@@ -21,7 +239,7 @@ export const portfolioData = {
 				orientation: 'center',
 				featured: true,
 				purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/',
-				downloadLink: 'https://gumroad.com/l/olwWz',
+				downloadLink: 'https://app.gumroad.com/kylejorve',
 				thumbnail: {
 					sources: [
 						{
