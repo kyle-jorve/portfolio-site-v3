@@ -112,11 +112,13 @@ $mobileNav: '.mobileNav';
 		cursor: pointer;
 		width: $navBtnDiam;
 		height: $navBtnDiam;
+		border-radius: 50%;
 		margin: 0;
-		border-radius: 0 0 0 $borderRadius;
 		background-color: $linkColor;
 		box-shadow: $softShadow;
 		position: relative;
+		top: 0.5em;
+		right: 1em;
 		transition: background-color $transitionAppendix;
 
 		&Blocks,
@@ -328,6 +330,8 @@ $mobileNav: '.mobileNav';
 			height: $navBtnDiam * 1.15;
 			border-radius: 50%;
 			transform: translate(-0.5em, -0.5em);
+			right: auto;
+			top: auto;
 		}
 
 		&__button--close {
