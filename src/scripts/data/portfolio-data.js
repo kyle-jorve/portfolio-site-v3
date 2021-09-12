@@ -16,7 +16,7 @@ export const portfolioData = {
 			{
 				name: 'talis',
 				title: 'Talis Sommer',
-				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the main protagonist in the story I'm currently writing, Ashes of the Eidolons. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
+				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the main protagonist in the story I'm currently writing, <i>Ashes of the Eidolons</i>. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
                 <p>Unlike her noble contemporaries, Talis prefers to spend her time honing her skills with a saber and bow. As such, she's earned the admiration and respect of her peers in the soldiery.</p>
                 <p>In stark contrast with her brother, Talis is highly disciplined and dedicates herself fully to everything she pursues. Some have even speculated that she should be the heir instead of her brother.</p>`,
 				dimensions: [640, 854],
