@@ -145,10 +145,30 @@
 	/*//////////////////////////////////////////////////////*/
 
 	/*==========----------==========*/
-	/*         $tablet WIDTH         */
+	/*         $phone WIDTH         */
 	/*==========----------==========*/
 
-	@media (max-width: $tablet) {
+	@media (max-width: $phone) {
+		&__item {
+			width: $socialIconDiam * 0.8;
+			height: $socialIconDiam * 0.8;
+			margin: 0.65em;
+
+			&::before {
+				font-size: $socialIconDiam * 0.4;
+			}
+
+			svg,
+			object {
+				width: $socialIconDiam * 0.4;
+				height: $socialIconDiam * 0.4;
+			}
+		}
+
+		&--header #{$social}__item {
+			transform: none;
+		}
+
 		&--footer {
 			padding: 1em;
 
@@ -173,32 +193,6 @@
 					height: $socialIconDiam * 0.5;
 				}
 			}
-		}
-	}
-
-	/*==========----------==========*/
-	/*         $phone WIDTH         */
-	/*==========----------==========*/
-
-	@media (max-width: $phone) {
-		&__item {
-			width: $socialIconDiam * 0.8;
-			height: $socialIconDiam * 0.8;
-			margin: 0.65em;
-
-			&::before {
-				font-size: $socialIconDiam * 0.4;
-			}
-
-			svg,
-			object {
-				width: $socialIconDiam * 0.4;
-				height: $socialIconDiam * 0.4;
-			}
-		}
-
-		&--header #{$social}__item {
-			transform: none;
 		}
 	}
 
