@@ -58,6 +58,12 @@
                 {{/each}}
             </ul>
 
+            <div class="social social--header">
+                {{#each social}}
+                    {{{printSocialIcon this}}}
+                {{/each}}
+            </div>
+
             <section class="nav__recentWork">
                 <div class="wrapper wrapper--section">
                     <h2 class="nav__recentWorkTitle flexLine">Recent Work</h2>
@@ -69,12 +75,6 @@
                     </div>
                 </div>
             </section>
-
-            <div class="social social--header">
-                {{#each social}}
-                    {{{printSocialIcon this}}}
-                {{/each}}
-            </div>
         </div>
     </nav>
 {{/unless}}

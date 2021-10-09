@@ -59,6 +59,8 @@
 	/*==========----------==========*/
 
 	&--header {
+		margin: 0 0 1em 0;
+
 		#{$social}__item {
 			opacity: 0;
 			background: map-get($bgColors, lightBg);

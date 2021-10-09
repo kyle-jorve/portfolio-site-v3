@@ -132,13 +132,13 @@ templates['components/header'] = template({"1":function(container,depth0,helpers
 
   return "    <nav class=\"nav\" id=\"mainNav\">\n        <div class=\"nav__wrp\">\n            <ul class=\"nav__ul\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"nav") : depth0),{"name":"each","hash":{},"fn":container.program(20, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":52,"column":16},"end":{"line":58,"column":25}}})) != null ? stack1 : "")
-    + "            </ul>\n\n            <section class=\"nav__recentWork\">\n                <div class=\"wrapper wrapper--section\">\n                    <h2 class=\"nav__recentWorkTitle flexLine\">Recent Work</h2>\n\n                    <div class=\"portfolio__grid portfolio__grid--nav"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(lookupProperty(helpers,"isOdd")||(depth0 && lookupProperty(depth0,"isOdd"))||container.hooks.helperMissing).call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWorkLimit") : depth0),{"name":"isOdd","hash":{},"data":data,"loc":{"start":{"line":65,"column":74},"end":{"line":65,"column":97}}}),{"name":"if","hash":{},"fn":container.program(27, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":65,"column":68},"end":{"line":65,"column":127}}})) != null ? stack1 : "")
+    + "            </ul>\n\n            <div class=\"social social--header\">\n"
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"social") : depth0),{"name":"each","hash":{},"fn":container.program(27, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":62,"column":16},"end":{"line":64,"column":25}}})) != null ? stack1 : "")
+    + "            </div>\n\n            <section class=\"nav__recentWork\">\n                <div class=\"wrapper wrapper--section\">\n                    <h2 class=\"nav__recentWorkTitle flexLine\">Recent Work</h2>\n\n                    <div class=\"portfolio__grid portfolio__grid--nav"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(lookupProperty(helpers,"isOdd")||(depth0 && lookupProperty(depth0,"isOdd"))||container.hooks.helperMissing).call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWorkLimit") : depth0),{"name":"isOdd","hash":{},"data":data,"loc":{"start":{"line":71,"column":74},"end":{"line":71,"column":97}}}),{"name":"if","hash":{},"fn":container.program(29, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":71,"column":68},"end":{"line":71,"column":127}}})) != null ? stack1 : "")
     + "\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWork") : depth0),{"name":"each","hash":{},"fn":container.program(29, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":66,"column":24},"end":{"line":68,"column":33}}})) != null ? stack1 : "")
-    + "                    </div>\n                </div>\n            </section>\n\n            <div class=\"social social--header\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"social") : depth0),{"name":"each","hash":{},"fn":container.program(31, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":74,"column":16},"end":{"line":76,"column":25}}})) != null ? stack1 : "")
-    + "            </div>\n        </div>\n    </nav>\n";
+    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"recentWork") : depth0),{"name":"each","hash":{},"fn":container.program(31, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":72,"column":24},"end":{"line":74,"column":33}}})) != null ? stack1 : "")
+    + "                    </div>\n                </div>\n            </section>\n        </div>\n    </nav>\n";
 },"20":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.lambda, alias3=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -182,19 +182,6 @@ templates['components/header'] = template({"1":function(container,depth0,helpers
     + container.escapeExpression(container.lambda((depth0 != null ? lookupProperty(depth0,"rel") : depth0), depth0))
     + "\"";
 },"27":function(container,depth0,helpers,partials,data) {
-    return " portfolio__grid--odd";
-},"29":function(container,depth0,helpers,partials,data) {
-    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "                            "
-    + ((stack1 = (lookupProperty(helpers,"printPortfolioItem")||(depth0 && lookupProperty(depth0,"printPortfolioItem"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),depth0,false,false,{"name":"printPortfolioItem","hash":{},"data":data,"loc":{"start":{"line":67,"column":28},"end":{"line":67,"column":69}}})) != null ? stack1 : "")
-    + "\n";
-},"31":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
@@ -203,7 +190,20 @@ templates['components/header'] = template({"1":function(container,depth0,helpers
     };
 
   return "                    "
-    + ((stack1 = (lookupProperty(helpers,"printSocialIcon")||(depth0 && lookupProperty(depth0,"printSocialIcon"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),depth0,{"name":"printSocialIcon","hash":{},"data":data,"loc":{"start":{"line":75,"column":20},"end":{"line":75,"column":46}}})) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"printSocialIcon")||(depth0 && lookupProperty(depth0,"printSocialIcon"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),depth0,{"name":"printSocialIcon","hash":{},"data":data,"loc":{"start":{"line":63,"column":20},"end":{"line":63,"column":46}}})) != null ? stack1 : "")
+    + "\n";
+},"29":function(container,depth0,helpers,partials,data) {
+    return " portfolio__grid--odd";
+},"31":function(container,depth0,helpers,partials,data) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "                            "
+    + ((stack1 = (lookupProperty(helpers,"printPortfolioItem")||(depth0 && lookupProperty(depth0,"printPortfolioItem"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),depth0,false,false,{"name":"printPortfolioItem","hash":{},"data":data,"loc":{"start":{"line":73,"column":28},"end":{"line":73,"column":69}}})) != null ? stack1 : "")
     + "\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {

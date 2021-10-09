@@ -40,7 +40,6 @@ $mobileNav: '.mobileNav';
 
 	&__ul {
 		@include flexWrap(column, nowrap, flex-start, center);
-		margin-bottom: 4em;
 	}
 
 	&__text {
