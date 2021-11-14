@@ -16,7 +16,7 @@ export const portfolioData = {
 			{
 				name: 'talis',
 				title: 'Talis Sommer',
-				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the main protagonist in the story I'm currently writing, <i>Ashes of the Eidolons</i>. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
+				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the main protagonist in the story I'm currently writing, <i>Ashes of the Nephilim</i>. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
                 <p>Unlike her noble contemporaries, Talis prefers to spend her time honing her skills with a saber and bow. As such, she's earned the admiration and respect of her peers in the soldiery.</p>
                 <p>In stark contrast with her brother, Talis is highly disciplined and dedicates herself fully to everything she pursues. Some have even speculated that she should be the heir instead of her brother.</p>`,
 				dimensions: [640, 854],
@@ -898,7 +898,7 @@ export const portfolioData = {
 			{
 				name: 'berned',
 				title: 'Berned',
-				content: `<blockquote class="blockquote"><p><strong>I wouldn\'t call him a kind man, but he\'s loyal. As soon slug you in the face as laugh at your jesting. All depends on which side of him you lie on. I wouldn\'t want to be on his bad side, though. Fair lot of trouble follows those what fall on his bad side.</strong><cite class="cite"><small>&mdash;Malder, Foothills Tavern</small></cite></p></blockquote><p>Berned is Auerstel Town\'s constable&mdash;at times of help, at times an obstacle, and sometimes, when he feels like it, a downright villain.</p><p>He plays a critical role in the <strong><i>Ignoble Blood</i></strong> series, which is a fantasy story in progress. In it, Berned apprehends <a href="/portfolio/detail/?piece=sol">Sol Ferro</a> and charges her with the crime of murdering <a href="/portfolio/detail/?piece=becoming-eidolon">Luna</a>, a series protagonist, who at this point in the story has gone strangely missing without a trace.</p>`,
+				content: `<blockquote class="blockquote"><p><strong>I wouldn\'t call him a kind man, but he\'s loyal. As soon slug you in the face as laugh at your jesting. All depends on which side of him you lie on. I wouldn\'t want to be on his bad side, though. Fair lot of trouble follows those what fall on his bad side.</strong><cite class="cite"><small>&mdash;Malder, Foothills Tavern</small></cite></p></blockquote><p>Berned is Auerstel Town\'s constable&mdash;at times of help, at times an obstacle, and sometimes, when he feels like it, a downright villain.</p><p>He plays a critical role in the <strong><i>Ignoble Blood</i></strong> series, which is a fantasy story in progress. In it, Berned apprehends <a href="/portfolio/detail/?piece=sol">Sol Ferro</a> and charges her with the crime of murdering <a href="/portfolio/detail/?piece=becoming-nephilim">Luna</a>, a series protagonist, who at this point in the story has gone strangely missing without a trace.</p>`,
 				dimensions: [640, 853],
 				orientation: 'center',
 				featured: false,
@@ -992,8 +992,8 @@ export const portfolioData = {
 				]
 			},
 			{
-				name: 'becoming-eidolon',
-				title: 'Becoming Eidolon',
+				name: 'becoming-nephilim',
+				title: 'Becoming Nephilim',
 				content: `<blockquote class="blockquote"><p><strong>Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you'd seen his body and known the stillness of it. There will be no peace for you until you do.</strong><cite class="cite"><small>&mdash;Pendrake Sommer, Duke of Tersing</small></cite></p></blockquote><p>The character depicted here is a protagonist of the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>`,
 				dimensions: [640, 1252],
 				orientation: 'center',
@@ -1012,7 +1012,7 @@ export const portfolioData = {
 						}
 					],
 					mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-320.jpg',
-					alt: 'Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
+					alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
 					mediaIndex: 0
 				},
 				featuredThumbnail: {
@@ -1027,7 +1027,7 @@ export const portfolioData = {
 						}
 					],
 					mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-320.jpg',
-					alt: 'Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
+					alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
 					mediaIndex: 0
 				},
 				detailThumbnail: {
@@ -1038,7 +1038,7 @@ export const portfolioData = {
 						}
 					],
 					mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-640.jpg',
-					alt: 'Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
+					alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
 				},
 				media: [
 					{
@@ -1057,7 +1057,7 @@ export const portfolioData = {
 							}
 						],
 						mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-640.jpg',
-						alt: 'Luna stands naked beneath the symbol of the Order of the Eidolons--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
+						alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
 					},
 					{
 						source: '<iframe src="https://www.youtube.com/embed/PxoZ4MjlxOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
@@ -1248,7 +1248,7 @@ export const portfolioData = {
 			{
 				name: 'sol',
 				title: 'Sol',
-				content: `<blockquote class="blockquote"><p><strong>More than one reason they call her the Girl in Black. They say she\'s a witch, what can talk to the dead, spirits and the like. She\'ll not be coming back to this town, no. If she does, there\'ll be trouble, and from more than just me.</strong><cite class="cite"><small>&mdash;Junas</small></cite></p></blockquote><p>Sol is a mysterious helper in the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story\'s protagonists locate her missing husband, <a href="/portfolio/detail/?piece=becoming-eidolon">Luna</a>, who has disappeared without a trace.</p>`,
+				content: `<blockquote class="blockquote"><p><strong>More than one reason they call her the Girl in Black. They say she\'s a witch, what can talk to the dead, spirits and the like. She\'ll not be coming back to this town, no. If she does, there\'ll be trouble, and from more than just me.</strong><cite class="cite"><small>&mdash;Junas</small></cite></p></blockquote><p>Sol is a mysterious helper in the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story\'s protagonists locate her missing husband, <a href="/portfolio/detail/?piece=becoming-nephilim">Luna</a>, who has disappeared without a trace.</p>`,
 				dimensions: [640, 1158],
 				orientation: 'top',
 				featured: false,
