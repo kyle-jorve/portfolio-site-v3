@@ -112,8 +112,8 @@
 	}
 
 	&__box {
-		background: bg-color(map-get($bgColors, bodyBg));
-		backdrop-filter: none;
+		background: rgba(bg-color(map-get($bgColors, bodyBg)), 0.15);
+		color: text-color(map-get($bgColors, bodyBg));
 	}
 
 	&__content {

@@ -302,7 +302,7 @@ svg {
 	border-radius: $borderRadius;
 	padding: 2em 4em 4em 4em;
 	background: $boxBg;
-	backdrop-filter: blur(1em);
+	backdrop-filter: blur(2em);
 	border-top: $thickBorderThickness solid map-get($colorScheme, red);
 	box-shadow: $softShadow;
 	color: $darkTextColor;

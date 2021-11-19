@@ -150,14 +150,6 @@
 			}
 		}
 
-		// &--tall {
-		// 	grid-row: span 2;
-		// }
-
-		// &--wide {
-		// 	grid-column: span 2;
-		// }
-
 		&--loading {
 			pointer-events: none;
 
@@ -165,12 +157,6 @@
 				display: flex;
 			}
 		}
-
-		// &:last-child,
-		// &:nth-last-child(2) {
-		// 	grid-row: span 1;
-		// 	grid-column: span 2;
-		// }
 
 		@media (hover: hover) {
 			&:hover {
@@ -284,13 +270,6 @@
 			grid-template-rows: 27vw;
 			grid-auto-rows: 27vw;
 		}
-
-		// &__item {
-		// 	&:nth-last-child(2) {
-		// 		grid-row: span 2;
-		// 		grid-column: span 1;
-		// 	}
-		// }
 	}
 
 	/*==========----------==========*/
@@ -326,12 +305,5 @@
 			grid-auto-rows: 35vw;
 			gap: 0.5em;
 		}
-
-		// &__item {
-		// 	&:last-child {
-		// 		grid-row: span 2;
-		// 		grid-column: span 1;
-		// 	}
-		// }
 	}
 }
