@@ -27,10 +27,10 @@
 	/*//////////////////////////////////////////////////////*/
 
 	/*==========----------==========*/
-	/*   $tablet WIDTH or HEIGHT    */
+	/*          900PX WIDTH         */
 	/*==========----------==========*/
 
-	@media (max-width: $tablet), (max-height: $tablet) {
+	@media (max-width: 900px) {
 		&--detailPage {
 			display: block;
 		}

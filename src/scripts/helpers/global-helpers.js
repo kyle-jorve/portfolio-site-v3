@@ -19,22 +19,30 @@ Handlebars.registerHelper('printSocialIcon', item => {
         </a>`;
 });
 
-Handlebars.registerHelper('printPortfolioItem', (item, section, isFeaturedWork) => {
-	const aspect = item.dimensions[0] / item.dimensions[1];
-	const url = window.location.pathname;
-	const itemClass =
-		aspect > wideAspect
-			? global.cssClasses.portfolioItemWide
-			: aspect < tallAspect
-			? global.cssClasses.portfolioItemTall
-			: '';
-	const href = `${global.pageURLs.portfolioDetail}?piece=${item.name}&from=${url}${
-		section ? `&${global.searchParams.section}=${section}` : ''
-	}`;
-	const thumbnail = isFeaturedWork ? item.featuredThumbnail : item.thumbnail;
+Handlebars.registerHelper(
+	'printPortfolioItem',
+	(item, index, section = false, isFeaturedWork = false, isPortfolioPage = false) => {
+		const aspect = item.dimensions[0] / item.dimensions[1];
+		const url = window.location.pathname;
+		const itemClass =
+			aspect > wideAspect
+				? global.cssClasses.portfolioItemWide
+				: aspect < tallAspect
+				? global.cssClasses.portfolioItemTall
+				: '';
+		const href = `${global.pageURLs.portfolioDetail}?piece=${item.name}&from=${url}${
+			section ? `&${global.searchParams.section}=${section}` : ''
+		}`;
+		const thumbnail = isFeaturedWork
+			? item.featuredThumbnail
+			: isPortfolioPage && index === 0
+			? item.newThumbnail
+			: item.thumbnail;
 
-	return `
+		return `
         <article class="${global.cssClasses.portfolioItem} ${itemClass}">
+            ${index === 0 ? `<span class="portfolio__itemNew">New</span>` : ''}
+
             <a class="portfolio__itemLink" href="${href}">
                 <picture>
                     ${thumbnail.sources
@@ -73,7 +81,8 @@ Handlebars.registerHelper('printPortfolioItem', (item, section, isFeaturedWork) 
                 </span>
             </div>
         </article>`;
-});
+	}
+);
 
 Handlebars.registerHelper('isOdd', number => number % 2 === 1);
 

@@ -31,7 +31,7 @@
 
     <div class="portfolio__grid portfolio__grid--home">
         {{#each portfolio.featured}}
-            {{{printPortfolioItem this 'featured-work' true}}}
+            {{{printPortfolioItem this @index 'featured-work' true}}}
         {{/each}}
     </div>
 

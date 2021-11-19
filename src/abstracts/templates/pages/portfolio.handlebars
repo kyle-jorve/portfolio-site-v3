@@ -1,9 +1,9 @@
-<section class="section portfolio">
-    <h1 class="portfolio__heading">{{title}}</h1>
+<section class='section portfolio'>
+	<h1 class='portfolio__heading'>{{title}}</h1>
 
-    <div class="portfolio__grid">
-        {{#each items}}
-            {{{printPortfolioItem this false false}}}
-        {{/each}}
-    </div>
+	<div class='portfolio__grid'>
+		{{#each items}}
+			{{{printPortfolioItem this @index false false true}}}
+		{{/each}}
+	</div>
 </section>

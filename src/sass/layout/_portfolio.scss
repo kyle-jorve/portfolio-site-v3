@@ -56,6 +56,25 @@
 		}
 	}
 
+	&__itemNew {
+		@include heading();
+		display: block;
+		margin: 0;
+		padding: 0.25em 0.5em;
+		border-radius: 1000px;
+		background: map-get($colorScheme, red);
+		box-shadow: $mediumShadow;
+		color: $lightTextColor;
+		font-size: $smallFontSize;
+		font-weight: $headingLight;
+		letter-spacing: 0.1em;
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		z-index: 7;
+		pointer-events: none;
+	}
+
 	&__itemTitle {
 		margin: 0;
 		font-weight: $headingLight;
@@ -148,6 +167,11 @@
 			@media (hover: none) {
 				display: none;
 			}
+		}
+
+		&:first-child {
+			grid-row: span 2;
+			grid-column: span 2;
 		}
 
 		&--loading {

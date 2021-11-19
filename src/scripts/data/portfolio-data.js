@@ -39,6 +39,17 @@ export const portfolioData = {
 					alt: 'a portrait of Talis Sommer',
 					mediaIndex: 0
 				},
+				newThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-1024.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/talis/portrait/kyle-jorve_talis-portrait-640.jpg',
+					alt: 'a portrait of Talis Sommer',
+					mediaIndex: 0
+				},
 				featuredThumbnail: {
 					sources: [
 						{

@@ -13,7 +13,7 @@
 	$showcaseSectionPadding: (8em, 4em, 6em, 4em);
 
 	display: grid;
-	grid-template: auto / #{map-get($golden-ratio, large)}fr #{map-get($golden-ratio, small)}fr;
+	grid-template: 100vh / #{map-get($golden-ratio, large)}fr #{map-get($golden-ratio, small)}fr;
 	height: 100vh;
 
 	&__section {
@@ -470,19 +470,41 @@
 	}
 
 	/*==========----------==========*/
-	/*    $tablet WIDTH or HEIGHT   */
+	/*         $tablet WIDTH        */
 	/*==========----------==========*/
 
-	@media (max-width: $tablet), (max-height: $tablet) {
+	@media (max-width: $tablet) {
+		$slidePadding: (6.5em, 2em, 3.5em, 2em);
+
+		grid-template: 100vh / 1fr 1fr;
+
+		.slider__arrows {
+			top: calc(50% + #{(nth($slidePadding, 1) / 2) - (nth($slidePadding, 3) / 2)});
+		}
+
+		&__section--content {
+			.blockquote,
+			blockquote {
+				margin-left: 2em;
+				margin-right: 2em;
+			}
+		}
+
+		&__contentWrapper {
+			padding: 6em nth($mobileSectionPadding, 2) nth($mobileSectionPadding, 1) nth($mobileSectionPadding, 2);
+		}
+	}
+
+	/*==========----------==========*/
+	/*     900PX WIDTH or HEIGHT    */
+	/*==========----------==========*/
+
+	@media (max-width: 900px), (max-height: 900px) {
 		$vidWidth: '100vw - 4em';
 		$slidePadding: (6.5em, 2em, 3.5em, 2em);
 
 		display: block;
 		height: auto;
-
-		.slider__arrows {
-			top: calc(50% + #{(nth($slidePadding, 1) / 2) - (nth($slidePadding, 3) / 2)});
-		}
 
 		&__section--content {
 			max-height: none;
@@ -491,9 +513,6 @@
 
 			.blockquote,
 			blockquote {
-				margin-left: 2em;
-				margin-right: 2em;
-
 				&::before {
 					background: map-get($bgColors, medBg);
 				}
