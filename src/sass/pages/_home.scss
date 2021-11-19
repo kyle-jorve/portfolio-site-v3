@@ -187,7 +187,7 @@
 	/*=====---- BIO SECTION ----=====*/
 
 	.bioHome {
-		background: map-get($bgColors, medBg);
+		// background: map-get($bgColors, medBg);
 
 		&__wrapper {
 			padding-bottom: 0;
@@ -203,6 +203,7 @@
 
 		&__box {
 			padding-top: 4em;
+			backdrop-filter: none;
 		}
 
 		&__mobileImgWrp {
