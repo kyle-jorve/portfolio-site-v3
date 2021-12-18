@@ -14,9 +14,218 @@ export const portfolioData = {
 	get items() {
 		return [
 			{
+				name: 'pendrake',
+				title: 'Pendrake Sommer',
+				content: `<blockquote class="blockquote"><p><strong>If Pendrake Sommer were half the man his father is, well, perhaps Tersing would be in a better spot. As it is, I hate to think what will come of our duchy when that boy finally becomes duke.</strong></p><cite class="cite"><small>&mdash;Captain Nils of the Auerstel Soldiery</small></cite></blockquote>
+                <p><strong>Pendrake Sommer</strong> is the main protagonist of the in-progress fantasy novel, <i>Ashes of the Nephilim</i>, and twin brother to <a href="/portfolio/detail/?piece=talis">Talis Sommer</a>.</p>
+                <p>Pendrake Sommer is less of a fighter than his sister, and far more of a romantic. Some say he would happily sell his duchy for the object of his affection, were he given the chance.</p>`,
+				dimensions: [640, 854],
+				orientation: 'center',
+				featured: true,
+				purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/',
+				downloadLink: 'https://app.gumroad.com/kylejorve',
+				thumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
+							minScreenSize: 1024
+						},
+						{
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-512.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-320.jpg',
+					alt: 'a portrait of Pendrake Sommer',
+					mediaIndex: 0
+				},
+				newThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1024.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
+					alt: 'a portrait of Pendrake Sommer',
+					mediaIndex: 0
+				},
+				featuredThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
+							minScreenSize: 1440
+						},
+						{
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-320.jpg',
+					alt: 'a portrait of Pendrake Sommer',
+					mediaIndex: 0
+				},
+				detailThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
+					alt: 'a portrait of Pendrake Sommer'
+				},
+				media: [
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
+						alt: 'a portrait of Pendrake Sommer'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-640.jpg',
+						alt: 'Pendrake turns with a puzzled expresion, gripping his saber'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/wip-1/kyle-jorve_pendrake-wip-1-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-1/kyle-jorve_pendrake-wip-1-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-1/kyle-jorve_pendrake-wip-1-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/wip-1/kyle-jorve_pendrake-wip-1-640.jpg',
+						alt: 'an in-progress image of Pendrake in the nude pose phase of the piece'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/wip-2/kyle-jorve_pendrake-wip-2-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-2/kyle-jorve_pendrake-wip-2-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-2/kyle-jorve_pendrake-wip-2-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/wip-2/kyle-jorve_pendrake-wip-2-640.jpg',
+						alt: 'an in-progress image of Pendrake in which the design is fully drawn'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/wip-3/kyle-jorve_pendrake-wip-3-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-3/kyle-jorve_pendrake-wip-3-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-3/kyle-jorve_pendrake-wip-3-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/wip-3/kyle-jorve_pendrake-wip-3-640.jpg',
+						alt: 'an in-progress image of Pendrake in which flat colors are applied to the drawing'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/wip-4/kyle-jorve_pendrake-wip-4-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-4/kyle-jorve_pendrake-wip-4-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-4/kyle-jorve_pendrake-wip-4-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/wip-4/kyle-jorve_pendrake-wip-4-640.jpg',
+						alt: 'an in-progress image of Pendrake in which the light and shadows are painted against gray'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/wip-5/kyle-jorve_pendrake-wip-5-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-5/kyle-jorve_pendrake-wip-5-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-5/kyle-jorve_pendrake-wip-5-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/wip-5/kyle-jorve_pendrake-wip-5-640.jpg',
+						alt: 'an in-progress image of Pendrake in which the shadows and light are colorized'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/wip-6/kyle-jorve_pendrake-wip-6-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-6/kyle-jorve_pendrake-wip-6-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/wip-6/kyle-jorve_pendrake-wip-6-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/wip-6/kyle-jorve_pendrake-wip-6-640.jpg',
+						alt: 'an in-progress image of Pendrake in which the painting is nearly finished'
+					}
+				]
+			},
+			{
 				name: 'talis',
 				title: 'Talis Sommer',
-				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the main protagonist in the story I'm currently writing, <i>Ashes of the Nephilim</i>. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
+				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the <a href="/portfolio/detail/?piece=pendrake">main protagonist</a> in the story I'm currently writing, <i>Ashes of the Nephilim</i>. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
                 <p>Unlike her noble contemporaries, Talis prefers to spend her time honing her skills with a saber and bow. As such, she's earned the admiration and respect of her peers in the soldiery.</p>
                 <p>In stark contrast with her brother, Talis is highly disciplined and dedicates herself fully to everything she pursues. Some have even speculated that she should be the heir instead of her brother.</p>`,
 				dimensions: [640, 854],
