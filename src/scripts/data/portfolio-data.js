@@ -219,6 +219,16 @@ export const portfolioData = {
 						],
 						mobileSource: '/dist/media/portfolio/pendrake/wip-6/kyle-jorve_pendrake-wip-6-640.jpg',
 						alt: 'an in-progress image of Pendrake in which the painting is nearly finished'
+					},
+					{
+						source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/id079cuwXfE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+						bgIndex: 0,
+						video: true
+					},
+					{
+						source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/CetjOlb5zWk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+						bgIndex: 0,
+						video: true
 					}
 				]
 			},
