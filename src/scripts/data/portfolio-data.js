@@ -27,124 +27,73 @@ export const portfolioData = {
 				thumbnail: {
 					sources: [
 						{
-							url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-480.jpg',
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
 							minScreenSize: 1024
 						},
 						{
-							url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-512.jpg',
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-512.jpg',
 							minScreenSize: 640
 						}
 					],
-					mobileSource: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-320.jpg',
-					alt: 'a vignette of Pendrake Sommer',
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-320.jpg',
+					alt: 'a portrait of Pendrake Sommer',
 					mediaIndex: 0
 				},
-				// thumbnail: {
-				// 	sources: [
-				// 		{
-				// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
-				// 			minScreenSize: 1024
-				// 		},
-				// 		{
-				// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-512.jpg',
-				// 			minScreenSize: 640
-				// 		}
-				// 	],
-				// 	mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-320.jpg',
-				// 	alt: 'a portrait of Pendrake Sommer',
-				// 	mediaIndex: 0
-				// },
 				newThumbnail: {
 					sources: [
 						{
-							url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-1024.jpg',
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1024.jpg',
 							minScreenSize: 640
 						}
 					],
-					mobileSource: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-640.jpg',
-					alt: 'a vignette of Pendrake Sommer',
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
+					alt: 'a portrait of Pendrake Sommer',
 					mediaIndex: 0
 				},
-				// newThumbnail: {
-				// 	sources: [
-				// 		{
-				// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1024.jpg',
-				// 			minScreenSize: 640
-				// 		}
-				// 	],
-				// 	mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
-				// 	alt: 'a portrait of Pendrake Sommer',
-				// 	mediaIndex: 0
-				// },
 				featuredThumbnail: {
 					sources: [
 						{
-							url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-640.jpg',
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
 							minScreenSize: 1440
 						},
 						{
-							url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-480.jpg',
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
 							minScreenSize: 640
 						}
 					],
-					mobileSource: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-320.jpg',
-					alt: 'a vignette of Pendrake Sommer',
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-320.jpg',
+					alt: 'a portrait of Pendrake Sommer',
 					mediaIndex: 0
 				},
-				// featuredThumbnail: {
-				// 	sources: [
-				// 		{
-				// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
-				// 			minScreenSize: 1440
-				// 		},
-				// 		{
-				// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
-				// 			minScreenSize: 640
-				// 		}
-				// 	],
-				// 	mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-320.jpg',
-				// 	alt: 'a portrait of Pendrake Sommer',
-				// 	mediaIndex: 0
-				// },
 				detailThumbnail: {
 					sources: [
 						{
-							url: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-480.jpg',
+							url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
 							minScreenSize: 640
 						}
 					],
-					mobileSource: '/dist/media/portfolio/pendrake/final/kyle-jorve_pendrake-640.jpg',
-					alt: 'a vignette of Pendrake Sommer'
+					mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
+					alt: 'a portrait of Pendrake Sommer'
 				},
-				// detailThumbnail: {
-				// 	sources: [
-				// 		{
-				// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-480.jpg',
-				// 			minScreenSize: 640
-				// 		}
-				// 	],
-				// 	mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
-				// 	alt: 'a portrait of Pendrake Sommer'
-				// },
 				media: [
-					// {
-					// 	sources: [
-					// 		{
-					// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1920.jpg',
-					// 			minScreenSize: 1440
-					// 		},
-					// 		{
-					// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1440.jpg',
-					// 			minScreenSize: 1024
-					// 		},
-					// 		{
-					// 			url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1024.jpg',
-					// 			minScreenSize: 640
-					// 		}
-					// 	],
-					// 	mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
-					// 	alt: 'a portrait of Pendrake Sommer'
-					// },
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/pendrake/portrait/kyle-jorve_pendrake-portrait-640.jpg',
+						alt: 'a portrait of Pendrake Sommer'
+					},
 					{
 						sources: [
 							{
@@ -275,12 +224,12 @@ export const portfolioData = {
 						source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/id079cuwXfE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
 						bgIndex: 0,
 						video: true
+					},
+					{
+						source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/CetjOlb5zWk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+						bgIndex: 0,
+						video: true
 					}
-					// {
-					// 	source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/CetjOlb5zWk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-					// 	bgIndex: 0,
-					// 	video: true
-					// }
 				]
 			},
 			{
