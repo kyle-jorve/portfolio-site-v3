@@ -6,7 +6,7 @@
 
 .loader {
 	@include flexWrap(column, nowrap, center, center);
-	background: map-get($bgColors, bodyBg);
+	background: map-get($bgColors, lightBg);
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -39,7 +39,7 @@
 	&__bar {
 		@include absolute(cover);
 		@include animation(growAndShrink, 2s, ease-in-out, 0s, normal, infinite);
-		background: map-get($bgColors, lightBg);
+		background: map-get($bgColors, darkBg);
 		transform: translateX(-100%);
 	}
 

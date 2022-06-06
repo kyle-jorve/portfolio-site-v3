@@ -14,14 +14,233 @@ export const portfolioData = {
 	get items() {
 		return [
 			{
+				name: 'andel',
+				title: 'Andel Sommer',
+				content: `<blockquote class="blockquote"><p><strong>Do you know what we've lost, Pendrake? Do you even care? Warend Joring is the duke of Torencald. The trade agreements I meant to draft between our duchies would have enriched the Sommers for generations and made both us and the Jorings two of the most powerful families in Dayle. I've spent years building to this point, and in a single evening you've managed to dash it all away. And for what, Pendrake? For a gods-damned scullion? Do you know how long the damage you've done will take to repair? Generations, Pendrake. Your children and your children's children will be dead and buried long before we've heard the last echoes of this scandal.</strong></p></blockquote>
+                <p><strong>Andel Sommer</strong> is the duke of Tersing and father to <a href="/portfolio/detail/?piece=pendrake">Pendrake</a> and <a href="/portfolio/detail/?piece=talis">Talis</a>. He wants nothing more than to ensure a bright future for his duchy&mdash;even if doing so requires extreme methods.</p>
+                <p>Andel is, to put it mildly, not overly fond of his son, Pendrake. Even so, he tries, often in vain, to mold his heir into a worthy successor.</p>`,
+				dimensions: [640, 828],
+				orientation: 'center',
+				featured: true,
+				purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/',
+				downloadLink: 'https://app.gumroad.com/kylejorve',
+				thumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-480.jpg',
+							minScreenSize: 1024
+						},
+						{
+							url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-512.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-320.jpg',
+					alt: 'a portrait of Andel Sommer',
+					mediaIndex: 0
+				},
+				newThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-1024.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-640.jpg',
+					alt: 'a portrait of Andel Sommer',
+					mediaIndex: 0
+				},
+				featuredThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-640.jpg',
+							minScreenSize: 1440
+						},
+						{
+							url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-480.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-320.jpg',
+					alt: 'a portrait of Andel Sommer',
+					mediaIndex: 0
+				},
+				detailThumbnail: {
+					sources: [
+						{
+							url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-480.jpg',
+							minScreenSize: 640
+						}
+					],
+					mobileSource: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-640.jpg',
+					alt: 'a portrait of Andel Sommer'
+				},
+				media: [
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/portrait/kyle-jorve_andel-portrait-640.jpg',
+						alt: 'a portrait of Andel Sommer'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/final/kyle-jorve_andel-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/final/kyle-jorve_andel-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/final/kyle-jorve_andel-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/final/kyle-jorve_andel-640.jpg',
+						alt: 'Andel stands proudly, a sheathed sword in one hand and a heavy tome in the other'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/wip-1/kyle-jorve_andel-wip-1-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-1/kyle-jorve_andel-wip-1-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-1/kyle-jorve_andel-wip-1-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/wip-1/kyle-jorve_andel-wip-1-640.jpg',
+						alt: 'an in-progress image of Andel in the nude pose phase of the piece'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/wip-2/kyle-jorve_andel-wip-2-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-2/kyle-jorve_andel-wip-2-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-2/kyle-jorve_andel-wip-2-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/wip-2/kyle-jorve_andel-wip-2-640.jpg',
+						alt: 'an in-progress image of Andel in which the design is fully drawn'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/wip-3/kyle-jorve_andel-wip-3-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-3/kyle-jorve_andel-wip-3-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-3/kyle-jorve_andel-wip-3-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/wip-3/kyle-jorve_andel-wip-3-640.jpg',
+						alt: 'an in-progress image of Andel in which flat colors are applied to the drawing'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/wip-4/kyle-jorve_andel-wip-4-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-4/kyle-jorve_andel-wip-4-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-4/kyle-jorve_andel-wip-4-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/wip-4/kyle-jorve_andel-wip-4-640.jpg',
+						alt: 'an in-progress image of Andel in which the light and shadows are painted against gray'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/wip-5/kyle-jorve_andel-wip-5-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-5/kyle-jorve_andel-wip-5-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-5/kyle-jorve_andel-wip-5-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/wip-5/kyle-jorve_andel-wip-5-640.jpg',
+						alt: 'an in-progress image of Andel in which the shadows and light are colorized'
+					},
+					{
+						sources: [
+							{
+								url: '/dist/media/portfolio/andel/wip-6/kyle-jorve_andel-wip-6-1920.jpg',
+								minScreenSize: 1440
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-6/kyle-jorve_andel-wip-6-1440.jpg',
+								minScreenSize: 1024
+							},
+							{
+								url: '/dist/media/portfolio/andel/wip-6/kyle-jorve_andel-wip-6-1024.jpg',
+								minScreenSize: 640
+							}
+						],
+						mobileSource: '/dist/media/portfolio/andel/wip-6/kyle-jorve_andel-wip-6-640.jpg',
+						alt: 'an in-progress image of Andel in which the painting is nearly finished'
+					},
+					{
+						source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/XEaCkUcbfUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+						bgIndex: 0,
+						video: true
+					},
+					{
+						source: `<iframe width="560" height="315" src="https://www.youtube.com/embed/W6acBvEQXug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+						bgIndex: 0,
+						video: true
+					}
+				]
+			},
+			{
 				name: 'pendrake',
 				title: 'Pendrake Sommer',
 				content: `<blockquote class="blockquote"><p><strong>If Pendrake Sommer were half the man his father is, well, perhaps Tersing would be in a better spot. As it is, I hate to think what will come of our duchy when that boy finally becomes duke.</strong></p><cite class="cite"><small>&mdash;Captain Nils of the Auerstel Soldiery</small></cite></blockquote>
-                <p><strong>Pendrake Sommer</strong> is the main protagonist of the in-progress fantasy novel, <i>Ashes of the Nephilim</i>, and twin brother to <a href="/portfolio/detail/?piece=talis">Talis Sommer</a>.</p>
+                <p><strong>Pendrake Sommer</strong> is the main protagonist of the in-progress fantasy novel, <i>Ashes of the Eidolon</i>, and twin brother to <a href="/portfolio/detail/?piece=talis">Talis Sommer</a>.</p>
                 <p>Pendrake Sommer is less of a fighter than his sister, and far more of a romantic. Some say he would happily sell his duchy for the object of his affection, were he given the chance.</p>`,
 				dimensions: [640, 854],
 				orientation: 'center',
-				featured: true,
+				featured: false,
 				purchaseLink: 'https://www.inprnt.com/gallery/kylejorve/',
 				downloadLink: 'https://app.gumroad.com/kylejorve',
 				thumbnail: {
@@ -235,7 +454,7 @@ export const portfolioData = {
 			{
 				name: 'talis',
 				title: 'Talis Sommer',
-				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the <a href="/portfolio/detail/?piece=pendrake">main protagonist</a> in the story I'm currently writing, <i>Ashes of the Nephilim</i>. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
+				content: `<blockquote class="blockquote"><p><strong>The lady of Tersing? I wouldn't call her a lady so much as a force of nature never to be trifled with. Every man who crosses blades with her lives to regret it—that is, if they live through the encounter at all.</strong></p><cite class="cite"><small>&mdash;Howle of the Auerstel Castle guard</small></cite></blockquote><p><strong>Talis Sommer</strong> is the twin sister of the <a href="/portfolio/detail/?piece=pendrake">main protagonist</a> in the story I'm currently writing, <i>Ashes of the Eidolon</i>. She is the lady of the Tersing duchy, daughter of the duke and sister to the heir of the dukedom.</p>
                 <p>Unlike her noble contemporaries, Talis prefers to spend her time honing her skills with a saber and bow. As such, she's earned the admiration and respect of her peers in the soldiery.</p>
                 <p>In stark contrast with her brother, Talis is highly disciplined and dedicates herself fully to everything she pursues. Some have even speculated that she should be the heir instead of her brother.</p>`,
 				dimensions: [640, 854],
@@ -1128,7 +1347,7 @@ export const portfolioData = {
 			{
 				name: 'berned',
 				title: 'Berned',
-				content: `<blockquote class="blockquote"><p><strong>I wouldn\'t call him a kind man, but he\'s loyal. As soon slug you in the face as laugh at your jesting. All depends on which side of him you lie on. I wouldn\'t want to be on his bad side, though. Fair lot of trouble follows those what fall on his bad side.</strong><cite class="cite"><small>&mdash;Malder, Foothills Tavern</small></cite></p></blockquote><p>Berned is Auerstel Town\'s constable&mdash;at times of help, at times an obstacle, and sometimes, when he feels like it, a downright villain.</p><p>He plays a critical role in the <strong><i>Ignoble Blood</i></strong> series, which is a fantasy story in progress. In it, Berned apprehends <a href="/portfolio/detail/?piece=sol">Sol Ferro</a> and charges her with the crime of murdering <a href="/portfolio/detail/?piece=becoming-nephilim">Luna</a>, a series protagonist, who at this point in the story has gone strangely missing without a trace.</p>`,
+				content: `<blockquote class="blockquote"><p><strong>I wouldn\'t call him a kind man, but he\'s loyal. As soon slug you in the face as laugh at your jesting. All depends on which side of him you lie on. I wouldn\'t want to be on his bad side, though. Fair lot of trouble follows those what fall on his bad side.</strong><cite class="cite"><small>&mdash;Malder, Foothills Tavern</small></cite></p></blockquote><p>Berned is Auerstel Town\'s constable&mdash;at times of help, at times an obstacle, and sometimes, when he feels like it, a downright villain.</p><p>He plays a critical role in the <strong><i>Ignoble Blood</i></strong> series, which is a fantasy story in progress. In it, Berned apprehends <a href="/portfolio/detail/?piece=sol">Sol Ferro</a> and charges her with the crime of murdering <a href="/portfolio/detail/?piece=becoming-eidolon">Luna</a>, a series protagonist, who at this point in the story has gone strangely missing without a trace.</p>`,
 				dimensions: [640, 853],
 				orientation: 'center',
 				featured: false,
@@ -1222,8 +1441,8 @@ export const portfolioData = {
 				]
 			},
 			{
-				name: 'becoming-nephilim',
-				title: 'Becoming Nephilim',
+				name: 'becoming-eidolon',
+				title: 'Becoming Eidolon',
 				content: `<blockquote class="blockquote"><p><strong>Fennory is gone, Bethany. Call him dead, and leave it at that. Mourn him as if you'd seen his body and known the stillness of it. There will be no peace for you until you do.</strong><cite class="cite"><small>&mdash;Pendrake Sommer, Duke of Tersing</small></cite></p></blockquote><p>The character depicted here is a protagonist of the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. Fennory is his real name, but by this point in the story he goes by the alias of Luna, as he is hiding from a powerful enemy.</p><p>A darker, more malevolent force whisks him away, however, forcing those closest to him into a desperate search, while outside their quiet town a greater threat, once thought defeated, rises from the ashes.</p>`,
 				dimensions: [640, 1252],
 				orientation: 'center',
@@ -1242,7 +1461,7 @@ export const portfolioData = {
 						}
 					],
 					mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-320.jpg',
-					alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
+					alt: 'Luna stands naked beneath the symbol of the Order of the Eidolon--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
 					mediaIndex: 0
 				},
 				featuredThumbnail: {
@@ -1257,7 +1476,7 @@ export const portfolioData = {
 						}
 					],
 					mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-320.jpg',
-					alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
+					alt: 'Luna stands naked beneath the symbol of the Order of the Eidolon--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence',
 					mediaIndex: 0
 				},
 				detailThumbnail: {
@@ -1268,7 +1487,7 @@ export const portfolioData = {
 						}
 					],
 					mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-640.jpg',
-					alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
+					alt: 'Luna stands naked beneath the symbol of the Order of the Eidolon--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
 				},
 				media: [
 					{
@@ -1287,7 +1506,7 @@ export const portfolioData = {
 							}
 						],
 						mobileSource: '/dist/media/portfolio/becoming-eidolon/kyle-jorve_becoming-eidolon-640.jpg',
-						alt: 'Luna stands naked beneath the symbol of the Order of the Nephilim--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
+						alt: 'Luna stands naked beneath the symbol of the Order of the Eidolon--a dark star shedding rays of shadow over a darkened moon--crystalline growths covering his body as his extremities fade from existence'
 					},
 					{
 						source: '<iframe src="https://www.youtube.com/embed/PxoZ4MjlxOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
@@ -1343,7 +1562,7 @@ export const portfolioData = {
 			{
 				name: 'sol',
 				title: 'Sol',
-				content: `<blockquote class="blockquote"><p><strong>More than one reason they call her the Girl in Black. They say she\'s a witch, what can talk to the dead, spirits and the like. She\'ll not be coming back to this town, no. If she does, there\'ll be trouble, and from more than just me.</strong><cite class="cite"><small>&mdash;Junas</small></cite></p></blockquote><p>Sol is a mysterious helper in the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story\'s protagonists locate her missing husband, <a href="/portfolio/detail/?piece=becoming-nephilim">Luna</a>, who has disappeared without a trace.</p>`,
+				content: `<blockquote class="blockquote"><p><strong>More than one reason they call her the Girl in Black. They say she\'s a witch, what can talk to the dead, spirits and the like. She\'ll not be coming back to this town, no. If she does, there\'ll be trouble, and from more than just me.</strong><cite class="cite"><small>&mdash;Junas</small></cite></p></blockquote><p>Sol is a mysterious helper in the <strong><i>Ignoble Blood</i></strong> series, which is a work of fantasy in progress. She appears at a strange time to help one of the story\'s protagonists locate her missing husband, <a href="/portfolio/detail/?piece=becoming-eidolon">Luna</a>, who has disappeared without a trace.</p>`,
 				dimensions: [640, 1158],
 				orientation: 'top',
 				featured: false,
